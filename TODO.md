@@ -1,0 +1,4 @@
+- [ ] Add import statements for Header and Footer components in Products.jsx
+- [ ] Replace the custom header motion.div with <Header /> component
+- [ ] Add <Footer /> component at the end of the JSX
+- [ ] Adjust page padding to account for fixed header
