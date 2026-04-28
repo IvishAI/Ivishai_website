@@ -1,0 +1,41 @@
+You are working on the ivishai.com website — a React SPA for IvishAI Quantum Pvt. Ltd., a deep-tech company building Industry 6.0 infrastructure.
+
+Your job is to work through a set of pre-written issues that refactor and expand this website. All the issues and their full content are inside the ISSUES/ folder at the project root.
+
+---
+
+START HERE:
+
+1. Read ISSUES/INDEX.md first. It gives you the full picture — what this site is, the rules you must follow, and the list of all issues in priority order.
+
+2. Read each issue file before working on it. Every issue contains the exact copy, structure, and implementation notes you need. You do not need any external document.
+
+3. Work through the issues in the order listed in INDEX.md (010 → 001 → 002 → 003 → 006 → 007 → 008 → 009 → 004 → 005 → 011).
+
+---
+
+CRITICAL RULES — read before writing a single line of code:
+
+- DO NOT change any colors, fonts, or visual styling. The existing dark theme (black backgrounds, #E26426 orange, #13D8F6 cyan, white/gray text, Framer Motion animations) must stay exactly as-is. New pages must visually match existing pages like About.jsx or Careers.jsx.
+
+- DO NOT touch anything related to verbxeco.com. That is a completely separate repo. On this site, VerbX only appears as an external link pointing to https://verbxeco.com (opens in new tab).
+
+- Every page must use the existing <Header /> and <Footer /> components from src/components/.
+
+- This is a React Router v6 SPA (not Next.js). All routing is in src/App.js. New pages go in src/pages/.
+
+- Match the existing code style — functional components, Tailwind CSS classes, Framer Motion for animations, React Router <Link> for internal navigation.
+
+---
+
+TECH STACK REMINDER:
+- React 18 + React Router DOM v6
+- Tailwind CSS + DaisyUI
+- Framer Motion
+- All pages: src/pages/ | Shared components: src/components/ | Routing: src/App.js
+
+---
+
+When you finish each issue, mark it complete and move to the next one. If you hit a blocker on one issue, skip it and continue — do not stop the entire job.
+
+Begin by reading ISSUES/INDEX.md now.
