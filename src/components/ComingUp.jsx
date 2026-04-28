@@ -1,158 +1,53 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle, Shield, Zap, Mail } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
-const ProductsComingSoon = () => {
-  const navigate = useNavigate();
+const pillars = [
+  { num: "01", name: "VerbX — Language Communication OS", status: "Live", statusColor: "text-[#13D8F6]", badgeClass: "bg-[#13D8F6]/10 text-[#13D8F6] border border-[#13D8F6]/30" },
+  { num: "02", name: "Retail OS — Retail Operating System", status: "In Market", statusColor: "text-[#E26426]", badgeClass: "bg-[#E26426]/10 text-[#E26426] border border-[#E26426]/30" },
+  { num: "03", name: "To Be Announced", status: "Planned", statusColor: "text-gray-400", badgeClass: "bg-white/5 text-gray-400 border border-white/10" },
+  { num: "04", name: "To Be Announced", status: "Planned", statusColor: "text-gray-400", badgeClass: "bg-white/5 text-gray-400 border border-white/10" },
+  { num: "05", name: "To Be Announced", status: "Planned", statusColor: "text-gray-400", badgeClass: "bg-white/5 text-gray-400 border border-white/10" },
+  { num: "06", name: "iii — Invisible Intelligent Infrastructure", status: "Long-Term Vision", statusColor: "text-gray-500", badgeClass: "bg-white/5 text-gray-500 border border-white/10" },
+];
 
+const SixPillars = () => {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6 py-24 md:py-32">
-
-      {/* Headings */}
+    <section className="bg-black text-white px-5 md:px-16 lg:px-40 py-16 md:py-24">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
         className="text-center mb-12"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
       >
-        <h1
-          className="font-sora font-normal leading-[100%] tracking-[-3px] mb-4"
-          style={{
-            background: 'linear-gradient(90deg, #D0D0D0 0%, #5F5F5F 100%)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            fontSize: 'clamp(48px, 8vw, 96px)'
-          }}
-        >
-          Flagship Product
-        </h1>
-
-        <h2
-          className="font-sora font-normal leading-[100%] tracking-[-2px] mb-8"
-          style={{
-            background: 'linear-gradient(90deg, #FFF 0%, #E26426 100%)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            fontSize: 'clamp(32px, 6vw, 64px)'
-          }}
-        >
-          Meet VerbX — The World's First Language OS from India
+        <h2 className="font-sora text-4xl md:text-[56px] font-normal leading-[1.1] tracking-tight md:tracking-[-1.52px] bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+          The 6 Pillars of Industry 6.0
         </h2>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mt-6 leading-relaxed"
-        >
-          VerbX is an AI communication ecosystem that enables natural, real-time understanding
-          across voices, accents, and contexts — built on emotion-aware intelligence, privacy,
-          and edge AI.
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mt-4"
-        >
-          A single platform that powers assistive devices, enterprises, and smart environments.
-        </motion.p>
       </motion.div>
 
-      {/* Features Grid */}
-      <div className="w-full max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {[
-            {
-              icon: <MessageCircle className="w-6 h-6" />,
-              title: "Real-Time Understanding",
-              description: "Natural communication across voices, accents, and contexts with instant processing"
-            },
-            {
-              icon: <Zap className="w-6 h-6" />,
-              title: "Emotion-Aware Intelligence",
-              description: "AI that understands context, emotion, and intent for meaningful interactions"
-            },
-            {
-              icon: <Shield className="w-6 h-6" />,
-              title: "Privacy & Edge AI",
-              description: "Built with privacy-first design and edge computing for secure, local processing"
-            }
-          ].map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-              className="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-cyan-400/30
-                         transition-all group"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-cyan-400/10 rounded-lg text-cyan-400
-                                group-hover:bg-cyan-400/20 transition-colors">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-sora">{feature.title}</h3>
-              </div>
-              <p className="text-gray-300 text-sm leading-relaxed">
-                {feature.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="text-center"
-        >
-          <p className="text-lg text-gray-300 mb-8">
-            Discover how VerbX is redefining human-machine communication
-          </p>
-
-          {/* -------- BUTTON ROW (UPDATED) -------- */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
-
-            {/* Learn More */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-cyan-400 to-orange-500 text-black px-10 py-4 rounded-lg
-                         font-medium flex items-center gap-2 hover:from-cyan-500 hover:to-orange-600
-                         transition-all"
-              onClick={() => navigate('/products')}
-            >
-              Learn More About VerbX
-              <ArrowRight size={20} />
-            </motion.button>
-
-            {/* Get Early Access */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-cyan-400 to-orange-500 text-black px-10 py-4 rounded-lg
-                         font-medium flex items-center gap-2 hover:from-cyan-500 hover:to-orange-600
-                         transition-all"
-              onClick={() => navigate('/getearlyaccess')}
-            >
-              <Mail size={20} />
-              Get Early Access
-            </motion.button>
-
-          </div>
-          {/* -------- END BUTTON ROW -------- */}
-
-        </motion.div>
-
+      <div className="max-w-4xl mx-auto space-y-3">
+        {pillars.map((pillar, i) => (
+          <motion.div
+            key={pillar.num}
+            className="flex items-center justify-between gap-4 px-5 py-4 border border-white/10 hover:border-white/20 transition-all duration-200"
+            style={{ background: 'rgba(255,255,255,0.03)' }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.07 }}
+          >
+            <div className="flex items-center gap-5 min-w-0">
+              <span className="text-gray-500 text-sm font-mono flex-shrink-0">{pillar.num}</span>
+              <span className="text-gray-200 text-base truncate">{pillar.name}</span>
+            </div>
+            <span className={`text-xs px-3 py-1 rounded-full flex-shrink-0 ${pillar.badgeClass}`}>
+              {pillar.status}
+            </span>
+          </motion.div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 
-export default ProductsComingSoon;
+export default SixPillars;

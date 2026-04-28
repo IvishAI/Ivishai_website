@@ -66,20 +66,22 @@ function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="/products"
+                  href="https://verbxeco.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  Verbx
+                  VerbX
                 </a>
               </li>
-              {/* <li>
+              <li>
                 <a
-                  href="/products"
+                  href="/retail-os"
                   className="hover:text-white transition-colors"
                 >
-                  Product 2
+                  Retail OS
                 </a>
-              </li> */}
+              </li>
             </ul>
           </div>
 

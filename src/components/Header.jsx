@@ -11,8 +11,7 @@ const Header = () => {
     { label: "About", href: "/about" },
     { label: "Products", href: "/products" },
     { label: "Careers", href: "/careers" },
-    { label: "Testimonials", href: "/whyivishhh" },
-    { label: "Blogs", href: "/blog" },
+    { label: "Contact", href: "/contact" },
   ];
 
 
@@ -225,17 +224,6 @@ const Header = () => {
                         </motion.a>
                       ))}
 
-                      {/* Contact Button in Dropdown */}
-                      <motion.a
-                        href="/contact"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="block text-black text-base font-medium bg-white px-4 py-3 mt-3 text-center rounded-lg hover:bg-gray-100 transition-all duration-200"
-                        onClick={() => setOpen(false)}
-                      >
-                        Contact Us
-                      </motion.a>
                     </div>
                   </motion.div>
                 </>
@@ -244,13 +232,6 @@ const Header = () => {
           </div>
 
 
-          {/* Contact Button - Desktop */}
-          <a
-            href="/contact"
-            className="text-black text-lg font-normal leading-[18px] tracking-[-0.36px] bg-white px-7 py-4 max-sm:hidden hover:bg-gray-100 transition-all duration-200 active:scale-95"
-          >
-            Contact Us
-          </a>
         </div>
       </div>
     </motion.header>

@@ -10,27 +10,32 @@ function FAQ() {
 
   const faqItems = [
     {
+      question: "What is IvishAI Quantum?",
+      answer: "A DPIIT-recognised Indian deep-tech company building the infrastructure of Industry 6.0. We build operating systems -- for language, for retail, and for the systems that will define the next decade.",
+    },
+    {
       question: "What is VerbX?",
-      answer:
-        " VerbX is a real-time language companion that helps you speak, understand, and communicate across languages instantly.You talk in your language, and VerbX helps the other person understand in theirs — through voice, text, and visual tools.",
+      answer: "VerbX is Pillar 1 -- the world's first Language Communication OS. Real-time voice, text, and camera translation across 2,000+ languages. Offline-capable, institutionally secure, live in market. Visit verbxeco.com.",
     },
     {
-      question: " How is VerbX different from other AI or translation apps?",
-      answer:
-        "VerbX focuses on accuracy, safety, and emotional clarity.It doesn't guess meaning or change tone. Instead, it keeps your words faithful, clear, and respectful while making communication smooth across languages.",
+      question: "What is Retail OS?",
+      answer: "Retail OS is Pillar 2 -- a complete operating system for Indian retail shops. One platform, one AI, 19 industries. From a kirana store to a pharmacy to a regulated liquor shop.",
     },
     {
-      question: "Does VerbX store my conversations",
-      answer:
-      <ul className="list-disc pl-5">
-      <li> No.</li>
-      <li>VerbX follows a zero-storage principle.</li>
-      <li> Nothing you say or type is saved unless you manually add it to your Phrasebook.</li>
-    </ul>,
+      question: "What does Industry 6.0 mean?",
+      answer: "The era where AI, edge computing, language intelligence, and physical systems work in seamless harmony -- not as tools people operate, but as infrastructure people live within.",
     },
     {
-      question: "Who is Ivish AI?",
-      answer: "  Ivish AI is the company behind VerbX, focused on building trustworthy and human-centered communication technology.Our mission is simple: Make communication across languages effortless, safe, and accessible for everyone."
+      question: "Are VerbX and Retail OS separate products?",
+      answer: "Yes. VerbX has its own site at verbxeco.com. Retail OS lives at ivishai.com/retail-os. Both are pillars of IvishAI Quantum's Industry 6.0 architecture.",
+    },
+    {
+      question: "Is IvishAI Quantum funded?",
+      answer: "Yes. We have received funding and are DPIIT-recognised under Startup India.",
+    },
+    {
+      question: "How do I partner with IvishAI Quantum?",
+      answer: "Write to us at connect@ivishai.com. We are open to institutional pilots, enterprise integrations, and strategic partnerships across sectors.",
     },
   ];
 
@@ -52,9 +57,8 @@ function FAQ() {
         ))}
       </div>
 
-      {/* More Questions Link */}
-      <a 
-        href="/morefaq" 
+      <a
+        href="/morefaq"
         className="text-white text-sm md:text-base underline hover:text-cyan-400 transition-colors duration-200 mt-2"
       >
         More Questions
