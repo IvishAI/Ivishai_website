@@ -20,7 +20,6 @@ import Security from "./pages/Footer/Security";
 import Compliance from "./pages/Footer/Compliance";
 import CookiesPreference from "./pages/Footer/cookie-preferences";
 import PrivacyChoices from "./pages/Footer/PrivacyChoices";
-import VerbX from "./pages/Products/VerbX-Docs";
 import Card from "./components/ui/card";
 import Button from "./components/ui/button";
 import Input from "./components/ui/input";
@@ -30,21 +29,17 @@ import ProductsComingSoon from "./components/ComingUp";
 import WhyIvish from "./components/WhyIvish";
 import EarlyAccess from "./pages/getearlyaccess";
 import MoreFAQ from "./pages/morefaq";
-import VerbXIntro from "./pages/VerbXIntro";
-import VerbXLogoStory from "./pages/verbxlogo";
 
 // ✅ Trackers
 import PixelTracker from "./PixelTracker";
 import GATracker from "./GATracker";
 
-// Lazy loaded 
+// Lazy loaded
 const Home = lazy(() => import("./pages/Home"));
 const Products = lazy(() => import("./pages/Products/Products"));
 const About = lazy(() => import("./pages/header/About"));
 const Careers = lazy(() => import("./pages/Careers/Careers"));
 const Contact = lazy(() => import("./pages/header/Contact"));
-const UnitySensePage = lazy(() => import("./pages/Products/UnitySensePage"));
-const LinguaFlowPage = lazy(() => import("./pages/Products/LinguaFlowPage"));
 const Login = lazy(() => import("./pages/Careers/Login"));
 const Signup = lazy(() => import("./pages/Careers/Signup"));
 const Profile = lazy(() => import("./pages/Careers/Profile"));
@@ -57,6 +52,10 @@ const MachineLearningEngineer = lazy(() => import("./pages/Careers/aiml/MachineL
 const ComputerVisionEngineer = lazy(() => import("./pages/Careers/aiml/ComputerVisionEngineer"));
 const NlpResearcher = lazy(() => import("./pages/Careers/aiml/NlpResearcher"));
 const StayUpdatedForm = lazy(() => import("./pages/Careers/StayUpdatedForm"));
+const RetailOSOverview = lazy(() => import("./pages/RetailOS/RetailOSOverview"));
+const RetailOSFeatures = lazy(() => import("./pages/RetailOS/RetailOSFeatures"));
+const RetailOSIndustries = lazy(() => import("./pages/RetailOS/RetailOSIndustries"));
+const RetailOSPricing = lazy(() => import("./pages/RetailOS/RetailOSPricing"));
 
 function App() {
   return (
@@ -74,8 +73,6 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/unitysensepage" element={<UnitySensePage />} />
-          <Route path="/linguaflowpage" element={<LinguaFlowPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
@@ -104,7 +101,6 @@ function App() {
           <Route path="/compliance" element={<Compliance />} />
           <Route path="/cookie-preferences" element={<CookiesPreference />} />
           <Route path="/privacychoices" element={<PrivacyChoices />} />
-          <Route path="/verbx-docs" element={<VerbX />} />
           <Route path="/card" element={<Card />} />
           <Route path="/button" element={<Button />} />
           <Route path="/input" element={<Input />} />
@@ -114,9 +110,12 @@ function App() {
           <Route path="/whyivish" element={<WhyIvish />} />
           <Route path="/getearlyaccess" element={<EarlyAccess />} />
           <Route path="/morefaq" element={<MoreFAQ />} />
-          <Route path="/verbxintro" element={<VerbXIntro />} />
-          <Route path="/verbxlogo" element={<VerbXLogoStory />} />
           <Route path="/stay-updated" element={<StayUpdatedForm />} />
+
+          <Route path="/retail-os" element={<RetailOSOverview />} />
+          <Route path="/retail-os/features" element={<RetailOSFeatures />} />
+          <Route path="/retail-os/industries" element={<RetailOSIndustries />} />
+          <Route path="/retail-os/pricing" element={<RetailOSPricing />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

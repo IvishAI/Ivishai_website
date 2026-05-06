@@ -42,23 +42,35 @@ const WhyIvishSection = () => {
   };
 
   const getTranslateX = () => {
-    if (window.innerWidth < 768) return 0; // Disable animation on mobile
+    if (window.innerWidth < 768) return 0;
     const visibility = getSectionVisibility();
     return Math.max(0, 600 - visibility * 700);
   };
 
   const cards = [
     {
-      title: "Foundational Tech, Not Features",
-      description: "We don’t add to the noise. We build what will replace it ,IvishAI creates new baselines — where intelligence meets intention.",
+      title: "Human at the Core",
+      description: "Technology adapts to people -- their language, culture, and environment. Never the reverse.",
     },
     {
-      title: "Human-Centered, Future-Proof",
-      description: "We aren’t just solving accessibility. We’re dissolving the barriers between humans and machines — with systems that listen, learn, and adapt to you.",
+      title: "Security by Design",
+      description: "Privacy and integrity are architectural principles. Built into every layer before the first line of code.",
     },
     {
-      title: "Designed to Disappear",
-      description: "When technology works with you, it gets out of your way.IvishAI is engineering seamless interaction — until it doesn’t feel like tech at all.",
+      title: "Global from Day One",
+      description: "Built in India, designed for every market on earth. We think in decades and in continents.",
+    },
+    {
+      title: "Invisible When It Works",
+      description: "The best infrastructure disappears. You never notice it -- until it's gone.",
+    },
+    {
+      title: "Owned Infrastructure",
+      description: "We do not depend on single-vendor AI. 52 proprietary models trained, 100+ ONNX runtimes. Edge-first, offline-capable.",
+    },
+    {
+      title: "Mission-Critical Proven",
+      description: "Active in banking and healthcare -- sectors where failure is not an option.",
     },
   ];
 
@@ -96,11 +108,11 @@ const WhyIvishSection = () => {
               letterSpacing: "-1.52px",
             }}
           >
-            Why IvishAI?
+            Why IvishAI Quantum
           </h1>
           <p className="text-base md:text-lg leading-relaxed text-gray-100 md:w-1/2 md:pl-8">
-          We’re not building features. We’re building what comes after interfaces.
-          IvishAI is rethinking human-machine interaction — invisible, intuitive, and built for a world without barriers.
+            We are not building features. We are building what comes after interfaces --
+            intelligent systems that disappear into life, invisible when they work perfectly.
           </p>
         </div>
 
