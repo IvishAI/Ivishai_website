@@ -27,7 +27,6 @@ import Badge from "./components/ui/badge";
 import DeveloperPage from "./pages/Developerpage";
 import ProductsComingSoon from "./components/ComingUp";
 import WhyIvish from "./components/WhyIvish";
-import EarlyAccess from "./pages/getearlyaccess";
 import MoreFAQ from "./pages/morefaq";
 
 // ✅ Trackers
@@ -69,7 +68,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/early-access" element={<EarlyAccess />} />
           <Route path="/about" element={<About />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
@@ -108,7 +106,6 @@ function App() {
           <Route path="/developerpage" element={<DeveloperPage />} />
           <Route path="/coming-soon" element={<ProductsComingSoon />} />
           <Route path="/whyivish" element={<WhyIvish />} />
-          <Route path="/getearlyaccess" element={<EarlyAccess />} />
           <Route path="/morefaq" element={<MoreFAQ />} />
           <Route path="/stay-updated" element={<StayUpdatedForm />} />
 
