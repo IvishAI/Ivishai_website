@@ -8,7 +8,7 @@ const credentials = [
   { label: "Recognition", value: "DPIIT-recognised Startup India company — AI / Machine Learning sector" },
   { label: "Headquarters", value: "Hyderabad, India" },
   { label: "Funding", value: "Funded — Startup India recognised" },
-  { label: "Live Products", value: "VerbX — Language OS. Retail OS — Retail Platform." },
+  { label: "Live Products", value: "VerbX — Language OS. Sera — Retail Platform." },
   { label: "Engagements", value: "AI Impact Summit 2026 — engaged with ministers, national bodies, and international delegates" },
 ];
 
@@ -24,9 +24,9 @@ const pillars = [
   },
   {
     num: "02",
-    name: "Retail OS",
+    name: "Sera",
     sub: "Retail Operating System",
-    desc: "Commerce as infrastructure. 19 industries. 6 zones. AI-first. Offline-first. Live.",
+    desc: "Commerce as infrastructure. 28 industries. 6 zones. AI-first. Offline-first. Live.",
     color: "#E26426",
     bg: "rgba(226,100,38,0.06)",
     border: "rgba(226,100,38,0.25)",

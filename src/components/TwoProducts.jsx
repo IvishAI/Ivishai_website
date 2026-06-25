@@ -50,7 +50,7 @@ const TwoProducts = () => {
           </a>
         </motion.div>
 
-        {/* Retail OS Card */}
+        {/* Sera Card */}
         <motion.div
           className="p-8 border border-[#E26426]/30 hover:border-[#E26426]/60 transition-all duration-300 flex flex-col"
           style={{ background: 'rgba(226,100,38,0.04)' }}
@@ -65,19 +65,19 @@ const TwoProducts = () => {
               In Market
             </span>
           </div>
-          <h3 className="font-sora text-2xl text-white mb-1">Retail OS</h3>
+          <h3 className="font-sora text-2xl text-white mb-1">Sera</h3>
           <p className="text-[#E26426] text-sm mb-4">Retail Operating System</p>
           <p className="text-gray-300 text-sm leading-relaxed mb-3 flex-1">
-            The complete operating system for Indian retail. One platform, one AI, 19 industries.
+            The complete operating system for Indian retail. One platform, one AI, 28 industries.
             From a kirana store to a pharmacy to a regulated liquor shop. Works offline.
-            Built for 12 million shops.
+            Built for 63 million shops.
           </p>
-          <p className="text-gray-500 text-xs mb-6">Retailers across 19 shop types in India</p>
+          <p className="text-gray-500 text-xs mb-6">Retailers across 28 shop types in India</p>
           <Link
-            to="/retail-os"
+            to="/sera"
             className="inline-flex items-center gap-2 text-[#E26426] font-medium hover:underline transition-all duration-200"
           >
-            Explore Retail OS →
+            Explore Sera →
           </Link>
         </motion.div>
       </div>

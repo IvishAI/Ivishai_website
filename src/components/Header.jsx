@@ -10,6 +10,11 @@ const Header = () => {
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Products", href: "/products" },
+    { label: "Collaboration", href: "/collaboration" },
+    { label: "Recognition", href: "/recognition" },
+    { label: "Government", href: "/government" },
+    { label: "Investors", href: "/investors" },
+    { label: "Patents", href: "/patents" },
     { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" },
   ];
@@ -152,12 +157,12 @@ const Header = () => {
 
 
         {/* Desktop Navigation - Centered */}
-        <nav className="absolute left-1/2 transform -translate-x-1/2 flex justify-center items-center gap-8 border bg-[rgba(255,255,255,0.08)] px-4 py-2 rounded-xl border-[#6B6B6B] max-md:gap-5 max-sm:hidden backdrop-blur-sm transition-all duration-300">
+        <nav className="absolute left-1/2 transform -translate-x-1/2 flex justify-center items-center gap-4 border bg-[rgba(255,255,255,0.08)] px-4 py-2 rounded-xl border-[#6B6B6B] max-lg:hidden backdrop-blur-sm transition-all duration-300">
           {navigationItems.map((item, index) => (
             <a
               key={index}
               href={item.href}
-              className="relative text-[#D6D6D6] text-[15px] font-normal p-1 hover:text-white transition-all duration-200 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+              className="relative text-[#D6D6D6] text-[13px] font-normal p-1 hover:text-white transition-all duration-200 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
             >
               {item.label}
             </a>
@@ -168,7 +173,7 @@ const Header = () => {
         {/* Right Side - Contact Button & Mobile Menu */}
         <div className="flex justify-end items-center w-[200px] max-sm:w-auto">
           {/* Mobile Menu - NEW DROPDOWN STYLE */}
-          <div className="hidden max-sm:block relative">
+          <div className="hidden max-lg:block relative">
             <button
               className="text-white hover:bg-white/10 rounded-lg p-2 transition-colors duration-200"
               onClick={() => setOpen(!open)}

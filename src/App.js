@@ -52,10 +52,15 @@ const MachineLearningEngineer = lazy(() => import("./pages/Careers/aiml/MachineL
 const ComputerVisionEngineer = lazy(() => import("./pages/Careers/aiml/ComputerVisionEngineer"));
 const NlpResearcher = lazy(() => import("./pages/Careers/aiml/NlpResearcher"));
 const StayUpdatedForm = lazy(() => import("./pages/Careers/StayUpdatedForm"));
-const RetailOSOverview = lazy(() => import("./pages/RetailOS/RetailOSOverview"));
-const RetailOSFeatures = lazy(() => import("./pages/RetailOS/RetailOSFeatures"));
-const RetailOSIndustries = lazy(() => import("./pages/RetailOS/RetailOSIndustries"));
-const RetailOSPricing = lazy(() => import("./pages/RetailOS/RetailOSPricing"));
+const SeraOverview = lazy(() => import("./pages/Sera/SeraOverview"));
+const SeraFeatures = lazy(() => import("./pages/Sera/SeraFeatures"));
+const SeraIndustries = lazy(() => import("./pages/Sera/SeraIndustries"));
+const SeraPricing = lazy(() => import("./pages/Sera/SeraPricing"));
+const Collaboration = lazy(() => import("./pages/Collaboration"));
+const RecognitionMedia = lazy(() => import("./pages/RecognitionMedia"));
+const Government = lazy(() => import("./pages/Government"));
+const Investors = lazy(() => import("./pages/Investors"));
+const Patents = lazy(() => import("./pages/Patents"));
 
 function App() {
   return (
@@ -112,10 +117,15 @@ function App() {
           <Route path="/morefaq" element={<MoreFAQ />} />
           <Route path="/stay-updated" element={<StayUpdatedForm />} />
 
-          <Route path="/retail-os" element={<RetailOSOverview />} />
-          <Route path="/retail-os/features" element={<RetailOSFeatures />} />
-          <Route path="/retail-os/industries" element={<RetailOSIndustries />} />
-          <Route path="/retail-os/pricing" element={<RetailOSPricing />} />
+          <Route path="/sera" element={<SeraOverview />} />
+          <Route path="/sera/features" element={<SeraFeatures />} />
+          <Route path="/sera/industries" element={<SeraIndustries />} />
+          <Route path="/sera/pricing" element={<SeraPricing />} />
+          <Route path="/collaboration" element={<Collaboration />} />
+          <Route path="/recognition" element={<RecognitionMedia />} />
+          <Route path="/government" element={<Government />} />
+          <Route path="/investors" element={<Investors />} />
+          <Route path="/patents" element={<Patents />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -26,24 +26,24 @@ const products = [
     cta: { label: "Visit verbxeco.com", href: "https://verbxeco.com", external: true },
   },
   {
-    id: "retail-os",
+    id: "sera",
     pillar: "02",
-    name: "Retail OS",
+    name: "Sera",
     tagline: "Retail Operating System",
     status: "In Market",
     statusColor: "#E26426",
     accent: "#E26426",
     accentDark: "#AD4613",
     accentRgb: "226,100,38",
-    description: "The complete operating system for Indian retail. One platform, one AI, 19 industries. From a kirana store to a pharmacy to a regulated liquor shop. Works offline.",
-    audience: "Retailers across 19 shop types in India",
-    site: "ivishai.com/retail-os",
+    description: "The complete operating system for Indian retail. One platform, one AI, 28 industries. From a kirana store to a pharmacy to a regulated liquor shop. Works offline.",
+    audience: "Retailers across 28 shop types in India",
+    site: "ivishai.com/sera",
     stats: [
-      { label: "Industries", val: "19" },
+      { label: "Industries", val: "28" },
       { label: "Zones", val: "6" },
       { label: "Offline", val: "Yes" },
     ],
-    cta: { label: "Explore Retail OS", href: "/retail-os", external: false },
+    cta: { label: "Explore Sera", href: "/sera", external: false },
   },
 ];
 
@@ -167,7 +167,7 @@ const ProductCard = ({ product, index }) => {
                 <p className="text-gray-400 text-xs leading-relaxed">
                   {product.id === "verbx"
                     ? "VerbX lives on its own platform. Click below to visit the full product site."
-                    : "Retail OS lives here on ivishai.com. Explore features, industries, and pricing."}
+                    : "Sera lives here on ivishai.com. Explore features, industries, and pricing."}
                 </p>
                 {product.cta.external ? (
                   <a

@@ -82,13 +82,13 @@ const Hero = () => {
             Explore VerbX
           </motion.a>
           <motion.a
-            href="/retail-os"
+            href="/sera"
             className="inline-flex items-center justify-center gap-1 py-4 px-7 w-full md:w-auto hover:opacity-90 transition-opacity duration-200"
             style={{ background: '#FFF', color: '#000' }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Explore Retail OS
+            Explore Sera
           </motion.a>
         </motion.div>
       </div>
