@@ -1,0 +1,12 @@
+// Barrel export for the IvishAI design-system components.
+export { default as PageShell } from "./PageShell";
+export { default as Section } from "./Section";
+export { default as Heading } from "./Heading";
+export { default as Eyebrow } from "./Eyebrow";
+export { default as CTAButton } from "./CTAButton";
+export { default as Card } from "./Card";
+export { default as Reveal } from "./Reveal";
+export { default as CountUp } from "./CountUp";
+export { default as Stat } from "./Stat";
+export { default as Logo } from "./Logo";
+export { default as AmbientBackground } from "./AmbientBackground";

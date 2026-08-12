@@ -12,13 +12,14 @@ const PrivacyPolicy = () => {
         {/* Header */}
         <div className="mb-12 text-center border-b border-[#64ffda]/30 pb-8">
           <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent mb-4">
-            Privacy Policy – IvishAI Quantum Private Limited
+            Privacy Policy - IvishAI Quantum Pvt. Ltd.
           </h1>
 
           <div className="text-[#8892b0] space-y-2">
-            <p>Last Updated: December 5, 2025</p>
-            <p>Company: IvishAI Quantum Private Limited (“Ivish AI”)</p>
-            <p>Product Covered: VerbX – Real-Time Language Companion App</p>
+            <p>Effective Date: March 31, 2025</p>
+            <p>Last Updated: March 31, 2025</p>
+            <p>Company: IvishAI Quantum Pvt. Ltd.</p>
+            <p>Location: Hyderabad, India</p>
           </div>
         </div>
 
@@ -102,268 +103,142 @@ const PrivacyPolicy = () => {
 
 /* ------------------ UPDATED SECTIONS ------------------ */
 
+
 const sections = [
   {
     title: "Introduction",
     content: [
       {
-        text: [
-          "Ivish AI (“we”, “our”, “us”) is committed to protecting your privacy and keeping your data safe.",
-          "This Privacy Policy explains what information we collect, how we use it, how we protect it, when it is shared, and the rights you have as a user.",
-          "VerbX is built with privacy-first principles. We do not store your voice, text, or camera data unless you choose to save something to your Phrasebook.",
-          "By using our website or VerbX, you agree to this Privacy Policy."
-        ]
+        text: `IvishAI Quantum Pvt. Ltd. ("IvishAI", "we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal and biometric data when you use our website, mobile apps, devices (NeuraVision), APIs, and services (VerbX AI).`
       }
     ]
   },
-
   {
-    title: "What This Policy Covers",
+    title: "Data We Collect",
     content: [
       {
+        subtitle: "a. Personal Information",
         text: [
-          "This Privacy Policy applies to:",
-          "• Ivish AI’s official website",
-          "• VerbX mobile application",
-          "• Any online features, services, or communications we provide",
-          "This policy does NOT apply to unaffiliated third-party services or websites we do not operate."
-        ]
-      }
-    ]
-  },
-
-  {
-    title: "Information We Collect",
-    content: [
-      {
-        subtitle: "3.1 Information You Provide",
-        text: [
-          "Account Information (Email, Google Sign-In):",
-          "• Email address",
-          "• Name (if shared via Google)",
-          "• Phone number (if manually entered)",
-          "User Content Examples:",
-          "• Typed text",
-          "• Voice inputs",
-          "• Camera-scanned text",
-          "• Saved phrases in Phrasebook",
-          "Important: VerbX does NOT store your voice/text/camera data unless you manually save it."
+          "Name, email, phone number",
+          "Location (optional)",
+          "Account preferences",
+          "Payment information (if applicable)"
         ]
       },
-
       {
-        subtitle: "3.2 Information Collected Automatically",
+        subtitle: "b. Biometric & Sensor Data",
         text: [
-          "We may collect technical data such as:",
-          "• Device model & OS",
-          "• IP address",
-          "• Crash logs & diagnostics",
-          "• Network type",
-          "• Usage patterns",
-          "Audio/Camera Inputs:",
-          "• Processed in real-time only",
-          "• Never stored unless you save content"
+          "Facial recognition data",
+          "Gesture patterns",
+          "Voice, speech, or sign language input",
+          "Emotion or context-based data",
+          "This data is securely encrypted and processed only for functionality, personalization, or accessibility purposes."
         ]
       },
-
       {
-        subtitle: "3.3 Location Information",
+        subtitle: "c. Usage Data",
         text: [
-          "We may collect approximate location to:",
-          "• apply regional language settings",
-          "• prevent fraud",
-          "• improve system performance",
-          "We do not collect precise GPS unless required by a feature and permitted by you."
+          "Device type, IP address, browser, time zone",
+          "Pages visited, interactions, features used"
         ]
       },
-
       {
-        subtitle: "3.4 Cookies & Website Analytics",
+        subtitle: "d. Cookies & Tracking",
         text: [
-          "Our website may use cookies for security, performance, and personalization.",
-          "You may disable cookies through your browser."
+          "We use cookies for analytics, performance, and personalization. You can control this via browser settings."
         ]
       }
     ]
   },
-
   {
-    title: "How We Use Your Information",
+    title: "How We Use Your Data",
     content: [
       {
         text: [
-          "We use your information to:",
-          "• provide language conversion",
-          "• authenticate users",
-          "• personalize experience",
-          "• process payments (if applicable)",
-          "• fix bugs and improve performance",
-          "• secure our systems",
-          "• communicate updates",
-          "We do NOT sell your data and do NOT use your content for AI training."
+          "Provide and improve our products and services",
+          "Personalize user experience (via AI/ML)",
+          "Deliver real-time translation and accessibility features",
+          "Communicate with you",
+          "Fulfill legal obligations",
+          "Enhance safety and security"
         ]
       }
     ]
   },
-
   {
-    title: "Phrasebook Storage (User-Controlled Only)",
+    title: "Data Sharing & Disclosure",
     content: [
       {
         text: [
-          "VerbX follows a strict user-controlled memory approach:",
-          "• Only what YOU save is stored.",
-          "• All saved data is encrypted.",
-          "• You may delete your data anytime.",
-          "• Nothing else is stored.",
-          "• Real-time data is deleted after use."
+          "Research partners (anonymized, for accessibility R&D)",
+          "Cloud providers (e.g., AWS India)",
+          "Authorized third-party vendors (API partners, analytics tools)",
+          "Government authorities, when legally required",
+          "We do not sell your personal data for advertising without your explicit consent."
         ]
       }
     ]
   },
-
   {
-    title: "Sharing of Information",
-    content: [
-      {
-        subtitle: "6.1 Service Providers",
-        text: [
-          "We may share limited information with trusted providers who enable:",
-          "• cloud hosting",
-          "• authentication",
-          "• crash analytics",
-          "• payment processing",
-          "These providers follow strict security standards."
-        ]
-      },
-
-      {
-        subtitle: "6.2 Legal Requirements",
-        text: [
-          "We may disclose information if legally required:",
-          "• government request",
-          "• court order",
-          "• regulatory obligations",
-          "We share only what is mandatory by law."
-        ]
-      }
-    ]
-  },
-
-  {
-    title: "Data Security",
+    title: "International Data Transfers",
     content: [
       {
         text: [
-          "We use strong security measures including:",
-          "• encryption of data in transit",
-          "• secure authentication",
-          "• controlled access layers",
-          "• secure infrastructure management",
-          "• threat monitoring systems",
-          "While no system is 100% secure, we constantly strengthen protections."
+          "For users in the EU/EEA, UK, and USA, data may be processed in India and stored on AWS infrastructure.",
+          "We follow GDPR, DPDP (India), and CCPA compliance standards, including: Data minimization, User consent, Right to access, delete, or correct data."
         ]
       }
     ]
   },
-
   {
-    title: "Data Retention",
+    title: "Children's Privacy (Users under 18)",
     content: [
       {
-        text: [
-          "We retain information only as long as necessary:",
-          "• Voice/Text/Camera: Deleted after processing",
-          "• Phrasebook entries: Until deleted by you",
-          "• Account data: Until account deletion",
-          "• Diagnostics: Short retention for troubleshooting",
-          "• Payment data: Stored by payment processors only"
-        ]
+        text: `If you are under 18, you must have parental or guardian consent to use our services. We do not knowingly collect data from minors without such consent.`
       }
     ]
   },
-
   {
     title: "Your Rights",
     content: [
       {
         text: [
-          "Depending on your region, you may:",
-          "• access your data",
-          "• update or correct data",
-          "• delete your account/data",
-          "• withdraw consent",
-          "• restrict processing",
-          "• request a copy of your data",
-          "To exercise your rights, email ivishai.supprt@gmail.com."
+          "Request access to your data",
+          "Correct inaccurate or outdated info",
+          "Delete your account/data",
+          "Withdraw consent at any time",
+          "Lodge a complaint with a data protection authority",
+          "To exercise these rights, email: ivishai.supprt@gmail.com"
         ]
       }
     ]
   },
-
   {
-    title: "Children’s Privacy",
+    title: "Data Security",
     content: [
       {
         text: [
-          "VerbX is not intended for children under 13.",
-          "We do not knowingly collect personal data from children.",
-          "If you believe a child submitted information, contact us to remove it."
+          "AES-256 encryption",
+          "SSL/TLS for data in transit",
+          "Secure access controls",
+          "Regular audits & penetration testing"
         ]
       }
     ]
   },
-
   {
-    title: "Third-Party Links",
+    title: "Data Retention",
     content: [
       {
-        text: [
-          "Our app or website may contain links to third-party services.",
-          "We are not responsible for their privacy practices.",
-          "Users should review their policies before interacting."
-        ]
+        text: `We retain personal and biometric data only as long as required for service provision, legal, or regulatory purposes.`
       }
     ]
   },
-
   {
-    title: "International Use",
+    title: "Contact Us",
     content: [
       {
-        text: [
-          "Our services may be used globally.",
-          "Data may be processed on servers in different regions.",
-          "We ensure protections consistent with applicable laws."
-        ]
-      }
-    ]
-  },
-
-  {
-    title: "Changes to This Policy",
-    content: [
-      {
-        text: [
-          "We may update this Privacy Policy occasionally.",
-          "Updated changes will reflect the new date.",
-          "We may notify users through the app or website.",
-          "Continued use means acceptance of the updated Policy."
-        ]
-      }
-    ]
-  },
-
-  {
-    title: "Contact Information",
-    content: [
-      {
-        text: [
-          "For questions or concerns, contact us:",
-          "Email: ivishai.supprt@gmail.com",
-          "Phone: +91 7013440427",
-          "IvishAI Quantum Private Limited, Hyderabad, Telangana, India"
-        ]
+        text: `For any privacy concerns or requests, reach us at: ivishai.supprt@gmail.com`
       }
     ]
   }

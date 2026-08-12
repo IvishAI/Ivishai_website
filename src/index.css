@@ -38,3 +38,47 @@ body {
   backface-visibility: hidden;
   transform: translateZ(0);
 }
+
+/* ==========================================================================
+   Support classes for the pages brought over from the rebuild
+   (Collaboration, Recognition, Government, Investors, Patents).
+   Additive only - no global body/base overrides, so existing pages are
+   unaffected.
+   ========================================================================== */
+@layer components {
+  /* Gradient text helpers */
+  .text-gradient-ember {
+    @apply bg-gradient-to-r from-white to-ember bg-clip-text text-transparent;
+  }
+  .text-gradient-aqua {
+    @apply bg-gradient-to-r from-white to-aqua-soft bg-clip-text text-transparent;
+  }
+  .text-gradient-steel {
+    background: linear-gradient(90deg, #D0D0D0 0%, #5F5F5F 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  /* Standard section horizontal rhythm */
+  .container-site {
+    @apply mx-auto w-full max-w-content px-5 md:px-10 lg:px-16;
+  }
+  /* Glass surface used across cards */
+  .glass {
+    background: linear-gradient(146deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+  }
+  /* Small pill / eyebrow label */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-sm text-cloud-muted;
+  }
+}
+
+/* Ambient drifting grid used behind heroes */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 60px 60px;
+}

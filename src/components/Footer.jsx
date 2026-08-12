@@ -76,10 +76,10 @@ function Footer() {
               </li>
               <li>
                 <a
-                  href="/retail-os"
+                  href="/sera"
                   className="hover:text-white transition-colors"
                 >
-                  Retail OS
+                  Sera
                 </a>
               </li>
             </ul>
@@ -100,7 +100,7 @@ function Footer() {
               </li>
               <li>
                 <a
-                  href="/security"
+                  href="/legal"
                   className="hover:text-white transition-colors"
                 >
                   Terms of Use

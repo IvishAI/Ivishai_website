@@ -2,12 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const pillars = [
-  { num: "01", name: "VerbX — Language Communication OS", status: "Live", statusColor: "text-[#13D8F6]", badgeClass: "bg-[#13D8F6]/10 text-[#13D8F6] border border-[#13D8F6]/30" },
-  { num: "02", name: "Retail OS — Retail Operating System", status: "In Market", statusColor: "text-[#E26426]", badgeClass: "bg-[#E26426]/10 text-[#E26426] border border-[#E26426]/30" },
-  { num: "03", name: "To Be Announced", status: "Planned", statusColor: "text-gray-400", badgeClass: "bg-white/5 text-gray-400 border border-white/10" },
-  { num: "04", name: "To Be Announced", status: "Planned", statusColor: "text-gray-400", badgeClass: "bg-white/5 text-gray-400 border border-white/10" },
-  { num: "05", name: "To Be Announced", status: "Planned", statusColor: "text-gray-400", badgeClass: "bg-white/5 text-gray-400 border border-white/10" },
-  { num: "06", name: "iii — Invisible Intelligent Infrastructure", status: "Long-Term Vision", statusColor: "text-gray-500", badgeClass: "bg-white/5 text-gray-500 border border-white/10" },
+  { num: "01", name: "IvishAI — Intelligent Infrastructure", status: "Foundation", statusColor: "text-gray-200", badgeClass: "bg-white/10 text-gray-200 border border-white/20" },
+  { num: "02", name: "VerbX — Communication", status: "Live", statusColor: "text-[#13D8F6]", badgeClass: "bg-[#13D8F6]/10 text-[#13D8F6] border border-[#13D8F6]/30" },
+  { num: "03", name: "Sera — Commerce", status: "Live", statusColor: "text-[#E26426]", badgeClass: "bg-[#E26426]/10 text-[#E26426] border border-[#E26426]/30" },
+  { num: "04", name: "More pillars to follow", status: "Planned", statusColor: "text-gray-500", badgeClass: "bg-white/5 text-gray-500 border border-white/10" },
 ];
 
 const SixPillars = () => {
@@ -21,7 +19,7 @@ const SixPillars = () => {
         transition={{ duration: 0.7 }}
       >
         <h2 className="font-sora text-4xl md:text-[56px] font-normal leading-[1.1] tracking-tight md:tracking-[-1.52px] bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
-          The 6 Pillars of Industry 6.0
+          The Layers of Industry 6.0
         </h2>
       </motion.div>
 

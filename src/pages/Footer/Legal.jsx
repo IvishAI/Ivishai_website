@@ -110,7 +110,7 @@ const Legal = () => {
           For any legal inquiries or <strong>data requests</strong>, please contact our <strong>legal team</strong> at:
 
         </p>
-        <p className="text-lg font-semibold text-blue-900 mt-4">📧 legal@ivishai.com</p>
+        <p className="text-lg font-semibold text-blue-900 mt-4">📧 ivishai.supprt@gmail.com</p>
       </motion.section>
 
     </div>

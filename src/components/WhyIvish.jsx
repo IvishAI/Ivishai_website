@@ -49,28 +49,20 @@ const WhyIvishSection = () => {
 
   const cards = [
     {
-      title: "Human at the Core",
-      description: "Technology adapts to people -- their language, culture, and environment. Never the reverse.",
+      title: "Infrastructure, not apps",
+      description: "Operating systems beneath communication and commerce - built to sit underneath industries, not on top of them.",
     },
     {
-      title: "Security by Design",
-      description: "Privacy and integrity are architectural principles. Built into every layer before the first line of code.",
+      title: "Two products live today",
+      description: "VerbX for multilingual communication and Sera for retail - real deployments, not roadmaps.",
     },
     {
-      title: "Global from Day One",
-      description: "Built in India, designed for every market on earth. We think in decades and in continents.",
+      title: "Offline-first architecture",
+      description: "Designed for Indian conditions where connectivity is not a given, and built to scale globally.",
     },
     {
-      title: "Invisible When It Works",
-      description: "The best infrastructure disappears. You never notice it -- until it's gone.",
-    },
-    {
-      title: "Owned Infrastructure",
-      description: "We do not depend on single-vendor AI. 52 proprietary models trained, 100+ ONNX runtimes. Edge-first, offline-capable.",
-    },
-    {
-      title: "Mission-Critical Proven",
-      description: "Active in banking and healthcare -- sectors where failure is not an option.",
+      title: "India to global",
+      description: "Born in India, engineered to run anywhere - infrastructure without borders.",
     },
   ];
 
@@ -108,11 +100,10 @@ const WhyIvishSection = () => {
               letterSpacing: "-1.52px",
             }}
           >
-            Why IvishAI Quantum
+            Built to run underneath.
           </h1>
           <p className="text-base md:text-lg leading-relaxed text-gray-100 md:w-1/2 md:pl-8">
-            We are not building features. We are building what comes after interfaces --
-            intelligent systems that disappear into life, invisible when they work perfectly.
+            IvishAI builds intelligent infrastructure operating systems for communication and commerce.
           </p>
         </div>
 

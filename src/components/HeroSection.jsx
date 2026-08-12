@@ -1,4 +1,14 @@
 import { motion } from "framer-motion";
+import { BRAND } from "../data/site";
+
+// Five routing CTAs (mirrors the closing band)
+const ROUTES = [
+  { label: "Explore VerbX", href: "/explore-verbx", primary: true },
+  { label: "Explore Sera", href: "/sera" },
+  { label: "Collaborate", href: "/collaboration" },
+  { label: "Government", href: "/government" },
+  { label: "Investors", href: "/investors" },
+];
 
 const Hero = () => {
   return (
@@ -23,7 +33,7 @@ const Hero = () => {
             </defs>
           </svg>
           <span className="inline-block text-sm">
-            Industry 6.0
+            Infrastructure for Industry 6.0
           </span>
         </motion.div>
 
@@ -35,10 +45,10 @@ const Hero = () => {
           className="text-5xl md:text-[76px] font-sora font-normal leading-[100%] tracking-[-0.04em] md:tracking-[-1.52px] mb-6"
         >
           <span className="block bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
-            We Are Building
+            {BRAND.name}
           </span>
           <span className="block bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
-            Industry 6.0
+            {BRAND.hero}
           </span>
         </motion.h1>
 
@@ -49,7 +59,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.55 }}
           className="text-2xl md:text-3xl text-gray-200 mb-6 font-light"
         >
-          From India. For the World.
+          {BRAND.category}
         </motion.p>
 
         {/* Body copy */}
@@ -59,9 +69,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="text-base md:text-lg text-gray-300 mb-10 max-w-[90%]"
         >
-          IvishAI Quantum is building the foundational infrastructure of the next era — where language,
-          intelligence, and human systems converge. Our products are not features. They are operating
-          systems for how the world works.
+          {BRAND.description}
         </motion.p>
 
         {/* Call-to-Action Buttons */}
@@ -69,27 +77,32 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="flex flex-col md:flex-row gap-4"
+          className="flex flex-col md:flex-row md:flex-wrap gap-4"
         >
-          <motion.a
-            href="https://verbxeco.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-1 border border-white py-4 px-7 w-full md:w-auto hover:bg-white/10 transition-colors duration-200"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Explore VerbX
-          </motion.a>
-          <motion.a
-            href="/retail-os"
-            className="inline-flex items-center justify-center gap-1 py-4 px-7 w-full md:w-auto hover:opacity-90 transition-opacity duration-200"
-            style={{ background: '#FFF', color: '#000' }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Explore Retail OS
-          </motion.a>
+          {ROUTES.map((r) =>
+            r.primary ? (
+              <motion.a
+                key={r.label}
+                href={r.href}
+                className="inline-flex items-center justify-center gap-1 py-4 px-7 w-full md:w-auto hover:opacity-90 transition-opacity duration-200"
+                style={{ background: '#FFF', color: '#000' }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {r.label}
+              </motion.a>
+            ) : (
+              <motion.a
+                key={r.label}
+                href={r.href}
+                className="inline-flex items-center justify-center gap-1 border border-white py-4 px-7 w-full md:w-auto hover:bg-white/10 transition-colors duration-200"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {r.label}
+              </motion.a>
+            )
+          )}
         </motion.div>
       </div>
     </section>

@@ -10,39 +10,31 @@ function FAQ() {
 
   const faqItems = [
     {
-      question: "What is IvishAI Quantum?",
-      answer: "A DPIIT-recognised Indian deep-tech company building the infrastructure of Industry 6.0. We build operating systems -- for language, for retail, and for the systems that will define the next decade.",
+      question: "What is IvishAI?",
+      answer: "An infrastructure company building operating systems for real-world industries.",
     },
     {
       question: "What is VerbX?",
-      answer: "VerbX is Pillar 1 -- the world's first Language Communication OS. Real-time voice, text, and camera translation across 2,000+ languages. Offline-capable, institutionally secure, live in market. Visit verbxeco.com.",
+      answer: "A language communication operating system for multilingual institutions.",
     },
     {
-      question: "What is Retail OS?",
-      answer: "Retail OS is Pillar 2 -- a complete operating system for Indian retail shops. One platform, one AI, 19 industries. From a kirana store to a pharmacy to a regulated liquor shop.",
+      question: "What is Sera?",
+      answer: "A retail operating system built for Bharat's shops.",
     },
     {
-      question: "What does Industry 6.0 mean?",
-      answer: "The era where AI, edge computing, language intelligence, and physical systems work in seamless harmony -- not as tools people operate, but as infrastructure people live within.",
+      question: "Why is it credible?",
+      answer: "DPIIT-recognised, MSME-registered, 1 patent granted (7 more filed), and recognised across national startup platforms.",
     },
     {
-      question: "Are VerbX and Retail OS separate products?",
-      answer: "Yes. VerbX has its own site at verbxeco.com. Retail OS lives at ivishai.com/retail-os. Both are pillars of IvishAI Quantum's Industry 6.0 architecture.",
-    },
-    {
-      question: "Is IvishAI Quantum funded?",
-      answer: "Yes. We have received funding and are DPIIT-recognised under Startup India.",
-    },
-    {
-      question: "How do I partner with IvishAI Quantum?",
-      answer: "Write to us at connect@ivishai.com. We are open to institutional pilots, enterprise integrations, and strategic partnerships across sectors.",
+      question: "How do I engage?",
+      answer: "Collaborate, Government, or Investors - pick your path below.",
     },
   ];
 
   return (
     <section className="flex flex-col gap-6 items-center px-5 md:px-20 lg:px-40 py-12 w-full bg-black">
       <h2 className="w-full text-4xl md:text-5xl lg:text-6xl tracking-tighter text-center font-sora font-normal leading-tight md:leading-normal bg-gradient-to-r from-white to-[#63FFF5] bg-clip-text text-transparent">
-        Any Questions? <span className="text-cyan-400">We Got You.</span>
+        In 30 Seconds. <span className="text-cyan-400">The Quick Answers.</span>
       </h2>
 
       <div className="flex flex-col gap-4 md:gap-6 w-full">

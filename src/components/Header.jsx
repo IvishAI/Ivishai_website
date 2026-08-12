@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
 
 
   const navigationItems = [
@@ -12,6 +13,14 @@ const Header = () => {
     { label: "Products", href: "/products" },
     { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" },
+  ];
+
+  const moreItems = [
+    { label: "Collaboration", href: "/collaboration" },
+    { label: "Recognition & Media", href: "/recognition" },
+    { label: "Government", href: "/government" },
+    { label: "Investors", href: "/investors" },
+    { label: "Patents", href: "/patents" },
   ];
 
 
@@ -162,6 +171,58 @@ const Header = () => {
               {item.label}
             </a>
           ))}
+
+          {/* More - hover dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setMoreOpen(true)}
+            onMouseLeave={() => setMoreOpen(false)}
+          >
+            <button
+              type="button"
+              aria-haspopup="true"
+              aria-expanded={moreOpen}
+              onClick={() => setMoreOpen((v) => !v)}
+              className="relative flex items-center gap-1 text-[#D6D6D6] text-[15px] font-normal p-1 hover:text-white transition-all duration-200 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+            >
+              More
+              <svg
+                className={`w-3 h-3 transition-transform duration-200 ${moreOpen ? "rotate-180" : ""}`}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+
+            <AnimatePresence>
+              {moreOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.18 }}
+                  className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-56"
+                >
+                  <div className="rounded-xl border border-[#6B6B6B] bg-black/90 backdrop-blur-xl shadow-2xl overflow-hidden p-2">
+                    {moreItems.map((item, index) => (
+                      <a
+                        key={index}
+                        href={item.href}
+                        className="block whitespace-nowrap text-[#D6D6D6] text-[14px] font-normal py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-white transition-all duration-200"
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </nav>
 
 
@@ -224,6 +285,25 @@ const Header = () => {
                         </motion.a>
                       ))}
 
+                      {/* More section */}
+                      <div className="mt-2 pt-3 border-t border-white/10">
+                        <p className="px-4 pb-1 text-[11px] uppercase tracking-wider text-[#8A8A8A]">
+                          More
+                        </p>
+                        {moreItems.map((item, index) => (
+                          <motion.a
+                            key={index}
+                            href={item.href}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: (navigationItems.length + index) * 0.05 }}
+                            className="block text-[#D6D6D6] text-base font-normal py-3 px-4 hover:bg-white/10 hover:text-white rounded-lg transition-all duration-200 mb-1"
+                            onClick={() => setOpen(false)}
+                          >
+                            {item.label}
+                          </motion.a>
+                        ))}
+                      </div>
                     </div>
                   </motion.div>
                 </>

@@ -35,7 +35,7 @@ import GATracker from "./GATracker";
 
 // Lazy loaded
 const Home = lazy(() => import("./pages/Home"));
-const Products = lazy(() => import("./pages/Products/Products"));
+const Products = lazy(() => import("./pages/Products"));
 const About = lazy(() => import("./pages/header/About"));
 const Careers = lazy(() => import("./pages/Careers/Careers"));
 const Contact = lazy(() => import("./pages/header/Contact"));
@@ -56,6 +56,19 @@ const RetailOSFeatures = lazy(() => import("./pages/RetailOS/RetailOSFeatures"))
 const RetailOSIndustries = lazy(() => import("./pages/RetailOS/RetailOSIndustries"));
 const RetailOSPricing = lazy(() => import("./pages/RetailOS/RetailOSPricing"));
 
+// "More" menu pages
+const Collaboration = lazy(() => import("./pages/Collaboration"));
+const Recognition = lazy(() => import("./pages/Recognition"));
+const Government = lazy(() => import("./pages/Government"));
+const Investors = lazy(() => import("./pages/Investors"));
+const Patents = lazy(() => import("./pages/Patents"));
+
+// Sera product site + VerbX hand-off intro
+const Sera = lazy(() => import("./pages/sera/SeraHome"));
+const SeraIndustry = lazy(() => import("./pages/sera/SeraIndustry"));
+const ExploreVerbX = lazy(() => import("./pages/verbx/ExploreVerbX"));
+const FounderDetail = lazy(() => import("./pages/header/FounderDetail"));
+
 function App() {
   return (
     <Router>
@@ -69,8 +82,24 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/about" element={<About />} />
+          <Route path="/about/:slug" element={<FounderDetail />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+
+          {/* "More" menu pages */}
+          <Route path="/collaboration" element={<Collaboration />} />
+          <Route path="/recognition" element={<Recognition />} />
+          <Route path="/government" element={<Government />} />
+          <Route path="/investors" element={<Investors />} />
+          <Route path="/patents" element={<Patents />} />
+
+          {/* Sera product site */}
+          <Route path="/sera" element={<Sera />} />
+          <Route path="/sera/:slug" element={<SeraIndustry />} />
+
+          {/* VerbX intro - globe animation, then hands off to verbxeco.com */}
+          <Route path="/explore-verbx" element={<ExploreVerbX />} />
+
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />

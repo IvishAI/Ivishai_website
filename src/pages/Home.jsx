@@ -5,8 +5,8 @@ import MissionStatement from '../components/MissionStatement';
 import ComingUp from '../components/ComingUp';
 import TwoProducts from '../components/TwoProducts';
 import WhyIvish from '../components/WhyIvish';
-import WhoWeHaveMet from '../components/WhoWeHaveMet';
 import FAQ from '../components/Faq';
+import ClosingCTA from '../components/ClosingCTA';
 import Footer from '../components/Footer';
 
 const Home = () => {
@@ -17,23 +17,23 @@ const Home = () => {
       {/* Section 1: Hero */}
       <HeroSection />
 
-      {/* Section 2: Who We Are */}
+      {/* Section 2: The Vision */}
       <MissionStatement />
 
-      {/* Section 3: The 6 Pillars of Industry 6.0 */}
+      {/* Section 3: The Layers of Industry 6.0 */}
       <ComingUp />
 
       {/* Section 4: Two Products */}
       <TwoProducts />
 
-      {/* Section 5: Why IvishAI Quantum */}
+      {/* Section 5: Why IvishAI */}
       <WhyIvish />
 
-      {/* Section 6: Who We Have Met */}
-      <WhoWeHaveMet />
-
-      {/* Section 7: FAQ */}
+      {/* Section 6: FAQ */}
       <FAQ />
+
+      {/* Section 7: Closing CTA */}
+      <ClosingCTA />
 
       <Footer />
     </div>
