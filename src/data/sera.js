@@ -14,7 +14,7 @@ export const SERA = {
   why:
     "Free billing, digital Khata, works offline, SERA AI assisted setup - built for shopkeepers, not accountants.",
   scale: "28 Industries. 6 Zones.",
-  playStore: "#", // [TO CONFIRM] Play Store link
+  playStore: "https://play.google.com/store/apps/details?id=com.ivish.retailos&pcampaignid=web_share",
   contactEmail: "ivishai.supprt@gmail.com",
 };
 
@@ -28,28 +28,74 @@ export const SERA_PROMISES = [
 
 // ---- Features (plain language) --------------------------------------------
 export const SERA_FEATURES = [
-  { title: "Free Billing", body: "Fast, unlimited billing that never costs you a rupee.", icon: "Receipt" },
-  { title: "Digital Khata", body: "Track customer credit and dues without a paper book.", icon: "BookOpen" },
-  { title: "Inventory", body: "Know what's in stock and what's not selling.", icon: "Boxes" },
-  { title: "Reports", body: "See today's sales and profit at a glance.", icon: "BarChart3" },
-  { title: "Compliance", body: "Stay audit-ready - built in, not added later.", icon: "ShieldCheck" },
-  { title: "SERA AI", body: "Let SERA handle the setup and the paperwork.", icon: "Sparkles" },
+  { title: "Free Billing", body: "Fast, unlimited billing that never costs you a rupee. Barcode scan, quick-add, weight entry — every mode covered.", icon: "Receipt" },
+  { title: "Digital Khata", body: "Track customer credit and dues without a paper book. See who owes what and collect faster.", icon: "BookOpen" },
+  { title: "Inventory", body: "600,000+ products pre-loaded. Know what's in stock, what's not selling, and what to reorder.", icon: "Boxes" },
+  { title: "Reports & Analytics", body: "Activity heatmap shows sales by day and hour. Anomaly alerts catch unusual patterns before they become losses.", icon: "BarChart3" },
+  { title: "Compliance & Audit", body: "Pharmacy expiry tracking, excise logs for Zone 6, batch compliance — stay audit-ready at all times.", icon: "ShieldCheck" },
+  { title: "SERA AI", body: "Set up your shop, get product suggestions and generate bills faster with built-in AI assistance.", icon: "Sparkles" },
+  { title: "Thermal Printing", body: "Print bills via Bluetooth, USB or Network printer. No extra hardware needed — works with any ESC/POS printer.", icon: "Printer" },
+  { title: "Day Close & Cash", body: "End-of-day cash reconciliation, cash drawer management and saved Z-reports in one tap.", icon: "Moon" },
+  { title: "Works Offline", body: "Full billing and inventory offline. Data syncs automatically when connection returns. Never lose a sale.", icon: "WifiOff" },
+];
+
+// ---- Stats ----------------------------------------------------------------
+export const SERA_STATS = [
+  { value: "600K+", label: "Products pre-loaded" },
+  { value: "13", label: "Languages" },
+  { value: "28", label: "Industry types" },
+  { value: "6", label: "Retail zones" },
+];
+
+// ---- Languages ------------------------------------------------------------
+export const SERA_LANGUAGES = [
+  { code: "en", name: "English", native: "English" },
+  { code: "hi", name: "Hindi", native: "हिन्दी" },
+  { code: "bn", name: "Bengali", native: "বাংলা" },
+  { code: "te", name: "Telugu", native: "తెలుగు" },
+  { code: "mr", name: "Marathi", native: "मराठी" },
+  { code: "ta", name: "Tamil", native: "தமிழ்" },
+  { code: "gu", name: "Gujarati", native: "ગુજરાતી" },
+  { code: "kn", name: "Kannada", native: "ಕನ್ನಡ" },
+  { code: "ml", name: "Malayalam", native: "മലയാളം" },
+  { code: "or", name: "Odia", native: "ଓଡ଼ିଆ" },
+  { code: "pa", name: "Punjabi", native: "ਪੰਜਾਬੀ" },
+  { code: "as", name: "Assamese", native: "অসমীয়া" },
+  { code: "ur", name: "Urdu", native: "اردو" },
 ];
 
 // ---- Pricing --------------------------------------------------------------
 export const SERA_PRICING = [
   {
-    name: "DUKAAN", price: "Free Forever", highlight: true,
-    desc: "Billing, Khata, and inventory. No cost, no time limit. This is the plan almost every shop starts on.",
+    name: "Free",
+    price: "₹0",
+    period: "forever",
+    highlight: false,
+    firstMonth: false,
+    desc: "Core billing, Khata, and inventory. No credit card. No time limit. Every shop starts here.",
+    includes: ["Unlimited billing", "Digital Khata", "Barcode scanner", "Offline mode", "Basic reports"],
   },
   {
-    name: "VYAPAR", price: "₹129/month", highlight: false,
-    desc: "Everything in DUKAAN, plus SERA AI assisted setup, advanced reports, and priority support. For shops ready to grow past the basics.",
+    name: "Premium",
+    price: "From ₹99",
+    period: "/month",
+    highlight: true,
+    firstMonth: true,
+    desc: "First month completely free. Removes all daily limits. Unlocks advanced reports, AI features, and everything your vertical specifically needs.",
+    includes: ["Everything in Free", "Unlimited scans and bills", "SERA AI assistant", "Full reports and analytics", "WhatsApp campaigns", "Multi-device support"],
+    note: "Price varies by shop type",
   },
-  {
-    name: "Zone 6 - Restricted Retail", price: "₹299-999/month", highlight: false,
-    desc: "Liquor, tobacco, paan and hybrid shops - built-in excise and compliance tracking most billing apps don't offer.",
-  },
+];
+
+// ---- Premium pricing by vertical ------------------------------------------
+export const SERA_PREMIUM_PRICES = [
+  { vertical: "Kirana / Hardware", monthly: "₹99", yearly: "₹899", tag: "Khata Plus" },
+  { vertical: "Retail / Stationery / General", monthly: "₹199", yearly: "₹1,999", tag: null },
+  { vertical: "Pharmacy", monthly: "₹199", yearly: "₹1,999", tag: "Compliance" },
+  { vertical: "Cake / Pastry / Sweets", monthly: "₹199", yearly: "₹1,999", tag: null },
+  { vertical: "Tea Franchise", monthly: "₹249", yearly: null, tag: "₹199/outlet (HQ 10+)" },
+  { vertical: "Cloud Kitchen", monthly: "₹499", yearly: null, tag: "Per kitchen location" },
+  { vertical: "Restaurant", monthly: "₹699", yearly: "₹7,999", tag: null },
 ];
 
 // ---- Zone 1-6 industry playbook (Tables 8-13) -----------------------------
