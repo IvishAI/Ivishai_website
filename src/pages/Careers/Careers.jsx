@@ -172,7 +172,7 @@ const CareersPage = () => {
                     <p className="text-gray-400 text-sm leading-relaxed mt-1">{role.owns}</p>
                   </div>
                   <a
-                    href={`mailto:careers@ivishai.com?subject=${encodeURIComponent(role.title)}`}
+                    href={`mailto:ivishai.hrteam@gmail.com?subject=${encodeURIComponent(role.title)}`}
                     className="flex-shrink-0 px-5 py-2.5 text-sm font-medium border border-[#E26426] text-[#E26426] hover:bg-[#E26426] hover:text-white transition-all duration-200 text-center"
                   >
                     Apply
@@ -195,10 +195,10 @@ const CareersPage = () => {
             <p className="text-gray-300 text-lg">
               No role listed for you? If you believe you belong here, write to us:{" "}
               <a
-                href="mailto:careers@ivishai.com"
+                href="mailto:ivishai.hrteam@gmail.com"
                 className="text-[#E26426] font-medium hover:underline"
               >
-                careers@ivishai.com
+                ivishai.hrteam@gmail.com
               </a>
             </p>
           </motion.div>
