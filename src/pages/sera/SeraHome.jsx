@@ -244,10 +244,12 @@ const CSS = `
 .s-ind-pain { font-size:.72rem; color:var(--s-ink-f); margin-top:2px; }
 
 /* ── Pricing ── */
-.s-price-row { display:grid; grid-template-columns:repeat(3,1fr); }
+.s-price-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); max-width:900px; margin-left:auto; margin-right:auto; }
 .s-price-col { padding:0 36px; text-align:center; }
 .s-price-col:not(:first-child) { border-left:1px solid var(--s-line); }
 .s-price-col:first-child { padding-left:36px; }
+#pricing .s-eye, #pricing .s-h2, #pricing .s-lede { text-align:center; }
+#pricing .s-lede { margin-left:auto; margin-right:auto; }
 .s-price-kick { font-family:var(--fm); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--s-orange-d); margin-bottom:10px; height:14px; }
 .s-price-name { font-weight:650; font-size:1rem; color:var(--s-ink-s); margin-bottom:14px; }
 .s-price-amount { font-family:var(--fm); font-size:clamp(1.9rem,3.8vw,2.7rem); font-weight:700; letter-spacing:-.03em; color:var(--s-ink); }
@@ -782,7 +784,7 @@ function Pricing() {
 
         <Reveal delay={0.2}>
           <div style={{ marginTop: 56, borderTop: '1px solid var(--s-line)', paddingTop: 40 }}>
-            <div style={{ fontFamily: 'var(--fm)', fontSize: '.7rem', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--s-ink-f)', marginBottom: 20 }}>Premium price by shop type</div>
+            <div style={{ fontFamily: 'var(--fm)', fontSize: '.7rem', letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--s-ink-f)', marginBottom: 20, textAlign: 'center' }}>Premium price by shop type</div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 10 }}>
               {SERA_PREMIUM_PRICES.map((v) => (
                 <div key={v.vertical} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 18px', borderRadius: 14, border: '1px solid var(--s-line)', background: 'var(--s-surface)' }}>
