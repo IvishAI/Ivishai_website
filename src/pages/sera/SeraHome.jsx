@@ -850,7 +850,7 @@ function Pricing() {
         <div className="s-price-row mt56">
           {SERA_PRICING.map((p, i) => (
             <Reveal key={p.name} delay={i * 0.09} className="s-price-col">
-              <div className="s-price-kick">{p.highlight ? '1st month completely free' : ' '}</div>
+              <div className="s-price-kick">{p.highlight ? '14 days completely free' : ' '}</div>
               <div className="s-price-name">{p.name}</div>
               <div className="s-price-amount">{p.price}<span style={{ fontSize: '1rem', fontWeight: 400, color: 'var(--s-ink-s)', marginLeft: 4 }}>{p.period}</span></div>
               <div className="s-price-desc">{p.desc}</div>
@@ -903,7 +903,7 @@ function CTA() {
             <span className="s-eye s-eye--light">Free forever · Works offline · No hardware</span>
             <h2 className="s-h2 s-h2--white mt12">Start billing in 60 seconds.</h2>
             <p className="s-lede s-lede--white mt16" style={{ margin: '16px auto 0', textAlign: 'center' }}>
-              Free forever. First month of Premium completely free. Works offline. No hardware. 13 languages. 28 industries.
+              Free forever. First 14 days of Premium completely free. Works offline. No hardware. 13 languages. 28 industries.
             </p>
             <div className="s-btn-row mt40" style={{ justifyContent: 'center' }}>
               <a href={SERA.playStore} className="s-btn s-btn-orange">Download on Google Play <ArrowRight size={16} /></a>
