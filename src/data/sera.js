@@ -87,15 +87,41 @@ export const SERA_PRICING = [
   },
 ];
 
+// ---- SERA POS, the Windows counter till -----------------------------------
+// The phone app is where a shop starts and where the subscription is bought.
+// The till is for a shop that already has a counter machine and wants a keyboard,
+// a barcode gun and a cash drawer on it. Deliberately described as an addition to
+// the app, never as an alternative — every till still needs the owner's phone.
+export const SERA_POS = {
+  version: "1.0.0",
+  // Public release asset. Direct download, no sign-in, no store.
+  download:
+    "https://github.com/IvishAI/Ivishai_website/releases/download/sera-pos-v1.0.0/SERA-POS-Setup-1.0.0.exe",
+  size: "87 MB",
+  requires: "Windows 10 or later, 64-bit",
+  // Said plainly on the page rather than discovered by a frightened shopkeeper.
+  smartScreen:
+    "Windows will show a blue “Windows protected your PC” warning the first time, because the installer is not code-signed yet. Choose More info, then Run anyway.",
+};
+
+export const SERA_POS_FEATURES = [
+  { title: "Built for a counter", body: "Keyboard-first billing with shortcuts on every action. Scan, weigh, discount and take payment without touching the mouse." },
+  { title: "Same shop, same data", body: "Signs in to the shop you already run on the phone. Products, prices, Khata and reports are the same on both." },
+  { title: "Keeps selling offline", body: "Bills, prints and stores every sale with no internet. Sends them up the moment the connection returns." },
+  { title: "Shift and cash close", body: "Each cashier gets their own shift, their own takings, and can undo a bill they rang up wrong. Day close counts the drawer." },
+  { title: "Thermal printing", body: "Prints to any ESC/POS printer over USB or network, and to the printer the phone already uses." },
+  { title: "Your phone is the scanner", body: "No barcode gun on day one. Scan with the phone and the item lands in the till's cart." },
+];
+
 // ---- Premium pricing by vertical ------------------------------------------
 export const SERA_PREMIUM_PRICES = [
   { vertical: "Kirana / Hardware", monthly: "₹99", yearly: "₹899", tag: "Khata Plus" },
   { vertical: "Retail / Stationery / General", monthly: "₹199", yearly: "₹1,999", tag: null },
   { vertical: "Pharmacy", monthly: "₹199", yearly: "₹1,999", tag: "Compliance" },
   { vertical: "Cake / Pastry / Sweets", monthly: "₹199", yearly: "₹1,999", tag: null },
-  { vertical: "Tea Franchise", monthly: "₹249", yearly: null, tag: "₹199/outlet (HQ 10+)" },
+  { vertical: "Franchise", monthly: "₹249", yearly: "₹2,999", tag: "₹199/outlet (HQ 10+)" },
   { vertical: "Cloud Kitchen", monthly: "₹499", yearly: null, tag: "Per kitchen location" },
-  { vertical: "Restaurant", monthly: "₹699", yearly: "₹7,999", tag: null },
+  { vertical: "Restaurant", monthly: "₹699", yearly: "₹6,999", tag: null },
 ];
 
 // ---- Zone 1-6 industry playbook (Tables 8-13) -----------------------------

@@ -6,10 +6,11 @@ import SeraShell from '../../components/sera/SeraShell'
 import {
   Check, Receipt, BookOpen, Boxes, BarChart3, ShieldCheck, Sparkles,
   Printer, Moon, WifiOff, ScanLine, Bell, Trophy, TrendingUp,
-  ArrowRight, Zap,
+  ArrowRight, Zap, Monitor, Download, Info,
 } from 'lucide-react'
 import {
   SERA, SERA_PROMISES, SERA_STATS, SERA_FEATURES, SERA_ZONES, SERA_LANGUAGES, SERA_PRICING, SERA_PREMIUM_PRICES,
+  SERA_POS, SERA_POS_FEATURES,
 } from '../../data/sera'
 
 // ─── Icon map ──────────────────────────────────────────────────────────────────
@@ -752,6 +753,92 @@ function ByTheNumbers() {
 }
 
 // ─── Pricing ──────────────────────────────────────────────────────────────────
+// ─── SERA POS ─────────────────────────────────────────────────────────────────
+/**
+ * The Windows till.
+ *
+ * Written as an addition to the phone, never as an alternative. Every till still
+ * needs the owner's app — it is where the shop is set up and where the plan is
+ * bought — and a shopkeeper who downloads this expecting a standalone product
+ * would be stuck on the first screen.
+ *
+ * The SmartScreen warning is stated on the page rather than left to surprise
+ * someone. An unsigned installer frightens people, and a shopkeeper who has been
+ * told what to expect installs it; one who has not, does not.
+ */
+function DesktopPOS() {
+  return (
+    <section className="s-sec s-sec--dim" id="pos">
+      <div className="s-wrap">
+        <Reveal><span className="s-eye s-eye--muted">New · For the counter</span></Reveal>
+        <Reveal delay={0.06}><h2 className="s-h2">SERA POS for Windows</h2></Reveal>
+        <Reveal delay={0.12}>
+          <p className="s-lede mt12">
+            Already have a computer on the counter? Put Sera on it. Keyboard-first billing,
+            a barcode gun, a cash drawer and a thermal printer — running the same shop as
+            the app in your pocket.
+          </p>
+        </Reveal>
+
+        <div className="mt40" style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
+          <a href={SERA_POS.download} className="s-btn s-btn-orange">
+            <Download size={16} /> Download for Windows
+          </a>
+          <div style={{ fontSize: '.8rem', color: 'var(--s-ink-f)', fontFamily: 'var(--fm)' }}>
+            v{SERA_POS.version} · {SERA_POS.size} · {SERA_POS.requires}
+          </div>
+        </div>
+
+        <Reveal delay={0.16}>
+          <div
+            style={{
+              display: 'flex', gap: 10, alignItems: 'flex-start', marginTop: 20,
+              padding: '14px 18px', borderRadius: 14,
+              border: '1px solid var(--s-line)', background: 'var(--s-surface)',
+              maxWidth: 640,
+            }}
+          >
+            <Info size={16} style={{ color: 'var(--s-orange-d)', flexShrink: 0, marginTop: 2 }} />
+            <div style={{ fontSize: '.85rem', color: 'var(--s-ink-s)', lineHeight: 1.6 }}>
+              {SERA_POS.smartScreen}
+            </div>
+          </div>
+        </Reveal>
+
+        <div
+          className="mt56"
+          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 14 }}
+        >
+          {SERA_POS_FEATURES.map((f, i) => (
+            <Reveal key={f.title} delay={i * 0.06}>
+              <div
+                style={{
+                  height: '100%', padding: '20px 22px', borderRadius: 16,
+                  border: '1px solid var(--s-line)', background: 'var(--s-surface)',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
+                  <Monitor size={16} style={{ color: 'var(--s-orange-d)', flexShrink: 0 }} />
+                  <div style={{ fontSize: '.95rem', fontWeight: 700, color: 'var(--s-ink)' }}>{f.title}</div>
+                </div>
+                <div style={{ fontSize: '.85rem', color: 'var(--s-ink-s)', lineHeight: 1.65 }}>{f.body}</div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal delay={0.24}>
+          <p style={{ marginTop: 28, fontSize: '.85rem', color: 'var(--s-ink-f)', lineHeight: 1.65 }}>
+            The till works alongside the app, not instead of it. Set the shop up on your phone,
+            then sign in on the counter with your phone number and PIN, or give your staff an
+            access code. <a href={SERA.playStore} style={{ color: 'var(--s-orange-d)' }}>Get the app first</a> if you have not already.
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
 function Pricing() {
   return (
     <section className="s-sec" id="pricing">
@@ -849,6 +936,7 @@ export default function SeraHome() {
         <ZoneBilling />
         <LanguagesSection />
         <Industries />
+        <DesktopPOS />
         <ByTheNumbers />
         <Pricing />
         <CTA />
