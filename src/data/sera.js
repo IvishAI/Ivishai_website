@@ -115,20 +115,27 @@ export const SERA_POS_FEATURES = [
 
 // ---- Premium pricing by vertical ------------------------------------------
 export const SERA_PREMIUM_PRICES = [
-  // Pricing v4.2. Urban rates only — rural pricing is set per shop by a field
-  // agent and is deliberately not advertised, so a shop cannot ask for the
-  // cheaper table by reading about it here.
-  { vertical: "Kirana / Grocery / Dairy / Mini-mart", monthly: "₹99", yearly: "₹899", tag: "Khata Plus" },
-  { vertical: "Hardware / Electronics / Auto Parts", monthly: "₹99", yearly: "₹899", tag: null },
-  { vertical: "Salon / Tailor / Repair / Coaching", monthly: "₹99", yearly: "₹899", tag: "Service shops" },
-  { vertical: "Clothing", monthly: "₹99", yearly: "₹899", tag: null },
-  { vertical: "Retail / Stationery / Books / Gifts / Footwear", monthly: "₹199", yearly: "₹1,999", tag: null },
+  // The same seven shop types this page has always listed. Prices only.
+  //
+  // Sera is proven on kirana, general stores and restaurants, and those are the
+  // shops being sold to. The service trades, clothing and the rest of the
+  // catalogue are priced in the backend and can be sold in person, but they are
+  // deliberately NOT advertised here until they have been tested properly — a
+  // price on this page is a promise that the product works for that shop.
+  //
+  // Rural rates are also deliberately absent. They are set per shop by a field
+  // agent, and publishing them would let any shop ask for the cheaper table by
+  // quoting this page back at us.
+  { vertical: "Kirana / Hardware", monthly: "₹99", yearly: "₹899", tag: "Khata Plus" },
+  { vertical: "Retail / Stationery / General", monthly: "₹199", yearly: "₹1,999", tag: null },
   { vertical: "Pharmacy", monthly: "₹199", yearly: "₹1,999", tag: "Compliance" },
-  { vertical: "Bakery / Cake / Sweets", monthly: "₹199", yearly: "₹1,999", tag: null },
-  { vertical: "Tea / Juice / Snacks / Tiffin", monthly: "₹199", yearly: "₹1,999", tag: null },
-  { vertical: "Franchise", monthly: "₹249", yearly: "₹2,999", tag: "₹199/mo · ₹2,499/yr per outlet (HQ 10+)" },
+  { vertical: "Cake / Pastry / Sweets", monthly: "₹199", yearly: "₹1,999", tag: null },
+  // Annual rate added in v4.1; it had a monthly rate and no yearly one.
+  { vertical: "Tea Franchise", monthly: "₹249", yearly: "₹2,999", tag: "₹199/outlet (HQ 10+)" },
+  // Annual rate added in v4.1, same reason.
   { vertical: "Cloud Kitchen", monthly: "₹499", yearly: "₹4,999", tag: "Per kitchen location" },
-  { vertical: "Fast Food / Restaurant", monthly: "₹699", yearly: "₹6,999", tag: null },
+  // v4.1 cut the annual rate from ₹7,999 to ₹6,999.
+  { vertical: "Restaurant", monthly: "₹699", yearly: "₹6,999", tag: null },
 ];
 
 // ---- Zone 1-6 industry playbook (Tables 8-13) -----------------------------
