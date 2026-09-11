@@ -93,11 +93,11 @@ export const SERA_PRICING = [
 // a barcode gun and a cash drawer on it. Deliberately described as an addition to
 // the app, never as an alternative — every till still needs the owner's phone.
 export const SERA_POS = {
-  version: "1.0.1",
+  version: "1.0.2",
   // Public release asset. Direct download, no sign-in, no store.
   download:
-    "https://github.com/IvishAI/Ivishai_website/releases/download/sera-pos-v1.0.1/SERA-POS-Setup-1.0.1.exe",
-  size: "87 MB",
+    "https://github.com/IvishAI/Ivishai_website/releases/download/sera-pos-v1.0.2/SERA-POS-Setup-1.0.2.exe",
+  size: "84 MB",
   requires: "Windows 10 or later, 64-bit",
   // Said plainly on the page rather than discovered by a frightened shopkeeper.
   smartScreen:
