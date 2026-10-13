@@ -84,7 +84,7 @@ export const Rule = ({ className = "" }) => (
 
 /* 11 Columns - a left label against a right body, the page's basic pairing. */
 export const Columns = ({ label, children, className = "" }) => (
-  <div className={`flex flex-col md:flex-row gap-3 md:gap-12 py-7 ${className}`}>
+  <div className={`iv-reveal flex flex-col md:flex-row gap-3 md:gap-12 py-7 ${className}`}>
     <div className="md:w-56 flex-shrink-0 text-ink text-lg">{label}</div>
     <div className="flex-1 text-ink-muted leading-relaxed max-w-[62ch]">{children}</div>
   </div>

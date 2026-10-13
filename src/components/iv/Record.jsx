@@ -78,7 +78,7 @@ export const SpecSheet = ({ groups }) => (
 /* 19 FactRow - one claim, one source. Nothing on this site should state a
    number without somewhere to check it. */
 export const FactRow = ({ claim, source }) => (
-  <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 py-4 border-b border-rule">
+  <div className="iv-reveal flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6 py-4 border-b border-rule">
     <p className="flex-1 text-ink">{claim}</p>
     <p className="tag flex-shrink-0">{source}</p>
   </div>
@@ -87,7 +87,7 @@ export const FactRow = ({ claim, source }) => (
 /* 20 CredentialRow - a registration or recognition, with its mark. The mark
    keeps a white plate because the artwork is drawn for white. */
 export const CredentialRow = ({ mark, name, detail }) => (
-  <div className="flex items-center gap-5 py-4 border-b border-rule">
+  <div className="iv-reveal flex items-center gap-5 py-4 border-b border-rule">
     {mark ? (
       <img src={mark} alt="" aria-hidden="true" className="h-7 w-20 object-contain flex-shrink-0" />
     ) : (

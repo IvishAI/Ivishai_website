@@ -235,3 +235,49 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .iv-odo__reel { transition: none; }
 }
+
+/* ==========================================================================
+   Scroll animation.
+
+   Two mechanisms, both CSS-first so neither is load-bearing:
+
+   .iv-rise   - plays once on load, for the page opener, which is already in
+                view. Waiting for a scroll there would leave the hero blank.
+   .iv-reveal - plays when the element is scrolled into view. A single
+                IntersectionObserver in index.js adds .is-in; if that observer
+                never runs, the fallback below leaves the content visible.
+
+   Under prefers-reduced-motion both become no-ops and everything is simply
+   there. Content is NEVER only visible after an animation has fired - that is
+   the bug this site already had, with nine invisible sections on /sera.
+   ========================================================================== */
+@keyframes iv-rise-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.iv-rise {
+  animation: iv-rise-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* Visible by default. The observer takes it to 0 and back, so a page with no
+   JS, or a failed observer, still reads. */
+.iv-reveal { opacity: 1; }
+.js-reveal .iv-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--d, 0ms);
+}
+.js-reveal .iv-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iv-rise { animation: none; }
+  .js-reveal .iv-reveal { opacity: 1; transform: none; transition: none; }
+}

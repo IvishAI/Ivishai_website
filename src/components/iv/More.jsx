@@ -14,7 +14,7 @@ import Reveal from "../site/Reveal";
 /* A patent with its number and where it actually is. "8 patents" means little;
    "filed, under examination" means something. */
 export const PatentRow = ({ no, title, status, filed }) => (
-  <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 py-5 border-b border-rule">
+  <div className="iv-reveal flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 py-5 border-b border-rule">
     <span className="tag sm:w-32 flex-shrink-0">{no}</span>
     <span className="flex-1 text-ink">{title}</span>
     <span className="flex items-center gap-2 flex-shrink-0">
@@ -30,7 +30,7 @@ export const PatentRow = ({ no, title, status, filed }) => (
 /* ------------------------------------------------------------- 67 RoleRow */
 /* An open role: title, team, place, and whether it is actually open. */
 export const RoleRow = ({ to, title, team, place, mode, open = true }) => (
-  <Link to={to} className="group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 py-6 border-b border-rule">
+  <Link to={to} className="iv-reveal group flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 py-6 border-b border-rule">
     <span className="flex-1">
       <span className="text-ink text-lg group-hover:text-ember-deep transition-colors">{title}</span>
       {!open && <span className="tag ml-3">closed</span>}
@@ -160,7 +160,7 @@ export const Address = ({ lines, note }) => (
 /* --------------------------------------------------------- 76 ArticleRow */
 /* A post in a list: date, title, and how long it takes to read. */
 export const ArticleRow = ({ to, date, title, read, excerpt }) => (
-  <Link to={to} className="group block py-7 border-b border-rule">
+  <Link to={to} className="iv-reveal group block py-7 border-b border-rule">
     <div className="flex flex-wrap items-baseline gap-4 mb-1.5">
       <span className="tag">{date}</span>
       {read && <span className="tag text-ink-faint">{read}</span>}

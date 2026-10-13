@@ -28,11 +28,16 @@ export const Masthead = ({ tag, title, lede, actions, tone = "ember" }) => (
     {/* Centred, per the owner on 13 Oct. The page opener is the one place the
         whole site agrees on its axis, so this sets the tone for every page. */}
     <div className="wrap relative text-center">
-      {tag && <p className="tag mb-5">{tag}</p>}
-      <h1 className="text-ink max-w-[18ch] mx-auto">{title}</h1>
-      {lede && <p className="lede mt-6 mx-auto">{lede}</p>}
+      {tag && <p className="tag mb-5 iv-rise" style={{ "--d": "0ms" }}>{tag}</p>}
+      <h1 className="text-ink max-w-[18ch] mx-auto iv-rise" style={{ "--d": "60ms" }}>{title}</h1>
+      {lede && <p className="lede mt-6 mx-auto iv-rise" style={{ "--d": "140ms" }}>{lede}</p>}
       {actions && (
-        <div className="flex flex-col sm:flex-row gap-3 mt-9 justify-center">{actions}</div>
+        <div
+          className="flex flex-col sm:flex-row gap-3 mt-9 justify-center iv-rise"
+          style={{ "--d": "220ms" }}
+        >
+          {actions}
+        </div>
       )}
     </div>
   </section>
@@ -81,7 +86,7 @@ export const PartnerRow = ({ logo, name, note, href }) => {
   return (
     <Tag
       {...(href ? { href, target: "_blank", rel: "noreferrer" } : {})}
-      className="flex flex-col sm:flex-row sm:items-center gap-5 py-6 border-b border-rule group"
+      className="iv-reveal flex flex-col sm:flex-row sm:items-center gap-5 py-6 border-b border-rule group"
     >
       {logo && (
         <span className="flex h-12 w-28 flex-shrink-0 items-center justify-center bg-paper rounded-lg p-2">
@@ -156,7 +161,7 @@ export const PageIndex = ({ items }) => (
 /* One fact that needs more weight than a sentence and less than a field.
    A tint, a mark, and the line. */
 export const NoteField = ({ tone = "sand", tag, children }) => (
-  <div className="rounded-2xl p-7 md:p-9" style={{ background: grad(TINTS[tone] || TINTS.sand) }}>
+  <div className="iv-reveal rounded-2xl p-7 md:p-9" style={{ background: grad(TINTS[tone] || TINTS.sand) }}>
     {tag && <p className="tag mb-3">{tag}</p>}
     <p className="text-ink max-w-[62ch] leading-relaxed">{children}</p>
   </div>
@@ -181,11 +186,11 @@ export const LinkOut = ({ href, children }) => (
 export const SectionAnchor = ({ id, tag, title, lede, children }) => (
   <section id={id} className="band scroll-mt-24">
     <div className="wrap">
-      <div className="head">
+      <Reveal className="head">
         {tag && <span className="tag block mb-3.5">{tag}</span>}
         <h2 className="text-ink">{title}</h2>
         {lede && <p className="lede mt-4 mx-auto">{lede}</p>}
-      </div>
+      </Reveal>
       {children}
     </div>
   </section>

@@ -189,7 +189,7 @@ export const OrbRow = ({ items, size = 64 }) => (
 /* Half colour, half ground. For a statement that needs an image's worth of
    weight without an image. */
 export const SplitField = ({ tone = "aqua", tag, title, children, action }) => (
-  <div className="grid grid-cols-1 md:grid-cols-2 rounded-3xl overflow-hidden">
+  <div className="iv-reveal grid grid-cols-1 md:grid-cols-2 rounded-3xl overflow-hidden">
     <div className="min-h-[18rem]" style={{ background: grad(FIELDS[tone] || FIELDS.aqua) }} />
     <div className="flex flex-col justify-center p-9 md:p-12" style={{ background: grad(TINTS[tone] || TINTS.aqua) }}>
       {tag && <p className="tag mb-3">{tag}</p>}
@@ -254,7 +254,7 @@ export const TonePanel = ({ tone = "stone", className = "", children }) => (
 /* A thin saturated strip. One line, full width, used between bands. */
 export const Ribbon = ({ tone = "ember", children, action }) => (
   <div
-    className="rounded-2xl px-8 py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-5"
+    className="iv-reveal rounded-2xl px-8 py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-5"
     style={{ background: grad(FIELDS[tone] || FIELDS.ember, 100) }}
   >
     <p className="text-paper max-w-[54ch]">{children}</p>
