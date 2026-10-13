@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
+  // separate from the desktop dropdown: on mobile More starts CLOSED
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
 
   const navigationItems = [
     { label: "Home", href: "/" },
@@ -23,7 +25,7 @@ const Header = () => {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 w-full h-[78px] bg-transparent px-[82px] py-7 max-md:px-10 max-sm:px-5"
+      className="fixed top-0 left-0 right-0 z-50 w-full h-[78px] px-[82px] py-7 max-md:px-10 max-sm:px-5 bg-paper/90 backdrop-blur-xl backdrop-saturate-150 border-b border-rule"
       initial={{ opacity: 0, y: -20 }}
       animate={{
         opacity: 1,
@@ -252,7 +254,7 @@ const Header = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="fixed inset-0 bg-paper/60 z-40"
+                    className="fixed inset-0 bg-ink/40 backdrop-blur-sm z-40"
                     onClick={() => setOpen(false)}
                   />
 
@@ -262,7 +264,7 @@ const Header = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="fixed top-20 right-5 w-72 bg-paper/95 z-50 overflow-hidden"
+                    className="fixed top-[88px] right-4 left-4 sm:left-auto sm:w-80 z-50 overflow-y-auto max-h-[calc(100vh-108px)] rounded-2xl bg-paper border border-rule shadow-[0_28px_60px_-24px_rgba(18,18,20,0.34)]"
                   >
                     {/* Menu Items */}
                     <div className="p-4">
@@ -273,33 +275,52 @@ const Header = () => {
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: index * 0.05 }}
-                          className="block text-ink-muted text-base font-normal py-3 px-4 hover:text-ink transition-all duration-200 mb-1"
+                          className="block text-ink text-base py-3 px-4 rounded-lg hover:bg-paper-sunk transition-colors"
                           onClick={() => setOpen(false)}
                         >
                           {item.label}
                         </motion.a>
                       ))}
 
-                      {/* More section */}
-                      <div className="mt-2 pt-3 border-t">
-                        <p className="px-4 pb-1 text-[11px] uppercase tracking-wider text-ink-faint">
+                      {/* More is a disclosure, not a dumped list. Seven extra
+                          links expanded by default made the panel longer than
+                          the screen and buried the five that matter. */}
+                      <div className="mt-2 pt-2 border-t border-rule">
+                        <button
+                          type="button"
+                          aria-expanded={mobileMoreOpen}
+                          onClick={() => setMobileMoreOpen((v) => !v)}
+                          className="w-full flex items-center justify-between py-3 px-4 text-ink text-base"
+                        >
                           More
-                        </p>
-                        {moreItems.map((item, index) => (
-                          <motion.a
-                            key={index}
-                            href={item.href}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{
-                              delay: (navigationItems.length + index) * 0.05,
-                            }}
-                            className="block text-ink-muted text-base font-normal py-3 px-4 hover:text-ink transition-all duration-200 mb-1"
-                            onClick={() => setOpen(false)}
+                          <svg
+                            className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileMoreOpen ? "rotate-180" : ""}`}
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
                           >
-                            {item.label}
-                          </motion.a>
-                        ))}
+                            <path d="M6 9l6 6 6-6" />
+                          </svg>
+                        </button>
+
+                        {mobileMoreOpen &&
+                          moreItems.map((item, index) => (
+                            <motion.a
+                              key={index}
+                              href={item.href}
+                              initial={{ opacity: 0, x: -12 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: index * 0.03 }}
+                              className="block text-ink-muted text-[15px] py-2.5 pl-7 pr-4 rounded-lg hover:text-ink hover:bg-paper-sunk transition-colors"
+                              onClick={() => setOpen(false)}
+                            >
+                              {item.label}
+                            </motion.a>
+                          ))}
                       </div>
                     </div>
                   </motion.div>

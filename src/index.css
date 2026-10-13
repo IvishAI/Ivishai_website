@@ -281,3 +281,34 @@ body {
   .iv-rise { animation: none; }
   .js-reveal .iv-reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* Article body. Set once here rather than on every post, so the six existing
+   posts and whatever replaces them read the same. */
+.iv .iv-prose { color: theme('colors.ink.muted'); line-height: 1.75; }
+.iv .iv-prose > * + * { margin-top: 1.15em; }
+.iv .iv-prose h2 {
+  font-family: var(--ivish-display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.2;
+  color: theme('colors.ink.DEFAULT');
+  margin-top: 2.4em;
+  margin-bottom: 0.1em;
+}
+.iv .iv-prose h3 {
+  font-family: var(--ivish-display);
+  font-size: 1.25rem;
+  color: theme('colors.ink.DEFAULT');
+  margin-top: 1.9em;
+}
+.iv .iv-prose strong { color: theme('colors.ink.DEFAULT'); font-weight: 600; }
+.iv .iv-prose a { color: theme('colors.ember.deep'); text-decoration: underline; }
+.iv .iv-prose ul { padding-left: 1.1rem; list-style: disc; }
+.iv .iv-prose ol { padding-left: 1.3rem; list-style: decimal; }
+.iv .iv-prose li + li { margin-top: 0.4em; }
+.iv .iv-prose img { width: 100%; margin: 2em 0; border-radius: 1rem; }
+.iv .iv-prose blockquote {
+  border-left: 2px solid theme('colors.ember.DEFAULT');
+  padding-left: 1.4rem;
+  color: theme('colors.ink.DEFAULT');
+  font-size: 1.1em;
+}

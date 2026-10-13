@@ -91,14 +91,14 @@ export const ColourField = ({ tone = "ember", children, note, tall = false, glyp
       <span
         lang={lang}
         aria-hidden="true"
-        className="absolute -right-6 -bottom-24 text-[22rem] leading-none text-white/10 select-none"
+        className="absolute -right-6 -bottom-24 text-[22rem] leading-none text-white/[0.07] select-none"
       >
         {glyph}
       </span>
     )}
     <div className="relative">
       <p className="h2 text-paper max-w-[18ch] mx-auto">{children}</p>
-      {note && <p className="tag mt-5 text-paper/70">{note}</p>}
+      {note && <p className="tag mt-5 text-paper">{note}</p>}
     </div>
   </Reveal>
 );
@@ -125,12 +125,12 @@ export const StatPanel = ({ tone = "plum", title, note, stats }) => (
     style={{ background: grad(FIELDS[tone] || FIELDS.plum, 135) }}
   >
     {title && <p className="h3 text-paper mb-2">{title}</p>}
-    {note && <p className="text-paper/70 text-sm max-w-[60ch] mb-9">{note}</p>}
+    {note && <p className="text-paper/90 text-sm max-w-[60ch] mb-9">{note}</p>}
     <dl className="grid grid-cols-2 lg:grid-cols-4 gap-8">
       {stats.map(([v, k]) => (
         <div key={k}>
           <dt className="text-paper text-3xl md:text-4xl font-medium leading-none">{v}</dt>
-          <dd className="text-paper/70 text-xs uppercase tracking-[0.08em] mt-2.5">{k}</dd>
+          <dd className="text-paper/90 text-xs uppercase tracking-[0.08em] mt-2.5">{k}</dd>
         </div>
       ))}
     </dl>
@@ -175,8 +175,10 @@ export const Orb = ({ tone = "ember", size = 64, glyph, lang }) => {
 
 /* ------------------------------------------------------- 123 OrbRow */
 /* A row of them, each carrying a script. The languages, as objects. */
+/* Centred: on a phone these wrapped to three per row and sat hard left, which
+   read as a mistake rather than as a composition. */
 export const OrbRow = ({ items, size = 64 }) => (
-  <ul className="flex flex-wrap gap-3.5">
+  <ul className="flex flex-wrap gap-3.5 justify-center">
     {items.map((o, i) => (
       <Reveal as="li" key={o.lang + i} delay={i * 0.04}>
         <Orb tone={o.tone} size={size} glyph={o.glyph} lang={o.lang} />

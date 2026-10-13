@@ -210,14 +210,14 @@ export const Closer = ({ tone = "ink", children, note, actions, glyph, lang }) =
           <span
             lang={lang}
             aria-hidden="true"
-            className="absolute -right-6 -bottom-24 text-[20rem] leading-none text-white/10 select-none"
+            className="absolute -right-6 -bottom-24 text-[20rem] leading-none text-white/[0.07] select-none"
           >
             {glyph}
           </span>
         )}
         <div className="relative">
           <p className="h2 text-paper max-w-[20ch] mx-auto">{children}</p>
-          {note && <p className="tag mt-5 text-paper/70">{note}</p>}
+          {note && <p className="tag mt-5 text-paper">{note}</p>}
         </div>
       </Reveal>
       {actions && <div className="flex flex-col sm:flex-row gap-3 mt-7 justify-center">{actions}</div>}
