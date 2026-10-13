@@ -1,347 +1,198 @@
 import React from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import {
-  Globe,
-  Languages,
-  WifiOff,
-  ReceiptText,
-  BookText,
-  ShieldCheck,
-  Store,
-  Layers,
-  Sparkles,
-} from "lucide-react";
-import {
-  PageShell,
-  Section,
-  Heading,
-  Eyebrow,
-  CTAButton,
-  Reveal,
-  CountUp,
-  AmbientBackground,
-} from "../components/site";
-import useSEO from "../lib/useSEO";
+  Masthead, SectionAnchor, Closer, SplitField, Bento, Tile, Ledger,
+  StatPanel, OrbRow, Action, Ghost, TextLink, NoteField, Matrix,
+} from "../components/iv";
 import { PRODUCTS, NUMBERS } from "../data/site";
 
-/* ------------------------------------------------------------------ */
-/* Accent config - VerbX (aqua / communication), Sera (ember / commerce)
-/* ------------------------------------------------------------------ */
-const ACCENT = {
-  aqua: {
-    text: "text-aqua",
-    grad: "text-gradient-aqua",
-    glow: "#13D8F6",
-    dot: "bg-aqua",
-    chipIcon: "text-aqua",
-  },
-  ember: {
-    text: "text-ember-soft",
-    grad: "text-gradient-ember",
-    glow: "#E26426",
-    dot: "bg-ember",
-    chipIcon: "text-ember-soft",
-  },
-};
+/* What IvishAI builds.
+ *
+ * Two products, and the honest shape of what is live against what is planned.
+ * The page used to be a grid of icon cards from an icon library, which told a
+ * visitor nothing a sentence would not have, and buried the one fact that
+ * matters: there are exactly two of these and both are running.
+ *
+ * NUMBERS is the single source for every figure here. Nothing on this page is
+ * typed twice, so nothing can drift between pages.
+ */
 
-/* ------------------------------- Hero ----------------------------------- */
-const Hero = () => (
-  <section className="relative overflow-hidden pt-36 pb-16 md:pt-44 md:pb-24">
-    <AmbientBackground variant="dual" />
-    <div className="container-site">
-      <Reveal as="span" y={0}>
-        <Eyebrow>Products</Eyebrow>
-      </Reveal>
+const { verbx, sera } = PRODUCTS;
 
-      <Reveal delay={0.05} className="mt-6">
-        <Heading as="h1" gradient="ember" size="xl">
-          Two operating systems, live today.
-        </Heading>
-      </Reveal>
-
-      <Reveal delay={0.18} className="mt-7 max-w-2xl text-lg text-cloud-muted">
-        Two operating systems, live today - one for communication, one for
-        commerce.
-      </Reveal>
-
-      <Reveal delay={0.3} className="mt-9 flex flex-wrap gap-3">
-        <CTAButton variant="primary" href={PRODUCTS.verbx.href}>
-          Visit VerbX Website
-        </CTAButton>
-        <CTAButton variant="secondary" to={PRODUCTS.sera.href}>
-          Explore Sera
-        </CTAButton>
-      </Reveal>
-    </div>
-  </section>
-);
-
-/* -------------------------- Feature chip -------------------------------- */
-const Chip = ({ icon: Icon, label, accent }) => (
-  <span className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm text-cloud-muted">
-    <Icon className={`h-4 w-4 ${accent.chipIcon}`} />
-    {label}
-  </span>
-);
-
-/* -------------------- Large product feature block ----------------------- */
-const ProductFeature = ({
-  accent,
-  tag,
-  line,
-  wordmark,
-  overview,
-  chips,
-  stat,
-  cta,
-  icon: Icon,
-  reverse = false,
-}) => (
-  <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-    {/* ---- Content column ---- */}
-    <div className={reverse ? "lg:order-2" : "lg:order-1"}>
-      <div className="flex items-center gap-3">
-        <span className={`text-xs uppercase tracking-wider ${accent.text}`}>
-          {tag}
-        </span>
-        <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium text-cloud-muted">
-          <span className={`relative flex h-1.5 w-1.5`}>
-            <span
-              className={`absolute inline-flex h-full w-full animate-ping rounded-full ${accent.dot} opacity-60`}
-            />
-            <span
-              className={`relative inline-flex h-1.5 w-1.5 rounded-full ${accent.dot}`}
-            />
-          </span>
-          Live today
-        </span>
-      </div>
-
-      {wordmark}
-
-      <p className="mt-4 text-lg text-cloud-muted">{line}</p>
-
-      <p className="mt-6 max-w-xl leading-relaxed text-cloud">{overview}</p>
-
-      <div className="mt-7 flex flex-wrap gap-2.5">
-        {chips.map((c) => (
-          <Chip key={c.label} icon={c.icon} label={c.label} accent={accent} />
-        ))}
-      </div>
-
-      <div className="mt-9">
-        {cta.href ? (
-          <CTAButton variant="primary" href={cta.href}>
-            {cta.label}
-          </CTAButton>
-        ) : (
-          <CTAButton variant="primary" to={cta.to}>
-            {cta.label}
-          </CTAButton>
-        )}
-      </div>
-    </div>
-
-    {/* ---- Visual column ---- */}
-    <div className={reverse ? "lg:order-1" : "lg:order-2"}>
-      <div className="relative overflow-hidden bg-white/[0.02] p-8 md:p-10">
-        <div className="absolute inset-0 bg-grid opacity-[0.35]" />
-        <div
-          className="pointer-events-none absolute -inset-x-16 -top-16 h-56 opacity-30 blur-3xl"
-          style={{
-            background: `radial-gradient(circle, ${accent.glow}, transparent 70%)`,
-          }}
-        />
-        <div className="relative flex flex-col items-center text-center">
-          <div className={`inline-flex p-3 ${accent.text}`}>
-            <Icon className="h-7 w-7" />
-          </div>
-          <div className={`mt-6 font-sora text-6xl md:text-7xl ${accent.grad}`}>
-            <CountUp end={stat.end} suffix={stat.suffix || ""} />
-          </div>
-          <div className="mt-2 text-sm text-cloud-muted">{stat.label}</div>
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-/* ------------------------------- VerbX ---------------------------------- */
-const VerbXBlock = () => (
-  <Section id="verbx" className="border-t">
-    <ProductFeature
-      accent={ACCENT.aqua}
-      tag={PRODUCTS.verbx.tag}
-      line={PRODUCTS.verbx.line}
-      icon={Globe}
-      wordmark={
-        <h2 className="mt-5">
-          <img
-            src="/logos/verbx.png"
-            alt="VerbX"
-            className="h-9 w-auto md:h-11"
-            loading="lazy"
-          />
-        </h2>
-      }
-      overview={PRODUCTS.verbx.overview}
-      chips={[
-        { icon: Languages, label: `${NUMBERS.languages} languages live today` },
-        { icon: WifiOff, label: "Offline-first" },
-        { icon: Globe, label: "Multilingual institutions" },
-      ]}
-      stat={{ end: NUMBERS.languages, label: "languages live today" }}
-      cta={{ label: "Explore VerbX", to: "/explore-verbx" }}
-    />
-  </Section>
-);
-
-/* -------------------------------- Sera ---------------------------------- */
-const SeraBlock = () => (
-  <Section id="sera" className="border-t">
-    <ProductFeature
-      reverse
-      accent={ACCENT.ember}
-      tag={PRODUCTS.sera.tag}
-      line={PRODUCTS.sera.line}
-      icon={Store}
-      wordmark={
-        <h2 className="mt-5 font-sora text-5xl leading-none text-gradient-ember md:text-6xl">
-          Sera
-        </h2>
-      }
-      overview={PRODUCTS.sera.overview}
-      chips={[
-        { icon: ReceiptText, label: "Billing" },
-        { icon: BookText, label: "Khata" },
-        { icon: ShieldCheck, label: "Compliance" },
-        { icon: WifiOff, label: "Offline-first" },
-      ]}
-      stat={{ end: 28, label: "industries covered" }}
-      cta={{ label: "Explore Sera", to: PRODUCTS.sera.href }}
-    />
-  </Section>
-);
-
-/* ---------------------- Future Industry 6.0 pillars --------------------- */
-const PILLARS = [
+const LAYERS = [
   {
-    no: "01",
-    label: "VerbX - Communication",
-    live: true,
-    accent: "aqua",
+    name: "IvishAI - Intelligent Infrastructure",
+    status: "Foundation",
+    state: "foundation",
+    note: "The layer the others are built on.",
   },
   {
-    no: "02",
-    label: "Sera - Commerce",
-    live: true,
-    accent: "ember",
+    name: `${verbx.name} - Communication`,
+    status: "Live",
+    state: "live",
+    note: verbx.overview,
   },
-  { no: "03", label: "To be announced", live: false },
-  { no: "04", label: "To be announced", live: false },
-  { no: "05", label: "To be announced", live: false },
+  {
+    name: `${sera.name} - Commerce`,
+    status: "Live",
+    state: "live",
+    note: sera.overview,
+  },
+  {
+    name: "More pillars to follow",
+    status: "Planned",
+    state: "planned",
+    note: "Named as planned, because that is what they are.",
+  },
 ];
 
-const PillarRow = ({ pillar, i }) => {
-  const a = pillar.accent ? ACCENT[pillar.accent] : null;
-  return (
-    <Reveal delay={i * 0.09} y={16}>
-      <div
-        className={`flex items-center gap-4 border px-5 py-4 md:px-6 md:py-5 ${
-          pillar.live ? "" : "border-dashed border-ink/15 bg-white/[0.015]"
-        }`}
-      >
-        <span
-          className={`font-sora text-lg tabular-nums ${
-            pillar.live ? (a ? a.text : "text-cloud") : "text-cloud-faint"
-          }`}
+const Products = () => (
+  <div className="iv min-h-screen text-ink">
+    <Header />
+
+    <Masthead
+      tag="What we build"
+      tone="aqua"
+      title="Two operating systems, live."
+      lede="Not a roadmap. VerbX carries communication and Sera carries commerce, and both are running in production today."
+      actions={[
+        <Action key="v" href={verbx.href}>{verbx.cta}</Action>,
+        <Ghost key="s" to={sera.href}>{sera.cta}</Ghost>,
+      ]}
+    />
+
+    <SectionAnchor id="live" tag="Live today" title="The two products.">
+      <div className="space-y-5">
+        <SplitField
+          tone="aqua"
+          tag={verbx.tag}
+          title={verbx.name}
+          action={<TextLink href={verbx.href}>{verbx.cta}</TextLink>}
         >
-          {pillar.no}
-        </span>
-        <span
-          className={`flex-1 ${pillar.live ? "text-cloud" : "text-cloud-faint"}`}
+          {verbx.overview}
+        </SplitField>
+        <SplitField
+          tone="ember"
+          tag={sera.tag}
+          title={sera.name}
+          action={<TextLink to={sera.href}>{sera.cta}</TextLink>}
         >
-          {pillar.label}
-        </span>
-        {pillar.live ? (
-          <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium text-cloud-muted">
-            <span className={`inline-flex h-1.5 w-1.5 rounded-full ${a.dot}`} />
-            Live
-          </span>
-        ) : (
-          <span className="rounded-full px-2.5 py-1 text-[11px] font-medium text-cloud-faint">
-            Soon
-          </span>
-        )}
+          {sera.overview}
+        </SplitField>
       </div>
-    </Reveal>
-  );
-};
+    </SectionAnchor>
 
-const FuturePillars = () => (
-  <Section id="industry-60" className="border-t">
-    <div className="grid items-start gap-12 lg:grid-cols-2 lg:gap-16">
-      <div className="lg:sticky lg:top-28">
-        <Eyebrow>Industry 6.0</Eyebrow>
-        <Reveal delay={0.05} className="mt-5">
-          <Heading as="h2" gradient="aqua" size="lg">
-            More pillars to follow.
-          </Heading>
-        </Reveal>
-        <Reveal delay={0.12} className="mt-6 max-w-xl text-lg text-cloud-muted">
-          VerbX and Sera are the first two pillars. More intelligent
-          operating-system layers will follow under the Industry 6.0 vision.
-        </Reveal>
+    <SectionAnchor
+      id="languages"
+      tag="The languages"
+      title="Bharat, in its own scripts."
+      lede={`${NUMBERS.languages} languages live in VerbX - ${NUMBERS.indianLanguages} Indian and ${NUMBERS.globalLanguages} foreign. A shopkeeper sees their own script, not an approximation of it.`}
+    >
+      <OrbRow
+        size={72}
+        items={[
+          { glyph: "अ", lang: "hi", tone: "ember" },
+          { glyph: "அ", lang: "ta", tone: "aqua" },
+          { glyph: "అ", lang: "te", tone: "plum" },
+          { glyph: "আ", lang: "bn", tone: "moss" },
+          { glyph: "અ", lang: "gu", tone: "clay" },
+          { glyph: "ಅ", lang: "kn", tone: "ink" },
+          { glyph: "അ", lang: "ml", tone: "ember" },
+          { glyph: "ਅ", lang: "pa", tone: "aqua" },
+          { glyph: "ଅ", lang: "or", tone: "plum" },
+          { glyph: "ا", lang: "ur", tone: "moss" },
+        ]}
+      />
 
-        <Reveal delay={0.2} className="mt-8 flex items-start gap-3 p-4">
-          <span className="mt-0.5 inline-flex p-2 text-cloud-muted">
-            <Sparkles className="h-5 w-5" />
-          </span>
-          <p className="text-sm leading-relaxed text-cloud-faint">
-            Pillars 03-05 are to be announced. Details coming soon.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.28} className="mt-9 flex flex-wrap gap-3">
-          <CTAButton variant="secondary" to="/explore-verbx">
-            Explore VerbX
-          </CTAButton>
-          <CTAButton variant="secondary" to={PRODUCTS.sera.href}>
-            Explore Sera
-          </CTAButton>
-        </Reveal>
+      <div className="mt-12">
+        <StatPanel
+          tone="aqua"
+          title="What is actually running."
+          note="Every figure here comes from one place in the code, so no two pages can disagree about it."
+          stats={[
+            [`${NUMBERS.languages}`, "Languages live"],
+            [`${NUMBERS.indianLanguages}`, "Indian languages"],
+            [`${NUMBERS.engines}`, "Engines"],
+            [`${NUMBERS.patentsTotal}`, "Patents filed"],
+          ]}
+        />
       </div>
+    </SectionAnchor>
 
-      {/* Roadmap stack */}
-      <div>
-        <div className="mb-4 flex items-center gap-2 text-xs uppercase tracking-wider text-cloud-faint">
-          <Layers className="h-4 w-4" />
-          Operating-system layers
-        </div>
-        <div className="space-y-3">
-          {PILLARS.map((p, i) => (
-            <PillarRow key={p.no} pillar={p} i={i} />
-          ))}
-        </div>
+    <SectionAnchor
+      id="layers"
+      tag="The layers"
+      title="Where each one sits."
+      lede="Two are live. One is the ground they stand on. The rest are named as planned, not pretended to be finished."
+    >
+      <Ledger items={LAYERS} />
+    </SectionAnchor>
+
+    <SectionAnchor
+      id="difference"
+      tag="How they differ"
+      title="One company, two problems."
+      lede="They share an engine and an account. What they do with it is not the same."
+    >
+      <Matrix
+        cols={[verbx.name, sera.name]}
+        rows={[
+          ["Offline-first", true, true],
+          ["Multilingual interface", true, true],
+          ["Speech and voice", true, false],
+          ["Document translation", true, false],
+          ["Billing and khata", false, true],
+          ["Inventory", false, true],
+        ]}
+      />
+
+      <div className="mt-10">
+        <NoteField tone="sand" tag="One account">
+          The same credentials, the same balance and the same language list across
+          both. A term fixed once is fixed everywhere.
+        </NoteField>
       </div>
-    </div>
-  </Section>
+    </SectionAnchor>
+
+    <SectionAnchor
+      id="principles"
+      tag="How they are built"
+      title="The same four decisions, in both."
+    >
+      <Bento>
+        <Tile tone="lilac" span={2} title="Infrastructure, not apps">
+          Operating systems beneath communication and commerce - built to sit
+          underneath industries, not on top of them.
+        </Tile>
+        <Tile tone="mint" title="Offline-first">
+          Designed for Indian conditions where connectivity is not a given.
+        </Tile>
+        <Tile tone="ember" title="One account">
+          One set of credentials and one balance, across every product.
+        </Tile>
+        <Tile tone="sky" span={2} title="India to global">
+          Born in India, engineered to run anywhere - infrastructure without
+          borders.
+        </Tile>
+      </Bento>
+    </SectionAnchor>
+
+    <Closer
+      tone="aqua"
+      glyph="அ"
+      lang="ta"
+      note="Two products, live today"
+      actions={[
+        <Action key="v" href={verbx.href}>{verbx.cta}</Action>,
+        <Ghost key="c" to="/contact">Talk to us</Ghost>,
+      ]}
+    >
+      The layer your industry runs on.
+    </Closer>
+
+    <Footer />
+  </div>
 );
-
-/* ------------------------------- Page ----------------------------------- */
-const Products = () => {
-  useSEO(
-    "Products - VerbX & Sera | IvishAI",
-    "VerbX, a language communication operating system, and Sera, a retail operating system for Bharat. Explore both products from IvishAI.",
-  );
-
-  return (
-    <PageShell>
-      <Hero />
-      <VerbXBlock />
-      <SeraBlock />
-      <FuturePillars />
-    </PageShell>
-  );
-};
 
 export default Products;
