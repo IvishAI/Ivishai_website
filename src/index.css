@@ -196,3 +196,15 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .iv-marquee { animation: none; }
 }
+
+/* Odometer - each digit is a column of ten, shifted so the wanted one sits in
+   the window. The reel must be a stack of block children; a single string lays
+   out horizontally and shows one stray digit. */
+.iv-odo { display: inline-flex; font-family: var(--ivish-display); font-size: clamp(2.6rem, 5.4vw, 4.6rem); line-height: 1; }
+.iv-odo__d { display: block; height: 1em; overflow: hidden; }
+.iv-odo__reel { display: block; transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1); }
+.iv-odo__reel b { display: block; height: 1em; font-weight: 500; }
+.iv-odo__sep { display: block; }
+@media (prefers-reduced-motion: reduce) {
+  .iv-odo__reel { transition: none; }
+}
