@@ -273,7 +273,7 @@ const SeraFooter = () => (
                 <Link to="/">IvishAI</Link>
               </li>
               <li>
-                <Link to="/verbx">VerbX</Link>
+                <Link to="/explore-verbx">VerbX</Link>
               </li>
               <li>
                 <a href={`mailto:${SERA.contactEmail}`}>Contact</a>

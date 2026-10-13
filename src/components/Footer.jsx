@@ -31,16 +31,10 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="/testimonials"
-                  className="hover:text-ink transition-colors"
-                >
-                  Testimonials
-                </a>
-              </li>
-              <li>
-                <a href="/faqs" className="hover:text-ink transition-colors">
-                  Blogs
+                {/* was href="/faqs" - the wrong destination, and not a route
+                    either, so this 404d from every page on the site */}
+                <a href="/Blog" className="hover:text-ink transition-colors">
+                  Writing
                 </a>
               </li>
               <li>
@@ -256,7 +250,7 @@ function Footer() {
           Back to top
         </button>
         <Link
-          to="/Developerpage"
+          to="/developerpage"
           onClick={scrollToTop}
           className="text-ink-muted hover:text-ink transition-colors cursor-pointer"
         >
