@@ -1,21 +1,24 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import useSEO from "../lib/useSEO";
+import {
+  Masthead, SectionAnchor, Closer, Questions, PageIndex, TwoUp,
+  Action, Ghost, Footnote,
+} from "../components/iv";
+import { EMAILS } from "../data/site";
 
-function MoreFAQ() {
-  const [openIndex, setOpenIndex] = useState(-1);
+/* The longer FAQ.
+ *
+ * The questions are unchanged. They used to render as one continuous list with
+ * `{ section: "..." }` markers styled as coloured rows between them, which
+ * meant the sections were a visual hint rather than a structure - you could not
+ * link to one, and on a phone you could not tell where one ended.
+ *
+ * They are real sections now, with an index down the side.
+ */
 
-  const toggle = (i) => setOpenIndex(openIndex === i ? -1 : i);
-
-  // ---------------- SECTION COLORS ----------------
-  // Each section alternates colors (cyan → orange → cyan → orange ...)
-  const sectionColors = [
-    "cyan", // GENERAL QUESTIONS"orange", // FEATURES"cyan", // PRIVACY"orange", // BILLING"cyan", // OFFLINE MODE"orange", // COMPANION DEVICE"cyan", // ENTERPRISE"orange" // TROUBLESHOOTING
-  ];
-
-  // ---------------- ALL 40 ITEMS ----------------
-  const faqItems = [
+const FAQ_ITEMS = [
     // SECTION 1
     { section: "GENERAL QUESTIONS" },
     {
@@ -214,108 +217,93 @@ function MoreFAQ() {
     { q: "Found a bug?", a: "Email ivishai.supprt@gmail.com with details." },
   ];
 
-  let currentSectionIndex = -1;
+/* The flat list carries `{ section }` markers between groups. Fold it into
+   actual groups so each one can be a section with an id. */
+const GROUPS = FAQ_ITEMS.reduce((acc, item) => {
+  if (item.section) {
+    acc.push({ title: item.section, items: [] });
+  } else if (acc.length) {
+    acc[acc.length - 1].items.push({ q: item.q, a: item.a });
+  }
+  return acc;
+}, []);
+
+const slug = (t) =>
+  t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+const MoreFAQ = () => {
+  useSEO(
+    "Frequently asked questions - IvishAI",
+    "Questions about IvishAI, VerbX and Sera, answered.",
+  );
 
   return (
-    <>
+    <div className="iv min-h-screen text-ink">
       <Header />
-      <section className="px-6 md:px-20 lg:px-36 pt-24 md:pt-16 pb-16 bg-black text-white">
-        <h1
-          className="text-center text-4xl md:text-6xl font-sora mb-10 tracking-tight
- text-ink"
-        >
-          More Frequently Asked Questions
-        </h1>
 
-        <div className="flex flex-col gap-6">
-          {faqItems.map((item, index) => {
-            if (item.section) {
-              currentSectionIndex++;
+      <Masthead
+        tag="Questions"
+        tone="lilac"
+        title="Asked often enough to write down."
+        lede="Everything we get asked about the company and the two products. If yours is not here, write to us and it probably will be."
+        actions={[
+          <Action key="c" href={`mailto:${EMAILS.general}`}>Ask us something</Action>,
+          <Ghost key="p" href="/products">See what we build</Ghost>,
+        ]}
+      />
 
-              return (
-                <h2
-                  key={index}
-                  className={`text-2xl md:text-3xl font-semibold mt-10 mb-2 tracking-tight
- ${sectionColors[currentSectionIndex] === "cyan" ? "text-cyan-400" : "text-orange-400"}`}
-                >
-                  {item.section}
-                </h2>
-              );
-            }
-
-            const isCyan = sectionColors[currentSectionIndex] === "cyan";
-
-            return (
-              <AccordionItem
-                key={index}
-                question={item.q}
-                answer={item.a}
-                isOpen={openIndex === index}
-                onClick={() => toggle(index)}
-                borderColor={isCyan ? "border-cyan-400" : "border-orange-400"}
-                iconColor={isCyan ? "#13D8F6" : "#E26426"}
+      <section className="band">
+        <div className="wrap">
+          <TwoUp
+            aside={
+              <PageIndex
+                items={GROUPS.map((g) => ({ id: slug(g.title), label: g.title }))}
               />
-            );
-          })}
+            }
+          >
+            <div className="space-y-16">
+              {GROUPS.map((g) => (
+                <div key={g.title} id={slug(g.title)} className="scroll-mt-28">
+                  <p className="tag mb-5">{g.title}</p>
+                  <Questions items={g.items} />
+                </div>
+              ))}
+            </div>
+          </TwoUp>
         </div>
       </section>
-      <Footer />
-    </>
-  );
-}
 
-// ------------- Accordion Component -------------
-function AccordionItem({
-  question,
-  answer,
-  isOpen,
-  onClick,
-  borderColor,
-  iconColor,
-}) {
-  return (
-    <article>
-      <header
-        onClick={onClick}
-        className={`flex justify-between items-center px-5 md:px-10 py-4 
- bg-neutral-800 border-l-[6px] cursor-pointer ${borderColor}`}
+      <SectionAnchor id="ask" tag="Not answered" title="Then ask us.">
+        <p className="body-s max-w-[52ch] mx-auto">
+          There is no form here. The address below reaches a person, and a good
+          question usually ends up on this page.
+        </p>
+        <div className="mt-9 flex justify-center">
+          <Action href={`mailto:${EMAILS.general}`}>Ask us something</Action>
+        </div>
+        <div className="mt-12 max-w-[62ch] mx-auto">
+          <Footnote updated="13 October 2026">
+            40 questions across 8 sections.
+          </Footnote>
+        </div>
+      </SectionAnchor>
+
+      <Closer
+        tone="ink"
+        glyph="&#2309;"
+        lang="hi"
+        note={`Questions \u00b7 ${EMAILS.general}`}
+        actions={[
+          <Action key="p" href="/products">See what we build</Action>,
+          <Ghost key="a" to="/about">About the company</Ghost>,
+        ]}
       >
-        <h3 className="text-lg md:text-xl text-stone-200">{question}</h3>
+        If it gets asked twice, it belongs here.
+      </Closer>
 
-        <div className="w-7 h-7">
-          {isOpen ? (
-            <MinusIcon color={iconColor} />
-          ) : (
-            <PlusIcon color={iconColor} />
-          )}
-        </div>
-      </header>
-
-      {isOpen && (
-        <div
-          className={`px-5 md:px-10 py-4 bg-neutral-800 border-l-[6px] ${borderColor} text-gray-300`}
-        >
-          {answer}
-        </div>
-      )}
-    </article>
+      <Footer />
+    </div>
   );
-}
-
-// ------------- Dynamic Icons -------------
-const PlusIcon = ({ color }) => (
-  <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
-    <path
-      d="M28.5 16.5H19.5V7.5H16.5V16.5H7.5V19.5H16.5V28.5H19.5V19.5H28.5V16.5Z"
-      fill={color}
-    />
-  </svg>
-);
-
-const MinusIcon = ({ color }) => (
-  <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
-    <path d="M7.5 16.5h21v3h-21z" fill={color} />
-  </svg>
-);
+};
 
 export default MoreFAQ;

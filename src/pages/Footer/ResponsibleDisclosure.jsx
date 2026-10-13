@@ -1,165 +1,122 @@
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
-import { ShieldAlert, Mail } from "lucide-react";
+import React from "react";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import {
+  Masthead, SectionAnchor, Closer, Checklist, Steps, NoteField, Contacts,
+  Action, Ghost, Footnote,
+} from "../../components/iv";
+import { EMAILS, BRAND } from "../../data/site";
 
-const ResponsibleDisclosure = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+/* Responsible disclosure.
+ *
+ * Two things were wrong here and both mattered.
+ *
+ * 1. It told researchers to report to security@ivishai.com. That address is
+ *    not in our address list - every address we actually publish is a Gmail
+ *    one - so a vulnerability report would have gone to a box nobody reads. On
+ *    a page whose entire purpose is receiving security reports, that is the
+ *    worst possible bug. It points at the general address until a real security
+ *    mailbox exists.
+ *
+ * 2. It promised to "acknowledge your report within 48 hours". There is no
+ *    rota and no on-call, so that could not be held to. Promising a response
+ *    time you cannot keep to a security researcher is how a private report
+ *    becomes a public one.
+ */
 
-  return (
-    <div className="w-full min-h-screen bg-white text-gray-900 px-6 md:px-16 py-16">
-      {/* 🔹 Header Section */}
-      <motion.section
-        className="w-full text-center bg-gradient-to-r from-blue-700 to-purple-700 text-white py-16 px-8"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <h1 className="text-5xl font-extrabold flex justify-center items-center gap-3">
-          <ShieldAlert size={42} />
-          Responsible Disclosure
-        </h1>
-        <p className="text-lg text-white/90 mt-4 max-w-3xl mx-auto">
-          Security is a <strong>collective effort</strong>. We appreciate
-          ethical hackers & researchers for helping us maintain a secure system.
-        </p>
-      </motion.section>
+const RULES = [
+  [true, "Report privately first, and give us a chance to fix it"],
+  [true, "Include enough detail to reproduce it - a proof of concept helps"],
+  [false, "Do not exploit a vulnerability or access data that is not yours"],
+  [false, "Do not disrupt the service or other people's use of it"],
+  [false, "Do not disclose publicly before it is resolved"],
+];
 
-      {/* 🔹 Introduction */}
-      <section className="mt-12 max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900">
-          Reporting Security Vulnerabilities
-        </h2>
-        <p className="text-lg text-gray-700 mt-2">
-          At <strong>IvishAI Quantum Pvt Ltd</strong>, we take{" "}
-          <strong>security seriously</strong> and encourage security researchers
-          to report vulnerabilities <strong>responsibly</strong>. If you
-          identify a security issue, please follow the{" "}
-          <strong>guidelines</strong> below to{" "}
-          <strong>help us address it promptly</strong>.
-        </p>
-      </section>
+const WHAT_WE_DO = [
+  {
+    title: "We read it",
+    note: "A person, not a queue. We will come back to you - and if we are slow, chase us.",
+  },
+  {
+    title: "We tell you what we found",
+    note: "Whether we could reproduce it, and whether we consider it a vulnerability.",
+  },
+  {
+    title: "We fix it by severity",
+    note: "And we tell you when it is done, so you can confirm it yourself.",
+  },
+];
 
-      {/* 🔹 Guidelines for Responsible Disclosure */}
-      <section className="mt-16 max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900">
-          Responsible Disclosure Guidelines
-        </h2>
-        <p className="text-lg text-gray-700 mt-2">
-          To ensure security and{" "}
-          <strong>ethical vulnerability reporting</strong>, please adhere to the
-          following guidelines:
-        </p>
+const MAILTO = `mailto:${EMAILS.general}?subject=${encodeURIComponent("Security disclosure")}`;
 
-        <ul className="list-disc text-lg text-gray-700 mt-4 pl-6 space-y-3">
-          <li>
-            <strong>Do not exploit</strong> vulnerabilities or access data
-            without permission.
-          </li>
-          <li>
-            <strong>Do not disrupt</strong> IvishAI services or user experience.
-          </li>
-          <li>
-            Provide <strong>detailed reports</strong> including proof of concept
-            (PoC) and steps to reproduce.
-          </li>
-          <li>
-            <strong>Respect privacy</strong> – Do not disclose vulnerabilities
-            publicly before we resolve them.
-          </li>
-          <li>
-            <strong>Submit findings securely</strong> to our{" "}
-            <strong>Security Team</strong> for prompt review and resolution.
-          </li>
-        </ul>
-      </section>
+const ResponsibleDisclosure = () => (
+  <div className="iv min-h-screen text-ink">
+    <Header />
 
-      {/* 🔹 Reporting a Security Issue */}
-      <section className="mt-16 max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900">
-          How to Report a Vulnerability
-        </h2>
-        <p className="text-lg text-gray-700 mt-2">
-          If you've found a <strong>security vulnerability</strong>, please
-          report it responsibly via <strong>email</strong> to our{" "}
-          <strong>Security Team</strong>:
-        </p>
+    <Masthead
+      tag="Security"
+      tone="stone"
+      title="Found something? Tell us."
+      lede="If you have found a vulnerability in anything we run, we would much rather hear it from you than read about it."
+      actions={[
+        <Action key="r" href={MAILTO}>Report a vulnerability</Action>,
+        <Ghost key="c" href="/compliance">Our compliance posture</Ghost>,
+      ]}
+    />
 
-        <motion.div
-          className="mt-6 flex justify-center items-center bg-blue-100 p-6"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Mail size={32} className="text-blue-700" />
-          <p className="text-lg font-semibold text-blue-900 ml-3">
-            security@ivishai.com
-          </p>
-        </motion.div>
+    <SectionAnchor
+      id="rules"
+      tag="Guidelines"
+      title="What we ask of you."
+      lede="Short, and the usual."
+    >
+      <div className="max-w-xl mx-auto text-left">
+        <Checklist items={RULES} />
+      </div>
+    </SectionAnchor>
 
-        <p className="text-md text-gray-600 mt-4 text-center">
-          Please include{" "}
-          <strong>
-            technical details, impact assessment, and potential fixes
-          </strong>
-          .
-        </p>
-      </section>
+    <SectionAnchor
+      id="ours"
+      tag="In return"
+      title="What we will do."
+      lede="Written as what we can actually hold to."
+    >
+      <Steps items={WHAT_WE_DO} />
 
-      {/* 🔹 Our Commitment */}
-      <section className="mt-16 max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900">Our Commitment</h2>
-        <p className="text-lg text-gray-700 mt-2">
-          We <strong>appreciate</strong> the contributions of the security
-          community in helping us <strong>strengthen</strong> our platform.
-          <strong>Researchers who report responsibly</strong> will be recognized
-          and <strong>may qualify</strong> for our{" "}
-          <strong>IvishAI Security Hall of Fame</strong>.
-        </p>
+      <div className="mt-12">
+        <NoteField tone="sand" tag="On response times">
+          This page used to promise an acknowledgement within 48 hours. We have
+          no on-call rota and could not hold to it, and a promise a researcher
+          cannot rely on is worse than none. We reply as fast as we can, and you
+          are welcome to chase us.
+        </NoteField>
+      </div>
+    </SectionAnchor>
 
-        <ul className="list-disc text-lg text-gray-700 mt-4 pl-6 space-y-3">
-          <li>
-            We will <strong>acknowledge your report</strong> within{" "}
-            <strong>48 hours</strong>.
-          </li>
-          <li>
-            If validated, we will <strong>prioritize a fix</strong> based on
-            severity.
-          </li>
-          <li>
-            Researchers following{" "}
-            <strong>responsible disclosure practices</strong> will be{" "}
-            <strong>publicly recognized</strong>.
-          </li>
-        </ul>
-      </section>
+    <SectionAnchor id="where" tag="Where to send it" title="One address, read by a person.">
+      <Contacts items={[["Security disclosures", EMAILS.general]]} />
 
-      {/* 🔹 Call to Action */}
-      <motion.section
-        className="mt-20 py-12 bg-blue-100 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <h2 className="text-3xl font-bold text-gray-900">
-          Join Us in Making AI Secure
-        </h2>
-        <p className="text-lg text-gray-700 mt-2 max-w-3xl mx-auto">
-          We welcome security professionals & ethical hackers to{" "}
-          <strong>help protect AI-driven innovation</strong>.
-        </p>
-        <motion.a
-          href="mailto:security@ivishai.com"
-          className="mt-6 inline-block px-8 py-3 bg-blue-700 text-white hover:bg-blue-800 transition-all"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Report a Vulnerability
-        </motion.a>
-      </motion.section>
-    </div>
-  );
-};
+      <div className="mt-12 max-w-[62ch] mx-auto">
+        <Footnote updated="13 October 2026">
+          We do not run a paid bounty programme, and we will not pretend
+          otherwise. Credit where you want it, and our thanks either way.
+        </Footnote>
+      </div>
+    </SectionAnchor>
+
+    <Closer
+      tone="ink"
+      note={BRAND.legal}
+      actions={[
+        <Action key="r" href={MAILTO}>Report a vulnerability</Action>,
+        <Ghost key="t" href="/terms">Terms</Ghost>,
+      ]}
+    >
+      Tell us privately, and we will fix it properly.
+    </Closer>
+
+    <Footer />
+  </div>
+);
 
 export default ResponsibleDisclosure;

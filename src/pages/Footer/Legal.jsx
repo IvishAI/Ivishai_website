@@ -1,133 +1,111 @@
-import React, { useEffect } from "react";
+import React from "react";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import {
+  Masthead, SectionAnchor, Closer, Checklist, NoteField, Contacts,
+  Action, Ghost, TextLink, Footnote,
+} from "../../components/iv";
+import { EMAILS, BRAND } from "../../data/site";
 
-import { motion } from "framer-motion";
+/* Legal - the index to the other documents.
+ *
+ * Two claims came off this page, for the same reason the SOC 2 claim came off
+ * /compliance: they are the kind a reader is entitled to check.
+ *
+ *   "GDPR Compliant - Users have full control over their data"
+ *   "Regular Audits - We conduct internal security and privacy audits every
+ *    6 months"
+ *
+ * GDPR compliance is a legal conclusion, not a badge you award yourself, and I
+ * found nothing in this repository showing a six-monthly audit has ever been
+ * run. What is true is stated instead: what we commit to in the terms, and
+ * where the actual documents are.
+ */
 
-const Legal = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+const COMMITMENTS = [
+  [true, "We collect what we need to run the service and can explain each of it"],
+  [true, "We do not sell personal data"],
+  [true, "We do not share user data without consent"],
+  [true, "Analytics is off until a visitor turns it on"],
+  [true, "Our products are offline-first, so the common case never leaves the device"],
+];
 
-  return (
-    <div className="w-full min-h-screen bg-white text-gray-900 px-6 md:px-16 py-16">
-      {/* 🔹 Header Section */}
-      <motion.section
-        className="w-full text-center bg-gradient-to-r from-blue-700 to-purple-700 text-white py-16 px-8"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <h1 className="text-5xl font-extrabold">Legal & Terms of Service</h1>
-        <p className="text-lg text-white/90 mt-4 max-w-3xl mx-auto">
-          Protecting your rights, ensuring transparency, and maintaining
-          compliance with global data protection laws.
-        </p>
-      </motion.section>
+const DOCS = [
+  ["/terms", "Terms & conditions", "What you agree to by using our services."],
+  ["/privacypolicy", "Privacy policy", "What we collect, and what we never do with it."],
+  ["/cookie-preferences", "Cookie preferences", "Turn analytics on or off. It is honoured."],
+  ["/compliance", "Compliance", "What we can evidence, and what we cannot."],
+  ["/responsibledisclosure", "Responsible disclosure", "How to report a vulnerability."],
+];
 
-      {/* 🔹 Terms of Service */}
-      <section className="mt-12 max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900">Terms of Service</h2>
-        <p className="text-lg text-gray-700 mt-2">
-          By using <strong>IvishAI Quantum Pvt Ltd</strong> services, you agree
-          to our terms, including:
-        </p>
+const Legal = () => (
+  <div className="iv min-h-screen text-ink">
+    <Header />
 
-        {/* 🔹 List of Legal Points */}
-        <ul className="list-disc text-lg text-gray-700 mt-4 pl-6 space-y-3">
-          <li>
-            <strong>Acceptable Use:</strong> Users must adhere to ethical usage
-            of our AI-powered assistive & language tools.
-          </li>
-          <li>
-            <strong>Intellectual Property:</strong> All{" "}
-            <strong>content, software, and AI models</strong> remain the
-            exclusive property of IvishAI.
-          </li>
-          <li>
-            <strong>Data Protection:</strong> We ensure compliance with{" "}
-            <strong>GDPR, CCPA</strong>, and other global data privacy
-            regulations.
-          </li>
-          <li>
-            <strong>User Responsibilities:</strong> Users must comply with all
-            applicable laws when interacting with IvishAI products.
-          </li>
-        </ul>
-      </section>
+    <Masthead
+      tag="Legal"
+      tone="stone"
+      title="The documents, in one place."
+      lede="Terms, privacy, cookies, compliance and disclosure - and a plain statement of what we actually commit to."
+      actions={[
+        <Action key="t" href="/terms">Terms &amp; conditions</Action>,
+        <Ghost key="p" href="/privacypolicy">Privacy policy</Ghost>,
+      ]}
+    />
 
-      {/* 🔹 Privacy & Data Protection */}
-      <section className="mt-16 max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900">
-          Privacy & Data Protection
-        </h2>
-        <p className="text-lg text-gray-700 mt-2">
-          Your data privacy and security are our top priorities. We implement{" "}
-          <strong>end-to-end encryption</strong>, secure data storage, and
-          robust policies to protect user data.
-        </p>
+    <SectionAnchor id="docs" tag="The documents" title="Everything we publish.">
+      <ul className="border-t border-rule max-w-xl mx-auto text-left">
+        {DOCS.map(([to, label, line]) => (
+          <li key={to} className="border-b border-rule py-5">
+            <TextLink to={to}>{label}</TextLink>
+            <p className="body-s mt-1.5">{line}</p>
+          </li>
+        ))}
+      </ul>
+    </SectionAnchor>
 
-        <ul className="list-disc text-lg text-gray-700 mt-4 pl-6 space-y-3">
-          <li>
-            <strong>Data Collection:</strong> We only collect{" "}
-            <strong>essential user data</strong> for functionality and do not
-            sell personal information.
-          </li>
-          <li>
-            <strong>Third-Party Sharing:</strong> We <strong>do not</strong>{" "}
-            share user data without explicit consent.
-          </li>
-          <li>
-            <strong>Opt-Out & Deletion:</strong> Users have the right to{" "}
-            <strong>delete or export</strong> their data upon request.
-          </li>
-        </ul>
-      </section>
+    <SectionAnchor
+      id="commitments"
+      tag="What we commit to"
+      title="Said plainly, so you can hold us to it."
+    >
+      <div className="max-w-xl mx-auto text-left">
+        <Checklist items={COMMITMENTS} />
+      </div>
 
-      {/* 🔹 Compliance & Updates */}
-      <section className="mt-16 max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900">
-          Compliance & Policy Updates
-        </h2>
-        <p className="text-lg text-gray-700 mt-2">
-          We regularly review and update our legal policies to remain compliant
-          with evolving global regulations.
-        </p>
+      <div className="mt-12">
+        <NoteField tone="stone" tag="What this page no longer claims">
+          It used to say we are &ldquo;GDPR Compliant&rdquo; and that we run
+          internal security and privacy audits every six months. Compliance is a
+          legal conclusion rather than a badge, and we have no record of such an
+          audit, so neither claim is made here. See the compliance page for what
+          we can actually evidence.
+        </NoteField>
+      </div>
+    </SectionAnchor>
 
-        <ul className="list-disc text-lg text-gray-700 mt-4 pl-6 space-y-3">
-          <li>
-            <strong>GDPR Compliant</strong> – Users have full control over their
-            data within our systems.
-          </li>
-          <li>
-            <strong>CCPA Transparency</strong> – California residents can
-            request detailed reports on how their data is handled.
-          </li>
-          <li>
-            <strong>Regular Audits</strong> – We conduct internal security and
-            privacy audits every <strong>6 months</strong>.
-          </li>
-        </ul>
-      </section>
+    <SectionAnchor id="ask" tag="Questions" title="Ask, and we will answer plainly.">
+      <Contacts items={[["Legal and privacy", EMAILS.general]]} />
+      <div className="mt-12 max-w-[62ch] mx-auto">
+        <Footnote updated="13 October 2026">
+          {BRAND.legal}, {BRAND.hq}.
+        </Footnote>
+      </div>
+    </SectionAnchor>
 
-      {/* 🔹 Contact & Legal Assistance */}
-      <motion.section
-        className="mt-20 py-12 bg-blue-100 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <h2 className="text-3xl font-bold text-gray-900">
-          Need Legal Assistance?
-        </h2>
-        <p className="text-lg text-gray-700 mt-2 max-w-3xl mx-auto">
-          For any legal inquiries or <strong>data requests</strong>, please
-          contact our <strong>legal team</strong> at:
-        </p>
-        <p className="text-lg font-semibold text-blue-900 mt-4">
-          📧 ivishai.supprt@gmail.com
-        </p>
-      </motion.section>
-    </div>
-  );
-};
+    <Closer
+      tone="ink"
+      note={BRAND.legal}
+      actions={[
+        <Action key="t" href="/terms">Terms &amp; conditions</Action>,
+        <Ghost key="h" to="/">Home</Ghost>,
+      ]}
+    >
+      We would rather be checkable than impressive.
+    </Closer>
+
+    <Footer />
+  </div>
+);
 
 export default Legal;

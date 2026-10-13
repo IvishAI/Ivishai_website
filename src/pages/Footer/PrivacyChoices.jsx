@@ -1,108 +1,111 @@
-import React, { useEffect } from "react";
+import React from "react";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import {
+  Masthead, SectionAnchor, Closer, Steps, NoteField, Contacts,
+  Action, Ghost, TextLink, Footnote,
+} from "../../components/iv";
+import { EMAILS, BRAND } from "../../data/site";
 
-import { motion } from "framer-motion";
-import { ShieldCheck, Trash2, Download, UserX } from "lucide-react";
+/* Your privacy choices.
+ *
+ * This page said "You have full control over how your data is used. Choose the
+ * options below to manage your privacy settings" - and then offered no working
+ * control at all. The only real control on this site is the cookie page, and
+ * until today that one did not work either.
+ *
+ * So this page stops pretending to be a control panel and becomes what it is:
+ * the list of choices you actually have, each one pointing at the thing that
+ * performs it. A page that describes a setting it cannot change is worse than
+ * a page that tells you where the setting is.
+ */
 
-const PrivacyChoices = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+const CHOICES = [
+  {
+    title: "Turn analytics off, or on",
+    note: "The one switch on this site that changes what runs. It is off until you turn it on, and the choice is remembered.",
+  },
+  {
+    title: "Ask what we hold about you",
+    note: "Write to us and we will tell you what we have, which for most visitors is nothing beyond anonymous analytics.",
+  },
+  {
+    title: "Ask us to delete it",
+    note: "Same address. We will do it and confirm when it is done.",
+  },
+];
 
-  return (
-    <div className="w-full min-h-screen bg-gray-50 text-gray-900 px-6 md:px-16 py-16">
-      {/* 🔹 Header Section */}
-      <motion.section
-        className="w-full text-center bg-gradient-to-r from-blue-700 to-purple-600 text-white py-16 px-8"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <h1 className="text-5xl font-extrabold flex justify-center items-center gap-3">
-          <ShieldCheck size={42} />
-          Your Privacy Choices
-        </h1>
-        <p className="text-lg text-white/90 mt-4 max-w-3xl mx-auto">
-          At <strong>IvishAI</strong>, we respect your right to control your
-          personal data. <strong>Manage your privacy settings below.</strong>
-        </p>
-      </motion.section>
+const PrivacyChoices = () => (
+  <div className="iv min-h-screen text-ink">
+    <Header />
 
-      {/* 🔹 Privacy Options Section */}
-      <section className="mt-12 max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900">
-          Manage Your Privacy
-        </h2>
-        <p className="text-lg text-gray-700 mt-2">
-          You have full control over how your data is used. Choose the options
-          below to manage your privacy settings.
-        </p>
+    <Masthead
+      tag="Your privacy"
+      tone="sky"
+      title="The choices you actually have."
+      lede="Three of them, and each one points at the thing that performs it rather than describing a setting this page cannot change."
+      actions={[
+        <Action key="c" href="/cookie-preferences">Cookie preferences</Action>,
+        <Ghost key="p" href="/privacypolicy">Privacy policy</Ghost>,
+      ]}
+    />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-          {[
-            {
-              icon: <Trash2 size={42} className="text-red-600" />,
-              title: "Delete My Data",
-              desc: "Request the complete removal of your personal data from our system.",
-            },
-            {
-              icon: <UserX size={42} className="text-yellow-600" />,
-              title: "Opt-Out of AI Processing",
-              desc: "Prevent your data from being used in AI-driven models and analytics.",
-            },
-            {
-              icon: <Download size={42} className="text-blue-600" />,
-              title: "Download My Data",
-              desc: "Request a report with all personal data associated with your account.",
-            },
-          ].map((privacy, index) => (
-            <motion.div
-              key={index}
-              className="bg-white p-6 text-center transition"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="mb-4 flex justify-center">{privacy.icon}</div>
-              <h3 className="text-xl font-bold text-blue-600">
-                {privacy.title}
-              </h3>
-              <p className="text-gray-700 mt-2">{privacy.desc}</p>
-              <motion.button
-                className="mt-4 px-6 py-2 bg-blue-600 text-white hover:bg-blue-700 transition-all"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Manage
-              </motion.button>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+    <SectionAnchor id="choices" tag="What you can do" title="And where to do it.">
+      <Steps items={CHOICES} />
 
-      {/* 🔹 Additional Information */}
-      <motion.section
-        className="mt-16 max-w-5xl mx-auto bg-blue-100 py-12 px-8 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-      >
-        <h2 className="text-3xl font-bold text-gray-900">Need Assistance?</h2>
-        <p className="text-lg text-gray-700 mt-2 max-w-3xl mx-auto">
-          If you need help managing your privacy preferences, feel free to{""}
-          <strong>contact our support team</strong>.
-        </p>
-        <motion.a
-          href="/contact"
-          className="mt-6 inline-block px-8 py-3 bg-purple-600 text-white hover:bg-purple-700 transition-all"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Contact Support
-        </motion.a>
-      </motion.section>
-    </div>
-  );
-};
+      <div className="mt-12 flex flex-col sm:flex-row gap-3 justify-center">
+        <Action href="/cookie-preferences">Manage cookies</Action>
+        <Ghost href={`mailto:${EMAILS.general}?subject=${encodeURIComponent("Privacy request")}`}>
+          Make a privacy request
+        </Ghost>
+      </div>
+
+      <div className="mt-14">
+        <NoteField tone="stone" tag="What changed here">
+          This page used to promise &ldquo;full control&rdquo; and then offer no
+          working control at all. The cookie page is the real one, and as of
+          today it genuinely saves and honours what you choose.
+        </NoteField>
+      </div>
+    </SectionAnchor>
+
+    <SectionAnchor id="more" tag="The documents" title="If you want the detail.">
+      <ul className="border-t border-rule max-w-xl mx-auto text-left">
+        <li className="border-b border-rule py-5">
+          <TextLink to="/privacypolicy">Privacy policy</TextLink>
+          <p className="body-s mt-1.5">What we collect and why, in full.</p>
+        </li>
+        <li className="border-b border-rule py-5">
+          <TextLink to="/cookie-preferences">Cookie preferences</TextLink>
+          <p className="body-s mt-1.5">The working switch.</p>
+        </li>
+      </ul>
+
+      <div className="mt-12">
+        <Contacts items={[["Privacy requests", EMAILS.general]]} />
+      </div>
+
+      <div className="mt-12 max-w-[62ch] mx-auto">
+        <Footnote updated="13 October 2026">
+          Your cookie choice is stored in your browser only. We keep no record
+          of it on our side.
+        </Footnote>
+      </div>
+    </SectionAnchor>
+
+    <Closer
+      tone="ink"
+      note={BRAND.legal}
+      actions={[
+        <Action key="c" href="/cookie-preferences">Manage cookies</Action>,
+        <Ghost key="h" to="/">Home</Ghost>,
+      ]}
+    >
+      A choice we ignore is not a choice.
+    </Closer>
+
+    <Footer />
+  </div>
+);
 
 export default PrivacyChoices;

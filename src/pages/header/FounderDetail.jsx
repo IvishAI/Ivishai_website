@@ -1,103 +1,136 @@
 import React from "react";
-import { useParams, Link, Navigate } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { motion } from "framer-motion";
-import { getFounder } from "../../data/site";
+import useSEO from "../../lib/useSEO";
+import {
+  Masthead, SectionAnchor, Closer, Portrait, QuoteField, Prose, Crumb,
+  LinkOut, Action, Ghost, PersonRow,
+} from "../../components/iv";
+import { getFounder, FOUNDERS, EMAILS } from "../../data/site";
+
+/* One founder.
+ *
+ * The strongest thing on a company site is a person saying something in their
+ * own words, and this page already had it - personalNote was sitting here as a
+ * grey block below the fold. It leads now.
+ *
+ * An unknown slug still redirects to /about rather than 404ing, which is right:
+ * the team list is the useful destination.
+ */
 
 const FounderDetail = () => {
   const { slug } = useParams();
   const f = getFounder(slug);
 
+  useSEO(
+    f ? `${f.name} - ${f.role} at IvishAI` : "IvishAI",
+    f ? f.card : "The people behind IvishAI.",
+  );
+
   if (!f) return <Navigate to="/about" replace />;
 
+  const others = FOUNDERS.filter((x) => x.slug !== f.slug);
+
   return (
-    <div className="min-h-screen bg-black overflow-hidden text-white">
+    <div className="iv min-h-screen text-ink">
       <Header />
 
-      {/* ── HERO ── */}
-      <section className="w-full px-4 md:px-8 lg:px-20 xl:px-32 pt-36 pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9 }}
-        >
-          <Link
-            to="/about"
-            className="inline-block mb-8 text-sm text-gray-400 hover:text-white transition-colors duration-200"
-          >
-            ← Founding team
-          </Link>
+      <Masthead
+        tag={f.role}
+        tone="lilac"
+        title={f.name}
+        lede={f.card}
+        actions={[
+          f.linkedin ? (
+            <Action key="li" href={f.linkedin}>LinkedIn</Action>
+          ) : (
+            <Action key="c" href={`mailto:${EMAILS.general}`}>Get in touch</Action>
+          ),
+          <Ghost key="a" to="/about">The whole team</Ghost>,
+        ]}
+      />
 
-          <div className="grid gap-10 md:grid-cols-[240px_1fr] md:items-end max-w-5xl">
-            <img
-              src={f.photo}
-              alt={f.name}
-              className="w-full max-w-[240px] aspect-[4/5] object-cover"
+      <section className="band">
+        <div className="wrap">
+          <div className="flex justify-center mb-8">
+            <Crumb
+              items={[
+                { label: "Home", to: "/" },
+                { label: "About", to: "/about" },
+                { label: f.name },
+              ]}
             />
+          </div>
 
-            <div>
-              <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/5">
-                <span className="text-sm text-gray-300">{f.role}</span>
-              </div>
+          <div className="flex justify-center">
+            {f.photo && (
+              <Portrait src={f.photo} name={f.name} className="w-56 h-56 rounded-2xl" />
+            )}
+          </div>
+        </div>
+      </section>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-sora tracking-tight leading-[110%] mb-6">
-                <span className="text-ink">{f.name}</span>
-              </h1>
-
-              <a
-                href={f.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-5 py-3 bg-white/5 text-sm text-gray-300 hover:text-white transition-colors duration-200"
-              >
-                Connect on LinkedIn ↗
-              </a>
+      {f.personalNote && (
+        <section className="band">
+          <div className="wrap">
+            <div className="iv-wide">
+              <QuoteField tone="lilac" who={f.name} where={f.role}>
+                {f.personalNote}
+              </QuoteField>
             </div>
           </div>
-        </motion.div>
-      </section>
+        </section>
+      )}
 
-      {/* ── PERSONAL NOTE ── */}
-      <section className="px-4 md:px-8 lg:px-20 xl:px-32 py-20 border-t border-white/10">
-        <motion.div
-          className="max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <h2 className="text-4xl font-sora mb-8 text-ink">Personal note</h2>
-
-          {f.personalNote ? (
-            <div className="border-l-4 border-[#E26426] pl-6 md:pl-8">
-              <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-                {f.personalNote}
-              </p>
-            </div>
-          ) : (
-            <p className="text-gray-400 text-base md:text-lg">
-              A personal note from {f.name.split("")[0]} is coming soon.
+      {f.about && (
+        <SectionAnchor id="about" tag="Background" title={`About ${f.name.split(" ")[0]}`}>
+          <Prose>
+            {String(f.about)
+              .split(/\n{2,}/)
+              .map((para, i) => (
+                <p key={i}>{para.trim()}</p>
+              ))}
+          </Prose>
+          {f.linkedin && (
+            <p className="mt-8">
+              <LinkOut href={f.linkedin}>{f.name} on LinkedIn</LinkOut>
             </p>
           )}
-        </motion.div>
-      </section>
+        </SectionAnchor>
+      )}
 
-      {/* ── ABOUT ── */}
-      <section className="px-4 md:px-8 lg:px-20 xl:px-32 py-20 border-t border-white/10">
-        <motion.div
-          className="max-w-3xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <h2 className="text-4xl font-sora mb-8 text-ink">About</h2>
-          <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-            {f.about}
-          </p>
-        </motion.div>
-      </section>
+      {others.length > 0 && (
+        <SectionAnchor id="others" tag="The rest of the team" title="Who else builds this.">
+          <div className="max-w-2xl mx-auto text-left">
+            {others.map((o, i) => (
+              <PersonRow
+                key={o.slug}
+                delay={i * 0.06}
+                photo={o.photo}
+                name={o.name}
+                role={o.role}
+                links={
+                  o.linkedin ? [<LinkOut key="li" href={o.linkedin}>LinkedIn</LinkOut>] : null
+                }
+              >
+                {o.card}
+              </PersonRow>
+            ))}
+          </div>
+        </SectionAnchor>
+      )}
+
+      <Closer
+        tone="ink"
+        note="Ivish AI Quantum Pvt Ltd"
+        actions={[
+          <Action key="a" href="/about">About the company</Action>,
+          <Ghost key="c" to="/careers">Work with us</Ghost>,
+        ]}
+      >
+        A company is the people who turn up to build it.
+      </Closer>
 
       <Footer />
     </div>
