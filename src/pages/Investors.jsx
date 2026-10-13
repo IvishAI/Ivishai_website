@@ -158,7 +158,7 @@ const Investors = () => (
 
     <Closer
       tone="plum"
-      glyph="&#2694;"
+      glyph="&#2438;"
       lang="bn"
       note="Reviewed by the founding team"
       actions={[

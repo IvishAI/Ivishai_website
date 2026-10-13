@@ -88,7 +88,7 @@ const Patents = () => (
 
     <Closer
       tone="plum"
-      glyph="&#3205;"
+      glyph="&#3077;"
       lang="te"
       note={`Enquiries · ${EMAILS.general}`}
       actions={[

@@ -230,7 +230,7 @@ const Blog = () => {
 
       <Closer
         tone="plum"
-        glyph="&#2694;"
+        glyph="&#2438;"
         lang="bn"
         note={`Media · ${EMAILS.general}`}
         actions={[

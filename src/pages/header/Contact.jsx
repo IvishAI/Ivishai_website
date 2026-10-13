@@ -90,7 +90,7 @@ const Contact = () => (
 
     <Closer
       tone="moss"
-      glyph="&#2694;"
+      glyph="&#2438;"
       lang="bn"
       note={BRAND.legal}
       actions={[

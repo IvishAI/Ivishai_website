@@ -105,7 +105,7 @@ const Careers = () => (
 
     <Closer
       tone="ink"
-      glyph="&#2949;"
+      glyph="&#2693;"
       lang="gu"
       note={BRAND.legal}
       actions={[

@@ -137,7 +137,7 @@ const ExploreVerbX = () => {
 
       <Closer
         tone="aqua"
-        glyph="&#3077;"
+        glyph="&#2949;"
         lang="ta"
         note="VerbX lives on its own domain"
         actions={[

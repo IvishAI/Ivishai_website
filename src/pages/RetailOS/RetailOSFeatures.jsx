@@ -140,7 +140,7 @@ const RetailOSFeatures = () => {
 
       <Closer
         tone="moss"
-        glyph="&#3077;"
+        glyph="&#2949;"
         lang="ta"
         note={`${SERA.category} · ${SERA.contactEmail}`}
         actions={[

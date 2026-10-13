@@ -133,7 +133,7 @@ const RetailOSPricing = () => {
 
       <Closer
         tone="ember"
-        glyph="&#2949;"
+        glyph="&#2693;"
         lang="gu"
         note={`${SERA.category} · ${SERA.contactEmail}`}
         actions={[

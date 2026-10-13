@@ -143,7 +143,7 @@ const Collaboration = () => (
 
     <Closer
       tone="clay"
-      glyph="&#3205;"
+      glyph="&#3077;"
       lang="te"
       note="Ivish AI Quantum Pvt Ltd"
       actions={[

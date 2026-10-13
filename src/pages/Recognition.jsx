@@ -105,7 +105,7 @@ const Recognition = () => (
 
     <Closer
       tone="ember"
-      glyph="&#3077;"
+      glyph="&#2949;"
       lang="ta"
       note="Ivish AI Quantum Pvt Ltd"
       actions={[
