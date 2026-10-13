@@ -3,7 +3,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import {
   Band, Head, Display, Lede, Actions, Action, Ghost, TextLink,
-  Columns, Ledger, Grid, Cell, Questions, Statement, Marker, Tag,
+  Columns, Ledger, Questions, Marker, Tag,
+  Tile, Bento, ColourField, StatPanel, Wash, OrbRow, SplitField, Ribbon,
 } from "../components/iv";
 
 /* The company home page.
@@ -90,8 +91,9 @@ const Home = () => (
 
     {/* One statement, one lede, two actions - not five buttons of equal weight,
         which is the same as having none. */}
-    <section className="band bg-grid pt-28 md:pt-36">
-      <div className="wrap">
+    <section className="band bg-grid pt-28 md:pt-36 relative overflow-hidden">
+      <Wash tone="ember" />
+      <div className="wrap relative">
         <span className="inline-flex items-center gap-2 mb-7">
           <Marker tone="aqua" />
           <Tag>Infrastructure for Industry 6.0</Tag>
@@ -140,42 +142,78 @@ const Home = () => (
         lede="Two are live. One is the ground they stand on. The rest are named as planned, not pretended to be finished."
       />
       <Ledger items={LAYERS} />
+
+      <div className="mt-14">
+        <StatPanel
+          tone="plum"
+          title="Two products, live."
+          note="Figures from the company record, not projections. Each one is checkable on the page it belongs to."
+          stats={[
+            ["600K+", "Products pre-loaded"],
+            ["28", "Industry types"],
+            ["8", "Patents filed"],
+            ["2025", "Incorporated"],
+          ]}
+        />
+      </div>
+    </Band>
+
+    <Band>
+      <Head
+        tag="The languages"
+        title="Bharat, in its own scripts."
+        lede="Sera ships in thirteen Indian languages and VerbX in seventy-six. A shopkeeper sees their own, not an approximation of it."
+      />
+      <OrbRow
+        size={72}
+        items={[
+          { glyph: "\u0905", lang: "hi", tone: "ember" },
+          { glyph: "\u0B85", lang: "ta", tone: "aqua" },
+          { glyph: "\u0C05", lang: "te", tone: "plum" },
+          { glyph: "\u0986", lang: "bn", tone: "moss" },
+          { glyph: "\u0A85", lang: "gu", tone: "clay" },
+          { glyph: "\u0C85", lang: "kn", tone: "ink" },
+          { glyph: "\u0D05", lang: "ml", tone: "ember" },
+          { glyph: "\u0A05", lang: "pa", tone: "aqua" },
+          { glyph: "\u0B05", lang: "or", tone: "plum" },
+          { glyph: "\u0627", lang: "ur", tone: "moss" },
+        ]}
+      />
     </Band>
 
     <Band>
       <Head tag="Live today" title="Two operating systems." />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
-        <div>
-          <Tag>Communication infrastructure</Tag>
-          <h3 className="h3 text-ink mt-3 mb-2">VerbX</h3>
-          <p className="body-s max-w-[46ch] mb-5">
-            A language communication operating system for multilingual
-            institutions, built offline-first - for individuals, institutions,
-            developers and travellers.
-          </p>
-          <TextLink href="/products">Explore VerbX</TextLink>
-        </div>
-        <div>
-          <Tag>Retail infrastructure</Tag>
-          <h3 className="h3 text-ink mt-3 mb-2">Sera</h3>
-          <p className="body-s max-w-[46ch] mb-5">
-            A retail operating system built for Bharat&rsquo;s shops - billing,
-            khata, compliance and offline-first operation, across 28 industries.
-          </p>
-          <TextLink to="/sera">Explore Sera</TextLink>
-        </div>
+      <div className="space-y-5">
+        <SplitField
+          tone="aqua"
+          tag="Communication infrastructure"
+          title="VerbX"
+          action={<TextLink href="/products">Explore VerbX</TextLink>}
+        >
+          A language communication operating system for multilingual
+          institutions, built offline-first - for individuals, institutions,
+          developers and travellers.
+        </SplitField>
+        <SplitField
+          tone="ember"
+          tag="Retail infrastructure"
+          title="Sera"
+          action={<TextLink to="/sera">Explore Sera</TextLink>}
+        >
+          A retail operating system built for Bharat&rsquo;s shops - billing,
+          khata, compliance and offline-first operation, across 28 industries.
+        </SplitField>
       </div>
     </Band>
 
     <Band>
       <Head tag="Why IvishAI" title="Built to run underneath." />
-      <Grid cols={4}>
-        {WHY.map(([title, body], i) => (
-          <Cell key={title} title={title} delay={i * 0.06} mark={<Marker />}>
-            {body}
-          </Cell>
-        ))}
-      </Grid>
+      <Bento>
+        <Tile tone="lilac" span={2} title={WHY[0][0]} delay={0}>{WHY[0][1]}</Tile>
+        <Tile tone="mint" title={WHY[1][0]} delay={0.06}>{WHY[1][1]}</Tile>
+        <Tile tone="ember" title={WHY[2][0]} delay={0.12}>{WHY[2][1]}</Tile>
+        <Tile tone="sky" span={2} title={WHY[3][0]} delay={0.18}>{WHY[3][1]}</Tile>
+      </Bento>
     </Band>
 
     <Band>
@@ -186,13 +224,22 @@ const Home = () => (
       </p>
     </Band>
 
-    <Band tight>
-      <Statement cite="IvishAI Quantum Pvt Ltd">
+    <Band>
+      <ColourField tone="ink" note="Ivish AI Quantum Pvt Ltd" glyph="&#2309;" lang="hi">
         Operating systems for the industries that run underneath everything else.
-      </Statement>
+      </ColourField>
+      <div className="mt-5">
+        <Ribbon
+          tone="ember"
+          action={<Ghost to="/contact" className="!border-paper !text-paper hover:!bg-white/10">Talk to us</Ghost>}
+        >
+          DPIIT-recognised and MSME-registered, with two live products and eight
+          patents filed.
+        </Ribbon>
+      </div>
       <Actions className="mt-10">
         <Action href="/products">See what we build</Action>
-        <Ghost to="/contact">Talk to us</Ghost>
+        <Ghost to="/about">About the company</Ghost>
       </Actions>
     </Band>
 

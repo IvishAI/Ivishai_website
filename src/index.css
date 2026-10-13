@@ -85,9 +85,11 @@ body {
   }
 }
 
-/* The ground itself. Set here so no page has to remember it. */
+/* The ground itself. Slightly off pure white - the marketing site sits on
+   #FAFAF8 and the difference is what lets a white panel read as a panel. */
 body {
-  @apply bg-paper text-ink;
+  background: #FAFAF8;
+  @apply text-ink;
 }
 
 /* Ambient grid behind heroes - on white the lines are ink at low alpha, not
