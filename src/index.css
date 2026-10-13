@@ -186,3 +186,13 @@ body {
   .iv .band { padding: 64px 0; }
   .iv .head { margin-bottom: 32px; }
 }
+
+/* Marquee - one pass of the sequence, looping on the duplicate. */
+@keyframes iv-marquee-run {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.iv-marquee { animation: iv-marquee-run 38s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .iv-marquee { animation: none; }
+}

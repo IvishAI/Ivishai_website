@@ -32,3 +32,17 @@ export {
   EmptyState, ErrorState, LoadingState, Field, Input, TextArea, Select,
   FormRow, Footnote,
 } from "./Action";
+
+export {
+  Plate, ScriptWall, Glyph, Stack, ProductMark, Screens, CredentialWall,
+  Meter, Counter, Terminal, Swatch, DotField, IndustryWall, PortraitRow,
+  Marquee,
+} from "./Objects";
+
+export {
+  PatentRow, RoleRow, Requirements, LegalDoc, Clause, Table, Matrix, Steps,
+  Contacts, Address, ArticleRow, ByLine, PullQuote, Aside, KeyValue, Tabs,
+  Toggle, Price, ComparisonBar, Legend, Highlights, Milestone, Banner,
+  Callout, Checklist, Code, Kbd, SectionIndex, ShowMore, Anchor, Ticker,
+  Avatar, ConsentRow, Sticky, Progress,
+} from "./More";
