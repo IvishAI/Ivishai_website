@@ -1,168 +1,52 @@
-import React, { useState, useEffect } from "react";
-import { Share2, Menu, X, ChevronUp } from "lucide-react";
+import React from "react";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
+import useSEO from "../../../lib/useSEO";
+import { Article, Closer, Action, Ghost } from "../../../components/iv";
 
-// Sections for Table of Contents
-const sections = [
-  { id: "introduction", title: "Introduction" },
-  { id: "transforming-healthcare", title: "How AI is Transforming Healthcare" },
-  { id: "applications", title: "Applications of AI in Healthcare" },
-  { id: "challenges", title: "Challenges in AI-Powered Healthcare" },
-  { id: "future-trends", title: "Future Trends in AI-Powered Healthcare" },
-  { id: "conclusion", title: "Conclusion" },
-];
+/* AI in healthcare: revolutionising patient care
+ *
+ * Rehoused in the Article element; it carried its own blue gradient
+ * wrapper, white card and type scale.
+ *
+ * The byline was a person who does not work here and appears nowhere
+ * else in this repository. It reads IvishAI until the owner says who
+ * actually wrote it.
+ */
 
-function App() {
-  const [showTOC, setShowTOC] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  // Handle share functionality
-  const handleShare = async () => {
-    const title = "AI in Healthcare: Revolutionizing Patient Care";
-    const url = window.location.href;
-
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title,
-          url,
-        });
-      } catch (error) {
-        console.error("Error sharing:", error);
-      }
-    } else {
-      // Fallback for browsers that don't support the Web Share API
-      navigator.clipboard.writeText(url);
-      alert("Link copied to clipboard!");
-    }
-  };
-
-  // Scroll to section
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 100,
-        behavior: "smooth",
-      });
-    }
-    setShowTOC(false);
-  };
-
-  // Scroll to top
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  // Track scroll position to highlight active section in TOC
-  useEffect(() => {
-    const handleScroll = () => {
-      // Show/hide scroll to top button
-      if (window.scrollY > 300) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
-
-      // Determine active section
-      let currentSection = "";
-      sections.forEach((section) => {
-        const element = document.getElementById(section.id);
-        if (element && window.scrollY >= element.offsetTop - 150) {
-          currentSection = section.id;
-        }
-      });
-      setActiveSection(currentSection);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+const App = () => {
+  useSEO("AI in healthcare: revolutionising patient care", "Writing from the team at IvishAI.");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 text-gray-900 relative">
-      {/* Header with controls */}
-      <header className="sticky top-0 z-50 bg-white/90 py-4 px-6 flex justify-between items-center">
-        <h2 className="text-xl font-serif font-bold text-blue-900">
-          AI in Healthcare
-        </h2>
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => setShowTOC(!showTOC)}
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors text-blue-800"
-          >
-            {showTOC ? <X size={18} /> : <Menu size={18} />}
-            <span className="hidden sm:inline">Contents</span>
-          </button>
-          <button
-            onClick={handleShare}
-            className="flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors text-white"
-          >
-            <Share2 size={18} />
-            <span className="hidden sm:inline">Share</span>
-          </button>
-        </div>
-      </header>
+    <div className="iv min-h-screen text-ink">
+      <Header />
 
-      {/* Table of Contents Sidebar */}
-      <div
-        className={`fixed top-[72px] right-0 h-[calc(100vh-72px)] bg-white/95 w-72 transform transition-transform duration-300 z-40 ${showTOC ? "translate-x-0" : "translate-x-full"}`}
-      >
-        <div className="p-6">
-          <h3 className="text-xl font-bold text-blue-900 mb-4 font-serif">
-            Table of Contents
-          </h3>
-          <ul className="space-y-3">
-            {sections.map((section) => (
-              <li key={section.id}>
-                <button
-                  onClick={() => scrollToSection(section.id)}
-                  className={`text-left w-full px-3 py-2 transition-colors ${
-                    activeSection === section.id
-                      ? "bg-blue-100 text-blue-800 font-medium"
-                      : "hover:bg-gray-100"
-                  }`}
-                >
-                  {section.title}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <Article kicker="Healthcare" title="AI in healthcare: revolutionising patient care" date="1 Feb 2025" read="6 min read">
 
-      {/* Main Content */}
-      <div className="px- py-12 flex justify-center">
-        <article className="max-w-6xl w-full bg-white p-10">
           {/* Blog Title */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-blue-900 mb-6 text-center font-serif leading-tight">
-            AI in Healthcare: Revolutionizing Patient Care
-          </h1>
+          
 
           {/* Author and Date */}
           <div className="flex items-center justify-center gap-4 mb-10">
-            <div className="w-12 h-12 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-bold">
+            <div className="w-12 h-12   flex items-center justify-center  ">
               LW
             </div>
             <div>
-              <p className="font-semibold text-gray-800">Lisa White</p>
-              <p className="text-gray-500 text-sm">February 1, 2025</p>
+              <p >IvishAI</p>
+              <p >February 1, 2025</p>
             </div>
           </div>
 
           {/* Reading Time */}
-          <div className="text-center text-gray-500 mb-10 text-sm">
-            <span className="px-3 py-1 bg-gray-100 rounded-full">
+          <div className="text-center  mb-10 ">
+            <span className="px-3 py-1  ">
               12 min read
             </span>
           </div>
 
           {/* Introduction */}
           <section id="introduction" className="mb-16">
-            <p className="text-xl text-gray-700 leading-relaxed mb-8">
+            <p className="leading-relaxed mb-8">
               Artificial Intelligence (AI) is transforming healthcare by
               enhancing diagnostics, treatment plans, and patient outcomes. From
               early disease detection to personalized medicine, AI is
@@ -176,7 +60,7 @@ function App() {
                 alt="AI in Healthcare"
                 className="w-full h-auto object-cover"
               />
-              <div className="bg-gray-50 p-3 text-sm text-gray-500 italic">
+              <div className="p-3   italic">
                 AI technologies are transforming medical diagnostics and patient
                 care
               </div>
@@ -185,53 +69,53 @@ function App() {
 
           {/* How AI is Transforming Healthcare */}
           <section id="transforming-healthcare" className="mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-blue-800 mb-8 font-serif">
+            <h2 className="sm:   mb-8 ">
               How AI is Transforming Healthcare
             </h2>
-            <p className="text-xl text-gray-700 mb-8">
+            <p className="mb-8">
               AI is enabling healthcare providers to deliver more accurate,
               efficient, and personalized care. By analyzing vast amounts of
               medical data, AI systems can identify patterns, predict outcomes,
               and assist in decision-making. Here are some key ways AI is
               transforming healthcare:
             </p>
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-6">
+            <div className="p-6">
+              <h3 className="mb-6">
                 Key Areas of Impact
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white p-5">
-                  <div className="text-blue-600 font-bold text-lg mb-2">
+                <div className="p-5">
+                  <div className="mb-2">
                     Diagnostics
                   </div>
-                  <p className="text-gray-700">
+                  <p >
                     AI algorithms analyze medical images, lab results, and
                     patient histories to assist in accurate and early diagnosis.
                   </p>
                 </div>
-                <div className="bg-white p-5">
-                  <div className="text-blue-600 font-bold text-lg mb-2">
+                <div className="p-5">
+                  <div className="mb-2">
                     Treatment Personalization
                   </div>
-                  <p className="text-gray-700">
+                  <p >
                     AI helps create personalized treatment plans based on a
                     patient's genetic makeup, lifestyle, and medical history.
                   </p>
                 </div>
-                <div className="bg-white p-5">
-                  <div className="text-blue-600 font-bold text-lg mb-2">
+                <div className="p-5">
+                  <div className="mb-2">
                     Predictive Analytics
                   </div>
-                  <p className="text-gray-700">
+                  <p >
                     AI predicts patient outcomes, such as the likelihood of
                     readmission or disease progression, enabling proactive care.
                   </p>
                 </div>
-                <div className="bg-white p-5">
-                  <div className="text-blue-600 font-bold text-lg mb-2">
+                <div className="p-5">
+                  <div className="mb-2">
                     Administrative Efficiency
                   </div>
-                  <p className="text-gray-700">
+                  <p >
                     AI automates administrative tasks like scheduling, billing,
                     and documentation, freeing up time for healthcare providers.
                   </p>
@@ -242,12 +126,12 @@ function App() {
 
           {/* Applications of AI in Healthcare */}
           <section id="applications" className="mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-blue-800 mb-8 font-serif">
+            <h2 className="sm:   mb-8 ">
               Applications of AI in Healthcare
             </h2>
             <div className="grid grid-cols-1 gap-8">
-              <div className="bg-white p-6 transition-shadow">
-                <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+              <div className="p-6 transition-">
+                <h3 className="mb-4">
                   Medical Imaging
                 </h3>
                 <div className="flex flex-col md:flex-row gap-6">
@@ -259,7 +143,7 @@ function App() {
                     />
                   </div>
                   <div className="md:w-2/3">
-                    <p className="text-lg text-gray-700">
+                    <p >
                       AI algorithms analyze medical images (e.g., X-rays, MRIs)
                       to detect abnormalities like tumors, fractures, or
                       infections. For example, AI can assist radiologists in
@@ -270,8 +154,8 @@ function App() {
                 </div>
               </div>
 
-              <div className="bg-white p-6 transition-shadow">
-                <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+              <div className="p-6 transition-">
+                <h3 className="mb-4">
                   Drug Discovery
                 </h3>
                 <div className="flex flex-col md:flex-row gap-6">
@@ -283,7 +167,7 @@ function App() {
                     />
                   </div>
                   <div className="md:w-2/3">
-                    <p className="text-lg text-gray-700">
+                    <p >
                       AI accelerates drug discovery by predicting how compounds
                       interact with biological targets. This reduces the time
                       and cost of developing new medications, potentially
@@ -293,8 +177,8 @@ function App() {
                 </div>
               </div>
 
-              <div className="bg-white p-6 transition-shadow">
-                <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+              <div className="p-6 transition-">
+                <h3 className="mb-4">
                   Remote Patient Monitoring
                 </h3>
                 <div className="flex flex-col md:flex-row gap-6">
@@ -306,7 +190,7 @@ function App() {
                     />
                   </div>
                   <div className="md:w-2/3">
-                    <p className="text-lg text-gray-700">
+                    <p >
                       AI-powered wearables and devices monitor patients' health
                       in real-time, enabling remote care for chronic conditions
                       like diabetes or heart disease. These systems can detect
@@ -317,8 +201,8 @@ function App() {
                 </div>
               </div>
 
-              <div className="bg-white p-6 transition-shadow">
-                <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+              <div className="p-6 transition-">
+                <h3 className="mb-4">
                   Virtual Health Assistants
                 </h3>
                 <div className="flex flex-col md:flex-row gap-6">
@@ -330,7 +214,7 @@ function App() {
                     />
                   </div>
                   <div className="md:w-2/3">
-                    <p className="text-lg text-gray-700">
+                    <p >
                       AI chatbots and virtual assistants provide patients with
                       instant medical advice, appointment scheduling, and
                       medication reminders. These tools improve patient
@@ -344,20 +228,20 @@ function App() {
 
           {/* Challenges in AI-Powered Healthcare */}
           <section id="challenges" className="mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-blue-800 mb-8 font-serif">
+            <h2 className="sm:   mb-8 ">
               Challenges in AI-Powered Healthcare
             </h2>
-            <p className="text-xl text-gray-700 mb-8">
+            <p className="mb-8">
               Despite its potential, AI-powered healthcare faces several
               challenges:
             </p>
             <div className="bg-orange-50 p-8 mb-8">
-              <h3 className="text-2xl font-semibold text-orange-800 mb-6">
+              <h3 className="text-orange-800 mb-6">
                 Key Challenges
               </h3>
               <div className="space-y-6">
                 <div className="flex gap-4 items-start">
-                  <div className="bg-orange-100 text-orange-800 p-3 rounded-full">
+                  <div className="bg-orange-100 text-orange-800 p-3 ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -374,10 +258,10 @@ function App() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-800">
+                    <h4 >
                       Data Privacy
                     </h4>
-                    <p className="text-gray-700">
+                    <p >
                       AI systems require access to sensitive patient data,
                       raising concerns about privacy and compliance with
                       regulations like HIPAA. Ensuring data security while
@@ -387,7 +271,7 @@ function App() {
                 </div>
 
                 <div className="flex gap-4 items-start">
-                  <div className="bg-orange-100 text-orange-800 p-3 rounded-full">
+                  <div className="bg-orange-100 text-orange-800 p-3 ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -404,10 +288,10 @@ function App() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-800">
+                    <h4 >
                       Bias in Algorithms
                     </h4>
-                    <p className="text-gray-700">
+                    <p >
                       AI models can inherit biases from training data, leading
                       to unequal treatment recommendations for different
                       demographic groups. This can perpetuate or even amplify
@@ -417,7 +301,7 @@ function App() {
                 </div>
 
                 <div className="flex gap-4 items-start">
-                  <div className="bg-orange-100 text-orange-800 p-3 rounded-full">
+                  <div className="bg-orange-100 text-orange-800 p-3 ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -434,10 +318,10 @@ function App() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-800">
+                    <h4 >
                       Regulatory Hurdles
                     </h4>
-                    <p className="text-gray-700">
+                    <p >
                       The approval process for AI-powered medical devices and
                       algorithms can be lengthy and complex. Regulatory
                       frameworks are still evolving to keep pace with rapid
@@ -447,7 +331,7 @@ function App() {
                 </div>
 
                 <div className="flex gap-4 items-start">
-                  <div className="bg-orange-100 text-orange-800 p-3 rounded-full">
+                  <div className="bg-orange-100 text-orange-800 p-3 ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -464,10 +348,10 @@ function App() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-800">
+                    <h4 >
                       Integration with Existing Systems
                     </h4>
-                    <p className="text-gray-700">
+                    <p >
                       Integrating AI tools with legacy healthcare systems can be
                       challenging and costly. Many healthcare institutions
                       operate on outdated infrastructure that isn't designed to
@@ -481,21 +365,21 @@ function App() {
 
           {/* Future Trends in AI-Powered Healthcare */}
           <section id="future-trends" className="mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-blue-800 mb-8 font-serif">
+            <h2 className="sm:   mb-8 ">
               Future Trends in AI-Powered Healthcare
             </h2>
-            <p className="text-xl text-gray-700 mb-8">
+            <p className="mb-8">
               The future of AI in healthcare is promising, with several exciting
               trends on the horizon:
             </p>
-            <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-8">
+            <div className="p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-white p-6">
-                  <div className="text-purple-600 text-4xl mb-4">01</div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                <div className="p-6">
+                  <div className="mb-4">01</div>
+                  <h3 className="mb-3">
                     Explainable AI (XAI)
                   </h3>
-                  <p className="text-gray-700">
+                  <p >
                     Efforts are underway to make AI systems more transparent,
                     enabling healthcare providers to understand how decisions
                     are made. This will increase trust and adoption of AI in
@@ -503,12 +387,12 @@ function App() {
                   </p>
                 </div>
 
-                <div className="bg-white p-6">
-                  <div className="text-purple-600 text-4xl mb-4">02</div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                <div className="p-6">
+                  <div className="mb-4">02</div>
+                  <h3 className="mb-3">
                     AI-Driven Genomics
                   </h3>
-                  <p className="text-gray-700">
+                  <p >
                     AI will play a larger role in analyzing genetic data to
                     develop personalized treatments and therapies. This could
                     revolutionize how we approach diseases with genetic
@@ -516,12 +400,12 @@ function App() {
                   </p>
                 </div>
 
-                <div className="bg-white p-6">
-                  <div className="text-purple-600 text-4xl mb-4">03</div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                <div className="p-6">
+                  <div className="mb-4">03</div>
+                  <h3 className="mb-3">
                     AI in Mental Health
                   </h3>
-                  <p className="text-gray-700">
+                  <p >
                     AI-powered tools will be used to diagnose and treat mental
                     health conditions, such as depression and anxiety. These
                     tools can provide support between therapy sessions and
@@ -529,12 +413,12 @@ function App() {
                   </p>
                 </div>
 
-                <div className="bg-white p-6">
-                  <div className="text-purple-600 text-4xl mb-4">04</div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3">
+                <div className="p-6">
+                  <div className="mb-4">04</div>
+                  <h3 className="mb-3">
                     Collaborative AI
                   </h3>
-                  <p className="text-gray-700">
+                  <p >
                     AI systems will work alongside healthcare providers to
                     enhance decision-making and improve patient outcomes. This
                     human-AI partnership will leverage the strengths of both.
@@ -546,18 +430,18 @@ function App() {
 
           {/* Conclusion */}
           <section id="conclusion" className="mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-blue-800 mb-8 font-serif">
+            <h2 className="sm:   mb-8 ">
               Conclusion
             </h2>
-            <div className="bg-blue-50 p-8">
-              <p className="text-xl text-gray-700 mb-6">
+            <div className="p-8">
+              <p className="mb-6">
                 AI is revolutionizing healthcare by enabling more accurate
                 diagnostics, personalized treatments, and efficient care
                 delivery. While challenges remain, ongoing advancements in AI
                 technology are paving the way for a future where healthcare is
                 more accessible, effective, and patient-centric.
               </p>
-              <p className="text-xl text-gray-700">
+              <p >
                 As we continue to embrace AI, its role in shaping the future of
                 healthcare will only grow stronger. The key to success lies in
                 addressing the challenges while maximizing the benefits,
@@ -568,17 +452,17 @@ function App() {
           </section>
 
           {/* Author Bio */}
-          <div className="border-t border-gray-200 pt-8 mt-12">
+          <div className="border-t  pt-8 mt-12">
             <div className="flex items-start gap-6">
-              <div className="w-16 h-16 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-bold text-xl">
+              <div className="w-16 h-16   flex items-center justify-center   ">
                 LW
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-800">
-                  About Lisa White
+                <h3 >
+                  About IvishAI
                 </h3>
-                <p className="text-gray-600 mt-2">
-                  Lisa White is a healthcare technology researcher and writer
+                <p className="mt-2">
+                  IvishAI is a healthcare technology researcher and writer
                   with over 15 years of experience in the field. She specializes
                   in the intersection of AI and healthcare, and has published
                   numerous articles on the subject.
@@ -586,21 +470,21 @@ function App() {
               </div>
             </div>
           </div>
-        </article>
-      </div>
+      </Article>
 
-      {/* Scroll to top button */}
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors z-30"
-          aria-label="Scroll to top"
-        >
-          <ChevronUp size={24} />
-        </button>
-      )}
+      <Closer
+        tone="ink"
+        actions={[
+          <Action key="b" href="/blog">More writing</Action>,
+          <Ghost key="p" href="/products">See what we build</Ghost>,
+        ]}
+      >
+        Written by the team at IvishAI.
+      </Closer>
+
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;

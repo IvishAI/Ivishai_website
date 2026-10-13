@@ -312,3 +312,94 @@ body {
   color: theme('colors.ink.DEFAULT');
   font-size: 1.1em;
 }
+
+/* ==========================================================================
+   Clearing the fixed header.
+
+   The header is position:fixed and 78px tall. A page opener therefore needs
+   more than 78px of top padding or its first line sits BEHIND the bar - which
+   is what was happening: the eyebrow line was half-hidden on every page.
+
+   The reason it was not fixed by `pt-28` on the section is specificity:
+   `.iv .band` is two classes (0,2,0) and beats Tailwind's `.pt-28` (0,1,0), so
+   the utility never applied at all. On mobile `.iv .band` is 64px - less than
+   the 78px header - so the overlap was guaranteed.
+
+   --iv-header is the one place that height is written down. If the header
+   changes height, change it here and every opener follows.
+   ========================================================================== */
+:root { --iv-header: 78px; }
+
+.iv .band--top { padding-top: calc(var(--iv-header) + 56px); }
+
+@media (max-width: 640px) {
+  .iv .band--top { padding-top: calc(var(--iv-header) + 36px); }
+}
+
+/* Anchored sections have to clear it too, or a #link lands under the bar. */
+.iv [id] { scroll-margin-top: calc(var(--iv-header) + 16px); }
+
+/* ==========================================================================
+   Showcase - the app carousel (element 153).
+   Phone frames fanned out in perspective, the centre one upright. Restored
+   from the original Sera page, rebuilt on the paper ground.
+   ========================================================================== */
+.iv .iv-sc { --iv-sc-step: 252px; }
+.iv .iv-sc__stage {
+  position: relative;
+  height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1400px;
+}
+.iv .iv-sc__glow {
+  position: absolute;
+  width: 520px; height: 520px; border-radius: 999px;
+  background: #FBDCC8;
+  filter: blur(90px);
+  opacity: 0.6;
+  pointer-events: none;
+}
+.iv .iv-sc__card {
+  position: absolute;
+  width: 288px; height: 606px;
+  padding: 0; border: 0; background: none; cursor: pointer;
+  transition: transform 0.6s cubic-bezier(0.22, 0.9, 0.3, 1), opacity 0.5s;
+}
+.iv .iv-sc__frame {
+  display: block; width: 100%; height: 100%;
+  border-radius: 40px; background: #121214; padding: 9px;
+  box-shadow: 0 34px 64px -26px rgba(18, 18, 20, 0.5);
+}
+.iv .iv-sc__screen {
+  position: relative; display: block; width: 100%; height: 100%;
+  border-radius: 32px; overflow: hidden; background: #FAFAF8;
+}
+.iv .iv-sc__screen img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+}
+.iv .iv-sc__notch {
+  position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+  width: 9px; height: 9px; border-radius: 999px; background: rgba(255,255,255,0.45);
+}
+.iv .iv-sc__caption { margin-top: 36px; text-align: center; }
+.iv .iv-sc__dots {
+  display: flex; justify-content: center; align-items: center;
+  gap: 9px; margin-top: 28px; flex-wrap: wrap;
+}
+.iv .iv-sc__dot {
+  height: 8px; width: 8px; border-radius: 999px; border: 0; padding: 0;
+  cursor: pointer; background: #E2E2DF; transition: all 0.35s;
+}
+.iv .iv-sc__dot.is-on { width: 32px; background: #E26426; }
+
+@media (max-width: 760px) {
+  .iv .iv-sc { --iv-sc-step: 188px; }
+  .iv .iv-sc__card { width: 220px; height: 462px; }
+  .iv .iv-sc__stage { height: 500px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .iv .iv-sc__card { transition: none; }
+}

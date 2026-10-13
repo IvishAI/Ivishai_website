@@ -1,152 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { Share2, Menu, X, ChevronUp } from "lucide-react";
+import React from "react";
 import { motion } from "framer-motion";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
+import useSEO from "../../../lib/useSEO";
+import { Article, Closer, Action, Ghost } from "../../../components/iv";
 
-// Sections for Table of Contents
-const sections = [
-  { id: "introduction", title: "Introduction" },
-  { id: "healthcare", title: "Healthcare" },
-  { id: "finance", title: "Finance" },
-  { id: "retail", title: "Retail" },
-  { id: "logistics", title: "Logistics" },
-  { id: "challenges", title: "Challenges and Considerations" },
-  { id: "conclusion", title: "Conclusion" },
-];
+/* How AI is transforming industries
+ *
+ * Rehoused in the Article element; it carried its own blue gradient
+ * wrapper, white card and type scale.
+ *
+ * The byline was a person who does not work here and appears nowhere
+ * else in this repository. It reads IvishAI until the owner says who
+ * actually wrote it.
+ */
 
-function App() {
-  const [showTOC, setShowTOC] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  // Handle share functionality
-  const handleShare = async () => {
-    const title = "How Artificial Intelligence is Transforming Industries";
-    const url = window.location.href;
-
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title,
-          url,
-        });
-      } catch (error) {
-        console.error("Error sharing:", error);
-      }
-    } else {
-      // Fallback for browsers that don't support the Web Share API
-      navigator.clipboard.writeText(url);
-      alert("Link copied to clipboard!");
-    }
-  };
-
-  // Scroll to section
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 100,
-        behavior: "smooth",
-      });
-    }
-    setShowTOC(false);
-  };
-
-  // Scroll to top
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  // Track scroll position to highlight active section in TOC
-  useEffect(() => {
-    const handleScroll = () => {
-      // Show/hide scroll to top button
-      if (window.scrollY > 300) {
-        setShowScrollTop(true);
-      } else {
-        setShowScrollTop(false);
-      }
-
-      // Determine active section
-      let currentSection = "";
-      sections.forEach((section) => {
-        const element = document.getElementById(section.id);
-        if (element && window.scrollY >= element.offsetTop - 150) {
-          currentSection = section.id;
-        }
-      });
-      setActiveSection(currentSection);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+const App = () => {
+  useSEO("How AI is transforming industries", "Writing from the team at IvishAI.");
 
   return (
-    <div className="min-h-screen bg-black text-white relative">
-      {/* Header with controls */}
-      <header className="sticky top-0 z-50 bg-black/80 border-b border-white/10 py-4 px-6 flex justify-between items-center">
-        <h2
-          className="text-xl font-sora font-normal"
-          style={{
-            background: "linear-gradient(90deg, #D0D0D0 0%, #5F5F5F 100%)",
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          AI Transforming Industries
-        </h2>
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => setShowTOC(!showTOC)}
-            className="flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 transition-colors text-gray-300"
-          >
-            {showTOC ? <X size={18} /> : <Menu size={18} />}
-            <span className="hidden sm:inline">Contents</span>
-          </button>
-          <button
-            onClick={handleShare}
-            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-400 to-orange-500 hover:from-cyan-500 hover:to-orange-600 transition-colors text-black font-medium"
-          >
-            <Share2 size={18} />
-            <span className="hidden sm:inline">Share</span>
-          </button>
-        </div>
-      </header>
+    <div className="iv min-h-screen text-ink">
+      <Header />
 
-      {/* Table of Contents Sidebar */}
-      <div
-        className={`fixed top-[72px] right-0 h-[calc(100vh-72px)] bg-black/95 border-l border-white/10 w-72 transform transition-transform duration-300 z-40 ${showTOC ? "translate-x-0" : "translate-x-full"}`}
-      >
-        <div className="p-6">
-          <h3 className="text-xl font-sora mb-4 text-white">
-            Table of Contents
-          </h3>
-          <ul className="space-y-3">
-            {sections.map((section) => (
-              <li key={section.id}>
-                <button
-                  onClick={() => scrollToSection(section.id)}
-                  className={`text-left w-full px-3 py-2 transition-colors ${
-                    activeSection === section.id
-                      ? "bg-cyan-400/10 text-cyan-400 font-medium"
-                      : "hover:bg-white/5 text-gray-300"
-                  }`}
-                >
-                  {section.title}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <Article kicker="Industry" title="How AI is transforming industries" date="10 Feb 2025" read="5 min read">
 
-      {/* Main Content */}
-      <div className="px-6 py-12 flex justify-center">
-        <article className="max-w-6xl w-full bg-white/5 p-8 md:p-10">
           {/* Blog Title */}
           <motion.h1
             className="font-sora font-normal leading-[100%] tracking-[-2px] mb-6 text-center"
@@ -165,25 +42,25 @@ function App() {
 
           {/* Author and Date */}
           <div className="flex items-center justify-center gap-4 mb-8">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-400 to-orange-500 flex items-center justify-center text-black font-bold">
+            <div className="w-12 h-12    to-orange-500 flex items-center justify-center  ">
               AM
             </div>
             <div>
               <p className="font-sora text-white">Ankith M</p>
-              <p className="text-gray-400 text-sm">October 10, 2023</p>
+              <p >October 10, 2023</p>
             </div>
           </div>
 
           {/* Reading Time */}
-          <div className="text-center text-gray-400 mb-10">
-            <span className="px-3 py-1 bg-white/5 rounded-full">
+          <div className="text-center  mb-10">
+            <span className="px-3 py-1 /5 ">
               15 min read
             </span>
           </div>
 
           {/* Introduction */}
           <section id="introduction" className="mb-16">
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
+            <p className="leading-relaxed mb-8">
               Artificial Intelligence (AI) has evolved from a futuristic concept
               to a transformative force, reshaping industries worldwide. From
               healthcare and finance to retail and logistics, AI technologies
@@ -196,12 +73,12 @@ function App() {
                 alt="AI Transforming Industries"
                 className="w-full h-auto object-cover"
               />
-              <div className="bg-white/5 p-3 text-sm text-gray-400 italic">
+              <div className="/5 p-3   italic">
                 AI technologies are revolutionizing multiple industries across
                 the global economy
               </div>
             </div>
-            <p className="text-lg text-gray-300 leading-relaxed">
+            <p className="leading-relaxed">
               AI is not just a tool; it's a paradigm shift that is redefining
               how businesses operate, how services are delivered, and how we
               interact with technology. Let's dive deeper into its impact across
@@ -211,53 +88,53 @@ function App() {
 
           {/* Healthcare Section */}
           <section id="healthcare" className="mb-16">
-            <h2 className="text-3xl font-sora mb-8 text-white">Healthcare</h2>
-            <p className="text-lg text-gray-300 mb-8">
+            <h2 className="font-sora mb-8 text-white">Healthcare</h2>
+            <p className="mb-8">
               In healthcare, AI enhances diagnostics and treatment plans.
               Machine learning algorithms analyze medical data to identify
               patterns, aiding in early disease detection and personalized care
               strategies. This leads to improved patient outcomes and more
               efficient healthcare delivery.
             </p>
-            <div className="bg-gradient-to-r from-cyan-400/10 to-orange-500/10 p-6">
-              <h3 className="text-2xl font-sora text-white mb-6">
+            <div className="/10 to-orange-500/10 p-6">
+              <h3 className="font-sora text-white mb-6">
                 Key Applications
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white/5 p-5">
-                  <div className="text-cyan-400 font-sora text-lg mb-2">
+                <div className="/5 p-5">
+                  <div className="font-sora  mb-2">
                     Medical Imaging
                   </div>
-                  <p className="text-gray-300">
+                  <p >
                     AI algorithms assist radiologists by detecting anomalies in
                     imaging data, leading to earlier and more accurate
                     diagnoses.
                   </p>
                 </div>
-                <div className="bg-white/5 p-5">
-                  <div className="text-cyan-400 font-sora text-lg mb-2">
+                <div className="/5 p-5">
+                  <div className="font-sora  mb-2">
                     Predictive Analytics
                   </div>
-                  <p className="text-gray-300">
+                  <p >
                     AI models predict patient deterioration, enabling proactive
                     interventions in critical care settings.
                   </p>
                 </div>
-                <div className="bg-white/5 p-5">
-                  <div className="text-cyan-400 font-sora text-lg mb-2">
+                <div className="/5 p-5">
+                  <div className="font-sora  mb-2">
                     Drug Discovery
                   </div>
-                  <p className="text-gray-300">
+                  <p >
                     AI accelerates the drug discovery process by modeling how
                     compounds interact with targets, reducing the time to market
                     for new medications.
                   </p>
                 </div>
-                <div className="bg-white/5 p-5">
-                  <div className="text-cyan-400 font-sora text-lg mb-2">
+                <div className="/5 p-5">
+                  <div className="font-sora  mb-2">
                     Telemedicine
                   </div>
-                  <p className="text-gray-300">
+                  <p >
                     AI-powered telemedicine platforms enable remote
                     consultations, making healthcare accessible to underserved
                     areas.
@@ -269,10 +146,10 @@ function App() {
 
           {/* Finance Section */}
           <section id="finance" className="mb-16">
-            <h2 className="text-3xl font-sora mb-8 text-white">Finance</h2>
+            <h2 className="font-sora mb-8 text-white">Finance</h2>
             <div className="grid grid-cols-1 gap-8">
-              <div className="bg-white/5 p-6 hover:border-cyan-400/30 transition-all">
-                <h3 className="text-2xl font-sora text-white mb-4">
+              <div className="/5 p-6 hover:/30 transition-all">
+                <h3 className="font-sora text-white mb-4">
                   Fraud Detection
                 </h3>
                 <div className="flex flex-col md:flex-row gap-6">
@@ -284,7 +161,7 @@ function App() {
                     />
                   </div>
                   <div className="md:w-2/3">
-                    <p className="text-lg text-gray-300">
+                    <p >
                       AI systems monitor transactions in real-time, identifying
                       suspicious activities and reducing fraud losses. These
                       systems can analyze patterns across millions of
@@ -295,8 +172,8 @@ function App() {
                 </div>
               </div>
 
-              <div className="bg-white/5 p-6 hover:border-cyan-400/30 transition-all">
-                <h3 className="text-2xl font-sora text-white mb-4">
+              <div className="/5 p-6 hover:/30 transition-all">
+                <h3 className="font-sora text-white mb-4">
                   Algorithmic Trading
                 </h3>
                 <div className="flex flex-col md:flex-row gap-6">
@@ -308,7 +185,7 @@ function App() {
                     />
                   </div>
                   <div className="md:w-2/3">
-                    <p className="text-lg text-gray-300">
+                    <p >
                       AI models analyze market data to execute trades at optimal
                       times, enhancing investment strategies. These algorithms
                       can process vast amounts of financial data and news in
@@ -318,8 +195,8 @@ function App() {
                 </div>
               </div>
 
-              <div className="bg-white/5 p-6 hover:border-cyan-400/30 transition-all">
-                <h3 className="text-2xl font-sora text-white mb-4">
+              <div className="/5 p-6 hover:/30 transition-all">
+                <h3 className="font-sora text-white mb-4">
                   Credit Scoring
                 </h3>
                 <div className="flex flex-col md:flex-row gap-6">
@@ -331,7 +208,7 @@ function App() {
                     />
                   </div>
                   <div className="md:w-2/3">
-                    <p className="text-lg text-gray-300">
+                    <p >
                       AI evaluates creditworthiness by analyzing diverse data
                       sources, enabling more inclusive lending practices. This
                       allows financial institutions to serve previously
@@ -346,22 +223,22 @@ function App() {
 
           {/* Retail Section */}
           <section id="retail" className="mb-16">
-            <h2 className="text-3xl font-sora mb-8 text-white">Retail</h2>
-            <p className="text-lg text-gray-300 mb-8">
+            <h2 className="font-sora mb-8 text-white">Retail</h2>
+            <p className="mb-8">
               AI is reshaping the retail industry by personalizing customer
               experiences, improving inventory management, and enabling targeted
               marketing. AI-powered recommendation systems analyze customer data
               to provide personalized product suggestions, enhancing customer
               engagement and driving sales.
             </p>
-            <div className="bg-gradient-to-r from-cyan-400/10 to-orange-500/10 p-8">
+            <div className="/10 to-orange-500/10 p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-white/5 p-6">
-                  <div className="text-cyan-400 text-2xl mb-4">01</div>
-                  <h3 className="text-xl font-sora text-white mb-3">
+                <div className="/5 p-6">
+                  <div className="mb-4">01</div>
+                  <h3 className="font-sora text-white mb-3">
                     Personalized Recommendations
                   </h3>
-                  <p className="text-gray-300">
+                  <p >
                     AI analyzes customer behavior to suggest products,
                     increasing sales and customer satisfaction. These systems
                     learn from browsing history, purchases, and even time spent
@@ -369,24 +246,24 @@ function App() {
                   </p>
                 </div>
 
-                <div className="bg-white/5 p-6">
-                  <div className="text-cyan-400 text-2xl mb-4">02</div>
-                  <h3 className="text-xl font-sora text-white mb-3">
+                <div className="/5 p-6">
+                  <div className="mb-4">02</div>
+                  <h3 className="font-sora text-white mb-3">
                     Inventory Optimization
                   </h3>
-                  <p className="text-gray-300">
+                  <p >
                     AI forecasts demand, reducing overstock and stockouts, and
                     improving supply chain efficiency. This leads to significant
                     cost savings and better customer experiences.
                   </p>
                 </div>
 
-                <div className="bg-white/5 p-6">
-                  <div className="text-cyan-400 text-2xl mb-4">03</div>
-                  <h3 className="text-xl font-sora text-white mb-3">
+                <div className="/5 p-6">
+                  <div className="mb-4">03</div>
+                  <h3 className="font-sora text-white mb-3">
                     Chatbots
                   </h3>
-                  <p className="text-gray-300">
+                  <p >
                     AI-powered chatbots assist customers with inquiries,
                     providing instant support and enhancing the shopping
                     experience. Modern chatbots can handle complex conversations
@@ -394,12 +271,12 @@ function App() {
                   </p>
                 </div>
 
-                <div className="bg-white/5 p-6">
-                  <div className="text-cyan-400 text-2xl mb-4">04</div>
-                  <h3 className="text-xl font-sora text-white mb-3">
+                <div className="/5 p-6">
+                  <div className="mb-4">04</div>
+                  <h3 className="font-sora text-white mb-3">
                     Virtual Try-Ons
                   </h3>
-                  <p className="text-gray-300">
+                  <p >
                     AI and AR technologies allow customers to visualize products
                     before purchasing, improving confidence and reducing
                     returns. This is particularly valuable for clothing,
@@ -412,8 +289,8 @@ function App() {
 
           {/* Logistics Section */}
           <section id="logistics" className="mb-16">
-            <h2 className="text-3xl font-sora mb-8 text-white">Logistics</h2>
-            <p className="text-lg text-gray-300 mb-8">
+            <h2 className="font-sora mb-8 text-white">Logistics</h2>
+            <p className="mb-8">
               In logistics, AI optimizes supply chain operations by predicting
               demand, managing inventory levels, and optimizing delivery routes.
               This leads to cost reductions, improved efficiency, and enhanced
@@ -425,47 +302,47 @@ function App() {
                 alt="Logistics and Supply Chain"
                 className="w-full h-auto object-cover"
               />
-              <div className="bg-white/5 p-3 text-sm text-gray-400 italic">
+              <div className="/5 p-3   italic">
                 AI is revolutionizing logistics and supply chain management with
                 predictive analytics and automation
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-              <div className="bg-white/5 p-6">
-                <h3 className="text-2xl font-sora text-white mb-4">
+              <div className="/5 p-6">
+                <h3 className="font-sora text-white mb-4">
                   Route Optimization
                 </h3>
-                <p className="text-lg text-gray-300">
+                <p >
                   AI calculates the most efficient delivery routes, reducing
                   fuel consumption and delivery times. These systems can adapt
                   in real-time to traffic conditions and other variables.
                 </p>
               </div>
-              <div className="bg-white/5 p-6">
-                <h3 className="text-2xl font-sora text-white mb-4">
+              <div className="/5 p-6">
+                <h3 className="font-sora text-white mb-4">
                   Demand Forecasting
                 </h3>
-                <p className="text-lg text-gray-300">
+                <p >
                   AI predicts product demand, enabling better inventory planning
                   and reducing waste. This is particularly valuable for seasonal
                   products and during unpredictable market conditions.
                 </p>
               </div>
-              <div className="bg-white/5 p-6">
-                <h3 className="text-2xl font-sora text-white mb-4">
+              <div className="/5 p-6">
+                <h3 className="font-sora text-white mb-4">
                   Warehouse Automation
                 </h3>
-                <p className="text-lg text-gray-300">
+                <p >
                   AI controls robots that manage inventory, increasing accuracy
                   and reducing labor costs. Modern warehouses can operate with
                   minimal human intervention, improving efficiency and safety.
                 </p>
               </div>
-              <div className="bg-white/5 p-6">
-                <h3 className="text-2xl font-sora text-white mb-4">
+              <div className="/5 p-6">
+                <h3 className="font-sora text-white mb-4">
                   Autonomous Vehicles
                 </h3>
-                <p className="text-lg text-gray-300">
+                <p >
                   AI-powered drones and autonomous vehicles are revolutionizing
                   last-mile delivery, making it faster and more efficient. These
                   technologies are particularly valuable in areas with difficult
@@ -477,10 +354,10 @@ function App() {
 
           {/* Challenges and Considerations Section */}
           <section id="challenges" className="mb-16">
-            <h2 className="text-3xl font-sora mb-8 text-white">
+            <h2 className="font-sora mb-8 text-white">
               Challenges and Considerations
             </h2>
-            <p className="text-lg text-gray-300 mb-8">
+            <p className="mb-8">
               Despite its advantages, AI adoption presents challenges, including
               ethical considerations, data privacy concerns, and potential job
               displacement due to automation. Addressing these issues requires
@@ -488,12 +365,12 @@ function App() {
               equitable AI deployment.
             </p>
             <div className="bg-orange-500/10 p-8 mb-8">
-              <h3 className="text-2xl font-sora text-white mb-6">
+              <h3 className="font-sora text-white mb-6">
                 Key Challenges
               </h3>
               <div className="space-y-6">
                 <div className="flex gap-4 items-start">
-                  <div className="bg-orange-500/20 text-orange-400 p-3 rounded-full">
+                  <div className="bg-orange-500/20 text-orange-400 p-3 ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -510,10 +387,10 @@ function App() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-xl font-sora text-white">
+                    <h4 className="font-sora text-white">
                       Ethical Use
                     </h4>
-                    <p className="text-gray-300">
+                    <p >
                       Ensuring AI systems operate without bias and make
                       decisions transparently is crucial for maintaining public
                       trust. Organizations must implement ethical guidelines and
@@ -523,7 +400,7 @@ function App() {
                 </div>
 
                 <div className="flex gap-4 items-start">
-                  <div className="bg-orange-500/20 text-orange-400 p-3 rounded-full">
+                  <div className="bg-orange-500/20 text-orange-400 p-3 ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -540,10 +417,10 @@ function App() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-xl font-sora text-white">
+                    <h4 className="font-sora text-white">
                       Data Privacy
                     </h4>
-                    <p className="text-gray-300">
+                    <p >
                       Protecting individual privacy while utilizing data for AI
                       applications requires robust security measures and
                       regulations. Companies must be transparent about data
@@ -553,7 +430,7 @@ function App() {
                 </div>
 
                 <div className="flex gap-4 items-start">
-                  <div className="bg-orange-500/20 text-orange-400 p-3 rounded-full">
+                  <div className="bg-orange-500/20 text-orange-400 p-3 ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -570,10 +447,10 @@ function App() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-xl font-sora text-white">
+                    <h4 className="font-sora text-white">
                       Workforce Impact
                     </h4>
-                    <p className="text-gray-300">
+                    <p >
                       Preparing the workforce for AI-driven changes involves
                       reskilling programs and education initiatives to mitigate
                       job displacement. Organizations and governments must
@@ -587,16 +464,16 @@ function App() {
 
           {/* Conclusion */}
           <section id="conclusion" className="mb-12">
-            <h2 className="text-3xl font-sora mb-8 text-white">Conclusion</h2>
-            <div className="bg-gradient-to-r from-cyan-400/10 to-orange-500/10 p-8">
-              <p className="text-lg text-gray-300 mb-6">
+            <h2 className="font-sora mb-8 text-white">Conclusion</h2>
+            <div className="/10 to-orange-500/10 p-8">
+              <p className="mb-6">
                 In conclusion, AI's transformative impact across various
                 industries underscores the need for balanced integration
                 strategies that maximize benefits while mitigating associated
                 risks. As AI continues to evolve, its role in shaping the future
                 of these sectors will only become more significant.
               </p>
-              <p className="text-lg text-gray-300">
+              <p >
                 The future of AI is bright, but it requires careful planning,
                 ethical considerations, and collaboration across industries to
                 ensure its potential is fully realized. Organizations that
@@ -609,12 +486,12 @@ function App() {
           {/* Author Bio */}
           <div className="border-t border-white/10 pt-8 mt-12">
             <div className="flex items-start gap-6">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-400 to-orange-500 flex items-center justify-center text-black font-bold text-xl">
+              <div className="w-16 h-16    to-orange-500 flex items-center justify-center   ">
                 AM
               </div>
               <div>
-                <h3 className="text-xl font-sora text-white">About Ankith M</h3>
-                <p className="text-gray-300 mt-2">
+                <h3 className="font-sora text-white">About Ankith M</h3>
+                <p className="mt-2">
                   Ankith M is a technology analyst and researcher specializing
                   in artificial intelligence and its applications across
                   industries. With a background in computer science and business
@@ -624,23 +501,21 @@ function App() {
               </div>
             </div>
           </div>
-        </article>
-      </div>
+      </Article>
 
-      {/* Scroll to top button */}
-      {showScrollTop && (
-        <motion.button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-gradient-to-r from-cyan-400 to-orange-500 text-black p-3 rounded-full hover:from-cyan-500 hover:to-orange-600 transition-colors z-30"
-          aria-label="Scroll to top"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <ChevronUp size={24} />
-        </motion.button>
-      )}
+      <Closer
+        tone="ink"
+        actions={[
+          <Action key="b" href="/blog">More writing</Action>,
+          <Ghost key="p" href="/products">See what we build</Ghost>,
+        ]}
+      >
+        Written by the team at IvishAI.
+      </Closer>
+
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;

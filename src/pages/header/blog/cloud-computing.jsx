@@ -1,23 +1,40 @@
 import React from "react";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
+import useSEO from "../../../lib/useSEO";
+import { Article, Closer, Action, Ghost } from "../../../components/iv";
+
+/* Cloud computing: the backbone of AI
+ *
+ * Rehoused in the Article element; it carried its own blue gradient
+ * wrapper, white card and type scale.
+ *
+ * The byline was a person who does not work here and appears nowhere
+ * else in this repository. It reads IvishAI until the owner says who
+ * actually wrote it.
+ */
 
 const CloudComputing = () => {
+  useSEO("Cloud computing: the backbone of AI", "Writing from the team at IvishAI.");
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 text-gray-900 px-6 py-12 flex justify-center">
-      <article className="max-w-6xl w-full bg-white p-10">
+    <div className="iv min-h-screen text-ink">
+      <Header />
+
+      <Article kicker="Infrastructure" title="Cloud computing: the backbone of AI" date="20 Nov 2024" read="4 min read">
+
         {/* Blog Title */}
-        <h1 className="text-6xl font-bold text-blue-900 mb-8 text-center font-serif">
-          Cloud Computing: The Backbone of AI
-        </h1>
+        
 
         {/* Author and Date */}
-        <div className="text-center text-gray-600 mb-12">
-          <span className="font-semibold">By Emily Johnson</span> |{""}
+        <div className="text-center  mb-12">
+          <span >IvishAI</span> |{""}
           <span>November 20, 2024</span>
         </div>
 
         {/* Introduction */}
         <section className="mb-16">
-          <p className="text-xl text-gray-700 leading-relaxed mb-6">
+          <p className="leading-relaxed mb-6">
             Cloud computing has become the backbone of modern artificial
             intelligence (AI) applications. By providing scalable, on-demand
             computing resources, the cloud enables organizations to build,
@@ -36,10 +53,10 @@ const CloudComputing = () => {
 
         {/* What is Cloud Computing? */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             What is Cloud Computing?
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="mb-8">
             Cloud computing refers to the delivery of computing services—such as
             storage, processing power, and databases—over the internet ("the
             cloud"). Instead of owning and maintaining physical servers,
@@ -48,11 +65,11 @@ const CloudComputing = () => {
             Platform (GCP). This model offers flexibility, scalability, and
             cost-efficiency, making it ideal for AI applications.
           </p>
-          <div className="bg-blue-50 p-6">
-            <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+          <div className="p-6">
+            <h3 className="mb-4">
               Key Components of Cloud Computing
             </h3>
-            <ul className="list-disc list-inside text-lg text-gray-700">
+            <ul className="list-disc list-inside  ">
               <li className="mb-2">
                 <strong>Infrastructure as a Service (IaaS):</strong> Provides
                 virtualized computing resources over the internet, such as
@@ -79,45 +96,45 @@ const CloudComputing = () => {
 
         {/* How Cloud Computing Supports AI */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             How Cloud Computing Supports AI
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Scalability
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 Cloud platforms allow AI systems to scale resources up or down
                 based on demand. For example, training a deep learning model can
                 require significant computational power, which the cloud can
                 provide on-demand.
               </p>
             </div>
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Cost Efficiency
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 Pay-as-you-go models reduce the cost of maintaining on-premise
                 infrastructure. Organizations only pay for the resources they
                 use, making AI development more affordable.
               </p>
             </div>
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Global Accessibility
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 Cloud-based AI services can be accessed from anywhere in the
                 world, enabling remote collaboration and deployment.
               </p>
             </div>
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Data Storage
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 Cloud platforms provide secure and scalable storage for large
                 datasets, which are essential for training AI models.
               </p>
@@ -127,46 +144,46 @@ const CloudComputing = () => {
 
         {/* Applications of Cloud-Powered AI */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             Applications of Cloud-Powered AI
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Healthcare
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 Cloud-powered AI is used for medical imaging, drug discovery,
                 and remote patient monitoring. For example, AI models can
                 analyze medical images stored in the cloud to detect diseases
                 like cancer.
               </p>
             </div>
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Finance
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 AI algorithms running on the cloud are used for fraud detection,
                 risk assessment, and algorithmic trading. Cloud platforms enable
                 real-time processing of financial data.
               </p>
             </div>
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Retail
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 Cloud-powered AI enables personalized recommendations, inventory
                 optimization, and customer service chatbots. Retailers can
                 analyze customer data stored in the cloud to improve sales.
               </p>
             </div>
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Autonomous Vehicles
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 Self-driving cars rely on cloud computing to process vast
                 amounts of sensor data and make real-time decisions. The cloud
                 also enables over-the-air updates for autonomous systems.
@@ -177,13 +194,13 @@ const CloudComputing = () => {
 
         {/* Challenges in Cloud-Powered AI */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             Challenges in Cloud-Powered AI
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="mb-8">
             Despite its benefits, cloud-powered AI faces several challenges:
           </p>
-          <ul className="list-disc list-inside text-xl text-gray-700 mb-8">
+          <ul className="list-disc list-inside   mb-8">
             <li className="mb-4">
               <strong>Data Security:</strong> Storing sensitive data in the
               cloud raises concerns about data breaches and unauthorized access.
@@ -208,14 +225,14 @@ const CloudComputing = () => {
 
         {/* Future Trends in Cloud-Powered AI */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             Future Trends in Cloud-Powered AI
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="mb-8">
             The future of cloud-powered AI is bright, with several exciting
             trends on the horizon:
           </p>
-          <ul className="list-disc list-inside text-xl text-gray-700 mb-8">
+          <ul className="list-disc list-inside   mb-8">
             <li className="mb-4">
               <strong>Edge Computing:</strong> Combining cloud computing with
               edge computing to reduce latency and improve real-time processing.
@@ -240,10 +257,10 @@ const CloudComputing = () => {
 
         {/* Conclusion */}
         <section>
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             Conclusion
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="mb-8">
             Cloud computing is the backbone of modern AI, providing the
             infrastructure and scalability needed to power intelligent systems.
             From healthcare to finance, cloud-powered AI is transforming
@@ -254,7 +271,19 @@ const CloudComputing = () => {
             will only grow stronger.
           </p>
         </section>
-      </article>
+      </Article>
+
+      <Closer
+        tone="ink"
+        actions={[
+          <Action key="b" href="/blog">More writing</Action>,
+          <Ghost key="p" href="/products">See what we build</Ghost>,
+        ]}
+      >
+        Written by the team at IvishAI.
+      </Closer>
+
+      <Footer />
     </div>
   );
 };

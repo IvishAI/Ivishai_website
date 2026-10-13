@@ -97,7 +97,14 @@ function App() {
 
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
 
-          <Route path="/Blog" element={<Blog />} />
+          {/* Canonical is lowercase, like every other route on this site.
+              /Blog was the odd one out and React Router is case-sensitive, so
+              typing the obvious thing gave you a 404. Both spellings and the
+              plural redirect here. */}
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/Blog" element={<Navigate to="/blog" replace />} />
+          <Route path="/blogs" element={<Navigate to="/blog" replace />} />
+          <Route path="/Blogs" element={<Navigate to="/blog" replace />} />
           <Route
             path="/ai-transforming-industries"
             element={<AiTransformingIndustries />}

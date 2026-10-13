@@ -21,11 +21,18 @@ const Header = () => {
     { label: "Government", href: "/government" },
     { label: "Investors", href: "/investors" },
     { label: "Patents", href: "/patents" },
+  // The blog was reachable from the footer and nowhere else, and that footer
+  // link pointed at a dead /faqs until 13 Oct - so it was effectively unlisted.
+  { label: "Writing & Press", href: "/blog" },
   ];
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 w-full h-[78px] px-[82px] py-7 max-md:px-10 max-sm:px-5 bg-paper/90 backdrop-blur-xl backdrop-saturate-150 border-b border-rule"
+      className={`fixed top-0 left-0 right-0 z-50 w-full h-[78px] px-[82px] py-7 max-md:px-10 max-sm:px-5 border-b border-rule ${
+        open
+          ? "bg-paper"
+          : "bg-paper/90 backdrop-blur-xl backdrop-saturate-150"
+      }`}
       initial={{ opacity: 0, y: -20 }}
       animate={{
         opacity: 1,
@@ -254,7 +261,7 @@ const Header = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="fixed inset-0 bg-ink/40 backdrop-blur-sm z-40"
+                    className="fixed left-0 right-0 bottom-0 top-[var(--iv-header)] bg-ink/45 z-40"
                     onClick={() => setOpen(false)}
                   />
 
@@ -264,7 +271,7 @@ const Header = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="fixed top-[88px] right-4 left-4 sm:left-auto sm:w-80 z-50 overflow-y-auto max-h-[calc(100vh-108px)] rounded-2xl bg-paper border border-rule shadow-[0_28px_60px_-24px_rgba(18,18,20,0.34)]"
+                    className="fixed top-[var(--iv-header)] right-0 left-0 sm:left-auto sm:right-4 sm:w-80 z-50 overflow-y-auto max-h-[calc(100vh-var(--iv-header))] bg-paper border-t border-rule sm:border sm:rounded-b-2xl shadow-[0_28px_60px_-24px_rgba(18,18,20,0.34)]"
                   >
                     {/* Menu Items */}
                     <div className="p-4">

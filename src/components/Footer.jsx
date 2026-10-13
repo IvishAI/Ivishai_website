@@ -33,7 +33,7 @@ function Footer() {
               <li>
                 {/* was href="/faqs" - the wrong destination, and not a route
                     either, so this 404d from every page on the site */}
-                <a href="/Blog" className="hover:text-ink transition-colors">
+                <a href="/blog" className="hover:text-ink transition-colors">
                   Writing
                 </a>
               </li>

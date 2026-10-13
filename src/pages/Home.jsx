@@ -91,7 +91,7 @@ const Home = () => (
 
     {/* One statement, one lede, two actions - not five buttons of equal weight,
         which is the same as having none. */}
-    <section className="band bg-grid pt-28 md:pt-36 relative overflow-hidden">
+    <section className="band band--top bg-grid relative overflow-hidden">
       <Wash tone="ember" />
       <div className="wrap relative text-center">
         <span className="inline-flex items-center gap-2 mb-7 justify-center">

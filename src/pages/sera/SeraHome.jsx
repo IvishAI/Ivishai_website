@@ -2,8 +2,8 @@ import React from "react";
 import useSEO from "../../lib/useSEO";
 import SeraShell from "../../components/sera/SeraShell";
 import {
-  Masthead, SectionAnchor, Closer, Bento, Tile, Screens, OrbRow, StatPanel,
-  CapsuleRow, Price, Ledger, SplitField, NoteField, Callout, Action, Ghost,
+  Masthead, SectionAnchor, Closer, Bento, Tile, Showcase, ZoneList, OrbRow,
+  StatPanel, CapsuleRow, Price, SplitField, NoteField, Callout, Action, Ghost,
   TextLink, Footnote,
 } from "../../components/iv";
 import {
@@ -26,13 +26,20 @@ import {
  */
 
 const SCREENS = [
-  { src: "/sera-screens/01-home.png", caption: "Today at a glance" },
-  { src: "/sera-screens/08-billing.png", caption: "Billing" },
-  { src: "/sera-screens/02-inventory.png", caption: "Inventory" },
-  { src: "/sera-screens/05-customers.png", caption: "Khata" },
-  { src: "/sera-screens/06-dashboard.png", caption: "Dashboard" },
-  { src: "/sera-screens/04-language.png", caption: "Language" },
-  { src: "/sera-screens/10-sera-ai.png", caption: "SERA AI" },
+  { src: "/sera-screens/01-home.png", tag: "Home", title: "Today at a glance",
+    body: "Revenue, bills, items sold and low stock, with quick actions to SERA AI, analytics and expenses." },
+  { src: "/sera-screens/08-billing.png", tag: "Billing", title: "Bill in seconds",
+    body: "Barcode scan, quick-add and weight entry. Every billing mode a counter actually uses." },
+  { src: "/sera-screens/02-inventory.png", tag: "Inventory", title: "Every product, priced and stocked",
+    body: "Live stock counts with out-of-stock flagged, against 600,000+ pre-loaded products." },
+  { src: "/sera-screens/05-customers.png", tag: "Khata", title: "Who owes what",
+    body: "Customer credit and dues tracked without a paper book, so collections actually happen." },
+  { src: "/sera-screens/06-dashboard.png", tag: "Dashboard", title: "The shop, in numbers",
+    body: "What sold, what did not, and what to reorder." },
+  { src: "/sera-screens/04-language.png", tag: "Language", title: "In your own script",
+    body: "Thirteen Indian languages, each in its own writing system." },
+  { src: "/sera-screens/10-sera-ai.png", tag: "SERA AI", title: "The shop assistant",
+    body: "Assisted setup and answers about your own shop, without your data leaving it." },
 ];
 
 const TONES = ["ember", "mint", "lilac", "sky", "rose", "sand", "aqua", "stone"];
@@ -108,7 +115,10 @@ const SeraHome = () => {
           lede="Real screens, not mock-ups."
         >
           <div className="iv-wide">
-            <Screens shots={SCREENS} />
+            {/* restored: this page had an auto-advancing coverflow and I had
+                replaced it with a flat row of images, which was the wrong
+                trade - see element 153 */}
+            <Showcase screens={SCREENS} />
           </div>
         </SectionAnchor>
 
@@ -134,12 +144,9 @@ const SeraHome = () => {
           title={`${SERA_INDUSTRIES.length} industries, across ${SERA_ZONES.length} zones.`}
           lede="Your shop type decides your billing screen - a pharmacy does not bill like a bakery."
         >
-          <Ledger
-            items={SERA_ZONES.map((z) => ({
-              name: `${z.name} - ${z.industries.map((i) => i.name).join(", ")}`,
-              status: z.restricted ? "Regulated" : `${z.industries.length} types`,
-              state: z.restricted ? "planned" : "live",
-            }))}
+          <ZoneList
+            zones={SERA_ZONES}
+            hrefFor={(ind) => `/sera/${ind.slug}`}
           />
 
           <div className="mt-10">

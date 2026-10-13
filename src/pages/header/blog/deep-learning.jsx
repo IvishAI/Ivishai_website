@@ -1,23 +1,40 @@
 import React from "react";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
+import useSEO from "../../../lib/useSEO";
+import { Article, Closer, Action, Ghost } from "../../../components/iv";
+
+/* Deep learning: the next big leap
+ *
+ * Rehoused in the Article element; it carried its own blue gradient
+ * wrapper, white card and type scale.
+ *
+ * The byline was a person who does not work here and appears nowhere
+ * else in this repository. It reads IvishAI until the owner says who
+ * actually wrote it.
+ */
 
 const DeepLearning = () => {
+  useSEO("Deep learning: the next big leap", "Writing from the team at IvishAI.");
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 text-gray-900 px-6 py-12 flex justify-center">
-      <article className="max-w-6xl w-full bg-white p-10">
+    <div className="iv min-h-screen text-ink">
+      <Header />
+
+      <Article kicker="Research" title="Deep learning: the next big leap" date="15 Dec 2024" read="4 min read">
+
         {/* Blog Title */}
-        <h1 className="text-6xl font-bold text-blue-900 mb-8 text-center font-serif">
-          Deep Learning: The Next Big Leap
-        </h1>
+        
 
         {/* Author and Date */}
-        <div className="text-center text-gray-600 mb-12">
-          <span className="font-semibold">By Mark Smith</span> |{""}
+        <div className="text-center  mb-12">
+          <span >IvishAI</span> |{""}
           <span>December 15, 2024</span>
         </div>
 
         {/* Introduction */}
         <section className="mb-16">
-          <p className="text-xl text-gray-700 leading-relaxed mb-6">
+          <p className="leading-relaxed mb-6">
             Deep learning, a subset of machine learning, is revolutionizing the
             field of artificial intelligence (AI). By mimicking the human
             brain’s neural networks, deep learning enables machines to learn
@@ -36,10 +53,10 @@ const DeepLearning = () => {
 
         {/* What is Deep Learning? */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             What is Deep Learning?
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="mb-8">
             Deep learning is a type of machine learning that uses artificial
             neural networks with multiple layers (hence"deep") to analyze and
             interpret complex data. These networks are inspired by the structure
@@ -49,11 +66,11 @@ const DeepLearning = () => {
             unstructured data like images, audio, and text, making it incredibly
             versatile.
           </p>
-          <div className="bg-blue-50 p-6">
-            <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+          <div className="p-6">
+            <h3 className="mb-4">
               Key Components of Deep Learning
             </h3>
-            <ul className="list-disc list-inside text-lg text-gray-700">
+            <ul className="list-disc list-inside  ">
               <li className="mb-2">
                 <strong>Neural Networks:</strong> The backbone of deep learning,
                 consisting of layers of interconnected nodes (neurons) that
@@ -79,45 +96,45 @@ const DeepLearning = () => {
 
         {/* Applications of Deep Learning */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             Applications of Deep Learning
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Computer Vision
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 Deep learning powers image recognition, object detection, and
                 facial recognition systems. Applications include self-driving
                 cars, medical imaging, and security surveillance.
               </p>
             </div>
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Natural Language Processing (NLP)
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 Deep learning enables machines to understand, interpret, and
                 generate human language. Applications include chatbots, language
                 translation, and sentiment analysis.
               </p>
             </div>
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Autonomous Vehicles
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 Deep learning algorithms help self-driving cars navigate and
                 make decisions by processing data from sensors, cameras, and
                 radar systems.
               </p>
             </div>
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Healthcare Diagnostics
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 Deep learning models analyze medical images and data to assist
                 in diagnostics, such as detecting cancer or predicting patient
                 outcomes.
@@ -128,14 +145,14 @@ const DeepLearning = () => {
 
         {/* Challenges in Deep Learning */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             Challenges in Deep Learning
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="mb-8">
             Despite its potential, deep learning faces several challenges that
             need to be addressed for widespread adoption:
           </p>
-          <ul className="list-disc list-inside text-xl text-gray-700 mb-8">
+          <ul className="list-disc list-inside   mb-8">
             <li className="mb-4">
               <strong>Data Requirements:</strong> Deep learning models require
               massive amounts of labeled data for training, which can be
@@ -161,14 +178,14 @@ const DeepLearning = () => {
 
         {/* Future Trends in Deep Learning */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             Future Trends in Deep Learning
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="mb-8">
             The future of deep learning is promising, with several exciting
             trends on the horizon:
           </p>
-          <ul className="list-disc list-inside text-xl text-gray-700 mb-8">
+          <ul className="list-disc list-inside   mb-8">
             <li className="mb-4">
               <strong>Explainable AI (XAI):</strong> Efforts are underway to
               make deep learning models more interpretable and transparent,
@@ -194,10 +211,10 @@ const DeepLearning = () => {
 
         {/* Conclusion */}
         <section>
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             Conclusion
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="mb-8">
             Deep learning is at the forefront of AI innovation, enabling
             machines to solve complex problems and make intelligent decisions.
             While challenges remain, ongoing research and advancements are
@@ -207,7 +224,19 @@ const DeepLearning = () => {
             central role in shaping the future of technology.
           </p>
         </section>
-      </article>
+      </Article>
+
+      <Closer
+        tone="ink"
+        actions={[
+          <Action key="b" href="/blog">More writing</Action>,
+          <Ghost key="p" href="/products">See what we build</Ghost>,
+        ]}
+      >
+        Written by the team at IvishAI.
+      </Closer>
+
+      <Footer />
     </div>
   );
 };

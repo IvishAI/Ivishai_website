@@ -17,7 +17,7 @@ const grad = (pair, angle = 145) =>
    two actions, over a soft wash. The old site wrote this by hand on each page
    with a different padding and a different alignment every time. */
 export const Masthead = ({ tag, title, lede, actions, tone = "ember" }) => (
-  <section className="band relative overflow-hidden pt-28 md:pt-36">
+  <section className="band band--top relative overflow-hidden">
     <div
       aria-hidden="true"
       className="pointer-events-none absolute inset-x-0 top-0 h-[30rem]"

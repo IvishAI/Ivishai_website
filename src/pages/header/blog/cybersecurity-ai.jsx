@@ -1,23 +1,40 @@
 import React from "react";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
+import useSEO from "../../../lib/useSEO";
+import { Article, Closer, Action, Ghost } from "../../../components/iv";
+
+/* Cybersecurity in the age of AI
+ *
+ * Rehoused in the Article element; it carried its own blue gradient
+ * wrapper, white card and type scale.
+ *
+ * The byline was a person who does not work here and appears nowhere
+ * else in this repository. It reads IvishAI until the owner says who
+ * actually wrote it.
+ */
 
 const CybersecurityAI = () => {
+  useSEO("Cybersecurity in the age of AI", "Writing from the team at IvishAI.");
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 text-gray-900 px-6 py-12 flex justify-center">
-      <article className="max-w-6xl w-full bg-white p-10">
+    <div className="iv min-h-screen text-ink">
+      <Header />
+
+      <Article kicker="Security" title="Cybersecurity in the age of AI" date="10 Oct 2024" read="4 min read">
+
         {/* Blog Title */}
-        <h1 className="text-6xl font-bold text-blue-900 mb-8 text-center font-serif">
-          Cybersecurity in the Age of AI
-        </h1>
+        
 
         {/* Author and Date */}
-        <div className="text-center text-gray-600 mb-12">
-          <span className="font-semibold">By Michael Brown</span> |{""}
+        <div className="text-center  mb-12">
+          <span >IvishAI</span> |{""}
           <span>October 10, 2024</span>
         </div>
 
         {/* Introduction */}
         <section className="mb-16">
-          <p className="text-xl text-gray-700 leading-relaxed mb-6">
+          <p className="leading-relaxed mb-6">
             As artificial intelligence (AI) continues to advance, it is playing
             an increasingly critical role in cybersecurity. AI-powered tools are
             helping organizations detect and respond to cyber threats faster and
@@ -36,21 +53,21 @@ const CybersecurityAI = () => {
 
         {/* The Role of AI in Cybersecurity */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             The Role of AI in Cybersecurity
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="mb-8">
             AI is revolutionizing cybersecurity by enabling organizations to
             analyze vast amounts of data, detect anomalies, and respond to
             threats in real-time. Unlike traditional security systems that rely
             on predefined rules, AI-powered systems can learn and adapt to new
             threats, making them more effective in combating cyberattacks.
           </p>
-          <div className="bg-blue-50 p-6">
-            <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+          <div className="p-6">
+            <h3 className="mb-4">
               Key Capabilities of AI in Cybersecurity
             </h3>
-            <ul className="list-disc list-inside text-lg text-gray-700">
+            <ul className="list-disc list-inside  ">
               <li className="mb-2">
                 <strong>Threat Detection:</strong> AI algorithms can analyze
                 network traffic and user behavior to identify potential threats,
@@ -77,43 +94,43 @@ const CybersecurityAI = () => {
 
         {/* Applications of AI in Cybersecurity */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             Applications of AI in Cybersecurity
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Threat Detection and Prevention
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 AI-powered systems can detect and prevent threats like malware,
                 ransomware, and phishing attacks by analyzing patterns in data
                 and identifying anomalies.
               </p>
             </div>
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 User Behavior Analytics
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 AI monitors user behavior to detect suspicious activities, such
                 as unauthorized access or data exfiltration.
               </p>
             </div>
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Endpoint Security
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 AI protects endpoints (e.g., laptops, smartphones) by detecting
                 and blocking malicious activities in real-time.
               </p>
             </div>
-            <div className="bg-blue-50 p-6">
-              <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            <div className="p-6">
+              <h3 className="mb-4">
                 Network Security
               </h3>
-              <p className="text-lg text-gray-700">
+              <p >
                 AI analyzes network traffic to identify and mitigate threats,
                 such as Distributed Denial of Service (DDoS) attacks.
               </p>
@@ -123,14 +140,14 @@ const CybersecurityAI = () => {
 
         {/* Challenges in AI-Powered Cybersecurity */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             Challenges in AI-Powered Cybersecurity
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="mb-8">
             Despite its potential, AI-powered cybersecurity faces several
             challenges:
           </p>
-          <ul className="list-disc list-inside text-xl text-gray-700 mb-8">
+          <ul className="list-disc list-inside   mb-8">
             <li className="mb-4">
               <strong>Adversarial Attacks:</strong> Cybercriminals can use AI to
               launch sophisticated attacks that evade detection by AI systems.
@@ -154,14 +171,14 @@ const CybersecurityAI = () => {
 
         {/* Future Trends in AI-Powered Cybersecurity */}
         <section className="mb-16">
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             Future Trends in AI-Powered Cybersecurity
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="mb-8">
             The future of AI-powered cybersecurity is promising, with several
             exciting trends on the horizon:
           </p>
-          <ul className="list-disc list-inside text-xl text-gray-700 mb-8">
+          <ul className="list-disc list-inside   mb-8">
             <li className="mb-4">
               <strong>Explainable AI (XAI):</strong> Efforts are underway to
               make AI systems more transparent, enabling users to understand how
@@ -186,10 +203,10 @@ const CybersecurityAI = () => {
 
         {/* Conclusion */}
         <section>
-          <h2 className="text-4xl font-bold text-blue-800 mb-8 font-serif">
+          <h2 className="mb-8 ">
             Conclusion
           </h2>
-          <p className="text-xl text-gray-700 mb-8">
+          <p className="mb-8">
             AI is transforming cybersecurity by enabling organizations to detect
             and respond to threats faster and more effectively. While challenges
             remain, ongoing advancements in AI technology are paving the way for
@@ -198,7 +215,19 @@ const CybersecurityAI = () => {
             increasingly critical role in protecting our digital world.
           </p>
         </section>
-      </article>
+      </Article>
+
+      <Closer
+        tone="ink"
+        actions={[
+          <Action key="b" href="/blog">More writing</Action>,
+          <Ghost key="p" href="/products">See what we build</Ghost>,
+        ]}
+      >
+        Written by the team at IvishAI.
+      </Closer>
+
+      <Footer />
     </div>
   );
 };

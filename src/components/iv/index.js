@@ -73,3 +73,5 @@ export {
   Lead, PostTile, PostGrid, PressRow, Article, ReadNext, Topics,
   Subscribe, Shelf, Dateline,
 } from "./Editorial";
+
+export { Showcase, ZoneList } from "./Showcase";
