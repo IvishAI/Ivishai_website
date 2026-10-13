@@ -41,7 +41,7 @@ const products = [
     accentDark: "#AD4613",
     accentRgb: "226,100,38",
     description:
-      "The complete operating system for Indian retail. One platform, one AI, 19 industries. From a kirana store to a pharmacy to a regulated liquor shop. Works offline.",
+      "The complete operating system for Indian retail. One platform, one AI, 27 industries. From a kirana store to a pharmacy to a regulated liquor shop. Works offline.",
     audience: "Retailers across 19 shop types in India",
     site: "ivishai.com/retail-os",
     stats: [

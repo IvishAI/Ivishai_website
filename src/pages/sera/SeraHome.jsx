@@ -1048,7 +1048,7 @@ function ByTheNumbers() {
     },
     { n: "13", l: "languages: English + 12 Indian" },
     { n: "600K+", l: "products pre-loaded, zero manual entry for known SKUs" },
-    { n: "28", l: "industry types, across 6 retail zones" },
+    { n: "27", l: "industry types, across 6 retail zones" },
     { n: "₹0", l: "billing cost. Forever. For every shop." },
   ];
   return (
@@ -1450,7 +1450,7 @@ function CTA() {
               style={{ margin: "16px auto 0", textAlign: "center" }}
             >
               Free forever. First 14 days of Premium completely free. Works
-              offline. No hardware. 13 languages. 28 industries.
+              offline. No hardware. 13 languages. 27 industries.
             </p>
             <div
               className="s-btn-row mt40"
@@ -1474,7 +1474,7 @@ function CTA() {
 export default function SeraHome() {
   useSEO(
     "Sera - Free Billing, GST & Khata App for Every Indian Shop",
-    "Sera is a free billing, Khata and inventory app for Indian shops. 600K+ products, 13 languages, 28 industries, AI scanner, offline-first. Setup in 60 seconds.",
+    "Sera is a free billing, Khata and inventory app for Indian shops. 600K+ products, 13 languages, 27 industries, AI scanner, offline-first. Setup in 60 seconds.",
   );
   return (
     <SeraShell>

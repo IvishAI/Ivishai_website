@@ -38,7 +38,7 @@ const LAYERS = [
     name: "Sera - Commerce",
     status: "Live",
     state: "live",
-    note: "A retail operating system for Bharat: billing, khata and compliance, across 28 industries.",
+    note: "A retail operating system for Bharat: billing, khata and compliance, across 27 industries.",
   },
   { name: "More pillars to follow", status: "Planned", state: "planned" },
 ];
@@ -73,7 +73,7 @@ const QUESTIONS = [
   },
   {
     q: "What is Sera?",
-    a: "A retail operating system built for Bharat: billing, khata, compliance and offline-first operation, across 28 industries.",
+    a: "A retail operating system built for Bharat: billing, khata, compliance and offline-first operation, across 27 industries.",
   },
   {
     q: "Why is it credible?",
@@ -150,7 +150,7 @@ const Home = () => (
           note="Figures from the company record, not projections. Each one is checkable on the page it belongs to."
           stats={[
             ["600K+", "Products pre-loaded"],
-            ["28", "Industry types"],
+            ["27", "Industry types"],
             ["8", "Patents filed"],
             ["2025", "Incorporated"],
           ]}
@@ -201,7 +201,7 @@ const Home = () => (
           action={<TextLink to="/sera">Explore Sera</TextLink>}
         >
           A retail operating system built for Bharat&rsquo;s shops - billing,
-          khata, compliance and offline-first operation, across 28 industries.
+          khata, compliance and offline-first operation, across 27 industries.
         </SplitField>
       </div>
     </Band>

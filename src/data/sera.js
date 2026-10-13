@@ -75,12 +75,7 @@ export const SERA_FEATURES = [
 ];
 
 // ---- Stats ----------------------------------------------------------------
-export const SERA_STATS = [
-  { value: "600K+", label: "Products pre-loaded" },
-  { value: "13", label: "Languages" },
-  { value: "28", label: "Industry types" },
-  { value: "6", label: "Retail zones" },
-];
+
 
 // ---- Languages ------------------------------------------------------------
 export const SERA_LANGUAGES = [
@@ -527,6 +522,18 @@ export const SERA_INDUSTRIES = SERA_ZONES.flatMap((z) =>
     restricted: !!z.restricted,
   })),
 );
+
+/* Derived, not typed. The industry and zone counts used to be written here by
+   hand as 28 and 6, while SERA_ZONES actually holds 27 industries across 6
+   zones - and /retail-os claimed 19. Reading them off the data is the only way
+   the three places that show them can agree.
+   SERA_STATS is defined below SERA_ZONES for this reason; do not move it. */
+export const SERA_STATS = [
+  { value: "600K+", label: "Products pre-loaded" },
+  { value: String(SERA_LANGUAGES.length), label: "Languages" },
+  { value: String(SERA_INDUSTRIES.length), label: "Industry types" },
+  { value: String(SERA_ZONES.length), label: "Retail zones" },
+];
 
 export const getSeraIndustry = (slug) =>
   SERA_INDUSTRIES.find((i) => i.slug === slug);

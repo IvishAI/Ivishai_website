@@ -104,7 +104,7 @@ const RetailOSOverview = () => (
           for Indian Retail
         </h1>
         <p className="text-gray-400 text-sm md:text-base max-w-lg leading-relaxed mb-8">
-          One platform. One AI. 19 industries. Works offline. India's 12 million
+          One platform. One AI. 27 industries. Works offline. India's 12 million
           retail shops deserve better than paper registers and WhatsApp.
         </p>
 
@@ -172,7 +172,7 @@ const RetailOSOverview = () => (
         >
           <span className="text-white">6 Zones.</span>
           {""}
-          <span style={{ color: "#E26426" }}>19 Industries.</span>
+          <span style={{ color: "#E26426" }}>27 Industries.</span>
           {""}
           <span className="text-white">One Platform.</span>
         </h2>

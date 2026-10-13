@@ -91,7 +91,7 @@ export const PRODUCTS = {
     tag: "Retail Infrastructure",
     line: "The operating system for Bharat retail.",
     overview:
-      "Sera is a Retail Operating System built for Bharat's shops - billing, Khata, compliance, offline-first, across 28 industries.",
+      "Sera is a Retail Operating System built for Bharat's shops - billing, Khata, compliance, offline-first, across 27 industries.",
     href: "/sera",
     cta: "Explore Sera",
     external: false,
