@@ -121,7 +121,7 @@ const SidebarContent = ({ onClose }) => {
             </span>
             <button
               onClick={onClose}
-              className="text-gray-500 hover:text-white transition-colors p-1"
+              className="text-ink-faint hover:text-ink transition-colors p-1"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path
@@ -161,7 +161,7 @@ const SidebarContent = ({ onClose }) => {
             className="w-2.5 h-2.5 rounded-full flex-shrink-0"
             style={{ background: "#E26426" }}
           />
-          <span className="font-sora font-semibold text-white text-base">
+          <span className="font-sora font-semibold text-ink text-base">
             Retail OS
           </span>
         </div>
@@ -240,7 +240,7 @@ const SidebarContent = ({ onClose }) => {
           style={{ background: "rgba(226,100,38,0.05)" }}
         >
           <div>
-            <p className="text-xs font-medium text-white mb-0.5">
+            <p className="text-xs font-medium text-ink mb-0.5">
               Free to start
             </p>
             <p className="text-[10px] text-gray-500 leading-snug">
@@ -271,7 +271,7 @@ const RetailOSLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <div className="bg-black text-white">
+      <div className="iv bg-paper text-ink">
         <div className="flex relative">
           {/* ── DESKTOP SIDEBAR (fixed) ── */}
           <aside
@@ -290,7 +290,7 @@ const RetailOSLayout = ({ children }) => {
             {drawerOpen && (
               <>
                 <motion.div
-                  className="fixed inset-0 z-40 bg-black/75 lg:hidden"
+                  className="fixed inset-0 z-40 bg-ink/45 lg:hidden"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
@@ -334,7 +334,7 @@ const RetailOSLayout = ({ children }) => {
               </div>
               <button
                 onClick={() => setDrawerOpen(true)}
-                className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                className="flex items-center gap-2 text-ink-muted hover:text-ink transition-colors"
               >
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path

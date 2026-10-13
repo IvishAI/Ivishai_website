@@ -94,7 +94,7 @@ const RetailOSNav = () => {
             <span className="text-xs font-mono text-gray-400 uppercase tracking-wider">
               Retail OS
             </span>
-            <span className="text-white text-sm font-medium ml-2">
+            <span className="text-ink text-sm font-medium ml-2">
               {current?.label ?? "Menu"}
             </span>
           </div>

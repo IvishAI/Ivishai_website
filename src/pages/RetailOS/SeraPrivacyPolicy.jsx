@@ -1,5 +1,17 @@
+import React from "react";
 import SeraShell from "../../components/sera/SeraShell";
 import useSEO from "../../lib/useSEO";
+import {
+  Masthead, Closer, LegalDoc, Clause, PageIndex, TwoUp, Footnote,
+  Action, Ghost,
+} from "../../components/iv";
+import { SERA } from "../../data/sera";
+
+/* Sera's own privacy policy.
+ *
+ * Presentation only - the policy text below is untouched. It keeps Sera's own
+ * shell, because it is the product's policy rather than the company's.
+ */
 
 const SECTIONS = [
   {
@@ -84,156 +96,81 @@ const SECTIONS = [
   },
 ];
 
-const CSS = `
-.pp-page {
- --s-navy: #000000;
- --s-orange: #FF6B2B;
- --s-orange-d: #E04F10;
- --s-paper: #FBFAF8;
- --s-paper-dim: #F3F0EA;
- --s-surface: #FFFFFF;
- --s-ink: #14151A;
- --s-ink-s: #55565F;
- --s-ink-f: #8B8C94;
- --s-line: #E7E2D9;
- --fd: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
- --fm: 'SF Mono', ui-monospace, monospace;
- background: var(--s-paper);
- font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
- -webkit-font-smoothing: antialiased;
-}
-.pp-page *, .pp-page *::before, .pp-page *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-.pp-hero {
- background: var(--s-navy); color: #fff;
- padding: 140px 0 72px;
-}
-.pp-wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
-.pp-wrap-wide { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
-.pp-eye { font-family: var(--fm); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.5); display: block; margin-bottom: 16px; }
-.pp-h1 { font-family: var(--fd); font-weight: 700; font-size: clamp(2rem,5vw,3.4rem); letter-spacing: -.04em; line-height: 1.05; color: #fff; }
-.pp-meta { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 20px; }
-.pp-meta-item { font-size: .82rem; color: rgba(255,255,255,.55); }
-.pp-meta-item span { color: rgba(255,255,255,.85); font-weight: 500; }
-
-.pp-intro {
- background: var(--s-orange-d); color: #fff;
- padding: 32px 0;
-}
-.pp-intro p { font-size: 1rem; line-height: 1.65; color: rgba(255,255,255,.88); }
-
-.pp-body { padding: 72px 0 96px; }
-.pp-sections { display: flex; flex-direction: column; gap: 0; }
-.pp-section { padding: 40px 0; border-top: 1px solid var(--s-line); display: grid; grid-template-columns: 200px 1fr; gap: 40px; }
-.pp-sections .pp-section:last-child { border-bottom: 1px solid var(--s-line); }
-.pp-sec-num { font-family: var(--fm); font-size: .75rem; color: var(--s-ink-f); padding-top: 4px; }
-.pp-sec-title { font-family: var(--fd); font-weight: 650; font-size: 1.1rem; letter-spacing: -.02em; color: var(--s-ink); line-height: 1.2; }
-.pp-sec-intro { font-size: .92rem; color: var(--s-ink-s); line-height: 1.65; margin-top: 10px; }
-.pp-sec-points { list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
-.pp-sec-points li { display: flex; align-items: flex-start; gap: 10px; font-size: .88rem; color: var(--s-ink-s); line-height: 1.6; }
-.pp-sec-points li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--s-orange); flex-shrink: 0; margin-top: 7px; }
-
-.pp-contact {
- background: var(--s-navy); color: #fff;
- border-radius: 28px; padding: 56px 48px;
- margin: 0 24px 72px;
- position: relative; overflow: hidden;
-}
-.pp-contact::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 50%, rgba(255,107,43,.2), transparent 60%); }
-.pp-contact > * { position: relative; }
-.pp-contact-eye { font-family: var(--fm); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.45); display: block; margin-bottom: 12px; }
-.pp-contact-title { font-family: var(--fd); font-weight: 650; font-size: 1.5rem; letter-spacing: -.03em; color: #fff; }
-.pp-contact-body { margin-top: 14px; font-size: .95rem; color: rgba(255,255,255,.7); line-height: 1.65; }
-.pp-contact a { color: var(--s-orange); text-decoration: none; border-bottom: 1px solid rgba(255,107,43,.4); }
-.pp-contact a:hover { border-color: var(--s-orange); }
-
-@media (max-width: 720px) {
- .pp-hero { padding-top: 110px; padding-bottom: 56px; }
- .pp-section { grid-template-columns: 1fr; gap: 12px; padding: 28px 0; }
- .pp-contact { padding: 36px 24px; margin: 0 0 56px; border-radius: 20px; }
-}
-`;
+const slug = (t) =>
+  t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 export default function SeraPrivacyPolicy() {
   useSEO(
-    "Privacy Policy - Sera by IvishAI",
-    "Privacy Policy for Sera, the free shop management app by IvishAI Quantum Private Limited.",
+    "Sera - privacy policy",
+    "What Sera collects, why, and what it never does with it.",
   );
+
   return (
     <SeraShell>
-      <style>{CSS}</style>
-      <div className="pp-page">
-        {/* Hero */}
-        <div className="pp-hero">
-          <div className="pp-wrap">
-            <span className="pp-eye">
-              Legal · IvishAI Quantum Private Limited
-            </span>
-            <h1 className="pp-h1">Privacy Policy</h1>
-            <div className="pp-meta">
-              <div className="pp-meta-item">
-                Effective date <span>August 6, 2026</span>
-              </div>
-              <div className="pp-meta-item">
-                Product <span>Sera - Shop Management App</span>
-              </div>
-              <div className="pp-meta-item">
-                Company <span>IvishAI Quantum Pvt Ltd</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="iv text-ink">
+        <Masthead
+          tag="Sera"
+          tone="ember"
+          title="Privacy policy"
+          lede="What the app collects to run your shop, and what it does not."
+          actions={[
+            <Action key="p" href={SERA.playStore}>Get Sera on Play</Action>,
+            <Ghost key="c" href={`mailto:${SERA.contactEmail}`}>Ask a question</Ghost>,
+          ]}
+        />
 
-        {/* Intro strip */}
-        <div className="pp-intro">
-          <div className="pp-wrap">
-            <p>
-              This Privacy Policy explains how Sera collects, uses, and protects
-              information when you use the Sera mobile application. By creating
-              an account and using Sera, you agree to this policy.
-            </p>
-          </div>
-        </div>
-
-        {/* Sections */}
-        <div className="pp-body">
-          <div className="pp-wrap-wide">
-            <div className="pp-sections">
-              {SECTIONS.map((s, i) => (
-                <div key={s.title} className="pp-section">
-                  <div>
-                    <div className="pp-sec-num">
-                      {String(i + 1).padStart(2, "0")}
-                    </div>
-                    <div className="pp-sec-title">{s.title}</div>
+        <section className="band">
+          <div className="wrap">
+            <TwoUp
+              aside={
+                <PageIndex
+                  items={SECTIONS.map((sec) => ({
+                    id: slug(sec.title),
+                    label: sec.title,
+                  }))}
+                />
+              }
+            >
+              <LegalDoc>
+                {SECTIONS.map((sec, n) => (
+                  <div key={sec.title} id={slug(sec.title)} className="scroll-mt-28">
+                    <Clause n={String(n + 1).padStart(2, "0")} title={sec.title}>
+                      {sec.intro && <p>{sec.intro}</p>}
+                      {sec.points && (
+                        <ul className="space-y-2 pl-1">
+                          {sec.points.map((pt, k) => (
+                            <li key={k} className="flex gap-3">
+                              <span
+                                aria-hidden="true"
+                                className="mt-2.5 h-1 w-1 rounded-full bg-ember flex-shrink-0"
+                              />
+                              <span>{pt}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </Clause>
                   </div>
-                  <div>
-                    {s.intro && <p className="pp-sec-intro">{s.intro}</p>}
-                    <ul className="pp-sec-points">
-                      {s.points.map((p) => (
-                        <li key={p}>{p}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+                ))}
 
-        {/* Contact */}
-        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
-          <div className="pp-contact">
-            <span className="pp-contact-eye">Get in touch</span>
-            <div className="pp-contact-title">Questions about your data?</div>
-            <p className="pp-contact-body">
-              For privacy inquiries, email us at{" "}
-              <a href="mailto:ivishaiteam@gmail.com">ivishaiteam@gmail.com</a>
-              <br />
-              IvishAI Quantum Private Limited, Hyderabad, Telangana, India
-            </p>
+                <Footnote updated="13 October 2026">
+                  Questions about this policy go to {SERA.contactEmail}.
+                </Footnote>
+              </LegalDoc>
+            </TwoUp>
           </div>
-        </div>
+        </section>
+
+        <Closer
+          tone="ink"
+          note={SERA.category}
+          actions={[
+            <Action key="p" href={SERA.playStore}>Get Sera on Play</Action>,
+            <Ghost key="s" to="/sera">Back to Sera</Ghost>,
+          ]}
+        >
+          Your shop's data is your shop's.
+        </Closer>
       </div>
     </SeraShell>
   );
