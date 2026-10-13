@@ -205,7 +205,9 @@ export const TECH_PARTNERS = [
   },
   {
     name: "Meyi Cloud",
-    logo: "/logos/meyicloud-white.png",
+    // the white variant was drawn for the old black ground and is invisible on
+    // paper; the blue one was already in public/logos
+    logo: "/logos/meyicloud-blue.png",
     note: "Cloud Enablement Partner - AWS Advanced Tier Partner; cloud enablement, credits & support.",
     href: LINKS.meyiCloud,
     approvalRequired: true, // pre-publication email approval required per MoU

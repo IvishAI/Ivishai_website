@@ -59,3 +59,10 @@ export {
   TINTS, FIELDS, Tile, Bento, ColourField, FieldStack, StatPanel, Wash, Orb, OrbRow,
   SplitField, QuoteField, Capsule, CapsuleRow, TonePanel, Ribbon, Palette,
 } from "./Fields";
+
+/* Page-level forms, found while rebuilding About: the shapes every page needs
+   and none of them had, so each was improvising its own opener inline. */
+export {
+  Masthead, Profile, PartnerRow, CredentialStrip, TwoUp, PageIndex,
+  NoteField, LinkOut, SectionAnchor, Closer,
+} from "./Page";
