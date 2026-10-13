@@ -1,100 +1,107 @@
-import { motion } from "framer-motion";
+import React from "react";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import {
+  Masthead, Closer, LegalDoc, Clause, PageIndex, TwoUp, Footnote,
+  Action, Ghost,
+} from "../../components/iv";
+import { EMAILS, BRAND } from "../../data/site";
 
-const TermsOfUse = () => {
-  return (
-    <div className="min-h-screen bg-black text-[#ccd6f6] font-sora p-8 md:p-12 lg:p-20">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="max-w-4xl mx-auto"
-      >
-        {/* Page Header */}
-        <div className="mb-12 text-center border-b border-[#64ffda]/30 pb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-ink mb-4">
-            Terms & Conditions – Ivish AI
-          </h1>
-          <div className="text-[#8892b0] space-y-2">
-            <p>Last Updated: December 5, 2025</p>
-            <p>Company: Ivish AI (IvishAI Quantum Pvt. Ltd.)</p>
-            <p>Product Covered: VerbX – Language Companion App</p>
-          </div>
-        </div>
+/* Terms & Conditions.
+ *
+ * This file was routed at /security and titled "Terms & Conditions - Ivish AI",
+ * so anyone clicking "Security" in search of a security page got terms of
+ * service instead. It is served at /terms now, with /security redirecting, so
+ * no existing link breaks.
+ *
+ * The termsSections data below is untouched. Eighteen sections of real legal
+ * text is the last thing to retype for the sake of a layout, so only the
+ * presentation changed: a measure you can read, numbered clauses, an index
+ * down the side, and a date saying when this was last true.
+ */
 
-        {/* Content Sections */}
-        <div className="space-y-12">
-          {termsSections.map((section, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="p-6"
-            >
-              {/* Section Title */}
-              <div className="flex items-start mb-4">
-                <div className="text-[#64ffda] text-2xl font-bold mr-4">
-                  {index + 1}.
-                </div>
-                <h2 className="text-2xl md:text-3xl text-ink">
-                  {section.title}
-                </h2>
-              </div>
+const slug = (t) =>
+  t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-              {/* Section Content */}
-              <div className="ml-8 space-y-6">
-                {section.content.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="border-l-2 border-[#64ffda]/30 pl-4"
-                  >
-                    <div className="text-[#8892b0] space-y-3">
-                      {Array.isArray(item.text) ? (
-                        <ul className="space-y-2 list-disc list-inside">
-                          {item.text.map((point, i) => (
-                            <li key={i}>{point}</li>
+const TermsOfUse = () => (
+  <div className="iv min-h-screen text-ink">
+    <Header />
+
+    <Masthead
+      tag="Legal"
+      tone="stone"
+      title="Terms & Conditions"
+      lede="The terms that govern your use of the IvishAI website, our apps and the services behind them."
+      actions={[
+        <Action key="p" href="/privacypolicy">Privacy policy</Action>,
+        <Ghost key="c" href={`mailto:${EMAILS.general}`}>Ask a question</Ghost>,
+      ]}
+    />
+
+    <section className="band">
+      <div className="wrap">
+        <TwoUp
+          aside={
+            <PageIndex
+              items={termsSections.map((sec) => ({
+                id: slug(sec.title),
+                label: sec.title,
+              }))}
+            />
+          }
+        >
+          <LegalDoc>
+            {termsSections.map((sec, n) => (
+              <div key={sec.title} id={slug(sec.title)} className="scroll-mt-28">
+                <Clause n={String(n + 1).padStart(2, "0")} title={sec.title}>
+                  {sec.content.map((block, bi) => (
+                    <React.Fragment key={bi}>
+                      {(block.text || []).map((line, li) => (
+                        <p key={li}>{line}</p>
+                      ))}
+                      {block.list && (
+                        <ul className="space-y-2 pl-1">
+                          {block.list.map((item, ii) => (
+                            <li key={ii} className="flex gap-3">
+                              <span
+                                aria-hidden="true"
+                                className="mt-2.5 h-1 w-1 rounded-full bg-ember flex-shrink-0"
+                              />
+                              <span>{item}</span>
+                            </li>
                           ))}
                         </ul>
-                      ) : (
-                        <p>{item.text}</p>
                       )}
-                    </div>
-                  </div>
-                ))}
+                    </React.Fragment>
+                  ))}
+                </Clause>
               </div>
-            </motion.div>
-          ))}
-        </div>
+            ))}
 
-        {/* Contact Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="mt-16 p-6 text-center"
-        >
-          <h3 className="text-2xl text-[#64ffda] mb-4">Contact Us</h3>
-          <p className="text-[#8892b0] mb-2">
-            Email:
-            <a
-              href="mailto:ivishai.supprt@gmail.com"
-              className="text-[#E26426] ml-2 hover:text-[#ff8c63] transition-colors"
-            >
-              ivishai.supprt@gmail.com
-            </a>
-          </p>
-          <p className="text-[#8892b0]">Phone: +91 7013440427</p>
-          <p className="text-[#8892b0] mt-2">
-            IvishAI Quantum Pvt. Ltd., Hyderabad, India
-          </p>
-        </motion.div>
-      </motion.div>
-    </div>
-  );
-};
+            <Footnote updated="13 October 2026">
+              {BRAND.legal}. Questions about these terms go to {EMAILS.general}.
+            </Footnote>
+          </LegalDoc>
+        </TwoUp>
+      </div>
+    </section>
+
+    <Closer
+      tone="ink"
+      note={BRAND.legal}
+      actions={[
+        <Action key="p" href="/privacypolicy">Privacy policy</Action>,
+        <Ghost key="h" to="/">Home</Ghost>,
+      ]}
+    >
+      Written to be read, not to be scrolled past.
+    </Closer>
+
+    <Footer />
+  </div>
+);
 
 export default TermsOfUse;
-
-/* ------------------ TERMS SECTIONS ------------------ */
 
 const termsSections = [
   {

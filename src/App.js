@@ -1,5 +1,10 @@
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 import NotFound from "./pages/NotFound";
 import LoadingPage from "./pages/loadingpage";
@@ -107,7 +112,14 @@ function App() {
             path="/responsibledisclosure"
             element={<ResponsibleDisclosure />}
           />
-          <Route path="/security" element={<Security />} />
+          {/* The page at /security was, and is, the Terms & Conditions -
+              Introduction, Definitions, Eligibility, Acceptable Use, Payments.
+              Someone clicking "Security" was getting terms of service. It is
+              served at /terms now, and /security redirects there so no existing
+              link breaks. We do not publish a security page because we do not
+              have one to publish. */}
+          <Route path="/terms" element={<Security />} />
+          <Route path="/security" element={<Navigate to="/terms" replace />} />
           <Route path="/compliance" element={<Compliance />} />
           <Route path="/cookie-preferences" element={<CookiesPreference />} />
           <Route path="/privacychoices" element={<PrivacyChoices />} />

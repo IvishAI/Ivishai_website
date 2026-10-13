@@ -1,110 +1,102 @@
-import { motion } from "framer-motion";
+import React from "react";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import {
+  Masthead, Closer, LegalDoc, Clause, PageIndex, TwoUp, Footnote,
+  Action, Ghost,
+} from "../../components/iv";
+import { EMAILS, BRAND } from "../../data/site";
 
-const PrivacyPolicy = () => {
-  return (
-    <div className="min-h-screen bg-black text-[#ccd6f6] font-sora p-8 md:p-12 lg:p-20">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="max-w-4xl mx-auto"
-      >
-        {/* Header */}
-        <div className="mb-12 text-center border-b border-[#64ffda]/30 pb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-ink mb-4">
-            Privacy Policy - IvishAI Quantum Pvt. Ltd.
-          </h1>
+/* Privacy policy.
+ *
+ * Presentation only. The policy text below is exactly as it was - see the note
+ * in the rebuild script about NeuraVision and biometric data, both of which
+ * are the owner's to decide on, not mine to quietly edit.
+ */
 
-          <div className="text-[#8892b0] space-y-2">
-            <p>Effective Date: March 31, 2025</p>
-            <p>Last Updated: March 31, 2025</p>
-            <p>Company: IvishAI Quantum Pvt. Ltd.</p>
-            <p>Location: Hyderabad, India</p>
-          </div>
-        </div>
+const slug = (t) =>
+  t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-        {/* Content Sections */}
-        <div className="space-y-12">
-          {sections.map((section, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="p-6"
-            >
-              {/* Section Title */}
-              <div className="flex items-start mb-4">
-                <div className="text-[#64ffda] text-2xl font-bold mr-4">
-                  {index + 1}.
-                </div>
+const lines = (text) => (Array.isArray(text) ? text : [text]);
 
-                <h2 className="text-2xl md:text-3xl text-ink">
-                  {section.title}
-                </h2>
-              </div>
+const PrivacyPolicy = () => (
+  <div className="iv min-h-screen text-ink">
+    <Header />
 
-              {/* Section Content */}
-              <div className="ml-8 space-y-6">
-                {section.content.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="border-l-2 border-[#64ffda]/30 pl-4"
-                  >
-                    {item.subtitle && (
-                      <h3 className="text-xl text-[#64ffda] mb-2">
-                        {item.subtitle}
-                      </h3>
-                    )}
+    <Masthead
+      tag="Legal"
+      tone="sky"
+      title="Privacy policy"
+      lede="What we collect, why we collect it, and what we will never do with it."
+      actions={[
+        <Action key="t" href="/terms">Terms &amp; conditions</Action>,
+        <Ghost key="c" href={`mailto:${EMAILS.general}`}>Ask a question</Ghost>,
+      ]}
+    />
 
-                    <div className="text-[#8892b0] space-y-3">
-                      {Array.isArray(item.text) ? (
-                        <ul className="space-y-2 list-disc list-inside">
-                          {item.text.map((point, i) => (
-                            <li key={i}>{point}</li>
+    <section className="band">
+      <div className="wrap">
+        <TwoUp
+          aside={
+            <PageIndex
+              items={sections.map((sec) => ({
+                id: slug(sec.title),
+                label: sec.title,
+              }))}
+            />
+          }
+        >
+          <LegalDoc>
+            {sections.map((sec, n) => (
+              <div key={sec.title} id={slug(sec.title)} className="scroll-mt-28">
+                <Clause n={String(n + 1).padStart(2, "0")} title={sec.title}>
+                  {sec.content.map((block, bi) => (
+                    <React.Fragment key={bi}>
+                      {block.text &&
+                        lines(block.text).map((line, li) => <p key={li}>{line}</p>)}
+                      {block.list && (
+                        <ul className="space-y-2 pl-1">
+                          {block.list.map((item, ii) => (
+                            <li key={ii} className="flex gap-3">
+                              <span
+                                aria-hidden="true"
+                                className="mt-2.5 h-1 w-1 rounded-full bg-ember flex-shrink-0"
+                              />
+                              <span>{item}</span>
+                            </li>
                           ))}
                         </ul>
-                      ) : (
-                        <p>{item.text}</p>
                       )}
-                    </div>
-                  </div>
-                ))}
+                    </React.Fragment>
+                  ))}
+                </Clause>
               </div>
-            </motion.div>
-          ))}
-        </div>
+            ))}
 
-        {/* Contact Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          className="mt-16 p-6 text-center"
-        >
-          <h3 className="text-2xl text-[#64ffda] mb-4">Contact Information</h3>
+            <Footnote updated="13 October 2026">
+              {BRAND.legal}. Privacy questions go to {EMAILS.general}.
+            </Footnote>
+          </LegalDoc>
+        </TwoUp>
+      </div>
+    </section>
 
-          <p className="text-[#8892b0] mb-1">
-            Email:
-            <a
-              href="mailto:ivishai.supprt@gmail.com"
-              className="text-[#E26426] ml-2 hover:text-[#ff8c63] transition-colors"
-            >
-              ivishai.supprt@gmail.com
-            </a>
-          </p>
+    <Closer
+      tone="ink"
+      note={BRAND.legal}
+      actions={[
+        <Action key="t" href="/terms">Terms &amp; conditions</Action>,
+        <Ghost key="h" to="/">Home</Ghost>,
+      ]}
+    >
+      We collect what we need and nothing we cannot explain.
+    </Closer>
 
-          <p className="text-[#8892b0]">Phone: +91 7013440427</p>
+    <Footer />
+  </div>
+);
 
-          <p className="text-[#8892b0] mt-2">
-            IvishAI Quantum Private Limited, Hyderabad, Telangana, India
-          </p>
-        </motion.div>
-      </motion.div>
-    </div>
-  );
-};
-
-/* ------------------ UPDATED SECTIONS ------------------ */
+export default PrivacyPolicy;
 
 const sections = [
   {
@@ -246,4 +238,4 @@ const sections = [
   },
 ];
 
-export default PrivacyPolicy;
+
