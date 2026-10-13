@@ -179,10 +179,35 @@ body {
 .iv .band--tight { padding: 64px 0; }
 .iv .band + .band { border-top: 1px solid theme('colors.rule.DEFAULT'); }
 
-/* A section head is a tag, a heading and at most one lede - left aligned. */
-.iv .head { max-width: 760px; margin-bottom: 48px; }
+/* A section head is a tag, a heading and at most one lede.
+ *
+ * CENTRED, by the owner's decision on 13 Oct. This supersedes the earlier
+ * one-left-axis rule - do not quietly put it back. The heads and their ledes
+ * centre; the CONTENT under them keeps its own internal alignment, because
+ * centring the body of a timeline or a table makes it unreadable. */
+.iv .head {
+  max-width: 820px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
 .iv .head .tag { display: block; margin-bottom: 14px; }
 .iv .head h2 { margin-bottom: 16px; }
+.iv .head .lede { margin-left: auto; margin-right: auto; }
+
+/* A centred head wants its content centred as a BLOCK too. margin:auto alone
+   does nothing to a full-width child, so the block also needs a measure - a
+   timeline sitting hard left under a centred heading reads as a mistake.
+   Records and prose keep their own left alignment INSIDE this column, because
+   centring the body of a timeline or a table makes it unreadable. */
+.iv .band > .wrap > :not(.head) {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* The wide ones opt out: a bento, a stat panel, a split field and the colour
+   fields are compositions and want the whole measure. */
+.iv .band > .wrap > .iv-wide { max-width: none; }
 
 @media (max-width: 640px) {
   .iv .band { padding: 64px 0; }

@@ -25,11 +25,15 @@ export const Masthead = ({ tag, title, lede, actions, tone = "ember" }) => (
         background: `radial-gradient(58% 70% at 72% 0%, ${(TINTS[tone] || TINTS.ember)[1]} 0%, transparent 70%)`,
       }}
     />
-    <div className="wrap relative">
+    {/* Centred, per the owner on 13 Oct. The page opener is the one place the
+        whole site agrees on its axis, so this sets the tone for every page. */}
+    <div className="wrap relative text-center">
       {tag && <p className="tag mb-5">{tag}</p>}
-      <h1 className="text-ink max-w-[16ch]">{title}</h1>
-      {lede && <p className="lede mt-6">{lede}</p>}
-      {actions && <div className="flex flex-col sm:flex-row gap-3 mt-9">{actions}</div>}
+      <h1 className="text-ink max-w-[18ch] mx-auto">{title}</h1>
+      {lede && <p className="lede mt-6 mx-auto">{lede}</p>}
+      {actions && (
+        <div className="flex flex-col sm:flex-row gap-3 mt-9 justify-center">{actions}</div>
+      )}
     </div>
   </section>
 );
@@ -180,7 +184,7 @@ export const SectionAnchor = ({ id, tag, title, lede, children }) => (
       <div className="head">
         {tag && <span className="tag block mb-3.5">{tag}</span>}
         <h2 className="text-ink">{title}</h2>
-        {lede && <p className="lede mt-4">{lede}</p>}
+        {lede && <p className="lede mt-4 mx-auto">{lede}</p>}
       </div>
       {children}
     </div>
@@ -211,7 +215,7 @@ export const Closer = ({ tone = "ink", children, note, actions, glyph, lang }) =
           {note && <p className="tag mt-5 text-paper/70">{note}</p>}
         </div>
       </Reveal>
-      {actions && <div className="flex flex-col sm:flex-row gap-3 mt-7">{actions}</div>}
+      {actions && <div className="flex flex-col sm:flex-row gap-3 mt-7 justify-center">{actions}</div>}
     </div>
   </section>
 );

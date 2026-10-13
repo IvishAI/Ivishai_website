@@ -40,7 +40,7 @@ export const Tag = ({ children, className = "" }) => (
   <span className={`tag ${className}`}>{children}</span>
 );
 
-/* 05 Head - tag, heading, and at most one lede. Left, always. */
+/* 05 Head - tag, heading, and at most one lede. CENTRED (owner, 13 Oct). */
 export const Head = ({ tag, title, lede, as = "h2", className = "" }) => {
   const H = as;
   return (

@@ -63,7 +63,7 @@ const Products = () => (
     />
 
     <SectionAnchor id="live" tag="Live today" title="The two products.">
-      <div className="space-y-5">
+      <div className="space-y-5 iv-wide">
         <SplitField
           tone="aqua"
           tag={verbx.tag}
@@ -160,7 +160,7 @@ const Products = () => (
       tag="How they are built"
       title="The same four decisions, in both."
     >
-      <Bento>
+      <div className="iv-wide"><Bento>
         <Tile tone="lilac" span={2} title="Infrastructure, not apps">
           Operating systems beneath communication and commerce - built to sit
           underneath industries, not on top of them.
@@ -175,7 +175,7 @@ const Products = () => (
           Born in India, engineered to run anywhere - infrastructure without
           borders.
         </Tile>
-      </Bento>
+      </Bento></div>
     </SectionAnchor>
 
     <Closer

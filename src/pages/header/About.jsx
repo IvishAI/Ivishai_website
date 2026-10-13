@@ -102,7 +102,7 @@ const About = () => (
       title="Recognised and registered."
       lede="Every one of these is checkable. We do not list anything here that we cannot show."
     >
-      <CredentialStrip items={CREDENTIALS} />
+      <div className="iv-wide"><CredentialStrip items={CREDENTIALS} /></div>
 
       <div className="mt-12">
         <StatPanel

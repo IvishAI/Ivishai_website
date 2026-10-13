@@ -93,23 +93,23 @@ const Home = () => (
         which is the same as having none. */}
     <section className="band bg-grid pt-28 md:pt-36 relative overflow-hidden">
       <Wash tone="ember" />
-      <div className="wrap relative">
-        <span className="inline-flex items-center gap-2 mb-7">
+      <div className="wrap relative text-center">
+        <span className="inline-flex items-center gap-2 mb-7 justify-center">
           <Marker tone="aqua" />
           <Tag>Infrastructure for Industry 6.0</Tag>
         </span>
 
-        <Display className="max-w-[16ch]">
+        <Display className="max-w-[18ch] mx-auto">
           Where intelligence becomes infrastructure.
         </Display>
 
-        <Lede className="mt-7">
+        <Lede className="mt-7 mx-auto">
           IvishAI builds the operating systems that sit underneath communication
           and commerce - starting with VerbX and Sera, and extending toward the
           broader vision of Industry 6.0.
         </Lede>
 
-        <Actions className="mt-10">
+        <Actions className="mt-10 justify-center">
           <Action href="/products">See what we build</Action>
           <Ghost to="/about">About the company</Ghost>
         </Actions>
@@ -237,7 +237,7 @@ const Home = () => (
           patents filed.
         </Ribbon>
       </div>
-      <Actions className="mt-10">
+      <Actions className="mt-10 justify-center">
         <Action href="/products">See what we build</Action>
         <Ghost to="/about">About the company</Ghost>
       </Actions>
