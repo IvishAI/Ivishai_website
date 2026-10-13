@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
-
 
   const navigationItems = [
     { label: "Home", href: "/" },
@@ -23,10 +21,9 @@ const Header = () => {
     { label: "Patents", href: "/patents" },
   ];
 
-
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 w-full h-[78px] bg-transparent backdrop-blur-sm px-[82px] py-7 max-md:px-10 max-sm:px-5"
+      className="fixed top-0 left-0 right-0 z-50 w-full h-[78px] bg-transparent px-[82px] py-7 max-md:px-10 max-sm:px-5"
       initial={{ opacity: 0, y: -20 }}
       animate={{
         opacity: 1,
@@ -34,7 +31,7 @@ const Header = () => {
       }}
       transition={{
         duration: 0.4,
-        ease: [0.25, 0.1, 0.25, 1]
+        ease: [0.25, 0.1, 0.25, 1],
       }}
     >
       <div className="flex justify-between items-center h-full max-w-[1920px] mx-auto">
@@ -124,49 +121,48 @@ const Header = () => {
               >
                 <path
                   d="M40.5628 20.6457V0.949463H42.5864V12.0927L41.9928 12.5514C41.9928 11.2203 42.1816 10.0601 42.5594 9.0708C42.9551 8.08149 43.5397 7.31702 44.3132 6.7774C45.1046 6.21979 46.0939 5.94098 47.2811 5.94098H47.389C49.1158 5.94098 50.4199 6.50758 51.3013 7.64079C52.2007 8.774 52.6503 10.3479 52.6503 12.3625V20.6457H50.6537V11.9308C50.6537 10.6537 50.303 9.64639 49.6015 8.90891C48.9 8.17142 47.9556 7.80268 46.7684 7.80268C45.4913 7.80268 44.475 8.21639 43.7196 9.04382C42.9641 9.85325 42.5864 10.9235 42.5864 12.2546V20.6457H40.5628Z"
-                  fill="#EDF7F8"
+                  fill="#121214"
                 ></path>
                 <path
                   d="M32.2176 21.0505C30.3829 21.0505 28.9709 20.6548 27.9816 19.8633C26.9923 19.0539 26.4886 17.9746 26.4706 16.6256H28.3593C28.3953 17.3091 28.7011 17.9297 29.2767 18.4873C29.8703 19.0449 30.8506 19.3237 32.2176 19.3237C33.4947 19.3237 34.4481 19.0629 35.0776 18.5412C35.7252 18.0016 36.0489 17.3541 36.0489 16.5986C36.0489 15.8971 35.7791 15.3575 35.2395 14.9797C34.7179 14.584 33.9534 14.3322 32.9461 14.2243L31.3272 14.0624C30.0321 13.9185 28.9799 13.5228 28.1704 12.8752C27.379 12.2097 26.9833 11.3013 26.9833 10.1501C26.9833 9.30469 27.1991 8.56721 27.6308 7.93765C28.0625 7.30809 28.6651 6.82242 29.4386 6.48066C30.23 6.12091 31.1564 5.94104 32.2176 5.94104C33.7466 5.94104 34.9877 6.30079 35.941 7.02029C36.9123 7.73979 37.407 8.76507 37.425 10.0961H35.5363C35.5183 9.41262 35.2305 8.83702 34.6729 8.36935C34.1153 7.90167 33.2969 7.66783 32.2176 7.66783C31.1024 7.66783 30.266 7.91066 29.7084 8.39633C29.1687 8.88199 28.8989 9.47557 28.8989 10.1771C28.8989 10.7707 29.1058 11.2653 29.5195 11.661C29.9332 12.0388 30.5808 12.2726 31.4621 12.3626L33.081 12.5244C34.52 12.6863 35.6892 13.1 36.5886 13.7656C37.5059 14.4311 37.9646 15.3845 37.9646 16.6256C37.9646 17.471 37.7218 18.2355 37.2361 18.919C36.7684 19.5845 36.1029 20.1062 35.2395 20.4839C34.3761 20.8616 33.3688 21.0505 32.2176 21.0505Z"
-                  fill="#EDF7F8"
+                  fill="#121214"
                 ></path>
                 <path
                   d="M22.3053 20.5985V6.32544H24.3019V20.5985H22.3053ZM20.0119 7.94431V6.32544H24.3019V7.94431H20.0119Z"
-                  fill="#EDF7F8"
+                  fill="#121214"
                 ></path>
                 <path
                   d="M9.98421 20.6457L4.96571 6.37268H7.04326L12.0078 20.6457H9.98421ZM10.5238 20.6457V18.9999H13.087V20.6457H10.5238ZM11.6301 20.6457L15.974 6.37268H17.9706L13.5457 20.6457H11.6301Z"
-                  fill="#EDF7F8"
+                  fill="#121214"
                 ></path>
                 <path
                   d="M0.538589 20.6457V0.949463H2.58916V20.6457H0.538589Z"
-                  fill="#EDF7F8"
+                  fill="#121214"
                 ></path>
                 <path
                   d="M78.488 20.6457V0.949463H80.5386V20.6457H78.488Z"
-                  fill="#EDF7F8"
+                  fill="#121214"
                 ></path>
                 <path
                   d="M61.7709 20.6457L71.2925 0.949463H74.9619L74.7905 19.1701C74.7828 19.9873 74.1182 20.6457 73.3009 20.6457C73.1976 20.6457 73.114 20.5616 73.1147 20.4583L73.2387 2.2317L74.4762 2.81116H71.6432L72.6721 2.2317L63.8215 20.6457H61.7709Z"
-                  fill="#EDF7F8"
+                  fill="#121214"
                 ></path>
                 <path
                   d="M20.405 2.5429C20.3232 2.4338 20.3232 2.28376 20.405 2.17467C21.3012 0.9804 23.0473 0.856538 24.1031 1.91234L24.3102 2.11942C24.4424 2.25162 24.4424 2.46595 24.3102 2.59815L24.1031 2.80523C23.0473 3.86103 21.3012 3.73717 20.405 2.5429Z"
-                  fill="#EDF7F8"
+                  fill="#121214"
                 ></path>
               </svg>
             </div>
           </div>
         </div>
 
-
         {/* Desktop Navigation - Centered */}
-        <nav className="absolute left-1/2 transform -translate-x-1/2 flex justify-center items-center gap-8 border bg-[rgba(255,255,255,0.08)] px-4 py-2 rounded-xl border-[#6B6B6B] max-md:gap-5 max-sm:hidden backdrop-blur-sm transition-all duration-300">
+        <nav className="absolute left-1/2 transform -translate-x-1/2 flex justify-center items-center gap-8 border px-4 py-2 max-md:gap-5 max-sm:hidden transition-all duration-300">
           {navigationItems.map((item, index) => (
             <a
               key={index}
               href={item.href}
-              className="relative text-[#D6D6D6] text-[15px] font-normal p-1 hover:text-white transition-all duration-200 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+              className="relative text-ink-muted text-[15px] font-normal p-1 hover:text-ink transition-all duration-200 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-ink after:transition-all after:duration-300 hover:after:w-full"
             >
               {item.label}
             </a>
@@ -183,7 +179,7 @@ const Header = () => {
               aria-haspopup="true"
               aria-expanded={moreOpen}
               onClick={() => setMoreOpen((v) => !v)}
-              className="relative flex items-center gap-1 text-[#D6D6D6] text-[15px] font-normal p-1 hover:text-white transition-all duration-200 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+              className="relative flex items-center gap-1 text-ink-muted text-[15px] font-normal p-1 hover:text-ink transition-all duration-200 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-ink after:transition-all after:duration-300 hover:after:w-full"
             >
               More
               <svg
@@ -208,12 +204,12 @@ const Header = () => {
                   transition={{ duration: 0.18 }}
                   className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-56"
                 >
-                  <div className="rounded-xl border border-[#6B6B6B] bg-black/90 backdrop-blur-xl shadow-2xl overflow-hidden p-2">
+                  <div className="bg-paper/90 overflow-hidden p-2">
                     {moreItems.map((item, index) => (
                       <a
                         key={index}
                         href={item.href}
-                        className="block whitespace-nowrap text-[#D6D6D6] text-[14px] font-normal py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-white transition-all duration-200"
+                        className="block whitespace-nowrap text-ink-muted text-[14px] font-normal py-2.5 px-3 hover:text-ink transition-all duration-200"
                       >
                         {item.label}
                       </a>
@@ -225,18 +221,17 @@ const Header = () => {
           </div>
         </nav>
 
-
         {/* Right Side - Contact Button & Mobile Menu */}
         <div className="flex justify-end items-center w-[200px] max-sm:w-auto">
           {/* Mobile Menu - NEW DROPDOWN STYLE */}
           <div className="hidden max-sm:block relative">
             <button
-              className="text-white hover:bg-white/10 rounded-lg p-2 transition-colors duration-200"
+              className="text-ink p-2 transition-colors duration-200"
               onClick={() => setOpen(!open)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 text-white"
+                className="w-6 h-6 text-ink"
                 viewBox="0 0 24 24"
                 strokeWidth="2"
                 stroke="currentColor"
@@ -257,7 +252,7 @@ const Header = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+                    className="fixed inset-0 bg-paper/60 z-40"
                     onClick={() => setOpen(false)}
                   />
 
@@ -267,7 +262,7 @@ const Header = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="fixed top-20 right-5 w-72 bg-black/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl z-50 overflow-hidden"
+                    className="fixed top-20 right-5 w-72 bg-paper/95 z-50 overflow-hidden"
                   >
                     {/* Menu Items */}
                     <div className="p-4">
@@ -278,7 +273,7 @@ const Header = () => {
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: index * 0.05 }}
-                          className="block text-[#D6D6D6] text-base font-normal py-3 px-4 hover:bg-white/10 hover:text-white rounded-lg transition-all duration-200 mb-1"
+                          className="block text-ink-muted text-base font-normal py-3 px-4 hover:text-ink transition-all duration-200 mb-1"
                           onClick={() => setOpen(false)}
                         >
                           {item.label}
@@ -286,8 +281,8 @@ const Header = () => {
                       ))}
 
                       {/* More section */}
-                      <div className="mt-2 pt-3 border-t border-white/10">
-                        <p className="px-4 pb-1 text-[11px] uppercase tracking-wider text-[#8A8A8A]">
+                      <div className="mt-2 pt-3 border-t">
+                        <p className="px-4 pb-1 text-[11px] uppercase tracking-wider text-ink-faint">
                           More
                         </p>
                         {moreItems.map((item, index) => (
@@ -296,8 +291,10 @@ const Header = () => {
                             href={item.href}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: (navigationItems.length + index) * 0.05 }}
-                            className="block text-[#D6D6D6] text-base font-normal py-3 px-4 hover:bg-white/10 hover:text-white rounded-lg transition-all duration-200 mb-1"
+                            transition={{
+                              delay: (navigationItems.length + index) * 0.05,
+                            }}
+                            className="block text-ink-muted text-base font-normal py-3 px-4 hover:text-ink transition-all duration-200 mb-1"
                             onClick={() => setOpen(false)}
                           >
                             {item.label}
@@ -310,13 +307,10 @@ const Header = () => {
               )}
             </AnimatePresence>
           </div>
-
-
         </div>
       </div>
     </motion.header>
   );
 };
-
 
 export default Header;

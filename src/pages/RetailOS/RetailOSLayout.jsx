@@ -11,10 +11,42 @@ const navLinks = [
     to: "/retail-os",
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1" stroke="currentColor" strokeWidth="1.4"/>
-        <rect x="9" y="1.5" width="5.5" height="5.5" rx="1" stroke="currentColor" strokeWidth="1.4"/>
-        <rect x="1.5" y="9" width="5.5" height="5.5" rx="1" stroke="currentColor" strokeWidth="1.4"/>
-        <rect x="9" y="9" width="5.5" height="5.5" rx="1" stroke="currentColor" strokeWidth="1.4"/>
+        <rect
+          x="1.5"
+          y="1.5"
+          width="5.5"
+          height="5.5"
+          rx="1"
+          stroke="currentColor"
+          strokeWidth="1.4"
+        />
+        <rect
+          x="9"
+          y="1.5"
+          width="5.5"
+          height="5.5"
+          rx="1"
+          stroke="currentColor"
+          strokeWidth="1.4"
+        />
+        <rect
+          x="1.5"
+          y="9"
+          width="5.5"
+          height="5.5"
+          rx="1"
+          stroke="currentColor"
+          strokeWidth="1.4"
+        />
+        <rect
+          x="9"
+          y="9"
+          width="5.5"
+          height="5.5"
+          rx="1"
+          stroke="currentColor"
+          strokeWidth="1.4"
+        />
       </svg>
     ),
   },
@@ -24,7 +56,12 @@ const navLinks = [
     to: "/retail-os/features",
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M2 3.5h12M2 8h8M2 12.5h10" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+        <path
+          d="M2 3.5h12M2 8h8M2 12.5h10"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+        />
       </svg>
     ),
   },
@@ -34,8 +71,21 @@ const navLinks = [
     to: "/retail-os/industries",
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M2 14V9l6-6 6 6v5H2z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/>
-        <rect x="6" y="10" width="4" height="4" rx="0.5" stroke="currentColor" strokeWidth="1.2"/>
+        <path
+          d="M2 14V9l6-6 6 6v5H2z"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinejoin="round"
+        />
+        <rect
+          x="6"
+          y="10"
+          width="4"
+          height="4"
+          rx="0.5"
+          stroke="currentColor"
+          strokeWidth="1.2"
+        />
       </svg>
     ),
   },
@@ -45,8 +95,13 @@ const navLinks = [
     to: "/retail-os/pricing",
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.4"/>
-        <path d="M8 4.5v7M5.5 6.5h3.5a1 1 0 1 1 0 2h-3a1 1 0 1 0 0 2H10" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+        <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.4" />
+        <path
+          d="M8 4.5v7M5.5 6.5h3.5a1 1 0 1 1 0 2h-3a1 1 0 1 0 0 2H10"
+          stroke="currentColor"
+          strokeWidth="1.2"
+          strokeLinecap="round"
+        />
       </svg>
     ),
   },
@@ -61,13 +116,20 @@ const SidebarContent = ({ onClose }) => {
       <div className="px-5 pt-6 pb-4">
         {onClose && (
           <div className="flex items-center justify-between mb-5">
-            <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">Retail OS</span>
+            <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">
+              Retail OS
+            </span>
             <button
               onClick={onClose}
               className="text-gray-500 hover:text-white transition-colors p-1"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M3 3l10 10M13 3L3 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                <path
+                  d="M3 3l10 10M13 3L3 13"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
               </svg>
             </button>
           </div>
@@ -77,27 +139,48 @@ const SidebarContent = ({ onClose }) => {
           className="flex items-center gap-1.5 text-gray-600 text-xs hover:text-gray-300 transition-colors mb-5 group"
           onClick={onClose}
         >
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="group-hover:-translate-x-0.5 transition-transform">
-            <path d="M7 2L3 5l4 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+          <svg
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            fill="none"
+            className="group-hover:-translate-x-0.5 transition-transform"
+          >
+            <path
+              d="M7 2L3 5l4 3"
+              stroke="currentColor"
+              strokeWidth="1.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
           All Products
         </Link>
         <div className="flex items-center gap-2.5 mb-1">
           <div
             className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-            style={{ background: "#E26426", boxShadow: "0 0 8px rgba(226,100,38,0.7)" }}
+            style={{ background: "#E26426" }}
           />
-          <span className="font-sora font-semibold text-white text-base">Retail OS</span>
+          <span className="font-sora font-semibold text-white text-base">
+            Retail OS
+          </span>
         </div>
-        <p className="text-[10px] text-gray-600 ml-[26px] font-mono uppercase tracking-wider">Pillar 02 — Industry 6.0</p>
+        <p className="text-[10px] text-gray-600 ml-[26px] font-mono uppercase tracking-wider">
+          Pillar 02 — Industry 6.0
+        </p>
       </div>
 
       {/* Divider */}
-      <div className="mx-5 mb-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }} />
+      <div
+        className="mx-5 mb-4"
+        style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+      />
 
       {/* Nav */}
       <nav className="flex-1 px-3 space-y-0.5">
-        <p className="px-3 mb-2 text-[10px] font-mono uppercase tracking-[0.15em] text-gray-600">Navigate</p>
+        <p className="px-3 mb-2 text-[10px] font-mono uppercase tracking-[0.15em] text-gray-600">
+          Navigate
+        </p>
         {navLinks.map((link) => {
           const isActive = location.pathname === link.to;
           return (
@@ -105,14 +188,19 @@ const SidebarContent = ({ onClose }) => {
               key={link.to}
               to={link.to}
               onClick={onClose}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group"
+              className="flex items-center gap-3 px-3 py-2.5 transition-all duration-200 group"
               style={{
                 background: isActive ? "rgba(226,100,38,0.1)" : "transparent",
-                border: isActive ? "1px solid rgba(226,100,38,0.2)" : "1px solid transparent",
+                border: isActive
+                  ? "1px solid rgba(226,100,38,0.2)"
+                  : "1px solid transparent",
                 color: isActive ? "#E26426" : "#9ca3af",
               }}
             >
-              <span style={{ color: isActive ? "#E26426" : "#6b7280" }} className="flex-shrink-0 group-hover:text-gray-300 transition-colors">
+              <span
+                style={{ color: isActive ? "#E26426" : "#6b7280" }}
+                className="flex-shrink-0 group-hover:text-gray-300 transition-colors"
+              >
                 {link.icon}
               </span>
               <div className="flex-1 min-w-0">
@@ -122,7 +210,9 @@ const SidebarContent = ({ onClose }) => {
                 >
                   {link.label}
                 </p>
-                <p className="text-[10px] text-gray-600 leading-none">{link.desc}</p>
+                <p className="text-[10px] text-gray-600 leading-none">
+                  {link.desc}
+                </p>
               </div>
               {isActive && (
                 <div
@@ -138,18 +228,24 @@ const SidebarContent = ({ onClose }) => {
       {/* Status indicator */}
       <div className="px-5 py-4">
         <div className="flex items-center gap-2 mb-4">
-          <div className="w-1.5 h-1.5 rounded-full bg-green-400" style={{ boxShadow: "0 0 4px rgba(74,222,128,0.7)" }} />
-          <span className="text-[10px] text-gray-500 font-mono uppercase tracking-wider">In Market</span>
+          <div className="w-1.5 h-1.5 rounded-full bg-green-400" style={{}} />
+          <span className="text-[10px] text-gray-500 font-mono uppercase tracking-wider">
+            In Market
+          </span>
         </div>
 
         {/* CTA */}
         <div
           className="p-4 space-y-3"
-          style={{ border: "1px solid rgba(226,100,38,0.2)", background: "rgba(226,100,38,0.05)" }}
+          style={{ background: "rgba(226,100,38,0.05)" }}
         >
           <div>
-            <p className="text-xs font-medium text-white mb-0.5">Free to start</p>
-            <p className="text-[10px] text-gray-500 leading-snug">14-day PRO trial for all new shops</p>
+            <p className="text-xs font-medium text-white mb-0.5">
+              Free to start
+            </p>
+            <p className="text-[10px] text-gray-500 leading-snug">
+              14-day PRO trial for all new shops
+            </p>
           </div>
           <a
             href="mailto:connect@ivishai.com?subject=Retail OS - Get Started"
@@ -202,7 +298,10 @@ const RetailOSLayout = ({ children }) => {
                 />
                 <motion.aside
                   className="fixed top-0 left-0 bottom-0 z-50 w-64 lg:hidden overflow-y-auto"
-                  style={{ background: "#030303", borderRight: "1px solid rgba(255,255,255,0.08)" }}
+                  style={{
+                    background: "#030303",
+                    borderRight: "1px solid rgba(255,255,255,0.08)",
+                  }}
                   initial={{ x: -264 }}
                   animate={{ x: 0 }}
                   exit={{ x: -264 }}
@@ -222,22 +321,28 @@ const RetailOSLayout = ({ children }) => {
               style={{
                 background: "rgba(0,0,0,0.95)",
                 borderBottom: "1px solid rgba(226,100,38,0.12)",
-                backdropFilter: "blur(16px)",
               }}
             >
               <div className="flex items-center gap-2.5">
                 <div
                   className="w-2 h-2 rounded-full"
-                  style={{ background: "#E26426", boxShadow: "0 0 6px rgba(226,100,38,0.6)" }}
+                  style={{ background: "#E26426" }}
                 />
-                <span className="text-xs font-mono text-gray-400 uppercase tracking-wider">Retail OS</span>
+                <span className="text-xs font-mono text-gray-400 uppercase tracking-wider">
+                  Retail OS
+                </span>
               </div>
               <button
                 onClick={() => setDrawerOpen(true)}
                 className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
               >
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M3 5h12M3 9h8M3 13h10" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+                  <path
+                    d="M3 5h12M3 9h8M3 13h10"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                  />
                 </svg>
               </button>
             </div>

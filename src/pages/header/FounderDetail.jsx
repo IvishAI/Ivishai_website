@@ -33,25 +33,23 @@ const FounderDetail = () => {
             <img
               src={f.photo}
               alt={f.name}
-              className="w-full max-w-[240px] aspect-[4/5] object-cover border border-white/10"
+              className="w-full max-w-[240px] aspect-[4/5] object-cover"
             />
 
             <div>
-              <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/5 border border-white/10">
+              <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/5">
                 <span className="text-sm text-gray-300">{f.role}</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-sora tracking-tight leading-[110%] mb-6">
-                <span className="bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
-                  {f.name}
-                </span>
+                <span className="text-ink">{f.name}</span>
               </h1>
 
               <a
                 href={f.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-5 py-3 bg-white/5 border border-white/10 text-sm text-gray-300 hover:text-white transition-colors duration-200"
+                className="inline-block px-5 py-3 bg-white/5 text-sm text-gray-300 hover:text-white transition-colors duration-200"
               >
                 Connect on LinkedIn ↗
               </a>
@@ -69,9 +67,7 @@ const FounderDetail = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-4xl font-sora mb-8 bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
-            Personal note
-          </h2>
+          <h2 className="text-4xl font-sora mb-8 text-ink">Personal note</h2>
 
           {f.personalNote ? (
             <div className="border-l-4 border-[#E26426] pl-6 md:pl-8">
@@ -81,7 +77,7 @@ const FounderDetail = () => {
             </div>
           ) : (
             <p className="text-gray-400 text-base md:text-lg">
-              A personal note from {f.name.split(" ")[0]} is coming soon.
+              A personal note from {f.name.split("")[0]} is coming soon.
             </p>
           )}
         </motion.div>
@@ -96,10 +92,10 @@ const FounderDetail = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-4xl font-sora mb-8 bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
-            About
-          </h2>
-          <p className="text-gray-300 leading-relaxed text-base md:text-lg">{f.about}</p>
+          <h2 className="text-4xl font-sora mb-8 text-ink">About</h2>
+          <p className="text-gray-300 leading-relaxed text-base md:text-lg">
+            {f.about}
+          </p>
         </motion.div>
       </section>
 

@@ -11,11 +11,26 @@ const zones = [
     rgb: "226,100,38",
     restricted: false,
     industries: [
-      { name: "Grocery / Kirana", caps: "Weight-based billing for loose items, barcode scanning, customer credit (Khata)" },
-      { name: "General Store", caps: "Full product catalogue, inventory tracking, mixed billing" },
-      { name: "Dairy", caps: "Daily supply scheduling, regular customer management, Khata billing" },
-      { name: "Fruits & Vegetables", caps: "Weight-based billing, daily price updates, seasonal inventory" },
-      { name: "Bakery", caps: "Product catalogue, daily production tracking, invoice generation" },
+      {
+        name: "Grocery / Kirana",
+        caps: "Weight-based billing for loose items, barcode scanning, customer credit (Khata)",
+      },
+      {
+        name: "General Store",
+        caps: "Full product catalogue, inventory tracking, mixed billing",
+      },
+      {
+        name: "Dairy",
+        caps: "Daily supply scheduling, regular customer management, Khata billing",
+      },
+      {
+        name: "Fruits & Vegetables",
+        caps: "Weight-based billing, daily price updates, seasonal inventory",
+      },
+      {
+        name: "Bakery",
+        caps: "Product catalogue, daily production tracking, invoice generation",
+      },
     ],
   },
   {
@@ -25,7 +40,10 @@ const zones = [
     rgb: "19,216,246",
     restricted: false,
     industries: [
-      { name: "Pharmacy / Medical Store", caps: "Batch tracking, expiry date monitoring, prescription-linked billing, drug catalogue management" },
+      {
+        name: "Pharmacy / Medical Store",
+        caps: "Batch tracking, expiry date monitoring, prescription-linked billing, drug catalogue management",
+      },
     ],
   },
   {
@@ -49,9 +67,18 @@ const zones = [
     rgb: "167,139,250",
     restricted: false,
     industries: [
-      { name: "Salon / Beauty", caps: "Service billing, walk-in and appointment billing, staff service tracking" },
-      { name: "Tailor / Boutique", caps: "Measurement records, order management, delivery tracking, service billing" },
-      { name: "Repair Shop", caps: "Job card management, parts + labour billing, delivery status" },
+      {
+        name: "Salon / Beauty",
+        caps: "Service billing, walk-in and appointment billing, staff service tracking",
+      },
+      {
+        name: "Tailor / Boutique",
+        caps: "Measurement records, order management, delivery tracking, service billing",
+      },
+      {
+        name: "Repair Shop",
+        caps: "Job card management, parts + labour billing, delivery status",
+      },
     ],
   },
   {
@@ -61,8 +88,14 @@ const zones = [
     rgb: "52,211,153",
     restricted: false,
     industries: [
-      { name: "Fast Food / Takeaway", caps: "Menu-based billing, token ordering, quick checkout" },
-      { name: "Tiffin / Curry Point", caps: "Subscription-based customer billing, daily order management, Khata for regulars" },
+      {
+        name: "Fast Food / Takeaway",
+        caps: "Menu-based billing, token ordering, quick checkout",
+      },
+      {
+        name: "Tiffin / Curry Point",
+        caps: "Subscription-based customer billing, daily order management, Khata for regulars",
+      },
     ],
   },
   {
@@ -71,13 +104,27 @@ const zones = [
     color: "#9575CD",
     rgb: "94,53,177",
     restricted: true,
-    intro: "Liquor shops, tobacco shops, paan shops, and hybrid food+paan outlets operate under specific regulations. Retail OS is the only retail platform built with these compliance requirements from day one.",
-    closingNote: "Zone 6 does not have a free plan. A minimum paid plan is required to operate on Retail OS -- due to compliance requirements.",
+    intro:
+      "Liquor shops, tobacco shops, paan shops, and hybrid food+paan outlets operate under specific regulations. Retail OS is the only retail platform built with these compliance requirements from day one.",
+    closingNote:
+      "Zone 6 does not have a free plan. A minimum paid plan is required to operate on Retail OS -- due to compliance requirements.",
     industries: [
-      { name: "Liquor Shop", caps: "State excise license validation, age restriction, dry-state blocking" },
-      { name: "Tobacco Shop", caps: "COTPA compliance, age restriction, proximity restrictions" },
-      { name: "Paan Shop", caps: "COTPA if tobacco products sold, standard billing otherwise" },
-      { name: "Hybrid Paan + Food", caps: "COTPA and FSSAI layers -- both active where applicable" },
+      {
+        name: "Liquor Shop",
+        caps: "State excise license validation, age restriction, dry-state blocking",
+      },
+      {
+        name: "Tobacco Shop",
+        caps: "COTPA compliance, age restriction, proximity restrictions",
+      },
+      {
+        name: "Paan Shop",
+        caps: "COTPA if tobacco products sold, standard billing otherwise",
+      },
+      {
+        name: "Hybrid Paan + Food",
+        caps: "COTPA and FSSAI layers -- both active where applicable",
+      },
     ],
   },
 ];
@@ -100,7 +147,9 @@ const ZoneCard = ({ zone, i }) => {
       {/* Top accent line */}
       <div
         className="h-[2px]"
-        style={{ background: `linear-gradient(90deg, rgba(${zone.rgb},0.8), transparent)` }}
+        style={{
+          background: `linear-gradient(90deg, rgba(${zone.rgb},0.8), transparent)`,
+        }}
       />
 
       {/* Header */}
@@ -111,21 +160,32 @@ const ZoneCard = ({ zone, i }) => {
         <div className="flex items-center gap-3 flex-wrap">
           <span
             className="text-xs font-mono px-2 py-0.5 flex-shrink-0"
-            style={{ color: zone.color, background: `rgba(${zone.rgb},0.12)`, border: `1px solid rgba(${zone.rgb},0.25)` }}
+            style={{
+              color: zone.color,
+              background: `rgba(${zone.rgb},0.12)`,
+              border: `1px solid rgba(${zone.rgb},0.25)`,
+            }}
           >
             Zone {zone.zone}
           </span>
-          <span className="font-semibold text-sm md:text-base text-white">{zone.heading}</span>
+          <span className="font-semibold text-sm md:text-base text-white">
+            {zone.heading}
+          </span>
           {zone.restricted && (
             <span
               className="text-[10px] px-2 py-0.5 rounded-full font-medium"
-              style={{ background: `rgba(${zone.rgb},0.15)`, color: zone.color, border: `1px solid rgba(${zone.rgb},0.3)` }}
+              style={{
+                background: `rgba(${zone.rgb},0.15)`,
+                color: zone.color,
+                border: `1px solid rgba(${zone.rgb},0.3)`,
+              }}
             >
               Compliance Required
             </span>
           )}
           <span className="text-gray-600 text-xs">
-            {zone.industries.length} {zone.industries.length === 1 ? "industry" : "industries"}
+            {zone.industries.length}{" "}
+            {zone.industries.length === 1 ? "industry" : "industries"}
           </span>
         </div>
         <motion.svg
@@ -137,7 +197,13 @@ const ZoneCard = ({ zone, i }) => {
           transition={{ duration: 0.2 }}
           className="text-gray-500 flex-shrink-0 ml-2"
         >
-          <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path
+            d="M4 6l4 4 4-4"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </motion.svg>
       </button>
 
@@ -150,17 +216,25 @@ const ZoneCard = ({ zone, i }) => {
             transition={{ duration: 0.25 }}
             className="overflow-hidden"
           >
-            <div className="px-4 md:px-5 pb-5" style={{ borderTop: `1px solid rgba(${zone.rgb},0.1)` }}>
+            <div
+              className="px-4 md:px-5 pb-5"
+              style={{ borderTop: `1px solid rgba(${zone.rgb},0.1)` }}
+            >
               {zone.intro && (
                 <p
                   className="text-gray-300 text-xs md:text-sm leading-relaxed mt-4 mb-4"
-                  style={{ borderLeft: `3px solid rgba(${zone.rgb},0.5)`, paddingLeft: "12px" }}
+                  style={{
+                    borderLeft: `3px solid rgba(${zone.rgb},0.5)`,
+                    paddingLeft: "12px",
+                  }}
                 >
                   {zone.intro}
                 </p>
               )}
               {zone.note && (
-                <p className="text-gray-500 text-xs italic mt-3 mb-3">{zone.note}</p>
+                <p className="text-gray-500 text-xs italic mt-3 mb-3">
+                  {zone.note}
+                </p>
               )}
 
               <div className="space-y-0">
@@ -177,14 +251,18 @@ const ZoneCard = ({ zone, i }) => {
                       {ind.name}
                     </span>
                     {ind.caps && (
-                      <span className="text-gray-400 text-xs md:text-sm">{ind.caps}</span>
+                      <span className="text-gray-400 text-xs md:text-sm">
+                        {ind.caps}
+                      </span>
                     )}
                   </div>
                 ))}
               </div>
 
               {zone.closingNote && (
-                <p className="text-gray-500 text-xs italic pt-4">{zone.closingNote}</p>
+                <p className="text-gray-500 text-xs italic pt-4">
+                  {zone.closingNote}
+                </p>
               )}
               {zone.restricted && (
                 <Link
@@ -213,7 +291,9 @@ const RetailOSIndustries = () => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <p className="text-xs font-mono uppercase tracking-[0.2em] text-gray-600 mb-2">Industries</p>
+        <p className="text-xs font-mono uppercase tracking-[0.2em] text-gray-600 mb-2">
+          Industries
+        </p>
         <h1
           className="font-sora font-normal leading-none mb-4"
           style={{
@@ -228,9 +308,10 @@ const RetailOSIndustries = () => (
           Why Industries Matter
         </h1>
         <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-          A pharmacy needs expiry date tracking and compliance controls. A salon bills for
-          services, not products. A food stall uses a token queue. A kirana sells by weight.
-          One size fits none of them -- which is why Retail OS adapts to each industry's real workflow.
+          A pharmacy needs expiry date tracking and compliance controls. A salon
+          bills for services, not products. A food stall uses a token queue. A
+          kirana sells by weight. One size fits none of them -- which is why
+          Retail OS adapts to each industry's real workflow.
         </p>
       </motion.div>
     </section>

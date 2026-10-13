@@ -1,10 +1,10 @@
 /**
- * AmbientBackground - the restrained "infrastructure" backdrop:
+ * AmbientBackground - the restrained"infrastructure" backdrop:
  * a slowly drifting grid plus two soft brand-colour glows.
  * Purely decorative; sits behind hero content (pointer-events-none, -z).
  *
  * Props:
- *   variant  "ember" | "aqua" | "dual" - glow tint, default "dual"
+ * variant"ember" |"aqua" |"dual" - glow tint, default"dual"
  */
 const AmbientBackground = ({ variant = "dual" }) => {
   return (
@@ -23,13 +23,17 @@ const AmbientBackground = ({ variant = "dual" }) => {
       {(variant === "aqua" || variant === "dual") && (
         <div
           className="absolute -top-24 -left-24 h-[420px] w-[420px] rounded-full blur-[120px] opacity-25 animate-pulse-soft"
-          style={{ background: "radial-gradient(circle, #13D8F6, transparent 70%)" }}
+          style={{
+            background: "radial-gradient(circle, #13D8F6, transparent 70%)",
+          }}
         />
       )}
       {(variant === "ember" || variant === "dual") && (
         <div
           className="absolute top-10 right-0 h-[380px] w-[380px] rounded-full blur-[120px] opacity-20 animate-pulse-soft"
-          style={{ background: "radial-gradient(circle, #E26426, transparent 70%)" }}
+          style={{
+            background: "radial-gradient(circle, #E26426, transparent 70%)",
+          }}
         />
       )}
     </div>

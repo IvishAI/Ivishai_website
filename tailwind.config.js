@@ -10,29 +10,58 @@ module.exports = {
         softBlue: '#A7CEE8',           // Soft blue accent
         deepPurple: '#5B3E96',         // Deep purple accent
 
-        // ---- Design tokens for the pages brought over from the rebuild ----
-        // Neutral black surfaces to match the existing site (not the blue base).
+        /* ---- Light ground ----
+         *
+         * The site is moving from black to white. These are measured against a
+         * #FFFFFF ground, not picked by eye, because going light changes what
+         * the brand colours are allowed to do:
+         *
+         *   ember  #E26426 on white = 3.45  -> large display and fills only
+         *   aqua   #13D8F6 on white = 1.72  -> NEVER text or a hairline on white.
+         *                                      It is a fill, with ink on top.
+         *
+         * So each brand colour has a "deep" that is safe at body size, and the
+         * bright one is kept for marks you look at rather than read.
+         */
+
+        /* page grounds */
+        paper: {
+          DEFAULT: "#FFFFFF", // the one ground
+          raised: "#FAFAF8",  // a panel lifted off it
+          sunk: "#F4F4F1",    // a well / code block
+        },
+        /* rules - non-text, so low ratios are correct here */
+        rule: {
+          DEFAULT: "#E2E2DF",
+          strong: "#D8D8D4",
+        },
+        /* text on paper */
         ink: {
-          DEFAULT: "#000000", // page base - true black, same as the rest of the site
+          DEFAULT: "#121214", // primary       18.71
+          muted: "#55555E",   // secondary      7.38
+          faint: "#6E6E78",   // captions       5.04  (the old #85858F failed at 3.65)
+          /* the dark surfaces, kept so the few inverted blocks still have tokens */
+          900: "#000000",
           800: "#08080A",
-          700: "#0E0E11", // raised surface
-          600: "#151517", // card surface
+          700: "#0E0E11",
+          600: "#151517",
           500: "#1F1F23",
         },
         ember: {
-          DEFAULT: "#E26426", // brand orange (from logo)
+          DEFAULT: "#E26426", // brand orange - fills, large display, marks
           soft: "#F0854A",
-          deep: "#AD4613",
+          deep: "#AD4613",    // 5.73 on white - safe for body text and small marks
         },
         aqua: {
-          DEFAULT: "#13D8F6", // brand cyan (from logo)
+          DEFAULT: "#13D8F6", // brand cyan - FILL ONLY on a light ground (1.72)
           soft: "#63FFF5",
-          deep: "#0F616D",
+          deep: "#0F616D",    // 7.12 on white - this is the one you write with
         },
+        /* kept: the dark-ground text ramp, still used by inverted sections */
         cloud: {
-          DEFAULT: "#EDF1F7", // primary text
-          muted: "#9AA6B8",   // secondary text
-          faint: "#5F6B7E",   // tertiary / captions
+          DEFAULT: "#EDF1F7",
+          muted: "#9AA6B8",
+          faint: "#5F6B7E",
         },
       },
       fontFamily: {

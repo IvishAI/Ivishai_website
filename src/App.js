@@ -5,8 +5,6 @@ import NotFound from "./pages/NotFound";
 import LoadingPage from "./pages/loadingpage";
 
 import PrivacyPolicy from "./pages/Footer/PrivacyPolicy";
-import InternshipsStudentPrograms from "./pages/Careers/internships-student-programs";
-import SoftwareEngineering from "./pages/Careers/Software/softwareengineering";
 import Blog from "./pages/header/blog/Blog";
 import AiTransformingIndustries from "./pages/header/blog/ai-transforming-industries";
 import AiHealthcare from "./pages/header/blog/ai-healthcare";
@@ -20,10 +18,6 @@ import Security from "./pages/Footer/Security";
 import Compliance from "./pages/Footer/Compliance";
 import CookiesPreference from "./pages/Footer/cookie-preferences";
 import PrivacyChoices from "./pages/Footer/PrivacyChoices";
-import Card from "./components/ui/card";
-import Button from "./components/ui/button";
-import Input from "./components/ui/input";
-import Badge from "./components/ui/badge";
 import DeveloperPage from "./pages/Developerpage";
 import ProductsComingSoon from "./components/ComingUp";
 import WhyIvish from "./components/WhyIvish";
@@ -39,24 +33,21 @@ const Products = lazy(() => import("./pages/Products"));
 const About = lazy(() => import("./pages/header/About"));
 const Careers = lazy(() => import("./pages/Careers/Careers"));
 const Contact = lazy(() => import("./pages/header/Contact"));
-const Login = lazy(() => import("./pages/Careers/Login"));
-const Signup = lazy(() => import("./pages/Careers/Signup"));
-const Profile = lazy(() => import("./pages/Careers/Profile"));
-const JobApplicationForm = lazy(() => import("./pages/Careers/JobApplicationForm"));
-const AiMlJobs = lazy(() => import("./pages/Careers/aiml/AiMlJobs"));
-const FrontendDeveloper = lazy(() => import("./pages/Careers/Software/FrontendDeveloper"));
-const BackendEngineer = lazy(() => import("./pages/Careers/Software/BackendEngineer"));
-const AiResearchScientist = lazy(() => import("./pages/Careers/aiml/AiResearchScientist"));
-const MachineLearningEngineer = lazy(() => import("./pages/Careers/aiml/MachineLearningEngineer"));
-const ComputerVisionEngineer = lazy(() => import("./pages/Careers/aiml/ComputerVisionEngineer"));
-const NlpResearcher = lazy(() => import("./pages/Careers/aiml/NlpResearcher"));
 const StayUpdatedForm = lazy(() => import("./pages/Careers/StayUpdatedForm"));
-const RetailOSOverview = lazy(() => import("./pages/RetailOS/RetailOSOverview"));
-const RetailOSFeatures = lazy(() => import("./pages/RetailOS/RetailOSFeatures"));
-const RetailOSIndustries = lazy(() => import("./pages/RetailOS/RetailOSIndustries"));
+const RetailOSOverview = lazy(
+  () => import("./pages/RetailOS/RetailOSOverview"),
+);
+const RetailOSFeatures = lazy(
+  () => import("./pages/RetailOS/RetailOSFeatures"),
+);
+const RetailOSIndustries = lazy(
+  () => import("./pages/RetailOS/RetailOSIndustries"),
+);
 const RetailOSPricing = lazy(() => import("./pages/RetailOS/RetailOSPricing"));
-
-// "More" menu pages
+const SeraPrivacyPolicy = lazy(
+  () => import("./pages/RetailOS/SeraPrivacyPolicy"),
+);
+//"More" menu pages
 const Collaboration = lazy(() => import("./pages/Collaboration"));
 const Recognition = lazy(() => import("./pages/Recognition"));
 const Government = lazy(() => import("./pages/Government"));
@@ -72,7 +63,6 @@ const FounderDetail = lazy(() => import("./pages/header/FounderDetail"));
 function App() {
   return (
     <Router>
-
       {/* ✅ Analytics (NO UI, just tracking) */}
       <PixelTracker />
       <GATracker />
@@ -86,7 +76,7 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
 
-          {/* "More" menu pages */}
+          {/*"More" menu pages */}
           <Route path="/collaboration" element={<Collaboration />} />
           <Route path="/recognition" element={<Recognition />} />
           <Route path="/government" element={<Government />} />
@@ -100,38 +90,27 @@ function App() {
           {/* VerbX intro - globe animation, then hands off to verbxeco.com */}
           <Route path="/explore-verbx" element={<ExploreVerbX />} />
 
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/jobapplicationform" element={<JobApplicationForm />} />
-          <Route path="/aimljobs" element={<AiMlJobs />} />
-          <Route path="/internships-student-programs" element={<InternshipsStudentPrograms />} />
-          <Route path="/softwareengineering" element={<SoftwareEngineering />} />
-          <Route path="/frontenddeveloper" element={<FrontendDeveloper />} />
-          <Route path="/backendengineer" element={<BackendEngineer />} />
-          <Route path="/ai-research-scientist" element={<AiResearchScientist />} />
-          <Route path="/machine-learning-engineer" element={<MachineLearningEngineer />} />
-          <Route path="/computer-vision-engineer" element={<ComputerVisionEngineer />} />
-          <Route path="/nlp-researcher" element={<NlpResearcher />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
 
           <Route path="/Blog" element={<Blog />} />
-          <Route path="/ai-transforming-industries" element={<AiTransformingIndustries />} />
+          <Route
+            path="/ai-transforming-industries"
+            element={<AiTransformingIndustries />}
+          />
           <Route path="/ai-healthcare" element={<AiHealthcare />} />
           <Route path="/ai-wearables" element={<AiWearables />} />
           <Route path="/cloud-computing" element={<CloudComputing />} />
           <Route path="/cybersecurity-ai" element={<CybersecurityAi />} />
           <Route path="/deep-learning" element={<DeepLearning />} />
           <Route path="/legal" element={<Legal />} />
-          <Route path="/responsibledisclosure" element={<ResponsibleDisclosure />} />
+          <Route
+            path="/responsibledisclosure"
+            element={<ResponsibleDisclosure />}
+          />
           <Route path="/security" element={<Security />} />
           <Route path="/compliance" element={<Compliance />} />
           <Route path="/cookie-preferences" element={<CookiesPreference />} />
           <Route path="/privacychoices" element={<PrivacyChoices />} />
-          <Route path="/card" element={<Card />} />
-          <Route path="/button" element={<Button />} />
-          <Route path="/input" element={<Input />} />
-          <Route path="/badge" element={<Badge />} />
           <Route path="/developerpage" element={<DeveloperPage />} />
           <Route path="/coming-soon" element={<ProductsComingSoon />} />
           <Route path="/whyivish" element={<WhyIvish />} />
@@ -140,13 +119,15 @@ function App() {
 
           <Route path="/retail-os" element={<RetailOSOverview />} />
           <Route path="/retail-os/features" element={<RetailOSFeatures />} />
-          <Route path="/retail-os/industries" element={<RetailOSIndustries />} />
+          <Route
+            path="/retail-os/industries"
+            element={<RetailOSIndustries />}
+          />
           <Route path="/retail-os/pricing" element={<RetailOSPricing />} />
-
+          <Route path="/sera/privacypolicy" element={<SeraPrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
-
     </Router>
   );
 }

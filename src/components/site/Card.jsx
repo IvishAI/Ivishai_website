@@ -1,22 +1,21 @@
-import { motion } from "framer-motion";
-
 /**
- * Card - glass surface with a subtle hover lift + aqua edge glow.
- * The default container for feature/value/stat blocks.
+ * Card - kept as a NAME only.
+ *
+ * There are no cards on this site any more. It used to be a surface with a
+ * hover lift and an aqua edge glow, wrapped round most of the content on the
+ * page; now it is padding and nothing else, so the 21 places that still call it
+ * keep working while the shell is gone everywhere at once.
+ *
+ * Do not add a fill, an outline, a radius or a shadow back to this. If a block
+ * needs separating, give it space, or a single hairline.
  *
  * Props:
- *   hover    bool    enable lift on hover - default true
  *   className string
  */
-const Card = ({ children, hover = true, className = "", ...rest }) => (
-  <motion.div
-    className={`glass rounded-2xl p-6 md:p-8 transition-colors duration-300 hover:border-aqua/30 ${className}`}
-    whileHover={hover ? { y: -6 } : undefined}
-    transition={{ type: "spring", stiffness: 300, damping: 24 }}
-    {...rest}
-  >
+const Card = ({ children, hover, className = "", ...rest }) => (
+  <div className={`p-6 md:p-8 ${className}`} {...rest}>
     {children}
-  </motion.div>
+  </div>
 );
 
 export default Card;

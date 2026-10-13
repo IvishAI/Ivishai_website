@@ -8,12 +8,38 @@ const world = feature(topo, topo.objects.countries);
 // Countries that stay black with a white outline (outside VerbX's named reach).
 // Everything else lights up orange - the ~130+ where VerbX works.
 const BLACK = new Set([
-  "Antarctica", "Greenland", "Fr. S. Antarctic Lands", "Falkland Is.", "W. Sahara",
-  "Kosovo", "N. Cyprus", "Somaliland", "New Caledonia", "Puerto Rico", "Fiji",
-  "Vanuatu", "Solomon Is.", "Papua New Guinea", "Iceland", "Bhutan", "Timor-Leste",
-  "Belize", "Bahamas", "Jamaica", "Trinidad and Tobago", "Haiti", "Guyana",
-  "Eritrea", "S. Sudan", "Serbia", "Slovenia", "Macedonia", "Montenegro",
-  "Albania", "Kyrgyzstan", "Taiwan",
+  "Antarctica",
+  "Greenland",
+  "Fr. S. Antarctic Lands",
+  "Falkland Is.",
+  "W. Sahara",
+  "Kosovo",
+  "N. Cyprus",
+  "Somaliland",
+  "New Caledonia",
+  "Puerto Rico",
+  "Fiji",
+  "Vanuatu",
+  "Solomon Is.",
+  "Papua New Guinea",
+  "Iceland",
+  "Bhutan",
+  "Timor-Leste",
+  "Belize",
+  "Bahamas",
+  "Jamaica",
+  "Trinidad and Tobago",
+  "Haiti",
+  "Guyana",
+  "Eritrea",
+  "S. Sudan",
+  "Serbia",
+  "Slovenia",
+  "Macedonia",
+  "Montenegro",
+  "Albania",
+  "Kyrgyzstan",
+  "Taiwan",
 ]);
 
 // VerbX countries sorted west -> east so they light up in a sweep.
@@ -39,8 +65,11 @@ const EarthGlobe = () => {
     ctx.scale(dpr, dpr);
 
     const projection = geoOrthographic().fitExtent(
-      [[6, 6], [size - 6, size - 6]],
-      { type: "Sphere" }
+      [
+        [6, 6],
+        [size - 6, size - 6],
+      ],
+      { type: "Sphere" },
     );
     const path = geoPath(projection, ctx);
 

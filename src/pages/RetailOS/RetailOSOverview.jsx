@@ -5,33 +5,62 @@ import RetailOSLayout from "./RetailOSLayout";
 
 const zones = [
   {
-    zone: "01", type: "Core Retail", color: "#E26426", rgb: "226,100,38",
-    industries: ["Grocery / Kirana", "General Store", "Dairy", "Fruits & Veg", "Bakery"],
+    zone: "01",
+    type: "Core Retail",
+    color: "#E26426",
+    rgb: "226,100,38",
+    industries: [
+      "Grocery / Kirana",
+      "General Store",
+      "Dairy",
+      "Fruits & Veg",
+      "Bakery",
+    ],
     restricted: false,
   },
   {
-    zone: "02", type: "Pharmacy", color: "#13D8F6", rgb: "19,216,246",
+    zone: "02",
+    type: "Pharmacy",
+    color: "#13D8F6",
+    rgb: "19,216,246",
     industries: ["Pharmacy", "Medical Store"],
     restricted: false,
   },
   {
-    zone: "03", type: "Regulated Retail", color: "#60a5fa", rgb: "96,165,250",
+    zone: "03",
+    type: "Regulated Retail",
+    color: "#60a5fa",
+    rgb: "96,165,250",
     industries: ["Electronics", "Mobile Store", "Hardware", "Stationery"],
     restricted: false,
   },
   {
-    zone: "04", type: "Service-Led", color: "#a78bfa", rgb: "167,139,250",
+    zone: "04",
+    type: "Service-Led",
+    color: "#a78bfa",
+    rgb: "167,139,250",
     industries: ["Salon / Beauty", "Tailor / Boutique", "Repair Shop"],
     restricted: false,
   },
   {
-    zone: "05", type: "Food & Beverage", color: "#34d399", rgb: "52,211,153",
+    zone: "05",
+    type: "Food & Beverage",
+    color: "#34d399",
+    rgb: "52,211,153",
     industries: ["Fast Food / Takeaway", "Tiffin / Curry Point"],
     restricted: false,
   },
   {
-    zone: "06", type: "Regulated Restricted", color: "#9575CD", rgb: "94,53,177",
-    industries: ["Liquor Shop", "Tobacco Shop", "Paan Shop", "Hybrid Paan + Food"],
+    zone: "06",
+    type: "Regulated Restricted",
+    color: "#9575CD",
+    rgb: "94,53,177",
+    industries: [
+      "Liquor Shop",
+      "Tobacco Shop",
+      "Paan Shop",
+      "Hybrid Paan + Food",
+    ],
     restricted: true,
   },
 ];
@@ -70,11 +99,13 @@ const RetailOSOverview = () => (
             WebkitTextFillColor: "transparent",
           }}
         >
-          The Operating System<br />for Indian Retail
+          The Operating System
+          <br />
+          for Indian Retail
         </h1>
         <p className="text-gray-400 text-sm md:text-base max-w-lg leading-relaxed mb-8">
-          One platform. One AI. 19 industries. Works offline. India's 12 million retail shops
-          deserve better than paper registers and WhatsApp.
+          One platform. One AI. 27 industries. Works offline. India's 12 million
+          retail shops deserve better than paper registers and WhatsApp.
         </p>
 
         {/* Stat strip */}
@@ -83,10 +114,17 @@ const RetailOSOverview = () => (
             <div
               key={s.label}
               className="flex flex-col px-4 py-2.5"
-              style={{ border: "1px solid rgba(226,100,38,0.2)", background: "rgba(226,100,38,0.04)" }}
+              style={{ background: "rgba(226,100,38,0.04)" }}
             >
-              <span className="font-sora font-bold text-xl" style={{ color: "#E26426" }}>{s.val}</span>
-              <span className="text-gray-500 text-[10px] uppercase tracking-wider font-mono">{s.label}</span>
+              <span
+                className="font-sora font-bold text-xl"
+                style={{ color: "#E26426" }}
+              >
+                {s.val}
+              </span>
+              <span className="text-gray-500 text-[10px] uppercase tracking-wider font-mono">
+                {s.label}
+              </span>
             </div>
           ))}
         </div>
@@ -111,7 +149,10 @@ const RetailOSOverview = () => (
     </section>
 
     {/* ── DIVIDER ── */}
-    <div className="mx-5 md:mx-10 lg:mx-14 xl:mx-20" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }} />
+    <div
+      className="mx-5 md:mx-10 lg:mx-14 xl:mx-20"
+      style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+    />
 
     {/* ── 6 ZONES ── */}
     <section className="px-5 md:px-10 lg:px-14 xl:px-20 py-10 md:py-14">
@@ -122,13 +163,17 @@ const RetailOSOverview = () => (
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-xs font-mono uppercase tracking-[0.2em] text-gray-600 mb-2">Coverage</p>
+        <p className="text-xs font-mono uppercase tracking-[0.2em] text-gray-600 mb-2">
+          Coverage
+        </p>
         <h2
           className="font-sora font-normal"
           style={{ fontSize: "clamp(22px,3.5vw,40px)", letterSpacing: "-1px" }}
         >
-          <span className="text-white">6 Zones.</span>{" "}
-          <span style={{ color: "#E26426" }}>19 Industries.</span>{" "}
+          <span className="text-white">6 Zones.</span>
+          {""}
+          <span style={{ color: "#E26426" }}>27 Industries.</span>
+          {""}
           <span className="text-white">One Platform.</span>
         </h2>
       </motion.div>
@@ -150,7 +195,9 @@ const RetailOSOverview = () => (
             {/* Top accent line */}
             <div
               className="absolute top-0 left-0 right-0 h-[2px]"
-              style={{ background: `linear-gradient(90deg, rgba(${zone.rgb},0.8), transparent)` }}
+              style={{
+                background: `linear-gradient(90deg, rgba(${zone.rgb},0.8), transparent)`,
+              }}
             />
 
             <div className="flex items-start justify-between gap-2 mb-3">
@@ -161,12 +208,18 @@ const RetailOSOverview = () => (
                 >
                   Zone {zone.zone}
                 </span>
-                <h3 className="font-semibold text-sm text-white mt-0.5">{zone.type}</h3>
+                <h3 className="font-semibold text-sm text-white mt-0.5">
+                  {zone.type}
+                </h3>
               </div>
               {zone.restricted && (
                 <span
                   className="text-[10px] px-2 py-0.5 rounded-full font-medium flex-shrink-0"
-                  style={{ background: `rgba(${zone.rgb},0.15)`, color: zone.color, border: `1px solid rgba(${zone.rgb},0.3)` }}
+                  style={{
+                    background: `rgba(${zone.rgb},0.15)`,
+                    color: zone.color,
+                    border: `1px solid rgba(${zone.rgb},0.3)`,
+                  }}
                 >
                   Compliance
                 </span>
@@ -178,7 +231,7 @@ const RetailOSOverview = () => (
                 <span
                   key={ind}
                   className="text-[11px] px-2 py-1 text-gray-400"
-                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
+                  style={{ background: "rgba(255,255,255,0.04)" }}
                 >
                   {ind}
                 </span>
@@ -188,7 +241,12 @@ const RetailOSOverview = () => (
             {/* Zone number watermark */}
             <div
               className="absolute bottom-0 right-3 font-sora font-bold leading-none pointer-events-none select-none"
-              style={{ fontSize: "72px", color: zone.color, opacity: 0.04, lineHeight: 1 }}
+              style={{
+                fontSize: "72px",
+                color: zone.color,
+                opacity: 0.04,
+                lineHeight: 1,
+              }}
             >
               {zone.zone}
             </div>
@@ -219,14 +277,17 @@ const RetailOSOverview = () => (
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-xs font-mono uppercase tracking-[0.2em] text-gray-600 mb-4">The Problem</p>
+        <p className="text-xs font-mono uppercase tracking-[0.2em] text-gray-600 mb-4">
+          The Problem
+        </p>
         <blockquote
           className="text-white text-base md:text-lg leading-relaxed font-light"
           style={{ borderLeft: "3px solid #E26426", paddingLeft: "18px" }}
         >
-          India has 12 million retail shops. Most run on paper registers, WhatsApp, and memory.
-          Retail OS is the complete operating system for any shop — billing, inventory, payments,
-          credit management, and AI built in from day one.
+          India has 12 million retail shops. Most run on paper registers,
+          WhatsApp, and memory. Retail OS is the complete operating system for
+          any shop — billing, inventory, payments, credit management, and AI
+          built in from day one.
         </blockquote>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link

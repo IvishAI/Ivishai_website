@@ -22,3 +22,18 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .vercel
+
+# secrets - never commit
+.env
+*.env
+!.env.example
+
+# this was committed once; node_modules does not belong in src
+src/backend/node_modules
+
+# the element sheet is local-only, like the marketing site - never commit it,
+# and never leave App.js referencing it in a commit
+src/pages/Elements.jsx
+
+# full-size source images, kept out of the build
+_originals/

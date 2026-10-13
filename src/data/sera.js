@@ -9,12 +9,11 @@ export const SERA = {
   name: "Sera",
   hero: "Har Dukaan. Ek Sera.",
   category: "The Operating System for Bharat Retail.",
-  what:
-    "Sera runs your shop - billing, Khata, inventory and compliance - in one app. Setup in 60 seconds. Works offline. No hardware required.",
-  why:
-    "Free billing, digital Khata, works offline, SERA AI assisted setup - built for shopkeepers, not accountants.",
+  what: "Sera runs your shop - billing, Khata, inventory and compliance - in one app. Setup in 60 seconds. Works offline. No hardware required.",
+  why: "Free billing, digital Khata, works offline, SERA AI assisted setup - built for shopkeepers, not accountants.",
   scale: "28 Industries. 6 Zones.",
-  playStore: "https://play.google.com/store/apps/details?id=com.ivish.retailos&pcampaignid=web_share",
+  playStore:
+    "https://play.google.com/store/apps/details?id=com.ivish.retailos&pcampaignid=web_share",
   contactEmail: "ivishai.supprt@gmail.com",
 };
 
@@ -28,24 +27,55 @@ export const SERA_PROMISES = [
 
 // ---- Features (plain language) --------------------------------------------
 export const SERA_FEATURES = [
-  { title: "Free Billing", body: "Fast, unlimited billing that never costs you a rupee. Barcode scan, quick-add, weight entry — every mode covered.", icon: "Receipt" },
-  { title: "Digital Khata", body: "Track customer credit and dues without a paper book. See who owes what and collect faster.", icon: "BookOpen" },
-  { title: "Inventory", body: "600,000+ products pre-loaded. Know what's in stock, what's not selling, and what to reorder.", icon: "Boxes" },
-  { title: "Reports & Analytics", body: "Activity heatmap shows sales by day and hour. Anomaly alerts catch unusual patterns before they become losses.", icon: "BarChart3" },
-  { title: "Compliance & Audit", body: "Pharmacy expiry tracking, excise logs for Zone 6, batch compliance — stay audit-ready at all times.", icon: "ShieldCheck" },
-  { title: "SERA AI", body: "Set up your shop, get product suggestions and generate bills faster with built-in AI assistance.", icon: "Sparkles" },
-  { title: "Thermal Printing", body: "Print bills via Bluetooth, USB or Network printer. No extra hardware needed — works with any ESC/POS printer.", icon: "Printer" },
-  { title: "Day Close & Cash", body: "End-of-day cash reconciliation, cash drawer management and saved Z-reports in one tap.", icon: "Moon" },
-  { title: "Works Offline", body: "Full billing and inventory offline. Data syncs automatically when connection returns. Never lose a sale.", icon: "WifiOff" },
+  {
+    title: "Free Billing",
+    body: "Fast, unlimited billing that never costs you a rupee. Barcode scan, quick-add, weight entry — every mode covered.",
+    icon: "Receipt",
+  },
+  {
+    title: "Digital Khata",
+    body: "Track customer credit and dues without a paper book. See who owes what and collect faster.",
+    icon: "BookOpen",
+  },
+  {
+    title: "Inventory",
+    body: "600,000+ products pre-loaded. Know what's in stock, what's not selling, and what to reorder.",
+    icon: "Boxes",
+  },
+  {
+    title: "Reports & Analytics",
+    body: "Activity heatmap shows sales by day and hour. Anomaly alerts catch unusual patterns before they become losses.",
+    icon: "BarChart3",
+  },
+  {
+    title: "Compliance & Audit",
+    body: "Pharmacy expiry tracking, excise logs for Zone 6, batch compliance — stay audit-ready at all times.",
+    icon: "ShieldCheck",
+  },
+  {
+    title: "SERA AI",
+    body: "Set up your shop, get product suggestions and generate bills faster with built-in AI assistance.",
+    icon: "Sparkles",
+  },
+  {
+    title: "Thermal Printing",
+    body: "Print bills via Bluetooth, USB or Network printer. No extra hardware needed — works with any ESC/POS printer.",
+    icon: "Printer",
+  },
+  {
+    title: "Day Close & Cash",
+    body: "End-of-day cash reconciliation, cash drawer management and saved Z-reports in one tap.",
+    icon: "Moon",
+  },
+  {
+    title: "Works Offline",
+    body: "Full billing and inventory offline. Data syncs automatically when connection returns. Never lose a sale.",
+    icon: "WifiOff",
+  },
 ];
 
 // ---- Stats ----------------------------------------------------------------
-export const SERA_STATS = [
-  { value: "600K+", label: "Products pre-loaded" },
-  { value: "13", label: "Languages" },
-  { value: "28", label: "Industry types" },
-  { value: "6", label: "Retail zones" },
-];
+
 
 // ---- Languages ------------------------------------------------------------
 export const SERA_LANGUAGES = [
@@ -73,7 +103,13 @@ export const SERA_PRICING = [
     highlight: false,
     firstMonth: false,
     desc: "Core billing, Khata, and inventory. No credit card. No time limit. Every shop starts here.",
-    includes: ["Unlimited billing", "Digital Khata", "Barcode scanner", "Offline mode", "Basic reports"],
+    includes: [
+      "Unlimited billing",
+      "Digital Khata",
+      "Barcode scanner",
+      "Offline mode",
+      "Basic reports",
+    ],
   },
   {
     name: "Premium",
@@ -82,7 +118,14 @@ export const SERA_PRICING = [
     highlight: true,
     firstMonth: true,
     desc: "First 14 days completely free. Removes all daily limits. Unlocks advanced reports, AI features, and everything your vertical specifically needs.",
-    includes: ["Everything in Free", "Unlimited scans and bills", "SERA AI assistant", "Full reports and analytics", "WhatsApp campaigns", "Multi-device support"],
+    includes: [
+      "Everything in Free",
+      "Unlimited scans and bills",
+      "SERA AI assistant",
+      "Full reports and analytics",
+      "WhatsApp campaigns",
+      "Multi-device support",
+    ],
     note: "Price varies by shop type",
   },
 ];
@@ -105,12 +148,30 @@ export const SERA_POS = {
 };
 
 export const SERA_POS_FEATURES = [
-  { title: "Built for a counter", body: "Keyboard-first billing with shortcuts on every action. Scan, weigh, discount and take payment without touching the mouse." },
-  { title: "Same shop, same data", body: "Signs in to the shop you already run on the phone. Products, prices, Khata and reports are the same on both." },
-  { title: "Keeps selling offline", body: "Bills, prints and stores every sale with no internet. Sends them up the moment the connection returns." },
-  { title: "Shift and cash close", body: "Each cashier gets their own shift, their own takings, and can undo a bill they rang up wrong. Day close counts the drawer." },
-  { title: "Thermal printing", body: "Prints to any ESC/POS printer over USB or network, and to the printer the phone already uses." },
-  { title: "Your phone is the scanner", body: "No barcode gun on day one. Scan with the phone and the item lands in the till's cart." },
+  {
+    title: "Built for a counter",
+    body: "Keyboard-first billing with shortcuts on every action. Scan, weigh, discount and take payment without touching the mouse.",
+  },
+  {
+    title: "Same shop, same data",
+    body: "Signs in to the shop you already run on the phone. Products, prices, Khata and reports are the same on both.",
+  },
+  {
+    title: "Keeps selling offline",
+    body: "Bills, prints and stores every sale with no internet. Sends them up the moment the connection returns.",
+  },
+  {
+    title: "Shift and cash close",
+    body: "Each cashier gets their own shift, their own takings, and can undo a bill they rang up wrong. Day close counts the drawer.",
+  },
+  {
+    title: "Thermal printing",
+    body: "Prints to any ESC/POS printer over USB or network, and to the printer the phone already uses.",
+  },
+  {
+    title: "Your phone is the scanner",
+    body: "No barcode gun on day one. Scan with the phone and the item lands in the till's cart.",
+  },
 ];
 
 // ---- Premium pricing by vertical ------------------------------------------
@@ -126,14 +187,44 @@ export const SERA_PREMIUM_PRICES = [
   // Rural rates are also deliberately absent. They are set per shop by a field
   // agent, and publishing them would let any shop ask for the cheaper table by
   // quoting this page back at us.
-  { vertical: "Kirana / Hardware", monthly: "₹99", yearly: "₹899", tag: "Khata Plus" },
-  { vertical: "Retail / Stationery / General", monthly: "₹199", yearly: "₹1,999", tag: null },
-  { vertical: "Pharmacy", monthly: "₹199", yearly: "₹1,999", tag: "Compliance" },
-  { vertical: "Cake / Pastry / Sweets", monthly: "₹199", yearly: "₹1,999", tag: null },
+  {
+    vertical: "Kirana / Hardware",
+    monthly: "₹99",
+    yearly: "₹899",
+    tag: "Khata Plus",
+  },
+  {
+    vertical: "Retail / Stationery / General",
+    monthly: "₹199",
+    yearly: "₹1,999",
+    tag: null,
+  },
+  {
+    vertical: "Pharmacy",
+    monthly: "₹199",
+    yearly: "₹1,999",
+    tag: "Compliance",
+  },
+  {
+    vertical: "Cake / Pastry / Sweets",
+    monthly: "₹199",
+    yearly: "₹1,999",
+    tag: null,
+  },
   // Annual rate added in v4.1; it had a monthly rate and no yearly one.
-  { vertical: "Tea Franchise", monthly: "₹249", yearly: "₹2,999", tag: "₹199/outlet (HQ 10+)" },
+  {
+    vertical: "Tea Franchise",
+    monthly: "₹249",
+    yearly: "₹2,999",
+    tag: "₹199/outlet (HQ 10+)",
+  },
   // Annual rate added in v4.1, same reason.
-  { vertical: "Cloud Kitchen", monthly: "₹499", yearly: "₹4,999", tag: "Per kitchen location" },
+  {
+    vertical: "Cloud Kitchen",
+    monthly: "₹499",
+    yearly: "₹4,999",
+    tag: "Per kitchen location",
+  },
   // v4.1 cut the annual rate from ₹7,999 to ₹6,999.
   { vertical: "Restaurant", monthly: "₹699", yearly: "₹6,999", tag: null },
 ];
@@ -141,68 +232,308 @@ export const SERA_PREMIUM_PRICES = [
 // ---- Zone 1-6 industry playbook (Tables 8-13) -----------------------------
 export const SERA_ZONES = [
   {
-    zone: "Zone 1", name: "Core Retail",
+    zone: "Zone 1",
+    name: "Core Retail",
     industries: [
-      { slug: "grocery", name: "Grocery", pain: "Khata dues", money: "How much money is stuck in customer Khata today?", demo: "Khata Dashboard", proof: "₹12,000 pending dues visible instantly", benefit: "Recover money faster" },
-      { slug: "kirana", name: "Kirana", pain: "Credit tracking", money: "How much credit have customers not paid yet?", demo: "Customer Ledger", proof: "Top debtors identified instantly", benefit: "Better collections" },
-      { slug: "general-store", name: "General Store", pain: "Dead inventory", money: "How much stock hasn't sold in 30 days?", demo: "Sales Report", proof: "Slow products highlighted", benefit: "Better purchasing" },
-      { slug: "dairy", name: "Dairy", pain: "Milk wastage", money: "How much money is lost from unsold milk weekly?", demo: "Inventory", proof: "Spoilage tracking", benefit: "Reduce wastage" },
-      { slug: "fruits-vegetables", name: "Fruits & Vegetables", pain: "Daily spoilage", money: "How much produce gets thrown away every day?", demo: "Stock Tracking", proof: "Unsold stock visible", benefit: "Sell before spoilage" },
-      { slug: "bakery", name: "Bakery", pain: "Expiring products", money: "How much money is lost from unsold bread and cakes?", demo: "Inventory", proof: "Expiring stock flagged", benefit: "Reduce expiry losses" },
+      {
+        slug: "grocery",
+        name: "Grocery",
+        pain: "Khata dues",
+        money: "How much money is stuck in customer Khata today?",
+        demo: "Khata Dashboard",
+        proof: "₹12,000 pending dues visible instantly",
+        benefit: "Recover money faster",
+      },
+      {
+        slug: "kirana",
+        name: "Kirana",
+        pain: "Credit tracking",
+        money: "How much credit have customers not paid yet?",
+        demo: "Customer Ledger",
+        proof: "Top debtors identified instantly",
+        benefit: "Better collections",
+      },
+      {
+        slug: "general-store",
+        name: "General Store",
+        pain: "Dead inventory",
+        money: "How much stock hasn't sold in 30 days?",
+        demo: "Sales Report",
+        proof: "Slow products highlighted",
+        benefit: "Better purchasing",
+      },
+      {
+        slug: "dairy",
+        name: "Dairy",
+        pain: "Milk wastage",
+        money: "How much money is lost from unsold milk weekly?",
+        demo: "Inventory",
+        proof: "Spoilage tracking",
+        benefit: "Reduce wastage",
+      },
+      {
+        slug: "fruits-vegetables",
+        name: "Fruits & Vegetables",
+        pain: "Daily spoilage",
+        money: "How much produce gets thrown away every day?",
+        demo: "Stock Tracking",
+        proof: "Unsold stock visible",
+        benefit: "Sell before spoilage",
+      },
+      {
+        slug: "bakery",
+        name: "Bakery",
+        pain: "Expiring products",
+        money: "How much money is lost from unsold bread and cakes?",
+        demo: "Inventory",
+        proof: "Expiring stock flagged",
+        benefit: "Reduce expiry losses",
+      },
     ],
   },
   {
-    zone: "Zone 2", name: "Pharmacy",
+    zone: "Zone 2",
+    name: "Pharmacy",
     industries: [
-      { slug: "pharmacy", name: "Pharmacy", pain: "Medicine expiry", money: "How much money was lost to expired medicines last month?", demo: "Expiry Tracking", proof: "Expiry alerts shown", benefit: "Reduce expiry loss" },
-      { slug: "medical-store", name: "Medical Store", pain: "Batch compliance", money: "How long does it take to find expiring stock?", demo: "Inventory Screen", proof: "Batch search demo", benefit: "Better compliance" },
+      {
+        slug: "pharmacy",
+        name: "Pharmacy",
+        pain: "Medicine expiry",
+        money: "How much money was lost to expired medicines last month?",
+        demo: "Expiry Tracking",
+        proof: "Expiry alerts shown",
+        benefit: "Reduce expiry loss",
+      },
+      {
+        slug: "medical-store",
+        name: "Medical Store",
+        pain: "Batch compliance",
+        money: "How long does it take to find expiring stock?",
+        demo: "Inventory Screen",
+        proof: "Batch search demo",
+        benefit: "Better compliance",
+      },
     ],
   },
   {
-    zone: "Zone 3", name: "Regulated Retail",
+    zone: "Zone 3",
+    name: "Regulated Retail",
     industries: [
-      { slug: "mobile-store", name: "Mobile Store", pain: "Stock mismatch", money: "How much money is locked in unsold phones?", demo: "Inventory Dashboard", proof: "Stock ageing report", benefit: "Free up capital" },
-      { slug: "electronics", name: "Electronics", pain: "Slow inventory", money: "Which products haven't sold in 60 days?", demo: "Reports Screen", proof: "Dead inventory visible", benefit: "Better inventory turns" },
-      { slug: "hardware", name: "Hardware", pain: "Large SKU count", money: "How many products are sitting idle?", demo: "Inventory Reports", proof: "Item movement reports", benefit: "Better control" },
-      { slug: "stationery", name: "Stationery", pain: "Seasonal stock", money: "How much old stock remains after season?", demo: "Inventory Reports", proof: "Seasonal report", benefit: "Smarter purchasing" },
+      {
+        slug: "mobile-store",
+        name: "Mobile Store",
+        pain: "Stock mismatch",
+        money: "How much money is locked in unsold phones?",
+        demo: "Inventory Dashboard",
+        proof: "Stock ageing report",
+        benefit: "Free up capital",
+      },
+      {
+        slug: "electronics",
+        name: "Electronics",
+        pain: "Slow inventory",
+        money: "Which products haven't sold in 60 days?",
+        demo: "Reports Screen",
+        proof: "Dead inventory visible",
+        benefit: "Better inventory turns",
+      },
+      {
+        slug: "hardware",
+        name: "Hardware",
+        pain: "Large SKU count",
+        money: "How many products are sitting idle?",
+        demo: "Inventory Reports",
+        proof: "Item movement reports",
+        benefit: "Better control",
+      },
+      {
+        slug: "stationery",
+        name: "Stationery",
+        pain: "Seasonal stock",
+        money: "How much old stock remains after season?",
+        demo: "Inventory Reports",
+        proof: "Seasonal report",
+        benefit: "Smarter purchasing",
+      },
     ],
   },
   {
-    zone: "Zone 4", name: "Services",
+    zone: "Zone 4",
+    name: "Services",
     industries: [
-      { slug: "salon", name: "Salon", pain: "Repeat customers", money: "How many customers returned this month?", demo: "Customer Database", proof: "Repeat visit report", benefit: "Increase retention" },
-      { slug: "beauty-parlour", name: "Beauty Parlour", pain: "Loyalty tracking", money: "Who are your highest spending customers?", demo: "Customer History", proof: "Customer ranking", benefit: "Increase repeat visits" },
-      { slug: "tailor", name: "Tailor", pain: "Pending deliveries", money: "How many orders are overdue today?", demo: "Order Tracking", proof: "Pending order list", benefit: "Better delivery management" },
-      { slug: "boutique", name: "Boutique", pain: "Slow stock", money: "Which designs are not selling?", demo: "Sales Reports", proof: "Product performance report", benefit: "Better inventory decisions" },
-      { slug: "repair-shop", name: "Repair Shop", pain: "Open jobs", money: "How many repairs remain unfinished?", demo: "Job Dashboard", proof: "Pending jobs report", benefit: "Better job tracking" },
+      {
+        slug: "salon",
+        name: "Salon",
+        pain: "Repeat customers",
+        money: "How many customers returned this month?",
+        demo: "Customer Database",
+        proof: "Repeat visit report",
+        benefit: "Increase retention",
+      },
+      {
+        slug: "beauty-parlour",
+        name: "Beauty Parlour",
+        pain: "Loyalty tracking",
+        money: "Who are your highest spending customers?",
+        demo: "Customer History",
+        proof: "Customer ranking",
+        benefit: "Increase repeat visits",
+      },
+      {
+        slug: "tailor",
+        name: "Tailor",
+        pain: "Pending deliveries",
+        money: "How many orders are overdue today?",
+        demo: "Order Tracking",
+        proof: "Pending order list",
+        benefit: "Better delivery management",
+      },
+      {
+        slug: "boutique",
+        name: "Boutique",
+        pain: "Slow stock",
+        money: "Which designs are not selling?",
+        demo: "Sales Reports",
+        proof: "Product performance report",
+        benefit: "Better inventory decisions",
+      },
+      {
+        slug: "repair-shop",
+        name: "Repair Shop",
+        pain: "Open jobs",
+        money: "How many repairs remain unfinished?",
+        demo: "Job Dashboard",
+        proof: "Pending jobs report",
+        benefit: "Better job tracking",
+      },
     ],
   },
   {
-    zone: "Zone 5", name: "Food",
+    zone: "Zone 5",
+    name: "Food",
     industries: [
-      { slug: "fast-food", name: "Fast Food", pain: "Billing speed", money: "How many customers leave during rush hours?", demo: "Billing Screen", proof: "Fast checkout demo", benefit: "More sales" },
-      { slug: "takeaway", name: "Takeaway", pain: "Order tracking", money: "How many orders get missed weekly?", demo: "Orders Dashboard", proof: "Order visibility", benefit: "Fewer mistakes" },
-      { slug: "tiffin-service", name: "Tiffin Service", pain: "Payment collection", money: "How many customers have not paid yet?", demo: "Customer Ledger", proof: "Outstanding payments visible", benefit: "Better collections" },
-      { slug: "cloud-kitchen", name: "Cloud Kitchen", pain: "Daily visibility", money: "Can you see today's profit instantly?", demo: "Reports Dashboard", proof: "Sales summary", benefit: "Better decisions" },
-      { slug: "curry-point", name: "Curry Point", pain: "Food wastage", money: "How much food remains unsold daily?", demo: "Sales Report", proof: "Wastage estimate", benefit: "Reduce losses" },
-      { slug: "restaurant", name: "Restaurant", pain: "Table and order management", money: "How much revenue is lost from missed orders?", demo: "Orders + Billing", proof: "Order tracking", benefit: "Better operations" },
+      {
+        slug: "fast-food",
+        name: "Fast Food",
+        pain: "Billing speed",
+        money: "How many customers leave during rush hours?",
+        demo: "Billing Screen",
+        proof: "Fast checkout demo",
+        benefit: "More sales",
+      },
+      {
+        slug: "takeaway",
+        name: "Takeaway",
+        pain: "Order tracking",
+        money: "How many orders get missed weekly?",
+        demo: "Orders Dashboard",
+        proof: "Order visibility",
+        benefit: "Fewer mistakes",
+      },
+      {
+        slug: "tiffin-service",
+        name: "Tiffin Service",
+        pain: "Payment collection",
+        money: "How many customers have not paid yet?",
+        demo: "Customer Ledger",
+        proof: "Outstanding payments visible",
+        benefit: "Better collections",
+      },
+      {
+        slug: "cloud-kitchen",
+        name: "Cloud Kitchen",
+        pain: "Daily visibility",
+        money: "Can you see today's profit instantly?",
+        demo: "Reports Dashboard",
+        proof: "Sales summary",
+        benefit: "Better decisions",
+      },
+      {
+        slug: "curry-point",
+        name: "Curry Point",
+        pain: "Food wastage",
+        money: "How much food remains unsold daily?",
+        demo: "Sales Report",
+        proof: "Wastage estimate",
+        benefit: "Reduce losses",
+      },
+      {
+        slug: "restaurant",
+        name: "Restaurant",
+        pain: "Table and order management",
+        money: "How much revenue is lost from missed orders?",
+        demo: "Orders + Billing",
+        proof: "Order tracking",
+        benefit: "Better operations",
+      },
     ],
   },
   {
-    zone: "Zone 6", name: "Restricted Retail",
+    zone: "Zone 6",
+    name: "Restricted Retail",
     restricted: true,
     industries: [
-      { slug: "liquor-shop", name: "Liquor Shop", pain: "Excise compliance", money: "If inspection happens tomorrow, are records ready?", demo: "Compliance Dashboard", proof: "Compliance logs visible", benefit: "Avoid penalties" },
-      { slug: "tobacco-shop", name: "Tobacco Shop", pain: "Compliance tracking", money: "How long would it take to show compliance records?", demo: "Compliance Screen", proof: "Audit-ready records", benefit: "Stay compliant" },
-      { slug: "paan-shop", name: "Paan Shop", pain: "No sales visibility", money: "Can you see today's exact earnings instantly?", demo: "Billing Dashboard", proof: "Daily sales report", benefit: "Better control" },
-      { slug: "hybrid-paan-food", name: "Hybrid Paan + Food", pain: "Mixed inventory", money: "How much money is lost managing two businesses separately?", demo: "Inventory + Billing", proof: "Unified dashboard", benefit: "One system for everything" },
+      {
+        slug: "liquor-shop",
+        name: "Liquor Shop",
+        pain: "Excise compliance",
+        money: "If inspection happens tomorrow, are records ready?",
+        demo: "Compliance Dashboard",
+        proof: "Compliance logs visible",
+        benefit: "Avoid penalties",
+      },
+      {
+        slug: "tobacco-shop",
+        name: "Tobacco Shop",
+        pain: "Compliance tracking",
+        money: "How long would it take to show compliance records?",
+        demo: "Compliance Screen",
+        proof: "Audit-ready records",
+        benefit: "Stay compliant",
+      },
+      {
+        slug: "paan-shop",
+        name: "Paan Shop",
+        pain: "No sales visibility",
+        money: "Can you see today's exact earnings instantly?",
+        demo: "Billing Dashboard",
+        proof: "Daily sales report",
+        benefit: "Better control",
+      },
+      {
+        slug: "hybrid-paan-food",
+        name: "Hybrid Paan + Food",
+        pain: "Mixed inventory",
+        money: "How much money is lost managing two businesses separately?",
+        demo: "Inventory + Billing",
+        proof: "Unified dashboard",
+        benefit: "One system for everything",
+      },
     ],
   },
 ];
 
 // Flattened lookup for the industry template route
 export const SERA_INDUSTRIES = SERA_ZONES.flatMap((z) =>
-  z.industries.map((i) => ({ ...i, zone: z.zone, zoneName: z.name, restricted: !!z.restricted }))
+  z.industries.map((i) => ({
+    ...i,
+    zone: z.zone,
+    zoneName: z.name,
+    restricted: !!z.restricted,
+  })),
 );
 
-export const getSeraIndustry = (slug) => SERA_INDUSTRIES.find((i) => i.slug === slug);
+/* Derived, not typed. The industry and zone counts used to be written here by
+   hand as 28 and 6, while SERA_ZONES actually holds 27 industries across 6
+   zones - and /retail-os claimed 19. Reading them off the data is the only way
+   the three places that show them can agree.
+   SERA_STATS is defined below SERA_ZONES for this reason; do not move it. */
+export const SERA_STATS = [
+  { value: "600K+", label: "Products pre-loaded" },
+  { value: String(SERA_LANGUAGES.length), label: "Languages" },
+  { value: String(SERA_INDUSTRIES.length), label: "Industry types" },
+  { value: String(SERA_ZONES.length), label: "Retail zones" },
+];
+
+export const getSeraIndustry = (slug) =>
+  SERA_INDUSTRIES.find((i) => i.slug === slug);

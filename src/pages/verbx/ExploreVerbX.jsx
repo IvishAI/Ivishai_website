@@ -1,76 +1,154 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, SkipForward } from "lucide-react";
-import { CountUp } from "../../components/site";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import useSEO from "../../lib/useSEO";
 import EarthGlobe from "./EarthGlobe";
+import {
+  Masthead, SectionAnchor, Closer, Plate, Tag, OrbRow, StatPanel,
+  CapsuleRow, NoteField, Action, Ghost, Footnote,
+} from "../../components/iv";
 import { VERBX_COUNTRY_GROUPS, VERBX_COUNTRY_COUNT } from "../../data/verbx-countries";
+import { PRODUCTS, NUMBERS } from "../../data/site";
 
-// The VerbX product site lives on its own domain - this intro hands off to it.
-const VERBX_SITE = "https://verbxeco.com";
+/* Explore VerbX.
+ *
+ * This was an interstitial: a globe, a counter, and a Skip button in the top
+ * right, standing between the company site and the product. A page whose best
+ * outcome is the visitor pressing Skip should not exist, and the globe was the
+ * good part of it trapped behind a gate.
+ *
+ * It is a page now. The globe is a section, the gate is gone, and the link to
+ * the product site is an ordinary link.
+ *
+ * ON THE NUMBER. It used to say "VerbX works across 130+ countries". The data
+ * file says in its own comment that the grouped tails "cover the rest to ~130",
+ * and the groups overlap the named list - so 130 is an estimate of where the
+ * languages are spoken, not a count of countries we operate in. What is
+ * precise is the language count, so that leads, and the reach is described as
+ * what it is.
+ */
+
+const { verbx } = PRODUCTS;
 
 const ExploreVerbX = () => {
-  const goToVerbX = () => {
-    window.location.href = VERBX_SITE;
-  };
-  useSEO("Explore VerbX - One World. One Voice.", "VerbX works across 130+ countries. One communication layer for the world.");
+  useSEO(
+    "Explore VerbX - the language communication operating system",
+    `VerbX ships ${NUMBERS.languages} languages, built offline-first, for multilingual institutions.`,
+  );
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-ink text-cloud">
-      <div className="pointer-events-none absolute inset-0 bg-grid opacity-25" />
-      <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(80% 60% at 50% 42%, rgba(226,100,38,0.10), transparent 70%)" }} />
+    <div className="iv min-h-screen text-ink">
+      <Header />
 
-      <button onClick={goToVerbX} className="absolute right-5 top-5 z-20 inline-flex items-center gap-1.5 rounded-lg border border-white/15 px-3 py-1.5 text-xs text-cloud-muted transition-colors hover:text-white">
-        Skip <SkipForward className="h-3.5 w-3.5" />
-      </button>
+      <Masthead
+        tag="VerbX"
+        tone="aqua"
+        title="One world. One voice."
+        lede={verbx.overview}
+        actions={[
+          <Action key="v" href={verbx.href}>Open VerbX</Action>,
+          <Ghost key="p" to="/products">See both products</Ghost>,
+        ]}
+      />
 
-      <div className="container-site relative z-10 flex min-h-screen flex-col items-center justify-center py-20 text-center">
-        {/* Rotating earth */}
-        <div className="relative">
-          <div className="pointer-events-none absolute inset-0 -z-10 rounded-full blur-3xl" style={{ background: "radial-gradient(circle, rgba(226,100,38,0.22), rgba(19,216,246,0.08) 55%, transparent 72%)" }} />
-          <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}>
+      {/* The globe is drawn for a dark ground, so it gets the one inverted band
+          this site allows rather than being forced onto paper. */}
+      <Plate>
+        <div className="flex flex-col items-center text-center">
+          <Tag>Where the languages are spoken</Tag>
+          <div className="my-10">
             <EarthGlobe />
-          </motion.div>
+          </div>
+          <p className="h2 text-cloud max-w-[18ch]">
+            {NUMBERS.languages} languages, carried anywhere.
+          </p>
+          <p className="text-cloud-muted mt-5 max-w-[56ch]">
+            {NUMBERS.indianLanguages} Indian and {NUMBERS.globalLanguages}{" "}
+            foreign. Between them they are spoken across roughly{" "}
+            {VERBX_COUNTRY_COUNT} countries.
+          </p>
+        </div>
+      </Plate>
+
+      <SectionAnchor
+        id="scripts"
+        tag="In their own scripts"
+        title="Not an approximation."
+        lede="A reader sees their own writing system, not a transliteration of it."
+      >
+        <OrbRow
+          size={72}
+          items={[
+            { glyph: "अ", lang: "hi", tone: "ember" },
+            { glyph: "அ", lang: "ta", tone: "aqua" },
+            { glyph: "అ", lang: "te", tone: "plum" },
+            { glyph: "আ", lang: "bn", tone: "moss" },
+            { glyph: "અ", lang: "gu", tone: "clay" },
+            { glyph: "ಅ", lang: "kn", tone: "ink" },
+            { glyph: "അ", lang: "ml", tone: "ember" },
+            { glyph: "ਅ", lang: "pa", tone: "aqua" },
+            { glyph: "ଅ", lang: "or", tone: "plum" },
+            { glyph: "ا", lang: "ur", tone: "moss" },
+          ]}
+        />
+
+        <div className="mt-12 iv-wide">
+          <StatPanel
+            tone="aqua"
+            title="What ships today."
+            note="These are the figures we publish, and they come from one place in the code."
+            stats={[
+              [`${NUMBERS.languages}`, "Languages live"],
+              [`${NUMBERS.indianLanguages}`, "Indian languages"],
+              [`${NUMBERS.globalLanguages}`, "Foreign languages"],
+              [`${NUMBERS.engines}`, "Engines"],
+            ]}
+          />
+        </div>
+      </SectionAnchor>
+
+      <SectionAnchor
+        id="reach"
+        tag="Reach"
+        title="Where those languages are spoken."
+        lede="Named regions, and the groups that make up the rest."
+      >
+        <div className="flex justify-center">
+          <CapsuleRow
+            items={VERBX_COUNTRY_GROUPS.map((g) => `${g.label} · ${g.note}`)}
+          />
         </div>
 
-        {/* Count */}
-        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.7 }} className="mt-8">
-          <div className="font-sora text-6xl md:text-7xl text-gradient-ember">
-            <CountUp end={VERBX_COUNTRY_COUNT} />+
-          </div>
-          <div className="mt-1 text-sm uppercase tracking-[0.2em] text-cloud-muted">Countries. One Voice.</div>
-        </motion.div>
+        <div className="mt-12">
+          <NoteField tone="stone" tag="What this number is">
+            Roughly {VERBX_COUNTRY_COUNT} is where the languages we ship are
+            spoken - not a list of countries we have deployed in. The precise
+            figure is the language count, and that is the one we lead with.
+          </NoteField>
+        </div>
 
-        {/* Slogan */}
-        <motion.div
-          className="mt-9 font-sora text-3xl md:text-5xl lg:text-6xl leading-tight"
-          initial="h" animate="s"
-          variants={{ h: {}, s: { transition: { staggerChildren: 0.18, delayChildren: 0.9 } } }}
-        >
-          {["One World.", "One Voice.", "One VerbX."].map((line, i) => (
-            <motion.span key={line} variants={{ h: { opacity: 0, y: 18 }, s: { opacity: 1, y: 0 } }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }} className={`block ${i === 2 ? "text-gradient-aqua" : "text-cloud"}`}>
-              {line}
-            </motion.span>
-          ))}
-        </motion.div>
+        <div className="mt-10 max-w-[62ch] mx-auto">
+          <Footnote updated="13 October 2026">
+            Language counts come from the product; the regional groupings are
+            indicative.
+          </Footnote>
+        </div>
+      </SectionAnchor>
 
-        {/* Language-group tags (no individual country names) */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8, duration: 0.7 }} className="mt-9 flex flex-wrap justify-center gap-2">
-          {VERBX_COUNTRY_GROUPS.map((g) => (
-            <span key={g.label} className="rounded-full border border-ember/30 bg-ember/10 px-3 py-1.5 text-xs font-medium text-ember-soft" title={g.note}>
-              {g.label} <span className="text-cloud-faint">· {g.note}</span>
-            </span>
-          ))}
-        </motion.div>
+      <Closer
+        tone="aqua"
+        glyph="&#3077;"
+        lang="ta"
+        note="VerbX lives on its own domain"
+        actions={[
+          <Action key="v" href={verbx.href}>Open VerbX</Action>,
+          <Ghost key="c" to="/contact">Talk to us</Ghost>,
+        ]}
+      >
+        One communication layer, in every language it has to carry.
+      </Closer>
 
-        {/* Hand-off */}
-        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 2.3, duration: 0.7 }} className="mt-11">
-          <p className="mb-5 text-lg text-cloud-muted">Get ready to dive into VerbX.</p>
-          <button onClick={goToVerbX} className="group inline-flex items-center gap-2 rounded-md bg-ember px-8 py-4 font-medium text-white transition-all hover:bg-ember-soft">
-            Explore VerbX <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </button>
-        </motion.div>
-      </div>
+      <Footer />
     </div>
   );
 };
