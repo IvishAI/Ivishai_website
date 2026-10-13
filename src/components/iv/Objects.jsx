@@ -11,7 +11,7 @@ import Reveal from "../site/Reveal";
  * The material was already in the repo and unused: thirteen Indian scripts in
  * src/data/sera.js, ten product screenshots in public/sera-screens, eleven
  * partner and credential logos in public/logos, a globe component, and the
- * real numbers (600K products, 28 industries, 8 patents with 1 granted).
+ * real numbers (600K products, 27 industries, 8 patents with 1 granted).
  *
  * Colour lives here. Ember and aqua are the brand, and a brand that appears
  * only as two 6px dots is not on the page at all.

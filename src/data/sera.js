@@ -11,7 +11,8 @@ export const SERA = {
   category: "The Operating System for Bharat Retail.",
   what: "Sera runs your shop - billing, Khata, inventory and compliance - in one app. Setup in 60 seconds. Works offline. No hardware required.",
   why: "Free billing, digital Khata, works offline, SERA AI assisted setup - built for shopkeepers, not accountants.",
-  scale: "28 Industries. 6 Zones.",
+  // derived elsewhere; kept as prose here but corrected - the data holds 27
+  scale: "27 Industries. 6 Zones.",
   playStore:
     "https://play.google.com/store/apps/details?id=com.ivish.retailos&pcampaignid=web_share",
   contactEmail: "ivishai.supprt@gmail.com",

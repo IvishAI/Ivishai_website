@@ -75,10 +75,10 @@ const TwoProducts = () => {
           </p>
           <p className="text-ink-muted text-sm leading-relaxed mb-3 flex-1">
             Sera is a Retail Operating System built for Bharat's shops —
-            billing, Khata, compliance, offline-first, across 28 industries.
+            billing, Khata, compliance, offline-first, across 27 industries.
           </p>
           <p className="text-ink-faint text-xs mb-6">
-            Retailers across 28 industries in India
+            Retailers across 27 industries in India
           </p>
           <Link
             to="/sera"
