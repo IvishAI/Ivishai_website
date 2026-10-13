@@ -1,138 +1,139 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import {
+  Masthead, SectionAnchor, Closer, ConsentRow, NoteField, Action, Ghost,
+  Footnote, Contacts,
+} from "../../components/iv";
+import { readConsent, writeConsent } from "../../lib/consent";
+import { EMAILS } from "../../data/site";
 
-import { motion } from "framer-motion";
-import { CheckCircle, Cookie } from "lucide-react";
+/* Cookie preferences.
+ *
+ * ⚠️ WHAT THIS PAGE USED TO DO:
+ *
+ * Three toggles - Essential, Analytics, Personalised - with the optional two
+ * defaulting to OFF, and a "Save Preferences" button that had **no onClick
+ * handler at all**. It animated on hover and did nothing. The toggles were
+ * React state, discarded the moment you navigated away.
+ *
+ * At the same time public/index.html loaded the Meta Pixel and fired
+ * fbq('track','PageView') for every visitor on every page, and loaded GA4. So
+ * a visitor could come to this page, switch analytics off, press Save, and be
+ * tracked exactly as before. A consent interface that collects a decision and
+ * ignores it is worse than no interface, because it tells the visitor they are
+ * protected.
+ *
+ * The choice is now stored, applied, and honoured: GA runs under Consent Mode
+ * denied-by-default, and the Pixel is not loaded at all until someone agrees.
+ * Undecided counts as no.
+ */
 
 const CookiesPreference = () => {
+  const [consent, setConsent] = useState(() => readConsent());
+  const [saved, setSaved] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [preferences, setPreferences] = useState({
-    essential: true,
-    analytics: false,
-    personalized: false,
-  });
+  const set = (key) => (value) => {
+    setConsent((c) => ({ ...c, [key]: value }));
+    setSaved(false);
+  };
 
-  const togglePreference = (type) => {
-    setPreferences((prev) => ({
-      ...prev,
-      [type]: !prev[type],
-    }));
+  const save = () => {
+    writeConsent(consent);
+    setConsent(readConsent());
+    setSaved(true);
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-50 text-gray-900 px-6 md:px-16 py-16">
-      {/* 🔹 Header Section */}
-      <motion.section
-        className="w-full text-center bg-gradient-to-r from-yellow-600 to-orange-600 text-white py-16 px-8"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+    <div className="iv min-h-screen text-ink">
+      <Header />
+
+      <Masthead
+        tag="Cookies"
+        tone="sand"
+        title="Your choice, and we keep it."
+        lede="Three kinds of cookie. The two optional ones are off until you say otherwise, and this page remembers what you chose."
+      />
+
+      <SectionAnchor
+        id="choices"
+        tag="What you can turn off"
+        title="Choose what runs."
       >
-        <h1 className="text-5xl font-extrabold flex justify-center items-center gap-3">
-          <Cookie size={42} />
-          Cookies Preferences
-        </h1>
-        <p className="text-lg text-white/90 mt-4 max-w-3xl mx-auto">
-          IvishAI{""}
-          <strong>uses cookies to enhance your browsing experience</strong>.
-          Choose which cookies you allow.
-        </p>
-      </motion.section>
+        <div className="max-w-xl mx-auto text-left">
+          <div className="py-5 border-b border-rule opacity-70">
+            <p className="text-ink">Essential</p>
+            <p className="body-s">
+              What makes the site work at all - routing and your saved choice on
+              this page. These cannot be switched off, and they are not used to
+              track you.
+            </p>
+          </div>
 
-      {/* 🔹 Cookie Options Section */}
-      <section className="mt-12 max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900">
-          Manage Your Preferences
-        </h2>
-        <p className="text-lg text-gray-700 mt-2">
-          Select the cookies you would like to enable.{""}
-          <strong>You can change these settings anytime.</strong>
-        </p>
+          <ConsentRow
+            label="Analytics"
+            note="Which pages are read, so we know what to write more of. Google Analytics."
+            checked={consent.analytics}
+            onChange={set("analytics")}
+          />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-          {[
-            {
-              type: "essential",
-              icon: <CheckCircle size={42} className="text-yellow-600" />,
-              title: "✅ Essential Cookies",
-              desc: "Required for core functionalities. Cannot be disabled.",
-              disabled: true,
-            },
-            {
-              type: "analytics",
-              icon: (
-                <CheckCircle
-                  size={42}
-                  className={`text-${preferences.analytics ? "green" : "gray"}-600`}
-                />
-              ),
-              title: preferences.analytics
-                ? "✅ Analytics Cookies"
-                : "🔲 Analytics Cookies",
-              desc: "Helps us improve site performance and user experience.",
-            },
-            {
-              type: "personalized",
-              icon: (
-                <CheckCircle
-                  size={42}
-                  className={`text-${preferences.personalized ? "green" : "gray"}-600`}
-                />
-              ),
-              title: preferences.personalized
-                ? "✅ Personalized Cookies"
-                : "🔲 Personalized Cookies",
-              desc: "Tailor AI experiences to match your preferences.",
-            },
-          ].map((cookie, index) => (
-            <motion.div
-              key={index}
-              className={`bg-white p-6 text-center transition ${
-                cookie.disabled
-                  ? "opacity-60 cursor-not-allowed"
-                  : "cursor-pointer"
-              }`}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={!cookie.disabled ? { scale: 1.05 } : {}}
-              onClick={() => !cookie.disabled && togglePreference(cookie.type)}
+          <ConsentRow
+            label="Personalised advertising"
+            note="Lets us measure advertising. Meta Pixel. Off unless you turn it on, and not even loaded until then."
+            checked={consent.personalised}
+            onChange={set("personalised")}
+          />
+
+          <div className="flex flex-col sm:flex-row items-start gap-4 mt-9">
+            <button
+              type="button"
+              onClick={save}
+              className="inline-flex items-center justify-center px-7 py-3.5 bg-ink text-paper hover:opacity-90 transition-opacity"
             >
-              <div className="mb-4 flex justify-center">{cookie.icon}</div>
-              <h3
-                className={`text-xl font-bold ${cookie.disabled ? "text-gray-500" : "text-yellow-600"}`}
-              >
-                {cookie.title}
-              </h3>
-              <p className="text-gray-700 mt-2">{cookie.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+              Save my choice
+            </button>
+            {saved && (
+              <p className="tag pt-4" role="status">
+                Saved. It applies from now on, on this browser.
+              </p>
+            )}
+          </div>
 
-      {/* 🔹 Save Preferences Button */}
-      <motion.section
-        className="mt-16 max-w-5xl mx-auto bg-yellow-100 py-12 px-8 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+          <div className="mt-12">
+            <NoteField tone="stone" tag="If you do nothing">
+              Nothing optional runs. Undecided counts as no, and if your browser
+              blocks storage we treat that as a no too rather than guessing.
+            </NoteField>
+          </div>
+        </div>
+      </SectionAnchor>
+
+      <SectionAnchor id="ask" tag="Questions" title="Ask us about any of this.">
+        <Contacts items={[["Privacy and cookies", EMAILS.general]]} />
+        <div className="mt-12 max-w-[62ch] mx-auto">
+          <Footnote updated="13 October 2026">
+            Your choice is stored in this browser only. We do not keep a record
+            of it on our side.
+          </Footnote>
+        </div>
+      </SectionAnchor>
+
+      <Closer
+        tone="ink"
+        note="Ivish AI Quantum Pvt Ltd"
+        actions={[
+          <Action key="p" href="/privacypolicy">Privacy policy</Action>,
+          <Ghost key="h" to="/">Home</Ghost>,
+        ]}
       >
-        <h2 className="text-3xl font-bold text-gray-900">
-          Your Privacy Matters
-        </h2>
-        <p className="text-lg text-gray-700 mt-2 max-w-3xl mx-auto">
-          Click <strong>"Save Preferences"</strong> to confirm your choices.
-        </p>
-        <motion.button
-          className="mt-6 px-8 py-3 bg-orange-600 text-white hover:bg-orange-700 transition-all"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Save Preferences
-        </motion.button>
-      </motion.section>
+        A choice we ignore is not a choice.
+      </Closer>
+
+      <Footer />
     </div>
   );
 };
