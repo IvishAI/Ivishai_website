@@ -5,7 +5,7 @@ const MissionStatement = () => {
         <div className="flex flex-col items-start gap-20 md:gap-[81px] w-full">
           {/* Section Heading */}
           <header className="w-full">
-            <h1 className="w-full font-sora text-4xl md:text-[56px] font-normal leading-[1.1] md:leading-[110%] tracking-tight md:tracking-[-1.52px] bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+            <h1 className="w-full font-sora text-4xl md:text-[56px] font-normal leading-[1.1] md:leading-[110%] tracking-tight md:tracking-[-1.52px] text-ink">
               Building the Infrastructure of Industry 6.0.
             </h1>
           </header>

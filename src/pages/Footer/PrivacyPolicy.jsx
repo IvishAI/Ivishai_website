@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
       >
         {/* Header */}
         <div className="mb-12 text-center border-b border-[#64ffda]/30 pb-8">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-ink mb-4">
             Privacy Policy - IvishAI Quantum Pvt. Ltd.
           </h1>
 
@@ -39,7 +39,7 @@ const PrivacyPolicy = () => {
                   {index + 1}.
                 </div>
 
-                <h2 className="text-2xl md:text-3xl bg-gradient-to-r from-[#13D8F6] to-[#64ffda] bg-clip-text text-transparent">
+                <h2 className="text-2xl md:text-3xl text-ink">
                   {section.title}
                 </h2>
               </div>

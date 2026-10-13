@@ -160,7 +160,7 @@ const Contact = () => {
           </motion.div>
 
           <h1 className="text-4xl md:text-6xl lg:text-[76px] font-sora leading-[100%] tracking-tight md:tracking-[-1.52px] mb-6 md:mb-8">
-            <span className="bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+            <span className="text-ink">
               Let's connect.
             </span>
           </h1>
@@ -230,7 +230,7 @@ const Contact = () => {
             <CalendarClock className="text-cyan-400 w-6 h-6" />
           </div>
           <h2 className="text-2xl md:text-[40px] font-sora mb-2 md:mb-4">
-            <span className="bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+            <span className="text-ink">
               Rather talk it through?
             </span>
           </h2>
@@ -262,7 +262,7 @@ const Contact = () => {
             <div className="absolute -inset-1 bg-gradient-to-br from-cyan-400/10 to-orange-500/10 rounded-3xl blur-lg"></div>
 
             <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-900/50 backdrop-blur-xl rounded-3xl p-8 border border-gray-800 shadow-2xl">
-              <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-orange-500 bg-clip-text text-transparent">
+              <h2 className="text-2xl font-bold mb-6 text-ink">
                 Or just tell us what's on your mind.
               </h2>
               <p className="text-gray-400 text-sm mb-6">

@@ -40,45 +40,72 @@ body {
 }
 
 /* ==========================================================================
-   Support classes for the pages brought over from the rebuild
-   (Collaboration, Recognition, Government, Investors, Patents).
-   Additive only - no global body/base overrides, so existing pages are
-   unaffected.
+   The light ground.
+
+   The site is moving from black to white. Two rules carry most of the work:
+
+   1. Headings are INK. Not gradients. Every heading on the old site was a
+      white-to-orange or white-to-cyan gradient - nine in a row on one page -
+      and when every heading is special none of them is. The gradient helpers
+      below are deliberately kept as NAMES but now resolve to plain ink, so the
+      34 places that call them become correct without being touched.
+   2. Colour lives in MARKS, never in a field behind a paragraph.
+
+   Measured against #FFFFFF, which is why aqua is not a text colour here:
+   #13D8F6 on white is 1.72:1. It is a fill with ink on top, or it is aqua.deep.
    ========================================================================== */
 @layer components {
-  /* Gradient text helpers */
-  .text-gradient-ember {
-    @apply bg-gradient-to-r from-white to-ember bg-clip-text text-transparent;
-  }
-  .text-gradient-aqua {
-    @apply bg-gradient-to-r from-white to-aqua-soft bg-clip-text text-transparent;
-  }
+  /* Kept as names so existing pages inherit the fix. Do not add new ones. */
+  .text-gradient-ember,
+  .text-gradient-aqua,
   .text-gradient-steel {
-    background: linear-gradient(90deg, #D0D0D0 0%, #5F5F5F 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @apply text-ink;
+    background: none;
+    -webkit-text-fill-color: currentColor;
   }
+
   /* Standard section horizontal rhythm */
   .container-site {
     @apply mx-auto w-full max-w-content px-5 md:px-10 lg:px-16;
   }
-  /* Glass surface used across cards */
+
+  /* A panel lifted off the ground. On white this is a rule and a tint, not a
+     blur - glass over white reads as a smudge. */
   .glass {
-    background: linear-gradient(146deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
+    @apply bg-paper-raised;
+    border: 1px solid theme('colors.rule.DEFAULT');
+    backdrop-filter: none;
   }
+
   /* Small pill / eyebrow label */
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-sm text-cloud-muted;
+    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm text-ink-muted;
+    background: theme('colors.paper.sunk');
   }
 }
 
-/* Ambient drifting grid used behind heroes */
+/* The ground itself. Set here so no page has to remember it. */
+body {
+  @apply bg-paper text-ink;
+}
+
+/* Ambient grid behind heroes - on white the lines are ink at low alpha, not
+   white at low alpha, which was invisible the moment the ground changed. */
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgba(255,255,255,0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.045) 1px, transparent 1px);
+    linear-gradient(to right, rgba(18,18,20,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(18,18,20,0.05) 1px, transparent 1px);
   background-size: 60px 60px;
+}
+
+/* Motion is a refinement, never the thing that makes content exist. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

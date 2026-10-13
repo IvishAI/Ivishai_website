@@ -96,8 +96,7 @@ function MoreFAQ() {
       <section className="px-6 md:px-20 lg:px-36 pt-24 md:pt-16 pb-16 bg-black text-white">
         <h1
           className="text-center text-4xl md:text-6xl font-sora mb-10 tracking-tight
-                     bg-gradient-to-r from-cyan-400 via-teal-300 to-orange-500
-                     bg-clip-text text-transparent"
+                     text-ink"
         >
           More Frequently Asked Questions
         </h1>

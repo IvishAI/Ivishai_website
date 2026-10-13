@@ -42,7 +42,7 @@ const FounderDetail = () => {
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-sora tracking-tight leading-[110%] mb-6">
-                <span className="bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+                <span className="text-ink">
                   {f.name}
                 </span>
               </h1>
@@ -69,7 +69,7 @@ const FounderDetail = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-4xl font-sora mb-8 bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+          <h2 className="text-4xl font-sora mb-8 text-ink">
             Personal note
           </h2>
 
@@ -96,7 +96,7 @@ const FounderDetail = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-4xl font-sora mb-8 bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+          <h2 className="text-4xl font-sora mb-8 text-ink">
             About
           </h2>
           <p className="text-gray-300 leading-relaxed text-base md:text-lg">{f.about}</p>

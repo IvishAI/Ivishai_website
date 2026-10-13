@@ -44,10 +44,10 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-5xl md:text-[76px] font-sora font-normal leading-[100%] tracking-[-0.04em] md:tracking-[-1.52px] mb-6"
         >
-          <span className="block bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+          <span className="block text-ink">
             {BRAND.name}
           </span>
-          <span className="block bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+          <span className="block text-ink">
             {BRAND.hero}
           </span>
         </motion.h1>

@@ -35,7 +35,7 @@ const About = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <span className="bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+            <span className="text-ink">
               Who We Are
             </span>
           </motion.h1>
@@ -57,7 +57,7 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-4xl font-sora mb-4 bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+          <h2 className="text-4xl font-sora mb-4 text-ink">
             Our Journey
           </h2>
           <p className="text-gray-400 text-base max-w-xl mx-auto">
@@ -93,7 +93,7 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-4xl font-sora bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent mb-3">
+          <h2 className="text-4xl font-sora text-ink mb-3">
             The people behind IvishAI.
           </h2>
           <p className="text-gray-400 text-base max-w-xl mx-auto">Founding Team</p>
@@ -161,7 +161,7 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-4xl font-sora bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent mb-3">
+          <h2 className="text-4xl font-sora text-ink mb-3">
             The people guiding us.
           </h2>
           <p className="text-gray-400 text-base max-w-xl mx-auto">Advisors &amp; Mentors</p>
@@ -221,7 +221,7 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-4xl font-sora mb-4 bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+          <h2 className="text-4xl font-sora mb-4 text-ink">
             Recognised and registered.
           </h2>
           <p className="text-gray-400 text-base max-w-xl mx-auto">Company Credentials</p>
@@ -286,7 +286,7 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-4xl font-sora bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent mb-3">
+          <h2 className="text-4xl font-sora text-ink mb-3">
             The infrastructure we build on.
           </h2>
           <p className="text-gray-400 text-base max-w-xl mx-auto">Technology Partners</p>

@@ -11,7 +11,7 @@ const Error404 = () => {
       {/* Navigation Header */}
       <nav className="absolute top-0 w-full bg-black/80 backdrop-blur-md border-b border-white/10 py-4 px-6 md:px-28">
         <motion.h1
-          className="text-xl font-sora bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent"
+          className="text-xl font-sora text-ink"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >

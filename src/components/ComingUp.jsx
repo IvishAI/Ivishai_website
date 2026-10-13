@@ -18,7 +18,7 @@ const SixPillars = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
       >
-        <h2 className="font-sora text-4xl md:text-[56px] font-normal leading-[1.1] tracking-tight md:tracking-[-1.52px] bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+        <h2 className="font-sora text-4xl md:text-[56px] font-normal leading-[1.1] tracking-tight md:tracking-[-1.52px] text-ink">
           The Layers of Industry 6.0
         </h2>
       </motion.div>

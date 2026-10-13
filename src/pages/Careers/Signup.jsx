@@ -85,7 +85,7 @@ const Signup = () => {
       <div className="w-full max-w-4xl pl-8 md:pl-16">
         <div className="pt-16 pb-12">
           <span className="inline-block text-xs text-white bg-white/10 rounded-full px-3 py-1 mb-4">Create Account</span>
-          <h1 className="text-5xl md:text-6xl leading-[100%] tracking-[-1px] font-normal bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent mb-8">
+          <h1 className="text-5xl md:text-6xl leading-[100%] tracking-[-1px] font-normal text-ink mb-8">
             Start your journey
           </h1>
           <p className="text-base md:text-lg text-gray-300 max-w-lg mb-8">

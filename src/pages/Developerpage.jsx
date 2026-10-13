@@ -36,11 +36,11 @@ const CombinedPage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
-                <span className="bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+                <span className="text-ink">
                   Ankith M
                 </span>
                 <br />
-                <span className="text-2xl md:text-4xl bg-gradient-to-r from-[#13D8F6] to-[#0F616D] bg-clip-text text-transparent">
+                <span className="text-2xl md:text-4xl text-ink">
                   Full Stack Developer
                 </span>
               </motion.h1>
@@ -125,11 +125,11 @@ const CombinedPage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
-                <span className="bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+                <span className="text-ink">
                   ASHUTOSH RANA
                 </span>
                 <br />
-                <span className="text-2xl md:text-4xl bg-gradient-to-r from-[#13D8F6] to-[#0F616D] bg-clip-text text-transparent">
+                <span className="text-2xl md:text-4xl text-ink">
                   UX/Product Designer
                 </span>
               </motion.h1>
@@ -252,11 +252,11 @@ const CombinedPage = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
           >
-            <span className="bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+            <span className="text-ink">
               Let's Build
             </span>
             <br />
-            <span className="bg-gradient-to-r from-[#13D8F6] to-[#0F616D] bg-clip-text text-transparent">
+            <span className="text-ink">
               The Future
             </span>
           </motion.h2>

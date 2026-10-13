@@ -41,7 +41,7 @@ const Login = () => {
       {/* Navigation */}
       <nav className="absolute top-0 w-full bg-black/80 backdrop-blur-md border-b border-white/10 py-4 px-16 md:px-28">
         <motion.h1
-          className="text-2xl font-sora bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent"
+          className="text-2xl font-sora text-ink"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
@@ -59,7 +59,7 @@ const Login = () => {
             <span className="text-sm">Secure Access</span>
           </div>
           <h2 className="text-2xl font-sora mb-2">
-            <span className="bg-gradient-to-r from-white to-[#E26426] bg-clip-text text-transparent">
+            <span className="text-ink">
               Welcome Back
             </span>
           </h2>
