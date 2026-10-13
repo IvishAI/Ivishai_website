@@ -5,10 +5,10 @@ import CountUp from "./CountUp";
  * Used for the locked innovation metrics.
  *
  * Props:
- *   end     number
- *   label   string
- *   prefix  string  e.g. "~"
- *   suffix  string  e.g. "+"
+ * end number
+ * label string
+ * prefix string e.g."~"
+ * suffix string e.g."+"
  */
 const Stat = ({ end, label, prefix = "", suffix = "", className = "" }) => (
   <div className={`text-center ${className}`}>

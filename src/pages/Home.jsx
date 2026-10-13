@@ -1,17 +1,17 @@
-import React from 'react';
-import Header from '../components/Header';
-import HeroSection from '../components/HeroSection';
-import MissionStatement from '../components/MissionStatement';
-import ComingUp from '../components/ComingUp';
-import TwoProducts from '../components/TwoProducts';
-import WhyIvish from '../components/WhyIvish';
-import FAQ from '../components/Faq';
-import ClosingCTA from '../components/ClosingCTA';
-import Footer from '../components/Footer';
+import React from "react";
+import Header from "../components/Header";
+import HeroSection from "../components/HeroSection";
+import MissionStatement from "../components/MissionStatement";
+import ComingUp from "../components/ComingUp";
+import TwoProducts from "../components/TwoProducts";
+import WhyIvish from "../components/WhyIvish";
+import FAQ from "../components/Faq";
+import ClosingCTA from "../components/ClosingCTA";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
-    <div className="bg-black min-h-screen text-white">
+    <div className="bg-paper min-h-screen text-ink">
       <Header />
 
       {/* Section 1: Hero */}

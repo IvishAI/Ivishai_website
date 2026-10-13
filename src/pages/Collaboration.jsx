@@ -60,14 +60,14 @@ const SERA_TRACKS = [
 const Chip = ({ label, icon: Icon, iconClass, borderClass, to, href }) => {
   const body = (
     <>
-      <span className={`inline-flex shrink-0 rounded-xl bg-white/5 p-3 ${iconClass}`}>
+      <span className={`inline-flex shrink-0 bg-white/5 p-3 ${iconClass}`}>
         <Icon className="h-5 w-5" />
       </span>
       <span className="font-sora text-base md:text-lg text-cloud">{label}</span>
       <ArrowUpRight className="ml-auto h-5 w-5 shrink-0 text-cloud-faint transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
     </>
   );
-  const cls = `group glass flex h-full items-center gap-4 rounded-2xl p-5 transition-colors duration-300 ${borderClass}`;
+  const cls = `group flex h-full items-center gap-4 p-5 transition-colors duration-300 ${borderClass}`;
 
   if (href) {
     return (
@@ -111,8 +111,8 @@ const Hero = () => (
       </motion.h1>
 
       <Reveal delay={0.4} className="mt-7 max-w-2xl text-lg text-cloud-muted">
-        We work with enterprises, institutions, government, distributors and channel
-        partners across both VerbX and Sera. Tell us where you fit.
+        We work with enterprises, institutions, government, distributors and
+        channel partners across both VerbX and Sera. Tell us where you fit.
       </Reveal>
 
       <Reveal delay={0.55} className="mt-10 flex flex-wrap gap-3">
@@ -152,7 +152,7 @@ const StrategicPartner = () => (
           <Card className="relative overflow-hidden">
             <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
               <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-                <div className="flex h-20 w-44 shrink-0 items-center justify-center rounded-xl bg-white/5 p-4 ring-1 ring-white/10">
+                <div className="flex h-20 w-44 shrink-0 items-center justify-center bg-white/5 p-4 ring-1 ring-white/10">
                   <img
                     src="/logos/venturewolf-white.png"
                     alt="Venture Wolf"
@@ -236,8 +236,8 @@ const SeraPartnerships = () => (
         Partner across Sera.
       </Reveal>
       <Reveal delay={0.12} className="mt-5 text-lg text-cloud-muted">
-        Distribution, retail and channel tracks for the retail operating system built
-        for Bharat.
+        Distribution, retail and channel tracks for the retail operating system
+        built for Bharat.
       </Reveal>
     </div>
 
@@ -272,8 +272,8 @@ const CollaborationContact = () => (
         Tell us where you fit.
       </Reveal>
       <Reveal delay={0.12} className="mx-auto mt-4 max-w-xl text-cloud-muted">
-        Enterprise, government, OEM, institutional, distribution or channel - start the
-        conversation and we&apos;ll route you to the right team.
+        Enterprise, government, OEM, institutional, distribution or channel -
+        start the conversation and we&apos;ll route you to the right team.
       </Reveal>
 
       <Reveal
@@ -305,7 +305,7 @@ const CollaborationContact = () => (
 const Collaboration = () => {
   useSEO(
     "Collaborate with IvishAI - VerbX & Sera Partnerships",
-    "Partnership paths across VerbX (enterprise, government, OEM, institutional) and Sera (distributors, retail associations, state & channel partners)."
+    "Partnership paths across VerbX (enterprise, government, OEM, institutional) and Sera (distributors, retail associations, state & channel partners).",
   );
 
   return (

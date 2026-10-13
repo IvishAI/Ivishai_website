@@ -69,18 +69,15 @@ body {
     @apply mx-auto w-full max-w-content px-5 md:px-10 lg:px-16;
   }
 
-  /* A panel lifted off the ground. On white this is a rule and a tint, not a
-     blur - glass over white reads as a smudge. */
-  .glass {
-    @apply bg-paper-raised;
-    border: 1px solid theme('colors.rule.DEFAULT');
-    backdrop-filter: none;
-  }
+  /* .glass is gone. There are no cards on this site: content sits on the one
+     ground and is separated by space and the occasional hairline, not by a
+     fill, an outline, a corner radius and a shadow wrapped round every
+     paragraph. The class is removed rather than emptied so nothing can reach
+     for it again. */
 
-  /* Small pill / eyebrow label */
+  /* The eyebrow keeps its pill - a label is a mark, not a card. */
   .eyebrow {
     @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm text-ink-muted;
-    background: theme('colors.paper.sunk');
   }
 }
 

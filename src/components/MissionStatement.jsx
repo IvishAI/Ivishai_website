@@ -1,6 +1,9 @@
+/* min-h-screen here is what left roughly 600px of empty ground under"What We
+ Build": two short paragraphs were being stretched to a full viewport height.
+ A section should be as tall as what is in it. */
 const MissionStatement = () => {
   return (
-    <main className="min-h-screen bg-black text-white overflow-hidden">
+    <section className="bg-paper text-ink overflow-hidden">
       <section className="relative px-5 md:px-16 lg:px-40 pt-16 md:pt-24 pb-16 md:pb-24">
         <div className="flex flex-col items-start gap-20 md:gap-[81px] w-full">
           {/* Section Heading */}
@@ -13,34 +16,36 @@ const MissionStatement = () => {
           <div className="flex flex-col items-start gap-16 md:gap-[81px] w-full">
             {/* Paragraph 1 */}
             <article className="flex flex-col md:flex-row justify-between items-start w-full gap-8 md:gap-0">
-              <div className="w-full md:w-[320px] text-white text-2xl md:text-[28px] font-normal leading-[1.3] md:leading-[36.4px]">
+              <div className="w-full md:w-[320px] text-ink text-2xl md:text-[28px] font-normal leading-[1.3] md:leading-[36.4px]">
                 The Vision
               </div>
               <div className="flex flex-col items-start gap-6 md:gap-[30px] flex-1 md:pl-8">
-                <p className="w-full text-gray-300 text-base md:text-lg font-normal leading-relaxed md:leading-[28.8px]">
-                  Industry 6.0 is our long-term vision: intelligent operating systems that sit underneath
-                  real-world industries. VerbX and Sera are the first two layers; more pillars will follow.
+                <p className="w-full text-ink-muted text-base md:text-lg font-normal leading-relaxed md:leading-[28.8px]">
+                  Industry 6.0 is our long-term vision: intelligent operating
+                  systems that sit underneath real-world industries. VerbX and
+                  Sera are the first two layers; more pillars will follow.
                 </p>
               </div>
             </article>
 
             {/* Paragraph 2 */}
             <article className="flex flex-col md:flex-row justify-between items-start w-full gap-8 md:gap-0">
-              <div className="w-full md:w-[320px] text-white text-2xl md:text-[28px] font-normal leading-[1.3] md:leading-[36.4px]">
+              <div className="w-full md:w-[320px] text-ink text-2xl md:text-[28px] font-normal leading-[1.3] md:leading-[36.4px]">
                 What We Build
               </div>
               <div className="flex flex-col items-start gap-6 md:gap-[30px] flex-1 md:pl-8">
-                <p className="w-full text-gray-300 text-base md:text-lg font-normal leading-relaxed md:leading-[28.8px]">
-                  Operating systems beneath communication and commerce — built to sit underneath
-                  industries, not on top of them. Two products live today, engineered offline-first
-                  for Indian conditions and built to scale globally.
+                <p className="w-full text-ink-muted text-base md:text-lg font-normal leading-relaxed md:leading-[28.8px]">
+                  Operating systems beneath communication and commerce — built
+                  to sit underneath industries, not on top of them. Two products
+                  live today, engineered offline-first for Indian conditions and
+                  built to scale globally.
                 </p>
               </div>
             </article>
           </div>
         </div>
       </section>
-    </main>
+    </section>
   );
 };
 

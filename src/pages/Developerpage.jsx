@@ -19,10 +19,21 @@ const CombinedPage = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/5">
-                <svg width="14" height="15" viewBox="0 0 14 15" className="mr-2">
+                <svg
+                  width="14"
+                  height="15"
+                  viewBox="0 0 14 15"
+                  className="mr-2"
+                >
                   <circle cx="7" cy="7.5" r="7" fill="url(#gradientDev)" />
                   <defs>
-                    <linearGradient id="gradientDev" x1="-0.036" y1="14.645" x2="9.885" y2="0.472">
+                    <linearGradient
+                      id="gradientDev"
+                      x1="-0.036"
+                      y1="14.645"
+                      x2="9.885"
+                      y2="0.472"
+                    >
                       <stop stopColor="#13D8F6" />
                       <stop offset="1" stopColor="#0F616D" />
                     </linearGradient>
@@ -36,9 +47,7 @@ const CombinedPage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
-                <span className="text-ink">
-                  Ankith M
-                </span>
+                <span className="text-ink">Ankith M</span>
                 <br />
                 <span className="text-2xl md:text-4xl text-ink">
                   Full Stack Developer
@@ -51,8 +60,9 @@ const CombinedPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Crafting immersive digital experiences with cutting-edge web technologies.
-                Specializing in AI integration and scalable cloud solutions.
+                Crafting immersive digital experiences with cutting-edge web
+                technologies. Specializing in AI integration and scalable cloud
+                solutions.
               </motion.p>
 
               <motion.div
@@ -63,7 +73,7 @@ const CombinedPage = () => {
               >
                 <motion.a
                   href="https://portfolio-9niq35yan-ankith-ms-projects-8b28c506.vercel.app/"
-                  className="flex items-center gap-2 border border-white px-6 py-2 md:px-8 md:py-3 hover:bg-white/10 transition-all text-sm md:text-base"
+                  className="flex items-center gap-2 px-6 py-2 md:px-8 md:py-3 hover:bg-white/10 transition-all text-sm md:text-base"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -83,13 +93,16 @@ const CombinedPage = () => {
                   <h3 className="text-xl md:text-2xl font-sora">Core Stack</h3>
                 </div>
                 <p className="text-gray-400 text-base md:text-lg leading-relaxed">
-                  React/Next.js, Node.js, Python, AWS, PostgreSQL, Docker, Kubernetes
+                  React/Next.js, Node.js, Python, AWS, PostgreSQL, Docker,
+                  Kubernetes
                 </p>
                 <div className="flex items-center gap-4 mt-4">
                   <div className="p-2 bg-white/5 rounded-full">
                     <Bolt className="w-6 h-6 text-cyan-400" />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-sora">AI Specialization</h3>
+                  <h3 className="text-xl md:text-2xl font-sora">
+                    AI Specialization
+                  </h3>
                 </div>
                 <p className="text-gray-400 text-base md:text-lg leading-relaxed">
                   TensorFlow, PyTorch, NLP, Computer Vision, LLM Integration
@@ -108,10 +121,21 @@ const CombinedPage = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white/5">
-                <svg width="14" height="15" viewBox="0 0 14 15" className="mr-2">
+                <svg
+                  width="14"
+                  height="15"
+                  viewBox="0 0 14 15"
+                  className="mr-2"
+                >
                   <circle cx="7" cy="7.5" r="7" fill="url(#gradientDes)" />
                   <defs>
-                    <linearGradient id="gradientDes" x1="-0.036" y1="14.645" x2="9.885" y2="0.472">
+                    <linearGradient
+                      id="gradientDes"
+                      x1="-0.036"
+                      y1="14.645"
+                      x2="9.885"
+                      y2="0.472"
+                    >
                       <stop stopColor="#13D8F6" />
                       <stop offset="1" stopColor="#0F616D" />
                     </linearGradient>
@@ -125,9 +149,7 @@ const CombinedPage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
-                <span className="text-ink">
-                  ASHUTOSH RANA
-                </span>
+                <span className="text-ink">ASHUTOSH RANA</span>
                 <br />
                 <span className="text-2xl md:text-4xl text-ink">
                   UX/Product Designer
@@ -140,8 +162,9 @@ const CombinedPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Creating intuitive and visually striking digital experiences with a focus on user research,
-                wireframing, and prototyping to bring innovative designs to life.
+                Creating intuitive and visually striking digital experiences
+                with a focus on user research, wireframing, and prototyping to
+                bring innovative designs to life.
               </motion.p>
 
               <motion.div
@@ -152,7 +175,7 @@ const CombinedPage = () => {
               >
                 <motion.a
                   href="https://ashutoshdesigns.framer.website/"
-                  className="flex items-center gap-2 border border-white px-6 py-2 md:px-8 md:py-3 hover:bg-white/10 transition-all text-sm md:text-base"
+                  className="flex items-center gap-2 px-6 py-2 md:px-8 md:py-3 hover:bg-white/10 transition-all text-sm md:text-base"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -169,7 +192,9 @@ const CombinedPage = () => {
                   <div className="p-2 bg-white/5 rounded-full">
                     <Palette className="w-6 h-6 text-cyan-400" />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-sora">Design Tools</h3>
+                  <h3 className="text-xl md:text-2xl font-sora">
+                    Design Tools
+                  </h3>
                 </div>
                 <p className="text-gray-400 text-base md:text-lg leading-relaxed">
                   Figma, Sketch, Adobe XD, Illustrator, Photoshop
@@ -181,7 +206,8 @@ const CombinedPage = () => {
                   <h3 className="text-xl md:text-2xl font-sora">UX Strategy</h3>
                 </div>
                 <p className="text-gray-400 text-base md:text-lg leading-relaxed">
-                  User Research, Wireframing, Prototyping, Usability Testing, Interaction Design
+                  User Research, Wireframing, Prototyping, Usability Testing,
+                  Interaction Design
                 </p>
               </div>
             </div>
@@ -204,7 +230,8 @@ const CombinedPage = () => {
                 <h3 className="text-2xl font-sora">Core Stack</h3>
               </div>
               <p className="text-gray-400 text-lg leading-relaxed">
-                React/Next.js, Node.js, Python, AWS, PostgreSQL, Docker, Kubernetes
+                React/Next.js, Node.js, Python, AWS, PostgreSQL, Docker,
+                Kubernetes
               </p>
               <div className="flex items-center gap-4 mt-4">
                 <div className="p-2 bg-white/5 rounded-full">
@@ -237,7 +264,8 @@ const CombinedPage = () => {
                 <h3 className="text-2xl font-sora">UX Strategy</h3>
               </div>
               <p className="text-gray-400 text-lg leading-relaxed">
-                User Research, Wireframing, Prototyping, Usability Testing, Interaction Design
+                User Research, Wireframing, Prototyping, Usability Testing,
+                Interaction Design
               </p>
             </div>
           </div>
@@ -246,19 +274,15 @@ const CombinedPage = () => {
 
       {/* CTA Section */}
       <section className="px-5 md:px-16 lg:px-28 py-12 md:py-20">
-        <div className="border border-white/10 rounded-xl p-8 md:p-16 text-center">
+        <div className="p-8 md:p-16 text-center">
           <motion.h2
             className="text-3xl md:text-5xl font-sora mb-6 md:mb-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
           >
-            <span className="text-ink">
-              Let's Build
-            </span>
+            <span className="text-ink">Let's Build</span>
             <br />
-            <span className="text-ink">
-              The Future
-            </span>
+            <span className="text-ink">The Future</span>
           </motion.h2>
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center"
@@ -275,7 +299,7 @@ const CombinedPage = () => {
             </motion.a>
             <motion.a
               href="https://github.com/Ankith-m1006"
-              className="border border-white px-6 py-2 md:px-8 md:py-3 hover:bg-white/10 transition-all text-sm md:text-base"
+              className="px-6 py-2 md:px-8 md:py-3 hover:bg-white/10 transition-all text-sm md:text-base"
               whileHover={{ scale: 1.05 }}
             >
               View GitHub

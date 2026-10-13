@@ -14,8 +14,15 @@ const PASSWORD_CRITERIA = {
 };
 
 const Signup = () => {
-  const [formData, setFormData] = useState({ email: "", password: "", confirmPassword: "" });
-  const [visibility, setVisibility] = useState({ password: false, confirmPassword: false });
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [visibility, setVisibility] = useState({
+    password: false,
+    confirmPassword: false,
+  });
   const [agreeToPolicy, setAgreeToPolicy] = useState(false);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -33,13 +40,15 @@ const Signup = () => {
 
   const validPass = useCallback(
     (pwd) => Object.values(PASSWORD_CRITERIA).every(({ test }) => test(pwd)),
-    []
+    [],
   );
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!validPass(formData.password)) return setError("Password does not meet all requirements.");
-    if (formData.password !== formData.confirmPassword) return setError("Passwords do not match.");
+    if (!validPass(formData.password))
+      return setError("Password does not meet all requirements.");
+    if (formData.password !== formData.confirmPassword)
+      return setError("Passwords do not match.");
     if (!agreeToPolicy) return setError("Please agree to the privacy policy.");
     setIsLoading(true);
     setShowSuccess(true);
@@ -50,7 +59,9 @@ const Signup = () => {
 
   const PwdInput = ({ name, label, val, ph }) => (
     <div className="relative">
-      <label htmlFor={name} className="block text-sm text-white mb-1">{label}</label>
+      <label htmlFor={name} className="block text-sm text-white mb-1">
+        {label}
+      </label>
       <div className="relative">
         <input
           id={name}
@@ -60,7 +71,7 @@ const Signup = () => {
           onChange={handleInputChange}
           placeholder={ph}
           required
-          className="w-full p-2 pr-10 text-white bg-white/5 rounded-lg border border-white placeholder:text-white/60 focus:ring-2 focus:ring-white outline-none font-sora text-sm"
+          className="w-full p-2 pr-10 text-white bg-white/5 placeholder:text-white/60 focus:ring-2 focus:ring-white outline-none font-sora text-sm"
         />
         <button
           type="button"
@@ -76,7 +87,7 @@ const Signup = () => {
   return (
     <div className="min-h-screen bg-black font-sora flex items-center justify-center p-4">
       {showSuccess && (
-        <div className="fixed top-4 right-4 bg-white text-black px-3 py-2 rounded-full flex items-center gap-2 shadow-lg animate-fade-in-up text-sm">
+        <div className="fixed top-4 right-4 bg-white text-black px-3 py-2 rounded-full flex items-center gap-2 animate-fade-in-up text-sm">
           <CheckCircle className="h-4 w-4 text-green-500" />
           <span>Account created! Redirecting…</span>
         </div>
@@ -84,7 +95,9 @@ const Signup = () => {
 
       <div className="w-full max-w-4xl pl-8 md:pl-16">
         <div className="pt-16 pb-12">
-          <span className="inline-block text-xs text-white bg-white/10 rounded-full px-3 py-1 mb-4">Create Account</span>
+          <span className="inline-block text-xs text-white bg-white/10 rounded-full px-3 py-1 mb-4">
+            Create Account
+          </span>
           <h1 className="text-5xl md:text-6xl leading-[100%] tracking-[-1px] font-normal text-ink mb-8">
             Start your journey
           </h1>
@@ -93,7 +106,7 @@ const Signup = () => {
           </p>
 
           {error && (
-            <div className="mb-6 bg-white/10 text-white px-3 py-2 rounded-lg flex items-center gap-2 border border-red-400 animate-fade-in-up text-sm">
+            <div className="mb-6 bg-white/10 text-white px-3 py-2 flex items-center gap-2 animate-fade-in-up text-sm">
               <XCircle className="h-4 w-4 text-red-500" />
               <span>{error}</span>
             </div>
@@ -101,7 +114,9 @@ const Signup = () => {
 
           <form onSubmit={onSubmit} className="space-y-5 animate-fade-in-up">
             <div>
-              <label htmlFor="email" className="block text-sm text-white mb-1">Email</label>
+              <label htmlFor="email" className="block text-sm text-white mb-1">
+                Email
+              </label>
               <input
                 id="email"
                 name="email"
@@ -110,30 +125,48 @@ const Signup = () => {
                 onChange={handleInputChange}
                 placeholder="Enter your email"
                 required
-                className="w-full p-2 text-white bg-white/5 rounded-lg border border-white placeholder:text-white/60 focus:ring-2 focus:ring-white outline-none font-sora text-sm"
+                className="w-full p-2 text-white bg-white/5 placeholder:text-white/60 focus:ring-2 focus:ring-white outline-none font-sora text-sm"
               />
             </div>
 
             <div className="grid gap-3 sm:grid-cols-2">
-              <PwdInput name="password" label="Password" val={formData.password} ph="Create password" />
-              <PwdInput name="confirmPassword" label="Confirm Password" val={formData.confirmPassword} ph="Confirm password" />
+              <PwdInput
+                name="password"
+                label="Password"
+                val={formData.password}
+                ph="Create password"
+              />
+              <PwdInput
+                name="confirmPassword"
+                label="Confirm Password"
+                val={formData.confirmPassword}
+                ph="Confirm password"
+              />
             </div>
 
             <div className="text-sm text-white">
               <p className="font-medium mb-1">Password requirements:</p>
               <ul className="grid grid-cols-2 gap-1 text-xs">
-                {Object.entries(PASSWORD_CRITERIA).map(([k, { test, label }]) => (
-                  <li key={k} className="flex items-center gap-1">
-                    {test(formData.password) ? (
-                      <CheckCircle className="h-3 w-3 text-green-400" />
-                    ) : (
-                      <XCircle className="h-3 w-3 text-red-400" />
-                    )}
-                    <span className={test(formData.password) ? "text-green-400" : "text-red-400"}>
-                      {label}
-                    </span>
-                  </li>
-                ))}
+                {Object.entries(PASSWORD_CRITERIA).map(
+                  ([k, { test, label }]) => (
+                    <li key={k} className="flex items-center gap-1">
+                      {test(formData.password) ? (
+                        <CheckCircle className="h-3 w-3 text-green-400" />
+                      ) : (
+                        <XCircle className="h-3 w-3 text-red-400" />
+                      )}
+                      <span
+                        className={
+                          test(formData.password)
+                            ? "text-green-400"
+                            : "text-red-400"
+                        }
+                      >
+                        {label}
+                      </span>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
 
@@ -146,7 +179,7 @@ const Signup = () => {
                 className="mt-1"
               />
               <label htmlFor="privacy-policy" className="text-sm text-white">
-                I agree to the{" "}
+                I agree to the{""}
                 <a
                   href="/privacy-policy"
                   className="text-white underline hover:opacity-80"
@@ -162,13 +195,13 @@ const Signup = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="px-6 py-3 rounded-full font-medium border border-white text-black bg-white transition-transform hover:scale-105 active:scale-95 text-sm"
+                className="px-6 py-3 rounded-full font-medium text-black bg-white transition-transform hover:scale-105 active:scale-95 text-sm"
               >
                 {isLoading ? "Creating…" : "Create Account"}
               </button>
               <a
                 href="/login"
-                className="px-6 py-3 rounded-full font-medium border border-white text-white transition-transform hover:scale-105 active:scale-95 text-sm"
+                className="px-6 py-3 rounded-full font-medium text-white transition-transform hover:scale-105 active:scale-95 text-sm"
               >
                 Sign In
               </a>

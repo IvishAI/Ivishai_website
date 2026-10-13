@@ -6,7 +6,7 @@ import useScrollManager from "../../lib/useScrollManager";
  * PageShell - standard page frame: fixed header, main content, footer.
  * Scrolls to top (or to the #hash target) on every route change.
  *
- * Usage:  <PageShell><Section>…</Section></PageShell>
+ * Usage: <PageShell><Section>…</Section></PageShell>
  */
 const PageShell = ({ children, className = "" }) => {
   useScrollManager();

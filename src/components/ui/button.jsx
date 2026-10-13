@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const Button = ({ children, onClick, variant = 'default', className = '' }) => {
+const Button = ({ children, onClick, variant = "default", className = "" }) => {
   return (
     <button
       onClick={onClick}

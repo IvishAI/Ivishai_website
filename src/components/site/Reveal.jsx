@@ -10,7 +10,7 @@ import { motion, useReducedMotion } from "framer-motion";
  * been scrolled past - content a visitor may never see.
  *
  * It also carried a comment claiming it respected prefers-reduced-motion
- * "automatically". It did not. framer-motion does not read the OS setting for
+ *"automatically". It did not. framer-motion does not read the OS setting for
  * initial/whileInView on its own, and no CSS was doing it either - CountUp,
  * EarthGlobe and the loading page each check the media query by hand, and this
  * component, which gates far more content than all of them together, did not.
@@ -19,12 +19,20 @@ import { motion, useReducedMotion } from "framer-motion";
  * Motion is a refinement on top of a page that already reads.
  *
  * Props:
- *   delay   number  seconds before animating (for staggering) - default 0
- *   y       number  starting offset in px - default 24
- *   as      string  wrapper element - default "div"
- *   once    bool    only animate the first time - default true
+ * delay number seconds before animating (for staggering) - default 0
+ * y number starting offset in px - default 24
+ * as string wrapper element - default"div"
+ * once bool only animate the first time - default true
  */
-const Reveal = ({ children, delay = 0, y = 24, as = "div", once = true, className = "", ...rest }) => {
+const Reveal = ({
+  children,
+  delay = 0,
+  y = 24,
+  as = "div",
+  once = true,
+  className = "",
+  ...rest
+}) => {
   const MotionTag = motion[as] || motion.div;
   const still = useReducedMotion();
 

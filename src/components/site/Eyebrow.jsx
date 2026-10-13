@@ -1,5 +1,5 @@
 /**
- * Eyebrow - the small pill label above a heading (e.g. "Who We Are").
+ * Eyebrow - the small pill label above a heading (e.g."Who We Are").
  * Carries the brand aqua dot for a consistent look site-wide.
  */
 const Eyebrow = ({ children, className = "" }) => (

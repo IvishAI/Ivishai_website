@@ -1,12 +1,12 @@
 // BackendEngineer.js
 import React, { useState, useEffect } from "react";
-import { 
-  Briefcase, 
-  DollarSign, 
-  MapPin, 
-  CheckCircle, 
-  Database, 
-  Users, 
+import {
+  Briefcase,
+  DollarSign,
+  MapPin,
+  CheckCircle,
+  Database,
+  Users,
   Brain,
   Server,
   Rocket,
@@ -19,10 +19,10 @@ import {
   Facebook,
   Mail,
   Check,
-  MessageCircle
+  MessageCircle,
 } from "lucide-react";
 
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 const BackendEngineer = () => {
   const navigate = useNavigate();
@@ -32,7 +32,8 @@ const BackendEngineer = () => {
 
   const jobDetails = {
     title: "Backend Engineer at Ivish AI",
-    description: "Join our innovative team as a Backend Engineer. Remote position with competitive salary.",
+    description:
+      "Join our innovative team as a Backend Engineer. Remote position with competitive salary.",
     url: window.location.href,
   };
 
@@ -42,7 +43,7 @@ const BackendEngineer = () => {
     "Optimize database performance and query efficiency",
     "Implement security best practices and data protection measures",
     "Build and maintain CI/CD pipelines",
-    "Collaborate with frontend teams for seamless integration"
+    "Collaborate with frontend teams for seamless integration",
   ];
 
   const requirements = [
@@ -51,7 +52,7 @@ const BackendEngineer = () => {
     "Experience with MongoDB, PostgreSQL, and Redis",
     "Knowledge of microservices architecture and Docker",
     "Understanding of cloud services (AWS/GCP)",
-    "Experience with testing and monitoring tools"
+    "Experience with testing and monitoring tools",
   ];
 
   const benefits = [
@@ -60,27 +61,38 @@ const BackendEngineer = () => {
     { icon: DollarSign, text: "Competitive salary & equity" },
     { icon: Users, text: "Health insurance for you and family" },
     { icon: Brain, text: "Learning & development budget" },
-    { icon: Rocket, text: "Career growth opportunities" }
+    { icon: Rocket, text: "Career growth opportunities" },
   ];
 
   const shareOptions = {
     linkedin: () => {
-      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(jobDetails.url)}`, '_blank');
+      window.open(
+        `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(jobDetails.url)}`,
+        "_blank",
+      );
     },
     twitter: () => {
       const text = `Check out this exciting opportunity: ${jobDetails.title}`;
-      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(jobDetails.url)}`, '_blank');
+      window.open(
+        `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(jobDetails.url)}`,
+        "_blank",
+      );
     },
     facebook: () => {
-      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(jobDetails.url)}`, '_blank');
+      window.open(
+        `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(jobDetails.url)}`,
+        "_blank",
+      );
     },
     message: () => {
       const text = `Check out this job opportunity: ${jobDetails.title}\n${jobDetails.url}`;
-      window.open(`sms:?body=${encodeURIComponent(text)}`, '_blank');
+      window.open(`sms:?body=${encodeURIComponent(text)}`, "_blank");
     },
     email: () => {
       const subject = encodeURIComponent(jobDetails.title);
-      const body = encodeURIComponent(`I found this interesting job opportunity:\n\n${jobDetails.description}\n\n${jobDetails.url}`);
+      const body = encodeURIComponent(
+        `I found this interesting job opportunity:\n\n${jobDetails.description}\n\n${jobDetails.url}`,
+      );
       window.location.href = `mailto:?subject=${subject}&body=${body}`;
     },
     copyLink: async () => {
@@ -89,28 +101,28 @@ const BackendEngineer = () => {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       } catch (err) {
-        console.error('Failed to copy:', err);
+        console.error("Failed to copy:", err);
       }
-    }
+    },
   };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (showShareMenu && !event.target.closest('.share-menu-container')) {
+      if (showShareMenu && !event.target.closest(".share-menu-container")) {
         setShowShareMenu(false);
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
   }, [showShareMenu]);
 
   const ShareMenu = () => (
-    <div className="absolute right-0 top-full mt-2 bg-white rounded-xl shadow-lg p-4 w-64 z-50">
+    <div className="absolute right-0 top-full mt-2 bg-white p-4 w-64 z-50">
       <div className="space-y-3">
         <button
           onClick={shareOptions.linkedin}
-          className="w-full flex items-center gap-3 px-4 py-2 hover:bg-blue-50 rounded-lg transition-colors"
+          className="w-full flex items-center gap-3 px-4 py-2 hover:bg-blue-50 transition-colors"
         >
           <Linkedin size={20} className="text-blue-600" />
           <span className="text-gray-700">Share on LinkedIn</span>
@@ -118,7 +130,7 @@ const BackendEngineer = () => {
 
         <button
           onClick={shareOptions.twitter}
-          className="w-full flex items-center gap-3 px-4 py-2 hover:bg-blue-50 rounded-lg transition-colors"
+          className="w-full flex items-center gap-3 px-4 py-2 hover:bg-blue-50 transition-colors"
         >
           <Twitter size={20} className="text-blue-400" />
           <span className="text-gray-700">Share on Twitter</span>
@@ -126,7 +138,7 @@ const BackendEngineer = () => {
 
         <button
           onClick={shareOptions.facebook}
-          className="w-full flex items-center gap-3 px-4 py-2 hover:bg-blue-50 rounded-lg transition-colors"
+          className="w-full flex items-center gap-3 px-4 py-2 hover:bg-blue-50 transition-colors"
         >
           <Facebook size={20} className="text-blue-600" />
           <span className="text-gray-700">Share on Facebook</span>
@@ -134,7 +146,7 @@ const BackendEngineer = () => {
 
         <button
           onClick={shareOptions.message}
-          className="w-full flex items-center gap-3 px-4 py-2 hover:bg-blue-50 rounded-lg transition-colors"
+          className="w-full flex items-center gap-3 px-4 py-2 hover:bg-blue-50 transition-colors"
         >
           <MessageCircle size={20} className="text-green-500" />
           <span className="text-gray-700">Share via Message</span>
@@ -142,7 +154,7 @@ const BackendEngineer = () => {
 
         <button
           onClick={shareOptions.email}
-          className="w-full flex items-center gap-3 px-4 py-2 hover:bg-blue-50 rounded-lg transition-colors"
+          className="w-full flex items-center gap-3 px-4 py-2 hover:bg-blue-50 transition-colors"
         >
           <Mail size={20} className="text-gray-600" />
           <span className="text-gray-700">Share via Email</span>
@@ -152,7 +164,7 @@ const BackendEngineer = () => {
 
         <button
           onClick={shareOptions.copyLink}
-          className="w-full flex items-center gap-3 px-4 py-2 hover:bg-blue-50 rounded-lg transition-colors"
+          className="w-full flex items-center gap-3 px-4 py-2 hover:bg-blue-50 transition-colors"
         >
           {copied ? (
             <>
@@ -178,12 +190,14 @@ const BackendEngineer = () => {
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-4">
               <Database size={32} />
-              <h1 className="text-4xl md:text-5xl font-bold">Backend Engineer</h1>
+              <h1 className="text-4xl md:text-5xl font-bold">
+                Backend Engineer
+              </h1>
             </div>
             <div className="relative share-menu-container">
               <button
                 onClick={() => setShowShareMenu(!showShareMenu)}
-                className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 transition-colors"
               >
                 <Share2 size={20} />
                 <span className="hidden md:inline">Share</span>
@@ -214,33 +228,46 @@ const BackendEngineer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Left Column */}
           <div className="md:col-span-2 space-y-8">
-            <section className="bg-white rounded-xl p-8 shadow-sm">
-              <h2 className="text-2xl font-bold text-blue-900 mb-4">About the Role</h2>
+            <section className="bg-white p-8">
+              <h2 className="text-2xl font-bold text-blue-900 mb-4">
+                About the Role
+              </h2>
               <p className="text-gray-600 leading-relaxed">
-                We're seeking a skilled Backend Engineer to join our team at Ivish AI. 
-                You'll be responsible for building robust, scalable services that power 
-                our AI applications and handle millions of requests daily.
+                We're seeking a skilled Backend Engineer to join our team at
+                Ivish AI. You'll be responsible for building robust, scalable
+                services that power our AI applications and handle millions of
+                requests daily.
               </p>
             </section>
 
-            <section className="bg-white rounded-xl p-8 shadow-sm">
-              <h2 className="text-2xl font-bold text-blue-900 mb-4">Key Responsibilities</h2>
+            <section className="bg-white p-8">
+              <h2 className="text-2xl font-bold text-blue-900 mb-4">
+                Key Responsibilities
+              </h2>
               <div className="space-y-3">
                 {responsibilities.map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckCircle className="text-green-500 mt-1 flex-shrink-0" size={20} />
+                    <CheckCircle
+                      className="text-green-500 mt-1 flex-shrink-0"
+                      size={20}
+                    />
                     <span className="text-gray-600">{item}</span>
                   </div>
                 ))}
               </div>
             </section>
 
-            <section className="bg-white rounded-xl p-8 shadow-sm">
-              <h2 className="text-2xl font-bold text-blue-900 mb-4">Requirements</h2>
+            <section className="bg-white p-8">
+              <h2 className="text-2xl font-bold text-blue-900 mb-4">
+                Requirements
+              </h2>
               <div className="space-y-3">
                 {requirements.map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <Target className="text-blue-500 mt-1 flex-shrink-0" size={20} />
+                    <Target
+                      className="text-blue-500 mt-1 flex-shrink-0"
+                      size={20}
+                    />
                     <span className="text-gray-600">{item}</span>
                   </div>
                 ))}
@@ -250,31 +277,37 @@ const BackendEngineer = () => {
 
           {/* Right Column */}
           <div className="space-y-6">
-            <div className="bg-white rounded-xl p-8 shadow-sm">
-              <h3 className="text-xl font-bold text-blue-900 mb-4">Quick Apply</h3>
-              <button 
+            <div className="bg-white p-8">
+              <h3 className="text-xl font-bold text-blue-900 mb-4">
+                Quick Apply
+              </h3>
+              <button
                 onClick={() => {
-                  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+                  const isLoggedIn =
+                    localStorage.getItem("isLoggedIn") === "true";
                   if (isLoggedIn) {
                     navigate("/JobApplicationForm");
                   } else {
                     navigate("/Login");
                   }
-                }} 
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
+                }}
+                className="w-full bg-blue-600 text-white py-3 px-6 hover:bg-blue-700 transition-colors"
+              >
                 Apply Now
-
               </button>
               <p className="text-gray-500 text-sm mt-4 text-center">
                 Usually responds within 48 hours
               </p>
             </div>
 
-            <div className="bg-white rounded-xl p-8 shadow-sm">
+            <div className="bg-white p-8">
               <h3 className="text-xl font-bold text-blue-900 mb-4">Benefits</h3>
               <div className="grid grid-cols-1 gap-4">
                 {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-center gap-3 text-gray-600">
+                  <div
+                    key={index}
+                    className="flex items-center gap-3 text-gray-600"
+                  >
                     <benefit.icon className="text-blue-500" size={20} />
                     <span>{benefit.text}</span>
                   </div>
@@ -282,12 +315,20 @@ const BackendEngineer = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl p-8 shadow-sm">
-              <h3 className="text-xl font-bold text-blue-900 mb-4">Tech Stack</h3>
+            <div className="bg-white p-8">
+              <h3 className="text-xl font-bold text-blue-900 mb-4">
+                Tech Stack
+              </h3>
               <div className="flex flex-wrap gap-2">
                 {[
-                  "Node.js", "Python", "MongoDB", "PostgreSQL", 
-                  "Docker", "AWS", "Redis", "GraphQL"
+                  "Node.js",
+                  "Python",
+                  "MongoDB",
+                  "PostgreSQL",
+                  "Docker",
+                  "AWS",
+                  "Redis",
+                  "GraphQL",
                 ].map((tech, index) => (
                   <span
                     key={index}

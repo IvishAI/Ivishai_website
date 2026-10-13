@@ -78,11 +78,17 @@ const Hero = () => (
       <motion.h1
         initial="hidden"
         animate="show"
-        variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } } }}
+        variants={{
+          hidden: {},
+          show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+        }}
         className="mt-6 font-sora font-normal tracking-tightest"
       >
         <motion.span
-          variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
+          variants={{
+            hidden: { opacity: 0, y: 24 },
+            show: { opacity: 1, y: 0 },
+          }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="block text-5xl md:text-7xl lg:text-[82px] leading-[1.02] text-gradient-ember"
         >
@@ -91,9 +97,9 @@ const Hero = () => (
       </motion.h1>
 
       <Reveal delay={0.45} className="mt-7 max-w-2xl text-lg text-cloud-muted">
-        IvishAI builds intelligent infrastructure for communication and commerce, with two live
-        products and a long-term Industry 6.0 vision. Qualified investors can request access to the
-        private data room.
+        IvishAI builds intelligent infrastructure for communication and
+        commerce, with two live products and a long-term Industry 6.0 vision.
+        Qualified investors can request access to the private data room.
       </Reveal>
 
       <Reveal delay={0.55} className="mt-10 flex flex-wrap gap-3">
@@ -119,7 +125,8 @@ const Descriptors = () => (
         </Heading>
       </Reveal>
       <Reveal delay={0.12} className="mt-6 text-lg text-cloud-muted">
-        Two operating systems in the field - the first layers of a long-term Industry 6.0 vision.
+        Two operating systems in the field - the first layers of a long-term
+        Industry 6.0 vision.
       </Reveal>
     </div>
 
@@ -127,9 +134,13 @@ const Descriptors = () => (
       {DESCRIPTORS.map((d, i) => (
         <Reveal key={d.name} delay={i * 0.1}>
           <Card className={`flex h-full flex-col ${d.ring}`}>
-            <span className={`text-xs uppercase tracking-wider ${d.accent}`}>{d.tag}</span>
+            <span className={`text-xs uppercase tracking-wider ${d.accent}`}>
+              {d.tag}
+            </span>
             <h3 className="mt-4 font-sora text-3xl text-cloud">{d.name}</h3>
-            <p className="mt-3 text-lg leading-relaxed text-cloud-muted">{d.line}</p>
+            <p className="mt-3 text-lg leading-relaxed text-cloud-muted">
+              {d.line}
+            </p>
           </Card>
         </Reveal>
       ))}
@@ -138,7 +149,16 @@ const Descriptors = () => (
 );
 
 /* --------------------------- Access Form ------------------------------ */
-const Field = ({ label, name, value, onChange, error, type = "text", placeholder, required }) => (
+const Field = ({
+  label,
+  name,
+  value,
+  onChange,
+  error,
+  type = "text",
+  placeholder,
+  required,
+}) => (
   <div>
     <label htmlFor={name} className="mb-2 block text-sm text-cloud-muted">
       {label}
@@ -152,8 +172,10 @@ const Field = ({ label, name, value, onChange, error, type = "text", placeholder
       onChange={onChange}
       placeholder={placeholder}
       aria-invalid={error ? "true" : "false"}
-      className={`w-full rounded-xl border bg-white/[0.03] px-4 py-3 text-cloud placeholder-cloud-faint outline-none transition-colors focus:bg-white/[0.05] ${
-        error ? "border-ember/60 focus:border-ember" : "border-white/10 focus:border-aqua/50"
+      className={`w-full border bg-white/[0.03] px-4 py-3 text-cloud placeholder-cloud-faint outline-none transition-colors focus:bg-white/[0.05] ${
+        error
+          ? "border-ember/60 focus:border-ember"
+          : "border-white/10 focus:border-aqua/50"
       }`}
     />
     {error && <p className="mt-1.5 text-sm text-ember-soft">{error}</p>}
@@ -161,7 +183,13 @@ const Field = ({ label, name, value, onChange, error, type = "text", placeholder
 );
 
 const RequestForm = () => {
-  const [form, setForm] = useState({ name: "", fund: "", email: "", website: "", interest: "" });
+  const [form, setForm] = useState({
+    name: "",
+    fund: "",
+    email: "",
+    website: "",
+    interest: "",
+  });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
@@ -204,15 +232,22 @@ const RequestForm = () => {
             <motion.div
               initial={{ scale: 0.6, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.1, type: "spring", stiffness: 260, damping: 18 }}
-              className="mb-5 inline-flex rounded-2xl bg-aqua/10 p-4 text-aqua"
+              transition={{
+                delay: 0.1,
+                type: "spring",
+                stiffness: 260,
+                damping: 18,
+              }}
+              className="mb-5 inline-flex bg-aqua/10 p-4 text-aqua"
             >
               <CheckCircle2 className="h-9 w-9" />
             </motion.div>
-            <h3 className="font-sora text-2xl text-cloud">Request received - we'll be in touch.</h3>
+            <h3 className="font-sora text-2xl text-cloud">
+              Request received - we'll be in touch.
+            </h3>
             <p className="mt-3 max-w-sm text-cloud-muted">
-              Our team reviews every request manually. Approved investors receive access to the
-              private data room.
+              Our team reviews every request manually. Approved investors
+              receive access to the private data room.
             </p>
           </motion.div>
         ) : (
@@ -267,7 +302,10 @@ const RequestForm = () => {
               />
             </div>
             <div>
-              <label htmlFor="interest" className="mb-2 block text-sm text-cloud-muted">
+              <label
+                htmlFor="interest"
+                className="mb-2 block text-sm text-cloud-muted"
+              >
                 Interest
               </label>
               <textarea
@@ -277,7 +315,7 @@ const RequestForm = () => {
                 value={form.interest}
                 onChange={onChange}
                 placeholder="A line or two on your thesis and what you'd like to explore."
-                className="w-full resize-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-cloud placeholder-cloud-faint outline-none transition-colors focus:border-aqua/50 focus:bg-white/[0.05]"
+                className="w-full resize-none bg-white/[0.03] px-4 py-3 text-cloud placeholder-cloud-faint outline-none transition-colors focus:border-aqua/50 focus:bg-white/[0.05]"
               />
             </div>
 
@@ -289,7 +327,7 @@ const RequestForm = () => {
                 type="submit"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="group inline-flex items-center justify-center gap-2 border border-white bg-white px-7 py-3.5 text-[15px] font-medium text-ink transition-all duration-300 hover:bg-white/90"
+                className="group inline-flex items-center justify-center gap-2 bg-white px-7 py-3.5 text-[15px] font-medium text-ink transition-all duration-300 hover:bg-white/90"
               >
                 Submit request
                 <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -314,9 +352,9 @@ const RequestSection = () => (
           </Heading>
         </Reveal>
         <Reveal delay={0.12} className="mt-6 text-lg text-cloud-muted">
-          The public site stays high-level by design. Qualified investors can request access to the
-          private data room, where the full picture lives - reviewed and approved on a case-by-case
-          basis.
+          The public site stays high-level by design. Qualified investors can
+          request access to the private data room, where the full picture lives
+          - reviewed and approved on a case-by-case basis.
         </Reveal>
 
         <Reveal delay={0.18} className="mt-8 space-y-3">
@@ -362,8 +400,9 @@ const DataRoom = () => (
         </Heading>
       </Reveal>
       <Reveal delay={0.12} className="mt-6 text-lg text-cloud-muted">
-        The full detail lives in an access-controlled data room. Below is what it contains - the
-        materials themselves are unlocked only after your request is approved.
+        The full detail lives in an access-controlled data room. Below is what
+        it contains - the materials themselves are unlocked only after your
+        request is approved.
       </Reveal>
     </div>
 
@@ -372,15 +411,19 @@ const DataRoom = () => (
         {/* Header row */}
         <div className="flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-4">
-            <div className="inline-flex rounded-xl bg-white/5 p-3 text-ember-soft">
+            <div className="inline-flex bg-white/5 p-3 text-ember-soft">
               <Lock className="h-6 w-6" />
             </div>
             <div>
-              <h3 className="font-sora text-xl text-cloud">Access-controlled</h3>
-              <p className="text-sm text-cloud-muted">Unlocked on approval - no figures shown here.</p>
+              <h3 className="font-sora text-xl text-cloud">
+                Access-controlled
+              </h3>
+              <p className="text-sm text-cloud-muted">
+                Unlocked on approval - no figures shown here.
+              </p>
             </div>
           </div>
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs uppercase tracking-wider text-cloud-faint">
+          <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white/[0.03] px-4 py-2 text-xs uppercase tracking-wider text-cloud-faint">
             <Lock className="h-3.5 w-3.5" />
             Locked
           </span>
@@ -390,7 +433,7 @@ const DataRoom = () => (
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {DATA_ROOM.map((item, i) => (
             <Reveal key={item.label} delay={i * 0.05}>
-              <div className="group flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-4 transition-colors hover:border-white/20">
+              <div className="group flex items-center justify-between gap-3 bg-white/[0.02] px-4 py-4 transition-colors hover:border-white/20">
                 <div className="flex items-center gap-3">
                   <span className="text-cloud-faint transition-colors group-hover:text-aqua">
                     <item.icon className="h-5 w-5" />
@@ -406,7 +449,8 @@ const DataRoom = () => (
         {/* Footer CTA */}
         <div className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-md text-sm text-cloud-muted">
-            Approved investors receive a secure link. Nothing above is disclosed on the public site.
+            Approved investors receive a secure link. Nothing above is disclosed
+            on the public site.
           </p>
           <CTAButton variant="primary" onClick={scrollToRequest} arrow>
             Request access
@@ -427,7 +471,8 @@ const ClosingCTA = () => (
         </Heading>
       </Reveal>
       <Reveal delay={0.1} className="mx-auto mt-4 max-w-xl text-cloud-muted">
-        Request access to the private data room, or book a call with the founding team.
+        Request access to the private data room, or book a call with the
+        founding team.
       </Reveal>
       <Reveal delay={0.18} className="mt-8 flex flex-wrap justify-center gap-3">
         <CTAButton variant="primary" onClick={scrollToRequest} arrow>
@@ -445,7 +490,7 @@ const ClosingCTA = () => (
 const Investors = () => {
   useSEO(
     "Investor Relations - IvishAI",
-    "IvishAI: infrastructure operating systems for communication and commerce. Request investor access."
+    "IvishAI: infrastructure operating systems for communication and commerce. Request investor access.",
   );
 
   return (

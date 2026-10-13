@@ -9,12 +9,10 @@ const PrivacyChoices = () => {
   }, []);
 
   return (
-
     <div className="w-full min-h-screen bg-gray-50 text-gray-900 px-6 md:px-16 py-16">
-      
       {/* 🔹 Header Section */}
       <motion.section
-        className="w-full text-center bg-gradient-to-r from-blue-700 to-purple-600 text-white py-16 px-8 rounded-lg shadow-lg"
+        className="w-full text-center bg-gradient-to-r from-blue-700 to-purple-600 text-white py-16 px-8"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -24,16 +22,19 @@ const PrivacyChoices = () => {
           Your Privacy Choices
         </h1>
         <p className="text-lg text-white/90 mt-4 max-w-3xl mx-auto">
-          At <strong>IvishAI</strong>, we respect your right to control your personal data. <strong>Manage your privacy settings below.</strong>
-
+          At <strong>IvishAI</strong>, we respect your right to control your
+          personal data. <strong>Manage your privacy settings below.</strong>
         </p>
       </motion.section>
 
       {/* 🔹 Privacy Options Section */}
       <section className="mt-12 max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold text-gray-900">Manage Your Privacy</h2>
+        <h2 className="text-4xl font-bold text-gray-900">
+          Manage Your Privacy
+        </h2>
         <p className="text-lg text-gray-700 mt-2">
-          You have full control over how your data is used. Choose the options below to manage your privacy settings.
+          You have full control over how your data is used. Choose the options
+          below to manage your privacy settings.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
@@ -56,17 +57,19 @@ const PrivacyChoices = () => {
           ].map((privacy, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-lg shadow-md p-6 text-center border border-gray-200 hover:shadow-xl transition"
+              className="bg-white p-6 text-center transition"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               whileHover={{ scale: 1.05 }}
             >
               <div className="mb-4 flex justify-center">{privacy.icon}</div>
-              <h3 className="text-xl font-bold text-blue-600">{privacy.title}</h3>
+              <h3 className="text-xl font-bold text-blue-600">
+                {privacy.title}
+              </h3>
               <p className="text-gray-700 mt-2">{privacy.desc}</p>
               <motion.button
-                className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition-all"
+                className="mt-4 px-6 py-2 bg-blue-600 text-white hover:bg-blue-700 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -79,26 +82,25 @@ const PrivacyChoices = () => {
 
       {/* 🔹 Additional Information */}
       <motion.section
-        className="mt-16 max-w-5xl mx-auto bg-blue-100 py-12 px-8 text-center rounded-lg shadow-md"
+        className="mt-16 max-w-5xl mx-auto bg-blue-100 py-12 px-8 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
         <h2 className="text-3xl font-bold text-gray-900">Need Assistance?</h2>
         <p className="text-lg text-gray-700 mt-2 max-w-3xl mx-auto">
-          If you need help managing your privacy preferences, feel free to <strong>contact our support team</strong>.
-
+          If you need help managing your privacy preferences, feel free to{""}
+          <strong>contact our support team</strong>.
         </p>
         <motion.a
           href="/contact"
-          className="mt-6 inline-block px-8 py-3 bg-purple-600 text-white rounded-lg shadow-md hover:bg-purple-700 transition-all"
+          className="mt-6 inline-block px-8 py-3 bg-purple-600 text-white hover:bg-purple-700 transition-all"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           Contact Support
         </motion.a>
       </motion.section>
-
     </div>
   );
 };

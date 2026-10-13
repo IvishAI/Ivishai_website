@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from 'react-router-dom'; 
+import { Link } from "react-router-dom";
 
 function Footer() {
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -11,48 +10,41 @@ function Footer() {
   };
 
   return (
-    <footer className="bg-black text-gray-300 py-10 px-16 max-md:px-5">
-      
+    <footer className="bg-paper text-ink-muted py-10 px-16 max-md:px-5">
       <div className="flex justify-between items-start max-md:flex-col max-md:gap-10">
         {/* Left group: 3 columns with gap */}
         <div className="flex items-start gap-16 max-md:flex-col max-md:gap-8">
           {/* Home Column */}
           <div>
-            <h3 className="text-white text-base font-bold mb-5">Home</h3>
+            <h3 className="text-ink text-base font-bold mb-5">Home</h3>
 
             <ul className="space-y-4">
               <li>
-                <a href="/about" className="hover:text-white transition-colors">
+                <a href="/about" className="hover:text-ink transition-colors">
                   About
                 </a>
               </li>
-             
+
               <li>
-                <a
-                  href="/careers"
-                  className="hover:text-white transition-colors"
-                >
+                <a href="/careers" className="hover:text-ink transition-colors">
                   Careers
                 </a>
               </li>
               <li>
                 <a
                   href="/testimonials"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-ink transition-colors"
                 >
                   Testimonials
                 </a>
               </li>
               <li>
-                <a href="/faqs" className="hover:text-white transition-colors">
+                <a href="/faqs" className="hover:text-ink transition-colors">
                   Blogs
                 </a>
               </li>
               <li>
-                <a
-                  href="/contact"
-                  className="hover:text-white transition-colors"
-                >
+                <a href="/contact" className="hover:text-ink transition-colors">
                   Contact Us
                 </a>
               </li>
@@ -61,7 +53,7 @@ function Footer() {
 
           {/* Products Column */}
           <div>
-            <h3 className="text-white text-base font-bold mb-5">Products</h3>
+            <h3 className="text-ink text-base font-bold mb-5">Products</h3>
 
             <ul className="space-y-4">
               <li>
@@ -69,16 +61,13 @@ function Footer() {
                   href="https://verbxeco.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
+                  className="hover:text-ink transition-colors"
                 >
                   VerbX
                 </a>
               </li>
               <li>
-                <a
-                  href="/sera"
-                  className="hover:text-white transition-colors"
-                >
+                <a href="/sera" className="hover:text-ink transition-colors">
                   Sera
                 </a>
               </li>
@@ -87,38 +76,37 @@ function Footer() {
 
           {/* Careers Column */}
           <div>
-            <h3 className="text-white text-base font-bold mb-5">Legal</h3>
+            <h3 className="text-ink text-base font-bold mb-5">Legal</h3>
 
-            {<ul className="space-y-4">
-              <li>
-                <a
-                  href="/privacypolicy"
-                  className="hover:text-white transition-colors"
-                >
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/legal"
-                  className="hover:text-white transition-colors"
-                >
-                  Terms of Use
-                </a>
-              </li>
-            </ul> }
+            {
+              <ul className="space-y-4">
+                <li>
+                  <a
+                    href="/privacypolicy"
+                    className="hover:text-ink transition-colors"
+                  >
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="/legal" className="hover:text-ink transition-colors">
+                    Terms of Use
+                  </a>
+                </li>
+              </ul>
+            }
           </div>
         </div>
 
         {/* Socials Column */}
         <div>
-          <h3 className="text-white text-base font-bold mb-5">Socials</h3>
+          <h3 className="text-ink text-base font-bold mb-5">Socials</h3>
 
           <ul className="space-y-4">
             <li>
               <a
                 href="https://www.instagram.com/ivish_ai?igsh=MTc1dnMxeDN2bGhiYQ=="
-                className="hover:text-white transition-colors"
+                className="hover:text-ink transition-colors"
               >
                 Instagram
               </a>
@@ -126,7 +114,7 @@ function Footer() {
             <li>
               <a
                 href="https://x.com/ai_ivish52542?t=saKy955j743BxaB1W3z2sA&s=09"
-                className="hover:text-white transition-colors"
+                className="hover:text-ink transition-colors"
               >
                 X
               </a>
@@ -134,19 +122,16 @@ function Footer() {
             <li>
               <a
                 href="https://www.linkedin.com/company/ivishai/"
-                className="hover:text-white transition-colors"
+                className="hover:text-ink transition-colors"
               >
                 LinkedIn
               </a>
             </li>
-
           </ul>
         </div>
       </div>
 
-    
       <div className="mt-24 flex items-center justify-between max-md:mt-16 max-md:flex-col max-md:gap-6">
-     
         <div className="w-full max-w-[732px]">
           <svg
             className="w-full h-auto"
@@ -191,8 +176,8 @@ function Footer() {
                 y2="89.2798"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stopColor="#D0D0D0" />
-                <stop offset="1" stopColor="#5F5F5F" />
+                <stop stopColor="#DCDCD8" />
+                <stop offset="1" stopColor="#DCDCD8" />
               </linearGradient>
               <linearGradient
                 id="paint1_linear_68_517"
@@ -202,8 +187,8 @@ function Footer() {
                 y2="89.2798"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stopColor="#D0D0D0" />
-                <stop offset="1" stopColor="#5F5F5F" />
+                <stop stopColor="#DCDCD8" />
+                <stop offset="1" stopColor="#DCDCD8" />
               </linearGradient>
               <linearGradient
                 id="paint2_linear_68_517"
@@ -213,8 +198,8 @@ function Footer() {
                 y2="89.2798"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stopColor="#D0D0D0" />
-                <stop offset="1" stopColor="#5F5F5F" />
+                <stop stopColor="#DCDCD8" />
+                <stop offset="1" stopColor="#DCDCD8" />
               </linearGradient>
               <linearGradient
                 id="paint3_linear_68_517"
@@ -224,8 +209,8 @@ function Footer() {
                 y2="89.2798"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stopColor="#D0D0D0" />
-                <stop offset="1" stopColor="#5F5F5F" />
+                <stop stopColor="#DCDCD8" />
+                <stop offset="1" stopColor="#DCDCD8" />
               </linearGradient>
               <linearGradient
                 id="paint4_linear_68_517"
@@ -235,8 +220,8 @@ function Footer() {
                 y2="89.2798"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stopColor="#D0D0D0" />
-                <stop offset="1" stopColor="#5F5F5F" />
+                <stop stopColor="#DCDCD8" />
+                <stop offset="1" stopColor="#DCDCD8" />
               </linearGradient>
               <linearGradient
                 id="paint5_linear_68_517"
@@ -246,8 +231,8 @@ function Footer() {
                 y2="89.2798"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stopColor="#D0D0D0" />
-                <stop offset="1" stopColor="#5F5F5F" />
+                <stop stopColor="#DCDCD8" />
+                <stop offset="1" stopColor="#DCDCD8" />
               </linearGradient>
               <linearGradient
                 id="paint6_linear_68_517"
@@ -257,29 +242,30 @@ function Footer() {
                 y2="89.2798"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stopColor="#D0D0D0" />
-                <stop offset="1" stopColor="#5F5F5F" />
+                <stop stopColor="#DCDCD8" />
+                <stop offset="1" stopColor="#DCDCD8" />
               </linearGradient>
             </defs>
           </svg>
         </div>
 
-    
         <button
           onClick={scrollToTop}
-          className="text-gray-300 hover:text-white transition-colors cursor-pointer"
+          className="text-ink-muted hover:text-ink transition-colors cursor-pointer"
         >
           Back to top
         </button>
-        <Link to="/Developerpage" onClick={scrollToTop} className="text-gray-300 hover:text-white transition-colors cursor-pointer">
-
+        <Link
+          to="/Developerpage"
+          onClick={scrollToTop}
+          className="text-ink-muted hover:text-ink transition-colors cursor-pointer"
+        >
           Credits
         </Link>
 
-
         {/* Copyright */}
-        <div className="text-gray-300 text-sm">
-         © Ivish AI Quantum Pvt Ltd 2025
+        <div className="text-ink-muted text-sm">
+          © Ivish AI Quantum Pvt Ltd 2025
         </div>
       </div>
     </footer>

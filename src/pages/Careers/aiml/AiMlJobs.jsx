@@ -1,6 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { MapPin, Bookmark, BookmarkCheck, Briefcase, Clock, DollarSign, Code, ArrowRight, Users, Rocket, Globe } from "lucide-react";
+import {
+  MapPin,
+  Bookmark,
+  BookmarkCheck,
+  Briefcase,
+  Clock,
+  DollarSign,
+  Code,
+  ArrowRight,
+  Users,
+  Rocket,
+  Globe,
+} from "lucide-react";
 
 const AiMlJobs = () => {
   const navigate = useNavigate();
@@ -10,50 +22,53 @@ const AiMlJobs = () => {
     {
       icon: Globe,
       title: "Remote-First Culture",
-      description: "Work from anywhere in the world with flexible hours"
+      description: "Work from anywhere in the world with flexible hours",
     },
     {
       icon: Rocket,
       title: "Latest Technology",
-      description: "Build with cutting-edge AI and cloud technologies"
+      description: "Build with cutting-edge AI and cloud technologies",
     },
     {
       icon: Users,
       title: "Collaborative Team",
-      description: "Work with talented engineers from around the globe"
-    }
+      description: "Work with talented engineers from around the globe",
+    },
   ];
 
   const aiMlJobs = [
     {
       title: "Machine Learning Engineer",
-      description: "Develop and optimize ML models for real-world applications.",
+      description:
+        "Develop and optimize ML models for real-world applications.",
       location: "Remote",
       link: "/machine-learning-engineer",
       type: "Full-time",
       salary: "$120k - $150k",
       postedAt: "2 days ago",
-      techStack: ["Python", "TensorFlow", "Keras"]
+      techStack: ["Python", "TensorFlow", "Keras"],
     },
     {
       title: "Computer Vision Engineer",
-      description: "Work on deep learning models for image and video processing.",
+      description:
+        "Work on deep learning models for image and video processing.",
       location: "San Francisco, CA",
       link: "/computer-vision-engineer",
       type: "Full-time",
       salary: "$130k - $160k",
       postedAt: "1 week ago",
-      techStack: ["Python", "OpenCV", "PyTorch"]
+      techStack: ["Python", "OpenCV", "PyTorch"],
     },
     {
       title: "NLP Researcher",
-      description: "Build AI-driven solutions for natural language processing tasks.",
+      description:
+        "Build AI-driven solutions for natural language processing tasks.",
       location: "Remote",
       link: "/nlp-researcher",
       type: "Full-time",
       salary: "$110k - $140k",
       postedAt: "3 days ago",
-      techStack: ["Python", "NLTK", "SpaCy"]
+      techStack: ["Python", "NLTK", "SpaCy"],
     },
     {
       title: "AI Research Scientist",
@@ -63,7 +78,7 @@ const AiMlJobs = () => {
       type: "Full-time",
       salary: "£90k - £120k",
       postedAt: "2 weeks ago",
-      techStack: ["Python", "PyTorch", "Scikit-learn"]
+      techStack: ["Python", "PyTorch", "Scikit-learn"],
     },
   ];
 
@@ -84,41 +99,47 @@ const AiMlJobs = () => {
             AI & Machine Learning Jobs
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Join our team of innovative engineers building the future of AI technology.
-            We offer competitive compensation, flexible work, and cutting-edge projects.
+            Join our team of innovative engineers building the future of AI
+            technology. We offer competitive compensation, flexible work, and
+            cutting-edge projects.
           </p>
         </div>
 
         {/* Perks Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {perks.map((perk, index) => (
-            <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <div className="bg-blue-50 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+            <div key={index} className="bg-white p-6">
+              <div className="bg-blue-50 w-12 h-12 flex items-center justify-center mb-4">
                 <perk.icon className="text-blue-600" size={24} />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{perk.title}</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                {perk.title}
+              </h3>
               <p className="text-gray-600">{perk.description}</p>
             </div>
           ))}
         </div>
 
         {/* Open Positions */}
-        <h2 className="text-2xl font-bold text-gray-900 mb-8">Open Positions</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-8">
+          Open Positions
+        </h2>
         <div className="grid grid-cols-1 gap-6">
-
           {aiMlJobs.map((job, index) => (
             <div
               key={index}
               onClick={() => navigate(job.link)}
-              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer border border-gray-100 hover:border-blue-100 p-6"
+              className="bg-white transition-all cursor-pointer hover:border-blue-100 p-6"
             >
               <div className="flex justify-between items-start mb-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-50 rounded-lg">
+                  <div className="p-3 bg-blue-50">
                     <Code className="text-blue-600" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900">{job.title}</h3>
+                    <h3 className="text-xl font-semibold text-gray-900">
+                      {job.title}
+                    </h3>
                     <p className="text-gray-500 mt-1">{job.description}</p>
                   </div>
                 </div>

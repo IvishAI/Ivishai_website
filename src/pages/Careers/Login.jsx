@@ -30,7 +30,7 @@ const Login = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-5 right-5 bg-cyan-400/10 text-cyan-400 px-6 py-3 rounded-lg border border-cyan-400/30 flex items-center gap-2"
+            className="absolute top-5 right-5 bg-cyan-400/10 text-cyan-400 px-6 py-3 flex items-center gap-2"
           >
             <CheckCircle size={20} />
             <span>Login Successful! Redirecting...</span>
@@ -39,7 +39,7 @@ const Login = () => {
       </AnimatePresence>
 
       {/* Navigation */}
-      <nav className="absolute top-0 w-full bg-black/80 backdrop-blur-md border-b border-white/10 py-4 px-16 md:px-28">
+      <nav className="absolute top-0 w-full bg-black/80 border-b border-white/10 py-4 px-16 md:px-28">
         <motion.h1
           className="text-2xl font-sora text-ink"
           initial={{ opacity: 0 }}
@@ -50,7 +50,7 @@ const Login = () => {
       </nav>
 
       <motion.div
-        className="bg-white/5 p-8 rounded-xl border border-white/10 w-full max-w-md mx-4"
+        className="bg-white/5 p-8 w-full max-w-md mx-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
@@ -59,9 +59,7 @@ const Login = () => {
             <span className="text-sm">Secure Access</span>
           </div>
           <h2 className="text-2xl font-sora mb-2">
-            <span className="text-ink">
-              Welcome Back
-            </span>
+            <span className="text-ink">Welcome Back</span>
           </h2>
           <p className="text-gray-300">Sign in to continue your AI journey</p>
         </div>
@@ -76,9 +74,12 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full p-3 bg-white/5 border border-white/10 rounded-lg focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
+                className="w-full p-3 bg-white/5 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
               />
-              <Mail className="absolute right-3 top-3 text-gray-400" size={20} />
+              <Mail
+                className="absolute right-3 top-3 text-gray-400"
+                size={20}
+              />
             </div>
           </div>
 
@@ -91,7 +92,7 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full p-3 bg-white/5 border border-white/10 rounded-lg focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
+                className="w-full p-3 bg-white/5 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
               />
               <button
                 type="button"
@@ -107,15 +108,18 @@ const Login = () => {
             type="submit"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="w-full border border-white px-8 py-3 hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+            className="w-full px-8 py-3 hover:bg-white/10 transition-all flex items-center justify-center gap-2"
           >
             Sign In <ArrowRight size={18} />
           </motion.button>
         </form>
 
         <p className="text-center text-gray-300 mt-6">
-          Don't have an account?{' '}
-          <a href="/signup" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+          Don't have an account?{""}
+          <a
+            href="/signup"
+            className="text-cyan-400 hover:text-cyan-300 transition-colors"
+          >
             Create Account
           </a>
         </p>

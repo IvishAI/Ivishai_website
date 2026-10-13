@@ -18,9 +18,15 @@ const Header = () => {
 
       const currentScrollY = window.scrollY;
       const threshold = 10;
-      if (currentScrollY > lastScrollYRef.current && currentScrollY > threshold) {
+      if (
+        currentScrollY > lastScrollYRef.current &&
+        currentScrollY > threshold
+      ) {
         setIsVisible(false);
-      } else if (currentScrollY < lastScrollYRef.current || currentScrollY <= threshold) {
+      } else if (
+        currentScrollY < lastScrollYRef.current ||
+        currentScrollY <= threshold
+      ) {
         setIsVisible(true);
       }
 
@@ -46,7 +52,7 @@ const Header = () => {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 w-full h-[78px] bg-transparent backdrop-blur-sm px-[82px] py-7 max-md:px-10 max-sm:px-5"
+      className="fixed top-0 left-0 right-0 z-50 w-full h-[78px] bg-transparent px-[82px] py-7 max-md:px-10 max-sm:px-5"
       initial={{ opacity: 0, y: -20 }}
       animate={{
         opacity: 1,
@@ -54,7 +60,7 @@ const Header = () => {
       }}
       transition={{
         duration: 0.4,
-        ease: [0.25, 0.1, 0.25, 1]
+        ease: [0.25, 0.1, 0.25, 1],
       }}
       style={{ pointerEvents: isVisible ? "auto" : "none" }}
     >
@@ -181,7 +187,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation - Centered */}
-        <nav className="absolute left-1/2 transform -translate-x-1/2 flex justify-center items-center gap-8 border bg-[rgba(255,255,255,0.08)] px-4 py-2 rounded-xl border-[#6B6B6B] max-md:gap-5 max-sm:hidden backdrop-blur-sm transition-all duration-300">
+        <nav className="absolute left-1/2 transform -translate-x-1/2 flex justify-center items-center gap-8 border bg-[rgba(255,255,255,0.08)] px-4 py-2 border-[#6B6B6B] max-md:gap-5 max-sm:hidden transition-all duration-300">
           {navigationItems.map((item, index) => (
             <a
               key={index}
@@ -199,7 +205,7 @@ const Header = () => {
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger className="hidden max-sm:block">
               <button
-                className="text-white hover:bg-white/10 rounded-lg p-2 transition-colors duration-200"
+                className="text-white hover:bg-white/10 p-2 transition-colors duration-200"
                 onClick={() => setOpen(true)}
               >
                 <svg
@@ -217,7 +223,7 @@ const Header = () => {
                 </svg>
               </button>
             </SheetTrigger>
-            <SheetContent className="bg-black/95 backdrop-blur-sm text-white border-l border-[#6B6B6B] transition-transform duration-300">
+            <SheetContent className="bg-black/95 text-white border-l border-[#6B6B6B] transition-transform duration-300">
               <div className="flex flex-col gap-6 mt-8">
                 {navigationItems.map((item, index) => (
                   <a

@@ -1,8 +1,10 @@
-import React from 'react';
+import React from "react";
 
-const Badge = ({ children, className = '', variant = 'default' }) => {
+const Badge = ({ children, className = "", variant = "default" }) => {
   return (
-    <span className={`badge ${variant} ${className} transition-all duration-300`}>
+    <span
+      className={`badge ${variant} ${className} transition-all duration-300`}
+    >
       {children}
     </span>
   );

@@ -6,13 +6,19 @@ import { useInView } from "react-intersection-observer";
  * Used for the locked metrics (76 languages, 27 engines, ~130 countries, 8 patents).
  *
  * Props:
- *   end       number   target value (required)
- *   duration  number   ms - default 1600
- *   prefix    string   e.g. "~"
- *   suffix    string   e.g. "+"
- *   className string
+ * end number target value (required)
+ * duration number ms - default 1600
+ * prefix string e.g."~"
+ * suffix string e.g."+"
+ * className string
  */
-const CountUp = ({ end, duration = 1600, prefix = "", suffix = "", className = "" }) => {
+const CountUp = ({
+  end,
+  duration = 1600,
+  prefix = "",
+  suffix = "",
+  className = "",
+}) => {
   const [value, setValue] = useState(0);
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.4 });
   const startedRef = useRef(false);

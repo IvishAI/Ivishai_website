@@ -15,7 +15,8 @@ const products = [
     accent: "#13D8F6",
     accentDark: "#0F616D",
     accentRgb: "19,216,246",
-    description: "The world's first Language Communication OS. Real-time voice, text, and camera translation across 2,000+ languages. Offline-capable. Institutionally secure.",
+    description:
+      "The world's first Language Communication OS. Real-time voice, text, and camera translation across 2,000+ languages. Offline-capable. Institutionally secure.",
     audience: "Individuals · Institutions · Developers · Travellers",
     site: "verbxeco.com",
     stats: [
@@ -23,7 +24,11 @@ const products = [
       { label: "Offline", val: "Yes" },
       { label: "Models", val: "52+" },
     ],
-    cta: { label: "Visit verbxeco.com", href: "https://verbxeco.com", external: true },
+    cta: {
+      label: "Visit verbxeco.com",
+      href: "https://verbxeco.com",
+      external: true,
+    },
   },
   {
     id: "retail-os",
@@ -35,7 +40,8 @@ const products = [
     accent: "#E26426",
     accentDark: "#AD4613",
     accentRgb: "226,100,38",
-    description: "The complete operating system for Indian retail. One platform, one AI, 19 industries. From a kirana store to a pharmacy to a regulated liquor shop. Works offline.",
+    description:
+      "The complete operating system for Indian retail. One platform, one AI, 19 industries. From a kirana store to a pharmacy to a regulated liquor shop. Works offline.",
     audience: "Retailers across 19 shop types in India",
     site: "ivishai.com/retail-os",
     stats: [
@@ -62,7 +68,7 @@ const ProductCard = ({ product, index }) => {
     >
       {/* Ambient glow behind card */}
       <div
-        className="absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500 blur-xl"
+        className="absolute -inset-px opacity-0 transition-opacity duration-500 blur-xl"
         style={{
           background: `radial-gradient(ellipse at 50% 0%, rgba(${product.accentRgb},0.3), transparent 70%)`,
           opacity: hovered ? 1 : 0,
@@ -70,7 +76,7 @@ const ProductCard = ({ product, index }) => {
       />
 
       <div
-        className="relative rounded-2xl overflow-hidden transition-all duration-500"
+        className="relative overflow-hidden transition-all duration-500"
         style={{
           border: `1px solid rgba(${product.accentRgb},${hovered ? 0.4 : 0.15})`,
           background: `linear-gradient(145deg, rgba(${product.accentRgb},0.06) 0%, rgba(0,0,0,0) 60%)`,
@@ -79,7 +85,9 @@ const ProductCard = ({ product, index }) => {
         {/* Top gradient bar */}
         <div
           className="h-px w-full"
-          style={{ background: `linear-gradient(90deg, ${product.accent}, ${product.accentDark}, transparent)` }}
+          style={{
+            background: `linear-gradient(90deg, ${product.accent}, ${product.accentDark}, transparent)`,
+          }}
         />
 
         <div className="p-6 sm:p-8 lg:p-10">
@@ -89,7 +97,11 @@ const ProductCard = ({ product, index }) => {
               <div className="flex items-center gap-3">
                 <span
                   className="text-[10px] font-mono tracking-[0.2em] uppercase px-2 py-0.5"
-                  style={{ color: product.accent, background: `rgba(${product.accentRgb},0.1)`, border: `1px solid rgba(${product.accentRgb},0.25)` }}
+                  style={{
+                    color: product.accent,
+                    background: `rgba(${product.accentRgb},0.1)`,
+                    border: `1px solid rgba(${product.accentRgb},0.25)`,
+                  }}
                 >
                   Pillar {product.pillar}
                 </span>
@@ -114,15 +126,28 @@ const ProductCard = ({ product, index }) => {
               >
                 {product.name}
               </h2>
-              <p style={{ color: product.accent }} className="text-sm font-medium">{product.tagline}</p>
+              <p
+                style={{ color: product.accent }}
+                className="text-sm font-medium"
+              >
+                {product.tagline}
+              </p>
             </div>
 
             {/* Stat chips — desktop */}
             <div className="hidden sm:flex flex-col gap-2 text-right">
               {product.stats.map((s) => (
-                <div key={s.label} className="flex items-baseline gap-2 justify-end">
-                  <span className="text-gray-500 text-xs">{s.label}</span>
-                  <span className="text-white font-semibold text-base" style={{ color: product.accent }}>{s.val}</span>
+                <div
+                  key={s.label}
+                  className="flex items-baseline gap-2 justify-end"
+                >
+                  <span className="text-ink-faint text-xs">{s.label}</span>
+                  <span
+                    className="text-ink font-semibold text-base"
+                    style={{ color: product.accent }}
+                  >
+                    {s.val}
+                  </span>
                 </div>
               ))}
             </div>
@@ -132,14 +157,22 @@ const ProductCard = ({ product, index }) => {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-10">
             {/* Description */}
             <div className="lg:col-span-3 space-y-4">
-              <p className="text-gray-300 text-base leading-relaxed">{product.description}</p>
+              <p className="text-ink-muted text-base leading-relaxed">
+                {product.description}
+              </p>
               <div>
-                <p className="text-gray-600 text-xs uppercase tracking-widest mb-1">Who it serves</p>
-                <p className="text-gray-400 text-sm">{product.audience}</p>
+                <p className="text-ink-faint text-xs uppercase tracking-widest mb-1">
+                  Who it serves
+                </p>
+                <p className="text-ink-faint text-sm">{product.audience}</p>
               </div>
               <div>
-                <p className="text-gray-600 text-xs uppercase tracking-widest mb-1">Where it lives</p>
-                <p className="text-sm" style={{ color: product.accent }}>{product.site}</p>
+                <p className="text-ink-faint text-xs uppercase tracking-widest mb-1">
+                  Where it lives
+                </p>
+                <p className="text-sm" style={{ color: product.accent }}>
+                  {product.site}
+                </p>
               </div>
             </div>
 
@@ -151,10 +184,20 @@ const ProductCard = ({ product, index }) => {
                   <div
                     key={s.label}
                     className="flex flex-col px-3 py-2"
-                    style={{ border: `1px solid rgba(${product.accentRgb},0.2)`, background: `rgba(${product.accentRgb},0.05)` }}
+                    style={{
+                      border: `1px solid rgba(${product.accentRgb},0.2)`,
+                      background: `rgba(${product.accentRgb},0.05)`,
+                    }}
                   >
-                    <span className="text-gray-500 text-[10px] uppercase tracking-wider">{s.label}</span>
-                    <span className="font-bold text-lg" style={{ color: product.accent }}>{s.val}</span>
+                    <span className="text-ink-faint text-[10px] uppercase tracking-wider">
+                      {s.label}
+                    </span>
+                    <span
+                      className="font-bold text-lg"
+                      style={{ color: product.accent }}
+                    >
+                      {s.val}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -162,9 +205,12 @@ const ProductCard = ({ product, index }) => {
               {/* CTA block */}
               <div
                 className="p-5 lg:p-6 space-y-4"
-                style={{ border: `1px solid rgba(${product.accentRgb},0.15)`, background: `rgba(${product.accentRgb},0.04)` }}
+                style={{
+                  border: `1px solid rgba(${product.accentRgb},0.15)`,
+                  background: `rgba(${product.accentRgb},0.04)`,
+                }}
               >
-                <p className="text-gray-400 text-xs leading-relaxed">
+                <p className="text-ink-faint text-xs leading-relaxed">
                   {product.id === "verbx"
                     ? "VerbX lives on its own platform. Click below to visit the full product site."
                     : "Retail OS lives here on ivishai.com. Explore features, industries, and pricing."}
@@ -175,22 +221,40 @@ const ProductCard = ({ product, index }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full py-3 text-sm font-semibold transition-all duration-200 hover:opacity-85 active:scale-95"
-                    style={{ background: `linear-gradient(90deg, ${product.accent}, ${product.accentDark})`, color: "#000" }}
+                    style={{
+                      background: `linear-gradient(90deg, ${product.accent}, ${product.accentDark})`,
+                      color: "#000",
+                    }}
                   >
                     {product.cta.label}
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M5.25 2.5H2.5A1 1 0 0 0 1.5 3.5v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V9M8.5 1.5H12.5M12.5 1.5V5.5M12.5 1.5L6 8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path
+                        d="M5.25 2.5H2.5A1 1 0 0 0 1.5 3.5v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V9M8.5 1.5H12.5M12.5 1.5V5.5M12.5 1.5L6 8"
+                        stroke="currentColor"
+                        strokeWidth="1.4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </a>
                 ) : (
                   <Link
                     to={product.cta.href}
                     className="flex items-center justify-center gap-2 w-full py-3 text-sm font-semibold transition-all duration-200 hover:opacity-85 active:scale-95"
-                    style={{ background: `linear-gradient(90deg, ${product.accent}, ${product.accentDark})`, color: "#fff" }}
+                    style={{
+                      background: `linear-gradient(90deg, ${product.accent}, ${product.accentDark})`,
+                      color: "#fff",
+                    }}
                   >
                     {product.cta.label}
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M2.5 7h9M7.5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path
+                        d="M2.5 7h9M7.5 3l4 4-4 4"
+                        stroke="currentColor"
+                        strokeWidth="1.4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   </Link>
                 )}
@@ -222,8 +286,7 @@ const Products = () => {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-black text-white overflow-x-hidden">
-
+      <div className="min-h-screen bg-paper text-ink overflow-x-hidden">
         {/* ── HERO ── */}
         <section className="px-5 sm:px-8 md:px-12 lg:px-20 xl:px-32 pt-32 md:pt-40 pb-10 md:pb-16">
           <motion.div
@@ -231,7 +294,10 @@ const Products = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-xs font-mono tracking-[0.25em] uppercase mb-5" style={{ color: "rgba(19,216,246,0.7)" }}>
+            <p
+              className="text-xs font-mono tracking-[0.25em] uppercase mb-5"
+              style={{ color: "rgba(19,216,246,0.7)" }}
+            >
               Industry 6.0 — Live Pillars
             </p>
             <h1
@@ -245,7 +311,8 @@ const Products = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              Two Products.<br />
+              Two Products.
+              <br />
               <span
                 style={{
                   background: "linear-gradient(90deg, #E26426, #13D8F6)",
@@ -257,9 +324,9 @@ const Products = () => {
                 One Vision.
               </span>
             </h1>
-            <p className="text-gray-400 text-sm md:text-base max-w-lg leading-relaxed mt-4">
-              IvishAI Quantum is building the foundational infrastructure of the next era.
-              These are the two live pillars.
+            <p className="text-ink-faint text-sm md:text-base max-w-lg leading-relaxed mt-4">
+              IvishAI Quantum is building the foundational infrastructure of the
+              next era. These are the two live pillars.
             </p>
           </motion.div>
         </section>
@@ -273,16 +340,16 @@ const Products = () => {
 
         {/* ── FOOTER NOTE ── */}
         <motion.div
-          className="px-5 sm:px-8 md:px-12 lg:px-20 xl:px-32 py-10 border-t border-white/5 text-center"
+          className="px-5 sm:px-8 md:px-12 lg:px-20 xl:px-32 py-10 border-t text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
           <p className="text-gray-700 text-xs">
-            Pillars 3–6 are in development. Each pillar is a foundational layer of Industry 6.0.
+            Pillars 3–6 are in development. Each pillar is a foundational layer
+            of Industry 6.0.
           </p>
         </motion.div>
-
       </div>
       <Footer />
     </>

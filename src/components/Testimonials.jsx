@@ -33,7 +33,7 @@ function StarRating({ rating = 5 }) {
 /* ===== 3) TESTIMONIAL CARD (used in both layouts) ===== */
 function TestimonialCard({ text, name, role, rating }) {
   return (
-    <article className="flex flex-col gap-4 p-6 sm:p-8 bg-[rgba(59,59,59,0.5)] rounded-md border border-[rgba(80,80,80,0.3)] transition-colors hover:bg-[rgba(75,75,75,0.7)] flex-shrink-0 w-full sm:w-[428px]">
+    <article className="flex flex-col gap-4 p-6 sm:p-8 bg-[rgba(59,59,59,0.5)]  transition-colors hover:bg-[rgba(75,75,75,0.7)] flex-shrink-0 w-full sm:w-[428px]">
       <div className="flex flex-col gap-3">
         <StarRating rating={rating} />
         <p className="text-white leading-6">{text}</p>
@@ -139,7 +139,7 @@ function MobileCard({ children }) {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
 
     if (cardRef.current) {
@@ -166,7 +166,7 @@ function MobileCard({ children }) {
 /* ===== 6) MAIN EXPORTED COMPONENT ===== */
 export default function Testimonials() {
   const [isMobile, setIsMobile] = useState(
-    window.innerWidth < 640 // breakpoint: 640px
+    window.innerWidth < 640, // breakpoint: 640px
   );
   const firstRowRef = useRef(null);
   const secondRowRef = useRef(null);

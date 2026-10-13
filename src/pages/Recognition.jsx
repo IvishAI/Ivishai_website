@@ -42,7 +42,10 @@ const Hero = () => (
       <motion.h1
         initial="hidden"
         animate="show"
-        variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } } }}
+        variants={{
+          hidden: {},
+          show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+        }}
         className="mt-6 font-sora font-normal tracking-tightest"
       >
         <motion.span
@@ -62,8 +65,9 @@ const Hero = () => (
       </motion.h1>
 
       <Reveal delay={0.45} className="mt-7 max-w-2xl text-lg text-cloud-muted">
-        DPIIT-recognised, MSME-registered, 1 patent granted with 7 more filed, and recognised across
-        national startup platforms - backed by real government and industry engagements.
+        DPIIT-recognised, MSME-registered, 1 patent granted with 7 more filed,
+        and recognised across national startup platforms - backed by real
+        government and industry engagements.
       </Reveal>
     </div>
   </section>
@@ -73,7 +77,11 @@ const Hero = () => (
 const MILESTONES = [
   { end: NUMBERS.patentsTotal, label: "Patents (1 Granted)" },
   { end: NUMBERS.engines, label: "Engines Orchestrated" },
-  { end: NUMBERS.countries, prefix: "~", label: "Countries at Production Quality" },
+  {
+    end: NUMBERS.countries,
+    prefix: "~",
+    label: "Countries at Production Quality",
+  },
   { end: NUMBERS.languages, label: "Languages" },
 ];
 
@@ -81,7 +89,11 @@ const Milestones = () => (
   <Section id="milestones" className="border-t border-white/10">
     <div className="max-w-2xl">
       <Eyebrow>Innovation Milestones</Eyebrow>
-      <Reveal as="h2" delay={0.05} className="mt-5 font-sora text-4xl md:text-5xl text-gradient-aqua">
+      <Reveal
+        as="h2"
+        delay={0.05}
+        className="mt-5 font-sora text-4xl md:text-5xl text-gradient-aqua"
+      >
         Proof, in numbers.
       </Reveal>
     </div>
@@ -95,7 +107,7 @@ const Milestones = () => (
     </div>
 
     <Reveal delay={0.2} className="mt-12 flex justify-center">
-      <span className="glass inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm text-cloud">
+      <span className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm text-cloud">
         <WifiOff className="h-4 w-4 text-aqua" />
         Offline AI Architecture
       </span>
@@ -108,20 +120,24 @@ const Engagements = () => (
   <Section id="engagements" className="border-t border-white/10">
     <div className="max-w-2xl">
       <Eyebrow>Government &amp; Industry Engagements</Eyebrow>
-      <Reveal as="h2" delay={0.05} className="mt-5 font-sora text-4xl md:text-5xl text-gradient-ember">
+      <Reveal
+        as="h2"
+        delay={0.05}
+        className="mt-5 font-sora text-4xl md:text-5xl text-gradient-ember"
+      >
         Met, interacted, engaged.
       </Reveal>
       <Reveal delay={0.12} className="mt-6 text-lg text-cloud-muted">
-        Direct engagement with leaders across government, deep tech and industry - in the rooms where
-        the future of AI is being decided.
+        Direct engagement with leaders across government, deep tech and industry
+        - in the rooms where the future of AI is being decided.
       </Reveal>
     </div>
 
     <div className="mt-12 grid gap-4 sm:grid-cols-2">
       {ENGAGEMENTS.map((e, i) => (
         <Reveal key={e.who} delay={i * 0.06}>
-          <div className="flex h-full items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 transition-colors duration-300 hover:border-aqua/30">
-            <span className="mt-0.5 inline-flex shrink-0 rounded-lg bg-white/5 p-2 text-aqua">
+          <div className="flex h-full items-start gap-3 bg-white/[0.03] px-5 py-4 transition-colors duration-300 hover:border-aqua/30">
+            <span className="mt-0.5 inline-flex shrink-0 bg-white/5 p-2 text-aqua">
               <BadgeCheck className="h-5 w-5" />
             </span>
             <div>
@@ -141,8 +157,7 @@ const RECOGNITION = [
     icon: Trophy,
     accent: "text-aqua",
     tag: "VibeCon India - Round 2",
-    body:
-      "Selected for Round 2 of VibeCon India (alongside Y Combinator's Startup School), from 6,000+ applications.",
+    body: "Selected for Round 2 of VibeCon India (alongside Y Combinator's Startup School), from 6,000+ applications.",
     link: { href: LINKS.vibecon, label: "View announcement" },
   },
   {
@@ -157,7 +172,11 @@ const StartupRecognition = () => (
   <Section id="startup-recognition" className="border-t border-white/10">
     <div className="max-w-2xl">
       <Eyebrow>Startup Recognition</Eyebrow>
-      <Reveal as="h2" delay={0.05} className="mt-5 font-sora text-4xl md:text-5xl text-gradient-aqua">
+      <Reveal
+        as="h2"
+        delay={0.05}
+        className="mt-5 font-sora text-4xl md:text-5xl text-gradient-aqua"
+      >
         Chosen on the national stage.
       </Reveal>
     </div>
@@ -166,7 +185,9 @@ const StartupRecognition = () => (
       {RECOGNITION.map((r, i) => (
         <Reveal key={r.tag} delay={i * 0.1}>
           <Card className="flex h-full flex-col">
-            <div className={`mb-5 inline-flex w-fit rounded-xl bg-white/5 p-3 ${r.accent}`}>
+            <div
+              className={`mb-5 inline-flex w-fit bg-white/5 p-3 ${r.accent}`}
+            >
               <r.icon className="h-6 w-6" />
             </div>
             <h3 className="font-sora text-2xl text-cloud">{r.tag}</h3>
@@ -194,16 +215,21 @@ const Podcast = () => (
   <Section id="podcast" className="border-t border-white/10">
     <div className="max-w-2xl">
       <Eyebrow>Podcast</Eyebrow>
-      <Reveal as="h2" delay={0.05} className="mt-5 font-sora text-4xl md:text-5xl text-gradient-ember">
+      <Reveal
+        as="h2"
+        delay={0.05}
+        className="mt-5 font-sora text-4xl md:text-5xl text-gradient-ember"
+      >
         Podcast appearance.
       </Reveal>
       <Reveal delay={0.12} className="mt-6 text-lg text-cloud-muted">
-        The story behind IvishAI - the vision, the products and the road to Industry 6.0.
+        The story behind IvishAI - the vision, the products and the road to
+        Industry 6.0.
       </Reveal>
     </div>
 
     <Reveal delay={0.18} className="mt-10">
-      <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black/40">
+      <div className="relative aspect-video w-full overflow-hidden bg-black/40">
         <iframe
           className="absolute inset-0 h-full w-full"
           src="https://www.youtube.com/embed/c87sUt706eY"
@@ -231,21 +257,26 @@ const StartupTimes = () => (
   <Section id="startup-times" className="border-t border-white/10">
     <div className="max-w-2xl">
       <Eyebrow>Press</Eyebrow>
-      <Reveal as="h2" delay={0.05} className="mt-5 font-sora text-4xl md:text-5xl text-gradient-aqua">
+      <Reveal
+        as="h2"
+        delay={0.05}
+        className="mt-5 font-sora text-4xl md:text-5xl text-gradient-aqua"
+      >
         Featured in Startup Times.
       </Reveal>
     </div>
 
     <Reveal delay={0.12} className="mt-10">
       <Card hover={false}>
-        <div className="mb-6 inline-flex w-fit rounded-xl bg-white/5 p-3 text-aqua">
+        <div className="mb-6 inline-flex w-fit bg-white/5 p-3 text-aqua">
           <Newspaper className="h-6 w-6" />
         </div>
 
         <div className="flex gap-4">
           <Quote className="h-8 w-8 shrink-0 text-cloud-faint" />
           <blockquote className="font-sora text-2xl md:text-3xl leading-snug text-cloud">
-            Breaking Barriers with Empathy: the journey of Sahith Vutukuri and IvishAI.
+            Breaking Barriers with Empathy: the journey of Sahith Vutukuri and
+            IvishAI.
           </blockquote>
         </div>
 
@@ -275,7 +306,11 @@ const Events = () => (
   <Section id="events" className="border-t border-white/10">
     <div className="max-w-2xl">
       <Eyebrow>Events &amp; Summits</Eyebrow>
-      <Reveal as="h2" delay={0.05} className="mt-5 font-sora text-4xl md:text-5xl text-gradient-ember">
+      <Reveal
+        as="h2"
+        delay={0.05}
+        className="mt-5 font-sora text-4xl md:text-5xl text-gradient-ember"
+      >
         Where we&apos;ve shown up.
       </Reveal>
     </div>
@@ -285,7 +320,7 @@ const Events = () => (
         <Reveal key={ev.name} delay={i * 0.1}>
           <Card className="h-full">
             <div className="flex items-center justify-between gap-4">
-              <span className="inline-flex rounded-xl bg-white/5 p-3 text-aqua">
+              <span className="inline-flex bg-white/5 p-3 text-aqua">
                 <Calendar className="h-5 w-5" />
               </span>
               <span className="inline-flex items-center gap-1.5 text-sm text-aqua-soft">
@@ -295,7 +330,9 @@ const Events = () => (
             </div>
             <h3 className="mt-5 font-sora text-xl text-cloud">{ev.name}</h3>
             {ev.note && (
-              <p className="mt-3 text-sm leading-relaxed text-cloud-muted">{ev.note}</p>
+              <p className="mt-3 text-sm leading-relaxed text-cloud-muted">
+                {ev.note}
+              </p>
             )}
           </Card>
         </Reveal>
@@ -314,7 +351,11 @@ const Horizon = () => (
   <Section id="horizon" className="border-t border-white/10">
     <div className="max-w-2xl">
       <Eyebrow>On the Horizon</Eyebrow>
-      <Reveal as="h2" delay={0.05} className="mt-5 font-sora text-4xl md:text-5xl text-gradient-aqua">
+      <Reveal
+        as="h2"
+        delay={0.05}
+        className="mt-5 font-sora text-4xl md:text-5xl text-gradient-aqua"
+      >
         More to come.
       </Reveal>
     </div>
@@ -322,8 +363,8 @@ const Horizon = () => (
     <div className="mt-12 grid gap-5 md:grid-cols-2">
       {HORIZON.map((h, i) => (
         <Reveal key={h.title} delay={i * 0.1}>
-          <div className="flex h-full flex-col rounded-2xl border border-dashed border-white/15 bg-white/[0.02] p-6 md:p-8">
-            <div className="mb-5 inline-flex w-fit rounded-xl bg-white/5 p-3 text-cloud-faint">
+          <div className="flex h-full flex-col border-white/15 bg-white/[0.02] p-6 md:p-8">
+            <div className="mb-5 inline-flex w-fit bg-white/5 p-3 text-cloud-faint">
               <h.icon className="h-6 w-6" />
             </div>
             <h3 className="font-sora text-xl text-cloud">{h.title}</h3>
@@ -343,7 +384,7 @@ const Horizon = () => (
 const Recognition = () => {
   useSEO(
     "Recognition & Media - IvishAI Credibility, Engagements & Press",
-    "Government & industry engagements, startup recognition, innovation milestones, podcast and press features for IvishAI."
+    "Government & industry engagements, startup recognition, innovation milestones, podcast and press features for IvishAI.",
   );
 
   return (

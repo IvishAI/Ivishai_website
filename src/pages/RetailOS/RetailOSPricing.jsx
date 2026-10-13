@@ -116,16 +116,29 @@ const CheckIcon = ({ ok, color }) => (
     className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
     style={{
       background: ok ? `rgba(${color},0.15)` : "rgba(255,255,255,0.04)",
-      border: ok ? `1px solid rgba(${color},0.35)` : "1px solid rgba(255,255,255,0.08)",
+      border: ok
+        ? `1px solid rgba(${color},0.35)`
+        : "1px solid rgba(255,255,255,0.08)",
     }}
   >
     {ok ? (
       <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-        <path d="M1.5 4l2 2L6.5 2" stroke={`rgb(${color})`} strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+        <path
+          d="M1.5 4l2 2L6.5 2"
+          stroke={`rgb(${color})`}
+          strokeWidth="1.3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
     ) : (
       <svg width="6" height="6" viewBox="0 0 6 6" fill="none">
-        <path d="M1 1l4 4M5 1L1 5" stroke="rgba(156,163,175,0.3)" strokeWidth="1" strokeLinecap="round"/>
+        <path
+          d="M1 1l4 4M5 1L1 5"
+          stroke="rgba(156,163,175,0.3)"
+          strokeWidth="1"
+          strokeLinecap="round"
+        />
       </svg>
     )}
   </div>
@@ -135,8 +148,12 @@ const PlanCard = ({ plan, accentColor, accentRgb, index }) => (
   <motion.div
     className="relative flex flex-col"
     style={{
-      border: plan.highlighted ? `1px solid rgba(${accentRgb},0.45)` : "1px solid rgba(255,255,255,0.07)",
-      background: plan.highlighted ? `rgba(${accentRgb},0.06)` : "rgba(255,255,255,0.02)",
+      border: plan.highlighted
+        ? `1px solid rgba(${accentRgb},0.45)`
+        : "1px solid rgba(255,255,255,0.07)",
+      background: plan.highlighted
+        ? `rgba(${accentRgb},0.06)`
+        : "rgba(255,255,255,0.02)",
     }}
     initial={{ opacity: 0, y: 18 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -164,9 +181,13 @@ const PlanCard = ({ plan, accentColor, accentRgb, index }) => (
 
     <div className="p-5 md:p-6 flex-1 flex flex-col">
       <div className="mb-4">
-        <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-gray-500 mb-2">{plan.name}</h3>
+        <h3 className="text-xs font-mono uppercase tracking-[0.15em] text-gray-500 mb-2">
+          {plan.name}
+        </h3>
         <div className="flex items-baseline gap-1 mb-0.5">
-          <span className="font-sora font-bold text-2xl md:text-3xl text-white">{plan.price}</span>
+          <span className="font-sora font-bold text-2xl md:text-3xl text-white">
+            {plan.price}
+          </span>
           <span className="text-gray-500 text-xs">{plan.period}</span>
         </div>
         <p className="text-gray-600 text-[11px]">{plan.annual}</p>
@@ -174,7 +195,10 @@ const PlanCard = ({ plan, accentColor, accentRgb, index }) => (
 
       <div className="space-y-2.5 flex-1 mb-5">
         {plan.features.map((f) => (
-          <div key={f.label} className="flex items-center gap-2.5 text-xs md:text-sm">
+          <div
+            key={f.label}
+            className="flex items-center gap-2.5 text-xs md:text-sm"
+          >
             <CheckIcon ok={f.ok} color={accentRgb} />
             <span className="flex-1 text-gray-400">{f.label}</span>
             <span
@@ -193,7 +217,9 @@ const PlanCard = ({ plan, accentColor, accentRgb, index }) => (
         style={{
           background: plan.highlighted ? accentColor : "transparent",
           color: plan.highlighted ? "#fff" : accentColor,
-          border: plan.highlighted ? "none" : `1px solid rgba(${accentRgb},0.35)`,
+          border: plan.highlighted
+            ? "none"
+            : `1px solid rgba(${accentRgb},0.35)`,
         }}
       >
         {plan.ctaLabel}
@@ -211,7 +237,9 @@ const RetailOSPricing = () => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <p className="text-xs font-mono uppercase tracking-[0.2em] text-gray-600 mb-2">Pricing</p>
+        <p className="text-xs font-mono uppercase tracking-[0.2em] text-gray-600 mb-2">
+          Pricing
+        </p>
         <h1
           className="font-sora font-normal leading-none mb-3"
           style={{
@@ -226,7 +254,8 @@ const RetailOSPricing = () => (
           Plans for Your Shop
         </h1>
         <p className="text-gray-400 text-sm max-w-lg">
-          Works for all shop types -- grocery, pharmacy, salon, food, and more. Annual plans save 2 months.
+          Works for all shop types -- grocery, pharmacy, salon, food, and more.
+          Annual plans save 2 months.
         </p>
       </motion.div>
     </section>
@@ -234,20 +263,33 @@ const RetailOSPricing = () => (
     {/* ── ZONES 1-5 PLANS ── */}
     <section className="px-5 md:px-10 lg:px-14 xl:px-20 pb-12 md:pb-16">
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-xs font-mono text-gray-500 uppercase tracking-wider">Zones 1 -- 5</span>
-        <div className="h-px flex-1 max-w-xs" style={{ background: "rgba(226,100,38,0.2)" }} />
+        <span className="text-xs font-mono text-gray-500 uppercase tracking-wider">
+          Zones 1 -- 5
+        </span>
+        <div
+          className="h-px flex-1 max-w-xs"
+          style={{ background: "rgba(226,100,38,0.2)" }}
+        />
         <span className="text-[11px] text-gray-600">All shop types</span>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 max-w-3xl">
         {standardPlans.map((plan, i) => (
-          <PlanCard key={plan.name} plan={plan} accentColor="#E26426" accentRgb="226,100,38" index={i} />
+          <PlanCard
+            key={plan.name}
+            plan={plan}
+            accentColor="#E26426"
+            accentRgb="226,100,38"
+            index={i}
+          />
         ))}
       </div>
 
       <div className="mt-5 space-y-1">
         <p className="text-gray-600 text-xs">Annual plans = 2 months free</p>
-        <p className="text-gray-600 text-xs">14-day free PRO trial for all new shops</p>
+        <p className="text-gray-600 text-xs">
+          14-day free PRO trial for all new shops
+        </p>
       </div>
     </section>
 
@@ -264,11 +306,16 @@ const RetailOSPricing = () => (
         transition={{ duration: 0.5 }}
       >
         <div className="flex items-center gap-3 mb-5">
-          <span className="text-xs font-mono text-gray-500 uppercase tracking-wider">Zone 6</span>
-          <div className="h-px flex-1 max-w-xs" style={{ background: "rgba(94,53,177,0.3)" }} />
+          <span className="text-xs font-mono text-gray-500 uppercase tracking-wider">
+            Zone 6
+          </span>
+          <div
+            className="h-px flex-1 max-w-xs"
+            style={{ background: "rgba(94,53,177,0.3)" }}
+          />
           <span
             className="text-[11px] px-2 py-0.5 rounded-full"
-            style={{ background: "rgba(94,53,177,0.12)", color: "#9575CD", border: "1px solid rgba(94,53,177,0.3)" }}
+            style={{ background: "rgba(94,53,177,0.12)", color: "#9575CD" }}
           >
             Regulated Restricted
           </span>
@@ -276,17 +323,20 @@ const RetailOSPricing = () => (
 
         <div
           className="p-5 max-w-xl mb-6"
-          style={{ border: "1px solid rgba(94,53,177,0.25)", background: "rgba(94,53,177,0.04)" }}
+          style={{ background: "rgba(94,53,177,0.04)" }}
         >
           <div
             className="h-[2px] mb-4"
-            style={{ background: "linear-gradient(90deg, #9575CD, transparent)" }}
+            style={{
+              background: "linear-gradient(90deg, #9575CD, transparent)",
+            }}
           />
           <h2 className="font-sora font-medium text-white text-base md:text-lg mb-2">
             Zone 6 -- Regulated Restricted
           </h2>
           <p className="text-gray-300 text-xs md:text-sm leading-relaxed mb-2">
-            Liquor shops, tobacco shops, paan shops, and hybrid outlets. Compliance is built in from day one.
+            Liquor shops, tobacco shops, paan shops, and hybrid outlets.
+            Compliance is built in from day one.
           </p>
           <p className="text-xs font-medium" style={{ color: "#9575CD" }}>
             No permanent free tier. A minimum plan is required to operate.
@@ -296,7 +346,13 @@ const RetailOSPricing = () => (
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5 max-w-3xl">
         {zone6Plans.map((plan, i) => (
-          <PlanCard key={plan.name} plan={plan} accentColor="#9575CD" accentRgb="94,53,177" index={i} />
+          <PlanCard
+            key={plan.name}
+            plan={plan}
+            accentColor="#9575CD"
+            accentRgb="94,53,177"
+            index={i}
+          />
         ))}
       </div>
 
@@ -312,7 +368,7 @@ const RetailOSPricing = () => (
     >
       <motion.div
         className="max-w-xl p-6 md:p-8 relative overflow-hidden"
-        style={{ border: "1px solid rgba(255,255,255,0.09)", background: "rgba(255,255,255,0.02)" }}
+        style={{ background: "rgba(255,255,255,0.02)" }}
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -322,12 +378,15 @@ const RetailOSPricing = () => (
           className="absolute top-0 left-0 right-0 h-[2px]"
           style={{ background: "linear-gradient(90deg, #E26426, transparent)" }}
         />
-        <p className="text-xs font-mono uppercase tracking-[0.15em] text-gray-600 mb-3">Enterprise</p>
+        <p className="text-xs font-mono uppercase tracking-[0.15em] text-gray-600 mb-3">
+          Enterprise
+        </p>
         <h3 className="font-sora font-medium text-white text-base md:text-xl mb-3">
           Banking, Government & Enterprise?
         </h3>
         <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-          Custom pricing for government institutions, enterprise deployments, and bulk installations.
+          Custom pricing for government institutions, enterprise deployments,
+          and bulk installations.
         </p>
         <a
           href="mailto:connect@ivishai.com"
@@ -336,7 +395,13 @@ const RetailOSPricing = () => (
         >
           connect@ivishai.com
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+            <path
+              d="M2.5 6h7M6.5 3l3 3-3 3"
+              stroke="currentColor"
+              strokeWidth="1.3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </a>
       </motion.div>

@@ -32,7 +32,7 @@ export const NAV = [
 
 // ---- Contact map (which email goes where) ---------------------------------
 export const EMAILS = {
-  general: "ivishai.supprt@gmail.com", // spelling "supprt" kept exactly as supplied
+  general: "ivishai.supprt@gmail.com", // spelling"supprt" kept exactly as supplied
   support: "ivishai.supprt@gmail.com",
   collaboration: "ivishai.sahith@gmail.com",
   government: "ivishai.sahith@gmail.com",
@@ -51,7 +51,12 @@ export const SOCIALS = {
 
 export const ECOSYSTEM = {
   ivishai: { label: "IvishAI", href: "/", note: "Parent" },
-  verbx: { label: "VerbX", href: "https://verbxeco.com", note: "Communication Infrastructure", external: true },
+  verbx: {
+    label: "VerbX",
+    href: "https://verbxeco.com",
+    note: "Communication Infrastructure",
+    external: true,
+  },
   sera: { label: "Sera", href: "/sera", note: "Retail Infrastructure" },
 };
 
@@ -116,7 +121,7 @@ export const FOUNDERS = [
     personalNote:
       "No single person has all the answers - the strength is in the team you trust and empower. We're young, our product isn't perfect, but we're building the best way we know how - for India, and for the world.",
     about:
-      "Sahith started as an engineer with a simple obsession: how intelligent systems could change the way people communicate and work. That curiosity, sharpened through a B.Tech in Smart Manufacturing at IIITDM Jabalpur, took him through AI, backend engineering, computer vision, and product development - until \"curious\" turned into \"building.\" Today he leads IvishAI's technical and business direction end to end: product architecture, AI strategy, fundraising, partnerships, and the day-to-day of turning two hard engineering problems into VerbX and Sera. He's a Lean Six Sigma Green Belt, mentors students in Python and Math on the side, and still believes the best learning happens right past the edge of your comfort zone.",
+      'Sahith started as an engineer with a simple obsession: how intelligent systems could change the way people communicate and work. That curiosity, sharpened through a B.Tech in Smart Manufacturing at IIITDM Jabalpur, took him through AI, backend engineering, computer vision, and product development - until "curious" turned into "building." Today he leads IvishAI\'s technical and business direction end to end: product architecture, AI strategy, fundraising, partnerships, and the day-to-day of turning two hard engineering problems into VerbX and Sera. He\'s a Lean Six Sigma Green Belt, mentors students in Python and Math on the side, and still believes the best learning happens right past the edge of your comfort zone.',
   },
   {
     slug: "ankith",
@@ -169,7 +174,10 @@ export const TIMELINE = [
   { when: "December 2024", what: "Deep Tech Conclave" },
   { when: "February 2025", what: "Company incorporation • DPIIT • MSME" },
   { when: "April 2025", what: "Startup Mahakumbh" },
-  { when: "August 2025", what: "Startup Semester begins (PDPM IIITDM Jabalpur)" },
+  {
+    when: "August 2025",
+    what: "Startup Semester begins (PDPM IIITDM Jabalpur)",
+  },
   { when: "December 2025", what: "WADLA Hackathon" },
   { when: "February 2026", what: "VerbX Launch" },
   { when: "June 2026", what: "Sera Launch" },
@@ -179,7 +187,10 @@ export const TIMELINE = [
 export const CREDENTIALS = [
   { label: "DPIIT Recognised", logo: "/logos/dpiit.png" },
   { label: "MSME Registered", logo: "/logos/msme.jpg" },
-  { label: "Startup India - SISFS (via NSUT IIF), Runner-Up 2026", logo: "/logos/startup-india.png" },
+  {
+    label: "Startup India - SISFS (via NSUT IIF), Runner-Up 2026",
+    logo: "/logos/startup-india.png",
+  },
   { label: "Private Limited Company", logo: null },
   { label: "Hyderabad HQ", logo: null },
 ];
@@ -202,17 +213,29 @@ export const TECH_PARTNERS = [
 ];
 
 // ---- Government & industry engagements (Recognition & Media) ---------------
-// Wording rule: "Met / Interacted With / Engaged With" ONLY.
+// Wording rule:"Met / Interacted With / Engaged With" ONLY.
 export const ENGAGEMENTS = [
   { who: "Met Ashwini Vaishnaw", ctx: "AI Impact Summit 2026 (April)" },
   { who: "Met Chandrababu Naidu", ctx: "Deep Tech Conclave (Dec 5-6, 2024)" },
   { who: "Met Raj Reddy (Father of AI)", ctx: "AI Impact Summit 2026 (April)" },
   { who: "Met Arun Kumar", ctx: "AI Impact Summit 2026 (April)" },
-  { who: "Attended Google DeepMind CEO seminar", ctx: "AI Impact Summit 2026 (April)" },
-  { who: "Had 1:1 with Infosys Co-Founder", ctx: "AI Impact Summit 2026 (April)" },
-  { who: "Interacted with NVIDIA representatives", ctx: "AI Impact Summit 2026 (April)" },
+  {
+    who: "Attended Google DeepMind CEO seminar",
+    ctx: "AI Impact Summit 2026 (April)",
+  },
+  {
+    who: "Had 1:1 with Infosys Co-Founder",
+    ctx: "AI Impact Summit 2026 (April)",
+  },
+  {
+    who: "Interacted with NVIDIA representatives",
+    ctx: "AI Impact Summit 2026 (April)",
+  },
   { who: "Met Mahavir Pratap Sharma", ctx: "Startup Mahakumbh, April 2025" },
-  { who: "Visited VVDN facility; met VVDN Director", ctx: "Gurgaon, April 2026" },
+  {
+    who: "Visited VVDN facility; met VVDN Director",
+    ctx: "Gurgaon, April 2026",
+  },
 ];
 
 export const EVENTS = [

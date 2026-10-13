@@ -1,147 +1,83 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
+import Reveal from "./site/Reveal";
 
-const WhyIvishSection = () => {
-  const [scrollY, setScrollY] = useState(0);
-  const sectionRef = useRef(null);
-  const [sectionTop, setSectionTop] = useState(0);
-  const [windowHeight, setWindowHeight] = useState(0);
+/* Why IvishAI.
+ *
+ * This section used to be the one place the site stopped looking like itself: a
+ * full-bleed orange video behind white text, in the middle of a page that was
+ * otherwise flat black. On the paper ground it is simply the page, and the four
+ * claims carry themselves.
+ *
+ * It also used to position the cards with scroll maths -
+ * `translateX(max(0, 600 - visibility * 700))` - which is why the right-hand
+ * cards were cut off the edge: until the section was nearly fully in view they
+ * sat up to 600px to the right, inside an `overflow-hidden`. A visitor who
+ * scrolled quickly, or whose viewport was tall enough that the section never
+ * reached full visibility, never saw the fourth card at all.
+ *
+ * Four cards is not a carousel. They are a grid, and they are all there.
+ */
 
-  useEffect(() => {
-    const updatePosition = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        setSectionTop(rect.top + window.scrollY);
-        setWindowHeight(window.innerHeight);
-      }
-    };
+const CARDS = [
+  {
+    title: "Infrastructure, not apps",
+    description:
+      "Operating systems beneath communication and commerce - built to sit underneath industries, not on top of them.",
+  },
+  {
+    title: "Two products live today",
+    description:
+      "VerbX for multilingual communication and Sera for retail - real deployments, not roadmaps.",
+  },
+  {
+    title: "Offline-first architecture",
+    description:
+      "Designed for Indian conditions where connectivity is not a given, and built to scale globally.",
+  },
+  {
+    title: "India to global",
+    description:
+      "Born in India, engineered to run anywhere - infrastructure without borders.",
+  },
+];
 
-    const handleScroll = () => setScrollY(window.scrollY);
-
-    updatePosition();
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", updatePosition);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", updatePosition);
-    };
-  }, []);
-
-  const getSectionVisibility = () => {
-    if (!sectionRef.current) return 0;
-
-    const viewportBottom = scrollY + windowHeight;
-    const sectionBottom = sectionTop + sectionRef.current.offsetHeight;
-
-    if (viewportBottom < sectionTop || scrollY > sectionBottom) return 0;
-
-    const visibleHeight =
-      Math.min(viewportBottom, sectionBottom) - Math.max(scrollY, sectionTop);
-    const sectionHeight = sectionRef.current.offsetHeight;
-    return visibleHeight / sectionHeight;
-  };
-
-  const getTranslateX = () => {
-    if (window.innerWidth < 768) return 0;
-    const visibility = getSectionVisibility();
-    return Math.max(0, 600 - visibility * 700);
-  };
-
-  const cards = [
-    {
-      title: "Infrastructure, not apps",
-      description: "Operating systems beneath communication and commerce - built to sit underneath industries, not on top of them.",
-    },
-    {
-      title: "Two products live today",
-      description: "VerbX for multilingual communication and Sera for retail - real deployments, not roadmaps.",
-    },
-    {
-      title: "Offline-first architecture",
-      description: "Designed for Indian conditions where connectivity is not a given, and built to scale globally.",
-    },
-    {
-      title: "India to global",
-      description: "Born in India, engineered to run anywhere - infrastructure without borders.",
-    },
-  ];
-
-  return (
-    <section
-      ref={sectionRef}
-      className="relative w-full min-h-screen overflow-hidden text-white"
-      style={{ isolation: "isolate" }}
-    >
-      {/* Background Video */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover -z-10"
-        src="/whyivishbg.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source src="/whyivishbg.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-4 lg:px-8 py-12 md:py-24 flex flex-col">
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 md:mb-16">
-          <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-normal leading-tight mb-4 md:mb-0"
-            style={{
-              background: "linear-gradient(90deg, #FFF 0%, #E26426 100%)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              fontFamily: "'Sora', sans-serif",
-              letterSpacing: "-1.52px",
-            }}
-          >
-            Built to run underneath.
-          </h1>
-          <p className="text-base md:text-lg leading-relaxed text-gray-100 md:w-1/2 md:pl-8">
-            IvishAI builds intelligent infrastructure operating systems for communication and commerce.
-          </p>
-        </div>
-
-        {/* Cards Section */}
-        <div className="relative w-full h-auto md:h-[400px]">
-          <div
-            className="flex flex-col md:flex-row gap-4 md:gap-7 transition-transform duration-500 ease-out"
-            style={{ transform: `translateX(${getTranslateX()}px)` }}
-          >
-            {cards.map((card, index) => (
-              <div
-                key={index}
-                className="w-full md:w-[300px] h-auto md:h-[320px] flex-shrink-0 p-6"
-                style={{
-                  border: "1px solid rgba(255, 255, 255, 0.40)",
-                  background: "linear-gradient(146deg, rgba(181, 181, 181, 0.30) 14.84%, rgba(98, 98, 98, 0.30) 89.36%)",
-                  backdropFilter: "blur(50px)",
-                }}
-              >
-                {/* Icon Placeholder */}
-                <div className="mb-4">
-                  <img src="/icon.png" alt="Icon" className="w-10 h-10 md:w-12 md:h-12" />
-                </div>
-
-                {/* Card Content */}
-                <h3 className="text-xl md:text-2xl font-medium text-white mb-2">
-                  {card.title}
-                </h3>
-                <p className="text-sm md:text-base text-gray-200">
-                  {card.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+const WhyIvishSection = () => (
+  <section className="relative w-full bg-paper text-ink py-16 md:py-24 lg:py-28">
+    <div className="container-site">
+      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-10 md:mb-16">
+        <h2 className="font-sora text-4xl md:text-6xl lg:text-7xl font-normal leading-tight tracking-tightest text-ink max-w-[14ch]">
+          Built to run underneath.
+        </h2>
+        <p className="text-base md:text-lg leading-relaxed text-ink-muted md:max-w-md">
+          IvishAI builds intelligent infrastructure operating systems for
+          communication and commerce.
+        </p>
       </div>
-    </section>
-  );
-};
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        {CARDS.map((card, i) => (
+          <Reveal
+            key={card.title}
+            delay={i * 0.06}
+            className="flex flex-col p-6"
+          >
+            <img
+              src="/icon.png"
+              alt=""
+              aria-hidden="true"
+              className="w-10 h-10 md:w-12 md:h-12 mb-4"
+            />
+            <h3 className="text-xl md:text-2xl font-medium text-ink mb-2">
+              {card.title}
+            </h3>
+            <p className="text-sm md:text-base text-ink-muted">
+              {card.description}
+            </p>
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default WhyIvishSection;

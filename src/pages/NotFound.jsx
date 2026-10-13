@@ -9,7 +9,7 @@ const Error404 = () => {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6 relative overflow-hidden">
       {/* Navigation Header */}
-      <nav className="absolute top-0 w-full bg-black/80 backdrop-blur-md border-b border-white/10 py-4 px-6 md:px-28">
+      <nav className="absolute top-0 w-full bg-black/80 border-b border-white/10 py-4 px-6 md:px-28">
         <motion.h1
           className="text-xl font-sora text-ink"
           initial={{ opacity: 0 }}
@@ -25,10 +25,10 @@ const Error404 = () => {
         <motion.h1
           className="text-[128px] md:text-[200px] font-sora font-normal leading-[100%] tracking-[-4px] mb-6"
           style={{
-            background: 'linear-gradient(90deg, #FFF 0%, #E26426 100%)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
+            background: "linear-gradient(90deg, #FFF 0%, #E26426 100%)",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
           }}
           initial={{ scale: 0.7, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -59,13 +59,11 @@ const Error404 = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate(-1)}
-            className="border border-white px-8 py-3 hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+            className="px-8 py-3 hover:bg-white/10 transition-all flex items-center justify-center gap-2"
           >
             <ArrowLeft size={20} />
             Go Back
           </motion.button>
-
-
         </motion.div>
       </div>
 

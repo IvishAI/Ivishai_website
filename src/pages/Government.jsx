@@ -35,18 +35,27 @@ const Hero = () => (
       <motion.h1
         initial="hidden"
         animate="show"
-        variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } } }}
+        variants={{
+          hidden: {},
+          show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+        }}
         className="mt-6 font-sora font-normal tracking-tightest"
       >
         <motion.span
-          variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
+          variants={{
+            hidden: { opacity: 0, y: 24 },
+            show: { opacity: 1, y: 0 },
+          }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="block text-4xl md:text-6xl lg:text-[70px] leading-[1.05] text-cloud"
         >
           Infrastructure governments
         </motion.span>
         <motion.span
-          variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
+          variants={{
+            hidden: { opacity: 0, y: 24 },
+            show: { opacity: 1, y: 0 },
+          }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="mt-2 block text-4xl md:text-6xl lg:text-[70px] leading-[1.05] text-gradient-aqua"
         >
@@ -55,9 +64,9 @@ const Hero = () => (
       </motion.h1>
 
       <Reveal delay={0.45} className="mt-7 max-w-2xl text-lg text-cloud-muted">
-        Multilingual citizen communication (VerbX) and compliance-first retail digitisation for
-        regulated and small retail (Sera) - infrastructure governments can deploy at scale,
-        offline-first.
+        Multilingual citizen communication (VerbX) and compliance-first retail
+        digitisation for regulated and small retail (Sera) - infrastructure
+        governments can deploy at scale, offline-first.
       </Reveal>
 
       <Reveal delay={0.55} className="mt-10 flex flex-wrap gap-3">
@@ -104,12 +113,17 @@ const UseCases = () => (
   <Section id="use-cases" className="border-t border-white/10">
     <div className="max-w-2xl">
       <Eyebrow>Government use cases</Eyebrow>
-      <Reveal as="h2" delay={0.05} className="mt-5 font-sora text-4xl md:text-5xl text-gradient-ember">
+      <Reveal
+        as="h2"
+        delay={0.05}
+        className="mt-5 font-sora text-4xl md:text-5xl text-gradient-ember"
+      >
         Outcomes, not just technology.
       </Reveal>
       <Reveal delay={0.12} className="mt-6 text-lg text-cloud-muted">
-        Two operating systems, mapped to the outcomes public bodies are measured on - citizen
-        services, compliance, data sovereignty, and reach that holds up in the field.
+        Two operating systems, mapped to the outcomes public bodies are measured
+        on - citizen services, compliance, data sovereignty, and reach that
+        holds up in the field.
       </Reveal>
     </div>
 
@@ -117,11 +131,13 @@ const UseCases = () => (
       {USE_CASES.map((u, i) => (
         <Reveal key={u.title} delay={i * 0.1}>
           <Card className="h-full">
-            <div className={`mb-5 inline-flex rounded-xl bg-white/5 p-3 ${u.accent}`}>
+            <div className={`mb-5 inline-flex bg-white/5 p-3 ${u.accent}`}>
               <u.icon className="h-6 w-6" />
             </div>
             <h3 className="font-sora text-xl text-cloud">{u.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-cloud-muted">{u.body}</p>
+            <p className="mt-3 text-sm leading-relaxed text-cloud-muted">
+              {u.body}
+            </p>
           </Card>
         </Reveal>
       ))}
@@ -145,11 +161,16 @@ const Pilots = () => (
     <div className="grid items-start gap-12 lg:grid-cols-2">
       <div>
         <Eyebrow>Pilot opportunities</Eyebrow>
-        <Reveal as="h2" delay={0.05} className="mt-5 font-sora text-4xl md:text-5xl text-gradient-aqua">
+        <Reveal
+          as="h2"
+          delay={0.05}
+          className="mt-5 font-sora text-4xl md:text-5xl text-gradient-aqua"
+        >
           Start with a focused pilot.
         </Reveal>
         <Reveal delay={0.12} className="mt-6 max-w-xl text-lg text-cloud-muted">
-          We run focused pilots with public bodies. Tell us the problem; we scope a pilot.
+          We run focused pilots with public bodies. Tell us the problem; we
+          scope a pilot.
         </Reveal>
 
         <Reveal delay={0.2} className="mt-8">
@@ -162,7 +183,7 @@ const Pilots = () => (
       <div className="space-y-4">
         {PILOT_STEPS.map((s, i) => (
           <Reveal key={s.n} delay={i * 0.1}>
-            <div className="flex items-center gap-5 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4">
+            <div className="flex items-center gap-5 bg-white/[0.03] px-5 py-4">
               <span className="font-sora text-lg text-aqua">{s.n}</span>
               <span className="text-cloud">{s.label}</span>
             </div>
@@ -175,7 +196,9 @@ const Pilots = () => (
               <Target className="h-5 w-5 text-cloud-faint" />
               <h3 className="font-sora text-lg text-cloud">Live pilots</h3>
             </div>
-            <p className="mt-3 text-sm text-cloud-faint">Details coming soon.</p>
+            <p className="mt-3 text-sm text-cloud-faint">
+              Details coming soon.
+            </p>
           </Card>
         </Reveal>
       </div>
@@ -187,16 +210,26 @@ const Pilots = () => (
 const Contact = () => (
   <Section id="contact" className="border-t border-white/10">
     <Card className="text-center" hover={false}>
-      <Reveal as="h2" className="font-sora text-3xl md:text-5xl text-gradient-ember">
+      <Reveal
+        as="h2"
+        className="font-sora text-3xl md:text-5xl text-gradient-ember"
+      >
         Let's scope your pilot.
       </Reveal>
       <Reveal delay={0.1} className="mx-auto mt-4 max-w-xl text-cloud-muted">
-        Bring the problem you need solved. We'll work out whether a pilot fits - and how to run it.
+        Bring the problem you need solved. We'll work out whether a pilot fits -
+        and how to run it.
       </Reveal>
 
-      <Reveal delay={0.16} className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm text-cloud-muted">
+      <Reveal
+        delay={0.16}
+        className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm text-cloud-muted"
+      >
         <Mail className="h-4 w-4 text-aqua" />
-        <a href={`mailto:${EMAILS.government}`} className="text-cloud hover:text-aqua hover:underline">
+        <a
+          href={`mailto:${EMAILS.government}`}
+          className="text-cloud hover:text-aqua hover:underline"
+        >
           {EMAILS.government}
         </a>
       </Reveal>
@@ -228,7 +261,7 @@ const Contact = () => (
 const Government = () => {
   useSEO(
     "Government - IvishAI Infrastructure for Public Services",
-    "Multilingual citizen communication and compliance-first retail digitisation. Government use cases and pilot opportunities with IvishAI."
+    "Multilingual citizen communication and compliance-first retail digitisation. Government use cases and pilot opportunities with IvishAI.",
   );
 
   return (

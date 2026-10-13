@@ -31,7 +31,7 @@ const PrivacyPolicy = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="glass-panel p-6 rounded-xl"
+              className="p-6"
             >
               {/* Section Title */}
               <div className="flex items-start mb-4">
@@ -47,7 +47,10 @@ const PrivacyPolicy = () => {
               {/* Section Content */}
               <div className="ml-8 space-y-6">
                 {section.content.map((item, idx) => (
-                  <div key={idx} className="border-l-2 border-[#64ffda]/30 pl-4">
+                  <div
+                    key={idx}
+                    className="border-l-2 border-[#64ffda]/30 pl-4"
+                  >
                     {item.subtitle && (
                       <h3 className="text-xl text-[#64ffda] mb-2">
                         {item.subtitle}
@@ -76,7 +79,7 @@ const PrivacyPolicy = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="mt-16 p-6 border-2 border-[#64ffda]/30 rounded-xl text-center"
+          className="mt-16 p-6 text-center"
         >
           <h3 className="text-2xl text-[#64ffda] mb-4">Contact Information</h3>
 
@@ -103,15 +106,14 @@ const PrivacyPolicy = () => {
 
 /* ------------------ UPDATED SECTIONS ------------------ */
 
-
 const sections = [
   {
     title: "Introduction",
     content: [
       {
-        text: `IvishAI Quantum Pvt. Ltd. ("IvishAI", "we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal and biometric data when you use our website, mobile apps, devices (NeuraVision), APIs, and services (VerbX AI).`
-      }
-    ]
+        text: `IvishAI Quantum Pvt. Ltd. ("IvishAI","we","us", or"our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal and biometric data when you use our website, mobile apps, devices (NeuraVision), APIs, and services (VerbX AI).`,
+      },
+    ],
   },
   {
     title: "Data We Collect",
@@ -122,8 +124,8 @@ const sections = [
           "Name, email, phone number",
           "Location (optional)",
           "Account preferences",
-          "Payment information (if applicable)"
-        ]
+          "Payment information (if applicable)",
+        ],
       },
       {
         subtitle: "b. Biometric & Sensor Data",
@@ -132,23 +134,23 @@ const sections = [
           "Gesture patterns",
           "Voice, speech, or sign language input",
           "Emotion or context-based data",
-          "This data is securely encrypted and processed only for functionality, personalization, or accessibility purposes."
-        ]
+          "This data is securely encrypted and processed only for functionality, personalization, or accessibility purposes.",
+        ],
       },
       {
         subtitle: "c. Usage Data",
         text: [
           "Device type, IP address, browser, time zone",
-          "Pages visited, interactions, features used"
-        ]
+          "Pages visited, interactions, features used",
+        ],
       },
       {
         subtitle: "d. Cookies & Tracking",
         text: [
-          "We use cookies for analytics, performance, and personalization. You can control this via browser settings."
-        ]
-      }
-    ]
+          "We use cookies for analytics, performance, and personalization. You can control this via browser settings.",
+        ],
+      },
+    ],
   },
   {
     title: "How We Use Your Data",
@@ -160,10 +162,10 @@ const sections = [
           "Deliver real-time translation and accessibility features",
           "Communicate with you",
           "Fulfill legal obligations",
-          "Enhance safety and security"
-        ]
-      }
-    ]
+          "Enhance safety and security",
+        ],
+      },
+    ],
   },
   {
     title: "Data Sharing & Disclosure",
@@ -174,10 +176,10 @@ const sections = [
           "Cloud providers (e.g., AWS India)",
           "Authorized third-party vendors (API partners, analytics tools)",
           "Government authorities, when legally required",
-          "We do not sell your personal data for advertising without your explicit consent."
-        ]
-      }
-    ]
+          "We do not sell your personal data for advertising without your explicit consent.",
+        ],
+      },
+    ],
   },
   {
     title: "International Data Transfers",
@@ -185,18 +187,18 @@ const sections = [
       {
         text: [
           "For users in the EU/EEA, UK, and USA, data may be processed in India and stored on AWS infrastructure.",
-          "We follow GDPR, DPDP (India), and CCPA compliance standards, including: Data minimization, User consent, Right to access, delete, or correct data."
-        ]
-      }
-    ]
+          "We follow GDPR, DPDP (India), and CCPA compliance standards, including: Data minimization, User consent, Right to access, delete, or correct data.",
+        ],
+      },
+    ],
   },
   {
     title: "Children's Privacy (Users under 18)",
     content: [
       {
-        text: `If you are under 18, you must have parental or guardian consent to use our services. We do not knowingly collect data from minors without such consent.`
-      }
-    ]
+        text: `If you are under 18, you must have parental or guardian consent to use our services. We do not knowingly collect data from minors without such consent.`,
+      },
+    ],
   },
   {
     title: "Your Rights",
@@ -208,10 +210,10 @@ const sections = [
           "Delete your account/data",
           "Withdraw consent at any time",
           "Lodge a complaint with a data protection authority",
-          "To exercise these rights, email: ivishai.supprt@gmail.com"
-        ]
-      }
-    ]
+          "To exercise these rights, email: ivishai.supprt@gmail.com",
+        ],
+      },
+    ],
   },
   {
     title: "Data Security",
@@ -221,27 +223,27 @@ const sections = [
           "AES-256 encryption",
           "SSL/TLS for data in transit",
           "Secure access controls",
-          "Regular audits & penetration testing"
-        ]
-      }
-    ]
+          "Regular audits & penetration testing",
+        ],
+      },
+    ],
   },
   {
     title: "Data Retention",
     content: [
       {
-        text: `We retain personal and biometric data only as long as required for service provision, legal, or regulatory purposes.`
-      }
-    ]
+        text: `We retain personal and biometric data only as long as required for service provision, legal, or regulatory purposes.`,
+      },
+    ],
   },
   {
     title: "Contact Us",
     content: [
       {
-        text: `For any privacy concerns or requests, reach us at: ivishai.supprt@gmail.com`
-      }
-    ]
-  }
+        text: `For any privacy concerns or requests, reach us at: ivishai.supprt@gmail.com`,
+      },
+    ],
+  },
 ];
 
 export default PrivacyPolicy;

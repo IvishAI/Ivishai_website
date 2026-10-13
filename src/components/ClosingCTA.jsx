@@ -12,7 +12,7 @@ const ROUTES = [
 
 const ClosingCTA = () => {
   return (
-    <section className="bg-black text-white px-5 md:px-16 lg:px-40 py-16 md:py-24 border-t border-white/10">
+    <section className="bg-paper text-ink px-5 md:px-16 lg:px-40 py-16 md:py-24 border-t">
       <motion.div
         className="text-center mb-12"
         initial={{ opacity: 0, y: 30 }}
@@ -23,7 +23,7 @@ const ClosingCTA = () => {
         <h2 className="font-sora text-4xl md:text-[56px] font-normal leading-[1.1] tracking-tight md:tracking-[-1.52px] text-ink">
           Pick your path.
         </h2>
-        <p className="text-gray-300 text-base md:text-lg mt-6 max-w-xl mx-auto">
+        <p className="text-ink-muted text-base md:text-lg mt-6 max-w-xl mx-auto">
           Explore the products or route straight to the team that fits.
         </p>
       </motion.div>
@@ -41,7 +41,7 @@ const ClosingCTA = () => {
               key={r.label}
               href={r.href}
               className="inline-flex items-center justify-center gap-1 py-4 px-7 w-full md:w-auto hover:opacity-90 transition-opacity duration-200"
-              style={{ background: '#FFF', color: '#000' }}
+              style={{ background: "#121214", color: "#FFFFFF" }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -51,13 +51,13 @@ const ClosingCTA = () => {
             <motion.a
               key={r.label}
               href={r.href}
-              className="inline-flex items-center justify-center gap-1 border border-white py-4 px-7 w-full md:w-auto hover:bg-white/10 transition-colors duration-200"
+              className="inline-flex items-center justify-center gap-1 border border-ink py-4 px-7 w-full md:w-auto transition-colors duration-200"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               {r.label}
             </motion.a>
-          )
+          ),
         )}
       </motion.div>
     </section>
