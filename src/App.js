@@ -47,9 +47,6 @@ const RetailOSPricing = lazy(() => import("./pages/RetailOS/RetailOSPricing"));
 const SeraPrivacyPolicy = lazy(
   () => import("./pages/RetailOS/SeraPrivacyPolicy"),
 );
-// LOCAL ONLY - the element sheet is gitignored; never commit this line.
-const Elements = lazy(() => import("./pages/Elements"));
-
 //"More" menu pages
 const Collaboration = lazy(() => import("./pages/Collaboration"));
 const Recognition = lazy(() => import("./pages/Recognition"));
@@ -128,8 +125,6 @@ function App() {
           />
           <Route path="/retail-os/pricing" element={<RetailOSPricing />} />
           <Route path="/sera/privacypolicy" element={<SeraPrivacyPolicy />} />
-          <Route path="/elements" element={<Elements />} />
-
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
