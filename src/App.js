@@ -18,10 +18,6 @@ import Security from "./pages/Footer/Security";
 import Compliance from "./pages/Footer/Compliance";
 import CookiesPreference from "./pages/Footer/cookie-preferences";
 import PrivacyChoices from "./pages/Footer/PrivacyChoices";
-import Card from "./components/ui/card";
-import Button from "./components/ui/button";
-import Input from "./components/ui/input";
-import Badge from "./components/ui/badge";
 import DeveloperPage from "./pages/Developerpage";
 import ProductsComingSoon from "./components/ComingUp";
 import WhyIvish from "./components/WhyIvish";
@@ -118,10 +114,6 @@ function App() {
           <Route path="/compliance" element={<Compliance />} />
           <Route path="/cookie-preferences" element={<CookiesPreference />} />
           <Route path="/privacychoices" element={<PrivacyChoices />} />
-          <Route path="/card" element={<Card />} />
-          <Route path="/button" element={<Button />} />
-          <Route path="/input" element={<Input />} />
-          <Route path="/badge" element={<Badge />} />
           <Route path="/developerpage" element={<DeveloperPage />} />
           <Route path="/coming-soon" element={<ProductsComingSoon />} />
           <Route path="/whyivish" element={<WhyIvish />} />
