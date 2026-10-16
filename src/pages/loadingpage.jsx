@@ -5,37 +5,13 @@ import { motion } from "framer-motion";
 import { Code, Cpu, Database, Globe, Layers, Server, Wifi } from "lucide-react";
 
 export default function LoadingPage() {
-  const [progress, setProgress] = useState(0);
-  const [loadingText, setLoadingText] = useState("Initializing");
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     setPrefersReducedMotion(mediaQuery.matches);
 
-    const interval = setInterval(() => {
-      setProgress((prev) => (prev >= 100 ? 100 : prev + 1));
-    }, 50);
-
-    const textInterval = setInterval(() => {
-      setLoadingText((prev) => {
-        switch (prev) {
-          case "Initializing":
-            return "Connecting to servers";
-          case "Connecting to servers":
-            return "Loading data";
-          case "Loading data":
-            return "Preparing interface";
-          default:
-            return "Almost there";
-        }
-      });
-    }, 2000);
-
-    return () => {
-      clearInterval(interval);
-      clearInterval(textInterval);
-    };
+    return undefined;
   }, []);
 
   const techIcons = [Code, Cpu, Database, Globe, Layers, Server, Wifi];
@@ -68,26 +44,20 @@ export default function LoadingPage() {
             </motion.span>
           </motion.h1>
 
-          {/* Progress Bar */}
-          <div className="h-2 bg-white/10 rounded-full mb-4 overflow-hidden">
+          {/* An honest loading bar: it moves while the page loads and claims no percentage
+              (it used to count 1% every 50 ms, measuring nothing). */}
+          <div className="h-2 bg-white/10 rounded-full mb-4 overflow-hidden" role="progressbar" aria-label="Loading">
             <motion.div
-              className="h-full bg-gradient-to-r from-cyan-400 to-[#E26426]"
-              initial={{ width: 0 }}
-              animate={{ width: `${progress}%` }}
-              transition={{ ease: "easeInOut" }}
+              className="h-full w-1/3 bg-gradient-to-r from-cyan-400 to-[#E26426] rounded-full"
+              animate={prefersReducedMotion ? { x: "100%" } : { x: ["-100%", "300%"] }}
+              transition={prefersReducedMotion ? { duration: 0 } : { duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
 
           {/* Status Text */}
-          <motion.div
-            key={loadingText}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center space-y-2"
-          >
-            <p className="text-gray-300 font-sora">{loadingText}</p>
-            <p className="text-sm text-cyan-400">{progress}%</p>
-          </motion.div>
+          <div className="text-center space-y-2">
+            <p className="text-gray-300 font-sora">Loading</p>
+          </div>
         </div>
       </motion.div>
 
